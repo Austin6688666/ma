@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 8. Elegant Success Modal Overlay (Optimized for WeChat)
-    function showContactSuccessModal(formattedText, wechatId = 'Austin-love-ma') {
+    function showContactSuccessModal(formattedText, wechatId = 'Austin-love-m') {
         // Create overlay and modal
         const overlay = document.createElement('div');
         overlay.className = 'contact-modal-overlay';
@@ -433,7 +433,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formStatus.textContent = '已复制留言，正在打开联络向导...';
 
             setTimeout(() => {
-                showContactSuccessModal(formattedText, 'Austin-love-ma');
+                showContactSuccessModal(formattedText, 'Austin-love-m');
                 contactForm.reset();
                 submitBtn.disabled = false;
                 btnText.textContent = originalText;
@@ -481,7 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
             bookingStatus.textContent = '已复制预约信息，正在打开向导...';
 
             setTimeout(() => {
-                showContactSuccessModal(formattedText, 'Austin-love-ma');
+                showContactSuccessModal(formattedText, 'Austin-love-m');
                 bookingForm.reset();
                 bookingSubmitBtn.disabled = false;
                 btnText.textContent = originalText;
