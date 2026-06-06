@@ -37,16 +37,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 3. Header Scroll Effect & Scroll Progress Bar
+    const isMeetPage = document.body.classList.contains('meet-page-body');
     window.addEventListener('scroll', () => {
         // Header padding / shadow transition
         if (window.scrollY > 50) {
             header.style.padding = '10px 0';
-            header.style.backgroundColor = 'rgba(250, 249, 246, 0.95)';
-            header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.03)';
+            if (isMeetPage) {
+                header.style.backgroundColor = 'rgba(9, 8, 16, 0.9)';
+                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)';
+            } else {
+                header.style.backgroundColor = 'rgba(250, 249, 246, 0.95)';
+                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.03)';
+            }
         } else {
             header.style.padding = '0';
-            header.style.backgroundColor = 'rgba(250, 249, 246, 0.85)';
-            header.style.boxShadow = 'none';
+            if (isMeetPage) {
+                header.style.backgroundColor = 'rgba(9, 8, 16, 0.6)';
+                header.style.boxShadow = 'none';
+            } else {
+                header.style.backgroundColor = 'rgba(250, 249, 246, 0.85)';
+                header.style.boxShadow = 'none';
+            }
         }
 
         // Scroll progress indicator width calculation

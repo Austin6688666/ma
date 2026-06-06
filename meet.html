@@ -3,104 +3,609 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>预约会面与约会 | Austin Paris</title>
+    <title>Austin's Chill Lounge | 约会与闲磨预约</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="与 Austin Paris (马骁煜) 预约线下会面。提供学习交流、用友 U8 业务探讨、茶叙闲聊及项目合作面谈预约。">
-    <meta name="keywords" content="Austin Paris, 马骁煜, 南宁理工大学, 约会预约, 学习交流, 会面预约">
-    <!-- WeChat / Open Graph Meta Tags -->
-    <meta property="og:title" content="与 Austin Paris 预约会面与约会 | 南宁理工学子">
-    <meta property="og:description" content="无论是关于财务学业的探讨、用友 U8 业务的诊断，还是轻松的茶叙闲聊，都欢迎在此提交您的预约。">
-    <meta property="og:type" content="website">
+    <meta name="description" content="Austin Paris (马骁煜) 的私人约会与闲磨时间预定页。散步、美食、游戏、开黑、深夜畅谈。">
+    <meta name="keywords" content="Austin Paris, 约会, 闲聊, 散步, 约饭, 游戏开黑">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=1.6">
+    <!-- We still load style.css to inherit base reset and global tokens, but we override everything below -->
+    <link rel="stylesheet" href="style.css?v=1.7">
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* Override Global Variables and Theme for Meet Page */
+        :root {
+            --meet-bg: #090810;
+            --meet-card-bg: rgba(255, 255, 255, 0.02);
+            --meet-border: rgba(255, 255, 255, 0.08);
+            --meet-text-primary: #ffffff;
+            --meet-text-secondary: #a1a1aa;
+            --meet-accent: #ec4899; /* Cyber pink */
+            --meet-accent-glow: rgba(236, 72, 153, 0.3);
+            --meet-accent-2: #8b5cf6; /* Indigo violet */
+            --meet-accent-2-glow: rgba(139, 92, 246, 0.3);
+            --font-sans: 'Outfit', -apple-system, sans-serif;
+        }
+
+        body.meet-page-body {
+            background-color: var(--meet-bg) !important;
+            color: var(--meet-text-primary) !important;
+            font-family: var(--font-sans) !important;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Abstract glowing background blobs */
+        body.meet-page-body::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--meet-accent-glow) 0%, transparent 70%);
+            top: 10%;
+            left: -100px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        body.meet-page-body::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--meet-accent-2-glow) 0%, transparent 70%);
+            bottom: 20%;
+            right: -150px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Dark Glassmorphic Header Navigation */
+        .meet-page-body .site-header {
+            background-color: rgba(9, 8, 16, 0.6) !important;
+            border-bottom: 1px solid var(--meet-border) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+        }
+
+        .meet-page-body .logo {
+            color: var(--meet-text-primary) !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.18em !important;
+        }
+
+        .meet-page-body .logo span {
+            color: var(--meet-accent) !important;
+        }
+
+        .meet-page-body .nav-link {
+            color: var(--meet-text-secondary) !important;
+        }
+
+        .meet-page-body .nav-link:hover {
+            color: var(--meet-text-primary) !important;
+        }
+
+        .meet-page-body .nav-link::after {
+            background-color: var(--meet-accent) !important;
+        }
+
+        .meet-page-body .contact-btn {
+            border-color: var(--meet-accent) !important;
+            color: var(--meet-accent) !important;
+        }
+
+        .meet-page-body .contact-btn:hover {
+            background-color: var(--meet-accent) !important;
+            color: var(--meet-bg) !important;
+        }
+
+        /* Custom Dark Subpage Section style */
+        .meet-section {
+            border-bottom: 1px solid var(--meet-border) !important;
+            padding: 120px 0;
+        }
+
+        @media (max-width: 768px) {
+            .meet-section {
+                padding: 80px 0;
+            }
+        }
+
+        .meet-page-body .section-title {
+            color: var(--meet-text-primary) !important;
+        }
+
+        .meet-page-body .section-num {
+            color: var(--meet-accent) !important;
+        }
+
+        /* Hero styling overrides */
+        .meet-hero-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 0 100px 0;
+            position: relative;
+        }
+
+        .meet-hero-title {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 4.2rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--meet-text-primary);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .meet-hero-title span.accent-gradient {
+            background: linear-gradient(135deg, var(--meet-accent) 0%, var(--meet-accent-2) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .meet-hero-description {
+            max-width: 700px;
+            font-size: 1.15rem;
+            color: var(--meet-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 45px;
+        }
+
+        .meet-page-body .btn-primary {
+            background-color: var(--meet-text-primary) !important;
+            color: var(--meet-bg) !important;
+            border-color: var(--meet-text-primary) !important;
+        }
+
+        .meet-page-body .btn-primary:hover {
+            background-color: transparent !important;
+            color: var(--meet-text-primary) !important;
+        }
+
+        .meet-page-body .btn-secondary {
+            border-color: var(--meet-border) !important;
+            color: var(--meet-text-primary) !important;
+        }
+
+        .meet-page-body .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+        }
+
+        /* Glassmorphic cards for life items */
+        .meet-card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .meet-card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .meet-life-card {
+            background-color: var(--meet-card-bg);
+            border: 1px solid var(--meet-border);
+            padding: 40px;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .meet-life-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--meet-accent), var(--meet-accent-2));
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .meet-life-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .meet-life-card:hover::before {
+            opacity: 1;
+        }
+
+        .meet-card-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--meet-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--meet-accent);
+            font-size: 1.2rem;
+            transition: var(--transition-smooth);
+        }
+
+        .meet-life-card:hover .meet-card-icon {
+            background-color: var(--meet-accent);
+            color: var(--meet-text-primary);
+            box-shadow: 0 0 15px var(--meet-accent-glow);
+        }
+
+        /* Specific glow for the featured card */
+        .meet-life-card.featured-card {
+            border-color: rgba(139, 92, 246, 0.4);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.01) 0%, rgba(139, 92, 246, 0.02) 100%);
+        }
+
+        .meet-life-card.featured-card:hover .meet-card-icon {
+            background-color: var(--meet-accent-2);
+            color: var(--meet-text-primary);
+            box-shadow: 0 0 15px var(--meet-accent-2-glow);
+        }
+
+        .meet-card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--meet-text-primary);
+        }
+
+        .meet-card-desc {
+            font-size: 0.95rem;
+            color: var(--meet-text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Locations and List overrides */
+        .meet-lead-text {
+            font-size: 1.6rem;
+            line-height: 1.5;
+            color: var(--meet-text-primary);
+            margin-bottom: 35px;
+            font-style: italic;
+            border-left: 2px solid var(--meet-accent);
+            padding-left: 25px;
+        }
+
+        .meet-list-item {
+            border-bottom: 1px solid var(--meet-border) !important;
+            padding-bottom: 25px;
+            margin-bottom: 25px;
+        }
+
+        .meet-list-item.no-border {
+            border-bottom: none !important;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .meet-item-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--meet-text-primary);
+        }
+
+        .meet-item-desc {
+            color: var(--meet-text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        /* Booking Container and Form for Meet Page */
+        .meet-booking-container {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--meet-border);
+            padding: 60px 50px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .meet-booking-container {
+                padding: 40px 24px;
+            }
+        }
+
+        /* Glow border on form container */
+        .meet-booking-container::after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            border-radius: 0;
+            background: linear-gradient(135deg, var(--meet-accent), var(--meet-accent-2));
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.15;
+            transition: var(--transition-smooth);
+        }
+
+        .meet-booking-container:hover::after {
+            opacity: 0.3;
+        }
+
+        .meet-booking-title {
+            font-weight: 700;
+            font-size: 2.6rem;
+            line-height: 1.3;
+            color: var(--meet-text-primary);
+            text-transform: uppercase;
+        }
+
+        .meet-booking-title span.accent-gradient {
+            background: linear-gradient(135deg, var(--meet-accent) 0%, var(--meet-accent-2) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Form Inputs override */
+        .meet-page-body .form-group label {
+            color: var(--meet-text-secondary) !important;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        .meet-page-body .form-group input,
+        .meet-page-body .form-group select,
+        .meet-page-body .form-group textarea {
+            border-bottom: 1px solid var(--meet-border) !important;
+            color: var(--meet-text-primary) !important;
+            background-color: transparent !important;
+            font-family: var(--font-sans) !important;
+            padding: 14px 0 !important;
+        }
+
+        .meet-page-body .form-group input:focus,
+        .meet-page-body .form-group select:focus,
+        .meet-page-body .form-group textarea:focus {
+            border-bottom-color: var(--meet-accent) !important;
+        }
+
+        /* Select styling option tags background */
+        .meet-page-body .form-group select option {
+            background-color: var(--meet-bg) !important;
+            color: var(--meet-text-primary) !important;
+        }
+
+        .meet-page-body .form-group select {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23a1a1aa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+        }
+
+        .meet-page-body .form-group select:focus {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ec4899' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+        }
+
+        .meet-page-body .btn-submit {
+            background-color: var(--meet-accent) !important;
+            color: var(--meet-text-primary) !important;
+            border-color: var(--meet-accent) !important;
+            font-weight: 600;
+            padding: 16px 45px;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.15);
+        }
+
+        .meet-page-body .btn-submit:hover {
+            background-color: transparent !important;
+            color: var(--meet-text-primary) !important;
+            box-shadow: 0 4px 25px rgba(236, 72, 153, 0.3);
+        }
+
+        .meet-page-body .wechat-highlight {
+            color: var(--meet-text-primary) !important;
+            border-bottom-color: var(--meet-accent) !important;
+        }
+
+        /* Footer styling overrides */
+        .meet-page-body .site-footer {
+            border-top: 1px solid var(--meet-border) !important;
+            background-color: var(--meet-bg) !important;
+        }
+
+        .meet-page-body .copyright,
+        .meet-page-body .footer-links a {
+            color: var(--meet-text-secondary) !important;
+        }
+
+        .meet-page-body .footer-links a:hover {
+            color: var(--meet-text-primary) !important;
+        }
+
+        /* Dark success modal styling namespace overrides */
+        .meet-page-body .contact-modal-overlay {
+            background-color: rgba(9, 8, 16, 0.7) !important;
+        }
+
+        .meet-page-body .contact-modal {
+            background-color: var(--meet-bg) !important;
+            border: 1px solid var(--meet-border) !important;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        .meet-page-body .contact-modal-icon-wrap {
+            border-color: var(--meet-accent) !important;
+            color: var(--meet-accent) !important;
+            background-color: var(--meet-bg) !important;
+        }
+
+        .meet-page-body .contact-modal-title {
+            color: var(--meet-text-primary) !important;
+        }
+
+        .meet-page-body .contact-modal-desc {
+            color: var(--meet-text-secondary) !important;
+        }
+
+        .meet-page-body .contact-modal-wechat-card {
+            background-color: rgba(255, 255, 255, 0.01) !important;
+            border-color: var(--meet-accent) !important;
+        }
+
+        .meet-page-body .contact-modal-wechat-label {
+            color: var(--meet-accent) !important;
+        }
+
+        .meet-page-body .contact-modal-wechat-id {
+            color: var(--meet-text-primary) !important;
+        }
+
+        .meet-page-body .contact-modal-steps {
+            background-color: rgba(255, 255, 255, 0.005) !important;
+            border-color: var(--meet-border) !important;
+        }
+
+        .meet-page-body .contact-modal-step-num {
+            background-color: var(--meet-accent) !important;
+            color: var(--meet-text-primary) !important;
+        }
+
+        .meet-page-body .contact-modal-btn-primary {
+            background-color: var(--meet-accent) !important;
+            color: var(--meet-text-primary) !important;
+            border-color: var(--meet-accent) !important;
+        }
+
+        .meet-page-body .contact-modal-btn-primary:hover {
+            background-color: transparent !important;
+            color: var(--meet-accent) !important;
+        }
+
+        .meet-page-body .contact-modal-btn-secondary {
+            border-color: var(--meet-border) !important;
+            color: var(--meet-text-primary) !important;
+        }
+
+        .meet-page-body .contact-modal-btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+        }
+
+        .meet-page-body #modalCopyDataBtn {
+            background-color: var(--meet-accent-2) !important;
+            color: var(--meet-text-primary) !important;
+            border-color: var(--meet-accent-2) !important;
+        }
+
+        .meet-page-body #modalCopyDataBtn:hover {
+            background-color: transparent !important;
+            color: var(--meet-accent-2) !important;
+        }
+
+        @media (max-width: 768px) {
+            .meet-page-body .nav-menu {
+                background-color: var(--meet-bg) !important;
+                border-top: 1px solid var(--meet-border) !important;
+            }
+            .meet-page-body .menu-toggle {
+                color: var(--meet-text-primary) !important;
+            }
+        }
+    </style>
 </head>
-<body class="subpage-body">
+<body class="subpage-body meet-page-body">
 
     <!-- Header Navigation -->
     <header class="site-header">
         <div class="scroll-progress-container"><div class="scroll-progress" id="scrollProgress"></div></div>
         <div class="nav-container">
             <a href="index.html" class="logo">AUSTIN<span>.</span></a>
-            <nav class="nav-menu">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </button>
+            <nav class="nav-menu" id="navMenu">
                 <a href="index.html" class="nav-link"><i data-lucide="arrow-left" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 4px;"></i> 返回首页</a>
-                <a href="u8-service.html" class="nav-link">U8专属服务</a>
+                <a href="#themes" class="nav-link">会面主题</a>
                 <a href="index.html#contact" class="nav-link contact-btn">与我联络</a>
             </nav>
         </div>
     </header>
 
-    <main style="padding-top: var(--header-height);">
+    <main>
         <!-- Meet Hero Section -->
-        <section class="service-hero-section">
+        <section class="meet-hero-section">
             <div class="container">
-                <div class="service-hero-content">
-                    <span class="hero-tag">Let's Meet and Chat · Austin Paris</span>
-                    <h1 class="service-hero-title">
-                        与我预约会面<br>
-                        交流、探讨与<span class="italic-serif">约会</span>
+                <div class="hero-content" style="max-width: 900px;">
+                    <span class="hero-tag" style="color: var(--meet-accent); letter-spacing: 0.25em;">Private Meeting Lounge</span>
+                    <h1 class="meet-hero-title">
+                        AUSTIN 的私人<br>
+                        <span class="accent-gradient">约会与闲磨预约</span>
                     </h1>
-                    <p class="service-hero-description">
-                        无论是关于财务会计学业的探讨、高级 Excel/Python 建模的交流，还是关于用友 U8 数据诊断的合作，亦或只是课后轻松的茶叙闲聊。欢迎在下方提交您的会面预约，本校学生，期待与您的每一次碰头。
+                    <p class="meet-hero-description">
+                        这里没有任何会计、U8 账套或学业的影子——纯属我个人的生活空间。无论是约个下午茶散散步、打卡美食、深夜开黑打游戏，还是操场天台的清谈，欢迎在此预定我的私人时间。
                     </p>
                     <div class="hero-actions">
-                        <a href="#meetFormSection" class="btn btn-primary">立即在线预约会面 <i data-lucide="arrow-down" class="btn-icon"></i></a>
-                        <a href="#themes" class="btn btn-secondary">了解会面主题</a>
+                        <a href="#meetFormSection" class="btn btn-primary">即刻预约生活 <i data-lucide="arrow-down" class="btn-icon"></i></a>
+                        <a href="#themes" class="btn btn-secondary">会面主题</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Meeting Themes Section -->
-        <section class="service-details-section" id="themes" style="background-color: #fcfbfa;">
+        <section class="meet-section" id="themes" style="background-color: rgba(255, 255, 255, 0.005);">
             <div class="container">
                 <div class="section-grid">
                     <div class="section-header">
                         <span class="section-num">01 /</span>
-                        <h2 class="section-title">四大核心主题</h2>
-                        <p class="section-subtitle">MEETING THEMES</p>
+                        <h2 class="section-title">会面玩法主题</h2>
+                        <p class="section-subtitle" style="color: var(--meet-accent);">LIFE THEMES</p>
                     </div>
                     <div class="service-details-content">
-                        <div class="skills-cards" style="margin-top: 0;">
+                        <div class="meet-card-grid">
                             <!-- Theme 1 -->
-                            <div class="skill-card">
-                                <div class="skill-icon-wrap">
-                                    <i data-lucide="graduation-cap"></i>
+                            <div class="meet-life-card">
+                                <div class="meet-card-icon">
+                                    <i data-lucide="coffee"></i>
                                 </div>
-                                <h3 class="skill-card-title">学习交流与学术研讨</h3>
-                                <p class="skill-card-desc" style="font-size: 0.92rem;">一起探讨财会专业的核心课程内容、分享复习资料与备考经验。也可以进行 Excel 高级函数建模、财务数据 analysis 或 Python 数据清洗的技巧探讨。</p>
+                                <h3 class="meet-card-title">☕ 下午茶 & 散散步</h3>
+                                <p class="meet-card-desc">找个慵懒的午后，一起喝杯咖啡/奶茶。在校园或附近的长椅坐坐，散散步，聊聊八卦、理想与那些无意义却很有趣的小事。</p>
                             </div>
 
                             <!-- Theme 2 -->
-                            <div class="skill-card">
-                                <div class="skill-icon-wrap">
-                                    <i data-lucide="database"></i>
+                            <div class="meet-life-card">
+                                <div class="meet-card-icon">
+                                    <i data-lucide="utensils"></i>
                                 </div>
-                                <h3 class="skill-card-title">用友 U8 业务诊断</h3>
-                                <p class="skill-card-desc" style="font-size: 0.92rem;">针对用友 U8 实操中遇到的数据库连接故障、账套异常备份、期末平衡校验或上机实验日志修改要求，面对面现场分析对齐最佳解决方案。</p>
+                                <h3 class="meet-card-title">🍽 约顿好吃的 (约饭)</h3>
+                                <p class="meet-card-desc">火锅、烤肉、地方特色还是街头小吃？一起发掘校内外好评店，干饭第一名。唯有美食与轻松的聊天最能治愈一天的疲惫。</p>
                             </div>
 
                             <!-- Theme 3 -->
-                            <div class="skill-card featured-skill-card">
-                                <div class="skill-icon-wrap">
-                                    <i data-lucide="coffee"></i>
+                            <div class="meet-life-card featured-card">
+                                <div class="meet-card-icon" style="color: var(--meet-accent-2);">
+                                    <i data-lucide="gamepad-2"></i>
                                 </div>
-                                <h3 class="skill-card-title">课后茶叙与交友闲聊</h3>
-                                <p class="skill-card-desc" style="font-size: 0.92rem;">随心所欲的交友时间。我们可以聊聊大学规划、探讨前沿商业/财经动态，或者分享彼此的生活趣事与感悟，结交志同道合的校友。</p>
+                                <h3 class="meet-card-title">🎮 游戏开黑 & 玩乐</h3>
+                                <p class="meet-card-desc">组队开黑（王者、金铲铲、网游连麦等），或者线下相约桌游、剧本杀、密室逃脱、看场爆米花电影。拒绝无聊，开心至上！</p>
                             </div>
 
                             <!-- Theme 4 -->
-                            <div class="skill-card">
-                                <div class="skill-icon-wrap">
-                                    <i data-lucide="lightbulb"></i>
+                            <div class="meet-life-card">
+                                <div class="meet-card-icon">
+                                    <i data-lucide="moon"></i>
                                 </div>
-                                <h3 class="skill-card-title">项目合作与脑暴策划</h3>
-                                <p class="skill-card-desc" style="font-size: 0.92rem;">不论是校园商业竞赛组队、财务案例分析大赛的思路打磨，还是关于创新创业项目想法的碰撞，欢迎在这里预约时间，共同头脑风暴。</p>
+                                <h3 class="meet-card-title">🌙 深夜畅谈 & 树洞</h3>
+                                <p class="meet-card-desc">情绪树洞与清谈时间。傍晚操场吹风，或深夜天台喝点冰饮料、聊点平时说不出的真心话。不管是迷茫还是吐槽，我都听着。</p>
                             </div>
                         </div>
                     </div>
@@ -109,32 +614,32 @@
         </section>
 
         <!-- Meeting Locations Section -->
-        <section class="service-advantages-section">
+        <section class="meet-section">
             <div class="container">
                 <div class="section-grid">
                     <div class="section-header">
                         <span class="section-num">02 /</span>
-                        <h2 class="section-title">偏好会面地点</h2>
-                        <p class="section-subtitle">PREFERRED LOCATIONS</p>
+                        <h2 class="section-title">出没与会面地点</h2>
+                        <p class="section-subtitle" style="color: var(--meet-accent);">MEET LOCATIONS</p>
                     </div>
                     <div class="advantages-content">
-                        <p class="lead-text">“选择一个轻松舒适的地点，开启高质量的谈话。”</p>
+                        <p class="meet-lead-text">“把时间浪费在好玩的地方和有趣的谈话上。”</p>
                         <div class="advantages-list">
-                            <div class="advantage-item">
-                                <h3 class="advantage-title">📖 学校图书馆讨论区</h3>
-                                <p class="advantage-desc">适合进行安静的学业交流、U8 账套系统现场排雷、或者小组学术竞赛研讨。环境严谨，利于沉浸式沟通。</p>
+                            <div class="meet-list-item">
+                                <h3 class="meet-item-title">🏪 街区店面 & 精致饭点</h3>
+                                <p class="meet-item-desc">不管是校门口的小吃街，还是商圈的打卡地、烤肉火锅店，适合见面大快朵颐或悠闲吃下午茶的地方。</p>
                             </div>
-                            <div class="advantage-item">
-                                <h3 class="advantage-title">☕ 宿舍楼下/校园咖啡厅</h3>
-                                <p class="advantage-desc">适合轻松的课后闲聊、结交朋友、跨专业茶叙或项目想法的初步脑暴。氛围温馨活泼，沟通更加自如。</p>
+                            <div class="meet-list-item">
+                                <h3 class="meet-item-title">🏃 校园操场 & 露天看台</h3>
+                                <p class="meet-item-desc">晚饭后或深夜的散步胜地，微风不燥。适合买两听冰可乐在看台坐下，有一搭没一搭地畅聊人生与琐事。</p>
                             </div>
-                            <div class="advantage-item">
-                                <h3 class="advantage-title">🏫 教学楼休息区</h3>
-                                <p class="advantage-desc">适合课间或课后进行简短、快速的信息核对与问题沟通。高效便捷，不占用过多时间。</p>
+                            <div class="meet-list-item">
+                                <h3 class="meet-item-title">🍿 电影院 & 娱乐轰趴馆</h3>
+                                <p class="meet-item-desc">适合一起去相约看一步大片，或者叫上朋友们一起密室逃脱、桌游店聚会，玩乐体验拉满。</p>
                             </div>
-                            <div class="advantage-item no-border">
-                                <h3 class="advantage-title">🌐 腾讯会议 / 线上语音</h3>
-                                <p class="advantage-desc">若因时间冲突或不便线下碰头，我们也可以约定时间进行线上会议、微信语音通话，开展无感高效的远程合作。</p>
+                            <div class="meet-list-item no-border">
+                                <h3 class="meet-item-title">💻 线上语音 & 连麦频道</h3>
+                                <p class="meet-item-desc">如果线上约局更方便，我们也可以直接在微信语音、游戏开黑频道中连麦畅聊，开启全自动死党模式。</p>
                             </div>
                         </div>
                     </div>
@@ -143,16 +648,16 @@
         </section>
 
         <!-- Booking Form Section -->
-        <section class="booking-section" id="meetFormSection">
+        <section class="meet-section" id="meetFormSection" style="border-bottom: none;">
             <div class="container">
-                <div class="booking-container">
-                    <div class="booking-header">
-                        <span class="booking-subtitle">BOOK A MEETING NOW</span>
-                        <h2 class="booking-title">
-                            开启会面与<span class="italic-serif">约会预约</span>
+                <div class="meet-booking-container">
+                    <div class="booking-header" style="margin-bottom: 50px;">
+                        <span class="booking-subtitle" style="color: var(--meet-accent); letter-spacing: 0.25em;">RESERVE CHILL TIME</span>
+                        <h2 class="meet-booking-title">
+                            预定我的<span class="accent-gradient">私人时间</span>
                         </h2>
-                        <p class="booking-desc">
-                            请在下方表单选择您期望的会面时间、地点与主题。提交后将自动复制预约信息，微信号：<strong class="wechat-highlight">Austin-love-m</strong>。
+                        <p class="booking-desc" style="color: var(--meet-text-secondary);">
+                            填写下方预约卡片提交，信息会自动复制，复制我的微信号 <strong class="wechat-highlight" style="color: var(--meet-text-primary); border-bottom-color: var(--meet-accent);">Austin-love-m</strong> 并跳转微信。
                         </p>
                     </div>
 
@@ -160,7 +665,7 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="meetName">您的姓名/昵称 *</label>
-                                <input type="text" id="meetName" required placeholder="例如：李同学">
+                                <input type="text" id="meetName" required placeholder="例如：阿杰/小李同学">
                             </div>
                             <div class="form-group">
                                 <label for="meetContact">您的微信 / 手机号 *</label>
@@ -173,38 +678,38 @@
                                 <label for="meetType">会面探讨主题 *</label>
                                 <select id="meetType" required>
                                     <option value="" disabled selected>请选择会面主题</option>
-                                    <option value="学习交流与学业学术研讨">学习交流与学业学术研讨</option>
-                                    <option value="用友 U8 业务诊断/系统排雷">用友 U8 业务诊断/系统排雷</option>
-                                    <option value="闲聊交友与课后茶叙">闲聊交友与课后茶叙</option>
-                                    <option value="项目合作与脑暴策划">项目合作与脑暴策划</option>
-                                    <option value="其他自定义主题">其他自定义主题</option>
+                                    <option value="☕ 下午茶 & 散散步">☕ 下午茶 & 散散步</option>
+                                    <option value="🍽 约顿好吃的 (约饭)">🍽 约顿好吃的 (约饭)</option>
+                                    <option value="🎮 游戏开黑 & 桌游玩乐">🎮 游戏开黑 & 桌游玩乐</option>
+                                    <option value="🌙 深夜畅谈 & 情绪树洞">🌙 深夜畅谈 & 情绪树洞</option>
+                                    <option value="🛸 脑洞大开的即兴面谈">🛸 脑洞大开的即兴面谈</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="meetLocation">期望会面地点 *</label>
                                 <select id="meetLocation" required>
                                     <option value="" disabled selected>请选择会面地点</option>
-                                    <option value="学校图书馆讨论室">学校图书馆讨论室</option>
-                                    <option value="宿舍楼下/校园咖啡厅">宿舍楼下/校园咖啡厅</option>
-                                    <option value="教学楼休息区">教学楼休息区</option>
-                                    <option value="线上语音/腾讯会议">线上语音/腾讯会议</option>
-                                    <option value="其他自定义地点">其他自定义地点</option>
+                                    <option value="街区店面/精致饭点/咖啡厅">街区店面/精致饭点/咖啡厅</option>
+                                    <option value="校园操场/露天看台">校园操场/露天看台</option>
+                                    <option value="电影院/桌游轰趴馆">电影院/桌游轰趴馆</option>
+                                    <option value="线上开黑语音/微信通话">线上开黑语音/微信通话</option>
+                                    <option value="其他临时商定地点">其他临时商定地点</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="meetTime">期望会面时间段 *</label>
-                            <input type="text" id="meetTime" required placeholder="如：下周一三下午课后 / 本周末下午 14:00 左右">
+                            <input type="text" id="meetTime" required placeholder="如：这周末下午 / 课后傍晚 / 随时有空召唤">
                         </div>
 
                         <div class="form-group">
-                            <label for="meetDesc">我们具体聊点什么？ *</label>
-                            <textarea id="meetDesc" rows="4" required placeholder="请写下您期望探讨的简要内容，或需要了解的具体事项，方便我提前准备..."></textarea>
+                            <label for="meetDesc">见面想玩点什么或聊点什么？ *</label>
+                            <textarea id="meetDesc" rows="4" required placeholder="请随意写写，如：约顿烤肉 / 开黑上分 / 散步扯淡 / 找个树洞，怎么放松怎么来..."></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-submit">
-                            <span>提交会面申请</span>
+                            <span>开启预约申请</span>
                             <i data-lucide="send" class="btn-icon"></i>
                         </button>
                         <div id="meetStatus" class="form-status"></div>
@@ -218,7 +723,7 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-bottom">
-                <p class="copyright">&copy; 2026 Austin Paris. All rights reserved.</p>
+                <p class="copyright">&copy; 2026 Austin Paris. Personal Life Space.</p>
                 <div class="footer-links">
                     <a href="index.html">返回首页</a>
                 </div>
@@ -227,6 +732,6 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="app.js?v=1.6"></script>
+    <script src="app.js?v=1.7"></script>
 </body>
 </html>
