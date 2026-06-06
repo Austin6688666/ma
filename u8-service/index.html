@@ -158,6 +158,114 @@
             background-color: rgba(140, 98, 57, 0.05);
             border-color: var(--accent-color);
         }
+
+        /* Lucky Wheel UI Styles */
+        .wheel-outer-ring {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            border: 10px solid var(--accent-color);
+            background-color: var(--accent-color);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(140, 98, 57, 0.15), inset 0 0 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+        .wheel-plate {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            background: #ffffff;
+            transition: transform 6s cubic-bezier(0.15, 1, 0.2, 1);
+            overflow: hidden;
+        }
+        .wheel-sector {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            left: 50%;
+            top: 50%;
+            transform-origin: 0 0;
+            overflow: hidden;
+        }
+        .sector-text {
+            position: absolute;
+            left: 20px;
+            top: 30px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            transform: rotate(30deg);
+            white-space: nowrap;
+        }
+        /* Sector angles (6 sectors: 60 degrees each) */
+        .sector-1 { transform: rotate(0deg) skewY(30deg); background-color: #fffaf0; }
+        .sector-2 { transform: rotate(60deg) skewY(30deg); background-color: #fcf6e8; }
+        .sector-3 { transform: rotate(120deg) skewY(30deg); background-color: #fffaf0; }
+        .sector-4 { transform: rotate(180deg) skewY(30deg); background-color: #fcf6e8; }
+        .sector-5 { transform: rotate(240deg) skewY(30deg); background-color: #fffaf0; }
+        .sector-6 { transform: rotate(300deg) skewY(30deg); background-color: #fcf6e8; }
+        
+        /* Correct text orientation inside skewed sectors */
+        .sector-1 .sector-text { transform: skewY(-30deg) rotate(30deg); color: #b8975a; }
+        .sector-2 .sector-text { transform: skewY(-30deg) rotate(30deg); color: #11223f; }
+        .sector-3 .sector-text { transform: skewY(-30deg) rotate(30deg); color: #b8975a; }
+        .sector-4 .sector-text { transform: skewY(-30deg) rotate(30deg); color: #11223f; }
+        .sector-5 .sector-text { transform: skewY(-30deg) rotate(30deg); color: #b8975a; }
+        .sector-6 .sector-text { transform: skewY(-30deg) rotate(30deg); color: #11223f; }
+
+        .wheel-pointer-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 4px solid #ffffff;
+            color: #ffffff;
+            position: absolute;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            line-height: 1.2;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+        .wheel-pointer-btn:hover {
+            transform: scale(1.08);
+            background-color: #9e7345;
+        }
+        /* Triangle indicator pointer */
+        .wheel-pointer-btn::after {
+            content: '';
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent transparent var(--accent-color) transparent;
+        }
+        .wheel-pointer-btn:hover::after {
+            border-color: transparent transparent #9e7345 transparent;
+        }
+        .wheel-pointer-btn.disabled {
+            background-color: #cbd5e1;
+            border-color: #f1f5f9;
+            color: #94a3b8;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        .wheel-pointer-btn.disabled::after {
+            border-color: transparent transparent #cbd5e1 transparent;
+        }
     </style>
 </head>
 <body class="subpage-body">
@@ -300,6 +408,41 @@
                                 <a href="#booking" class="btn btn-pricing btn-pricing-secondary">在线咨询详情</a>
                             </div>
                         </div>
+
+                        <!-- Lucky Wheel Draw Module -->
+                        <div class="wheel-draw-wrapper" style="margin-top: 60px; border-top: 1px dashed var(--border-color); padding-top: 50px; width: 100%;">
+                            <div class="wheel-draw-header" style="text-align: center; margin-bottom: 40px;">
+                                <h3 class="wheel-draw-title" style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary);"><i data-lucide="gift" style="width: 22px; height: 22px; color: var(--accent-color); display: inline-block; vertical-align: middle; margin-right: 6px;"></i> 幸运抽奖 · 即享优惠</h3>
+                                <p class="wheel-draw-subtitle" style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 8px;">预约前先试手气！最高可抽取 <strong>¥5.00</strong> 专属无门槛优惠券，抽中即可立减。</p>
+                            </div>
+                            
+                            <div class="wheel-container-flex" style="display: flex; justify-content: center; align-items: center; gap: 50px; flex-wrap: wrap; width: 100%;">
+                                <!-- Wheel Canvas Block -->
+                                <div class="wheel-outer-ring">
+                                    <div class="wheel-plate" id="wheelPlate">
+                                        <div class="wheel-sector sector-1"><span class="sector-text">¥5.00</span></div>
+                                        <div class="wheel-sector sector-2"><span class="sector-text">¥1.00</span></div>
+                                        <div class="wheel-sector sector-3"><span class="sector-text">¥3.00</span></div>
+                                        <div class="wheel-sector sector-4"><span class="sector-text">¥2.00</span></div>
+                                        <div class="wheel-sector sector-5"><span class="sector-text">¥4.50</span></div>
+                                        <div class="wheel-sector sector-6"><span class="sector-text">¥1.50</span></div>
+                                    </div>
+                                    <div class="wheel-pointer-btn" id="wheelPointerBtn">开始<br>抽奖</div>
+                                </div>
+                                
+                                <!-- Wheel Info Panel -->
+                                <div class="wheel-info-panel" style="max-width: 380px; display: flex; flex-direction: column; gap: 15px;">
+                                    <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">抽奖细则：</h4>
+                                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px;">
+                                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--accent-color); font-weight: 700;">•</span> 专为南宁理工大学U8服务预约学子提供，即抽即中，100%有奖。</li>
+                                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--accent-color); font-weight: 700;">•</span> 每台设备/每名用户仅限抽奖<strong>一次</strong>，抽中优惠券后将生成专属代码。</li>
+                                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--accent-color); font-weight: 700;">•</span> 优惠券代码会自动附加在您的预约单里，在线客服核对后立减对应金额。</li>
+                                    </ul>
+                                    <div id="drawStatusText" style="font-size: 0.95rem; font-weight: 600; color: var(--accent-color); min-height: 20px; margin-top: 10px;"></div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
