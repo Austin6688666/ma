@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AUSTIN | 马骁煜特约接见与日程预约呈批系统</title>
+    <title>AUSTIN | 会面与日程预约系统</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="马骁煜特约接见与日程预约呈批系统。供校内外单位及师生呈报公务请示、技术会诊、学术探讨及日常日程对接。">
-    <meta name="keywords" content="马骁煜, 预约接见, 用友U8, 会计学术咨询, 日程呈批">
+    <meta name="description" content="Austin (马骁煜) 的个人会面与日程预约系统。在线预约商务洽谈、学术探讨、技术咨询以及日常沟通。">
+    <meta name="keywords" content="马骁煜, 预约会面, 用友U8, 会计学术咨询, 日程预约">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
-        /* Custom Variables and Theme for Executive Console style (Royal Navy & Champagne Gold) */
+        /* Custom Variables and Theme (Royal Navy & Champagne Gold) */
         :root {
             --meet-bg: #f4f6f9; /* Slate white background */
             --meet-card-bg: #ffffff; /* Clean paper white */
@@ -34,7 +34,7 @@
             --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Custom Scrollbar for official look */
+        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -159,10 +159,10 @@
 
         /* Hero styling overrides */
         .meet-hero-section {
-            min-height: 75vh;
+            min-height: 70vh;
             display: flex;
             align-items: center;
-            padding: 150px 0 80px 0;
+            padding: 140px 0 80px 0;
             position: relative;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(244, 246, 249, 0) 100%);
         }
@@ -171,7 +171,7 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             font-weight: 700;
-            letter-spacing: 0.25em;
+            letter-spacing: 0.2em;
             color: var(--meet-accent-gold);
             display: inline-block;
             margin-bottom: 15px;
@@ -378,7 +378,7 @@
             opacity: 1;
         }
 
-        /* High-end clean cards for themes */
+        /* Card grid for themes */
         .meet-card-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -562,44 +562,6 @@
             margin-top: 10px;
         }
 
-        /* Form Steps indicator */
-        .form-steps-indicator {
-            display: flex;
-            justify-content: space-between;
-            margin: 40px 0;
-            border-bottom: 1px solid var(--meet-border);
-            padding-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .form-step-badge {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--meet-text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .form-step-badge.active {
-            color: var(--meet-accent-gold);
-        }
-        .form-step-number {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: rgba(79, 94, 123, 0.1);
-            color: var(--meet-text-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            font-weight: 700;
-        }
-        .form-step-badge.active .form-step-number {
-            background-color: var(--meet-accent-gold);
-            color: #ffffff;
-        }
-
         /* Form Controls */
         .meet-page-body .form-group label {
             color: var(--meet-accent) !important;
@@ -639,34 +601,6 @@
             padding: 10px;
         }
 
-        /* VIP Code Verification field */
-        .input-with-action {
-            display: flex;
-            gap: 10px;
-        }
-        .btn-verify {
-            background-color: var(--meet-accent);
-            color: #ffffff;
-            border: 1px solid var(--meet-accent);
-            border-radius: 4px;
-            padding: 0 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            white-space: nowrap;
-        }
-        .btn-verify:hover {
-            background-color: var(--meet-accent-gold);
-            border-color: var(--meet-accent-gold);
-        }
-        .verify-status {
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-top: 6px;
-            min-height: 18px;
-        }
-
         .meet-page-body .btn-submit {
             background-color: var(--meet-accent) !important;
             color: #ffffff !important;
@@ -693,181 +627,6 @@
             border-bottom: 2px solid var(--meet-accent-gold) !important;
         }
 
-        /* Tracker Section styling */
-        .tracker-card {
-            background: #ffffff;
-            border: 1px solid var(--meet-border);
-            padding: 40px;
-            border-radius: 4px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
-            margin-top: 40px;
-        }
-        .tracker-intro {
-            font-size: 0.95rem;
-            color: var(--meet-text-secondary);
-            margin-bottom: 20px;
-        }
-        .tracker-form-group {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        @media (max-width: 600px) {
-            .tracker-form-group {
-                flex-direction: column;
-            }
-        }
-        .tracker-input {
-            flex-grow: 1;
-            border: 1px solid var(--meet-border);
-            border-radius: 4px;
-            padding: 14px 18px;
-            font-size: 0.95rem;
-            outline: none;
-            transition: var(--transition-smooth);
-        }
-        .tracker-input:focus {
-            border-color: var(--meet-accent-gold);
-            box-shadow: 0 0 0 3px var(--meet-accent-gold-glow);
-        }
-        .btn-tracker {
-            background-color: var(--meet-accent);
-            color: #ffffff;
-            border: 1px solid var(--meet-accent);
-            padding: 14px 30px;
-            font-weight: 600;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            white-space: nowrap;
-        }
-        .btn-tracker:hover {
-            background-color: var(--meet-accent-gold);
-            border-color: var(--meet-accent-gold);
-        }
-        
-        .tracker-result-container {
-            border-top: 1px solid var(--meet-border);
-            padding-top: 30px;
-            transition: var(--transition-smooth);
-        }
-        .tracker-result-container.hide {
-            display: none;
-        }
-        .tracker-result-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #f8fafc;
-            padding: 15px 20px;
-            border-radius: 4px;
-            border-left: 4px solid var(--meet-accent-gold);
-            margin-bottom: 30px;
-        }
-        .result-id-tag {
-            font-size: 0.9rem;
-            color: var(--meet-accent);
-        }
-        .result-status-tag {
-            background-color: #fef3c7;
-            color: #d97706;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        .result-status-tag.approved {
-            background-color: #d1fae5;
-            color: #065f46;
-        }
-        
-        .tracker-steps-timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            padding-left: 20px;
-            position: relative;
-        }
-        .tracker-steps-timeline::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 9px;
-            width: 2px;
-            height: calc(100% - 20px);
-            background-color: var(--meet-border);
-            z-index: 1;
-        }
-        .tracker-timeline-step {
-            display: flex;
-            gap: 20px;
-            position: relative;
-            z-index: 2;
-        }
-        .step-icon {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: #ffffff;
-            border: 2px solid var(--meet-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: var(--meet-text-secondary);
-        }
-        .step-info {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .step-title {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--meet-accent);
-        }
-        .step-time {
-            font-size: 0.75rem;
-            color: var(--meet-text-secondary);
-            font-weight: 500;
-        }
-        .step-desc {
-            font-size: 0.85rem;
-            color: var(--meet-text-secondary);
-            line-height: 1.5;
-        }
-        
-        /* Step states */
-        .step-done .step-icon {
-            background-color: var(--meet-accent-gold);
-            border-color: var(--meet-accent-gold);
-            color: #ffffff;
-        }
-        .step-active .step-icon {
-            background-color: #ffffff;
-            border-color: var(--meet-accent);
-            color: var(--meet-accent);
-            animation: pulse-border 2s infinite;
-        }
-        .step-active .step-title {
-            color: var(--meet-accent);
-        }
-        .step-pending .step-icon {
-            background-color: #ffffff;
-            border-color: var(--meet-border);
-            color: #cbd5e1;
-        }
-        .step-pending .step-title {
-            color: #94a3b8;
-        }
-        
-        @keyframes pulse-border {
-            0% { box-shadow: 0 0 0 0 rgba(17, 45, 78, 0.2); }
-            70% { box-shadow: 0 0 0 8px rgba(17, 45, 78, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(17, 45, 78, 0); }
-        }
-
         /* Footer styling overrides */
         .meet-page-body .site-footer {
             border-top: 1px solid var(--meet-border) !important;
@@ -884,7 +643,7 @@
             color: var(--meet-accent-gold) !important;
         }
 
-        /* Light official modal styling (Government / Formal Document look) */
+        /* Light clean modal styling */
         .meet-page-body .contact-modal-overlay {
             background-color: rgba(17, 45, 78, 0.4) !important;
             backdrop-filter: blur(8px) !important;
@@ -893,17 +652,13 @@
 
         .meet-page-body .contact-modal {
             background-color: #ffffff !important;
-            border: 2px solid var(--meet-accent) !important;
+            border: 1px solid var(--meet-border) !important;
             border-radius: 4px;
-            box-shadow: 0 30px 60px rgba(17, 45, 78, 0.15) !important;
-            max-width: 580px;
+            box-shadow: 0 30px 60px rgba(17, 45, 78, 0.1) !important;
+            max-width: 500px;
             width: 90%;
             padding: 40px;
             position: relative;
-            background-image: 
-                linear-gradient(rgba(184, 151, 90, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(184, 151, 90, 0.02) 1px, transparent 1px);
-            background-size: 20px 20px;
         }
         
         @media (max-width: 500px) {
@@ -912,54 +667,42 @@
             }
         }
 
-        /* Red Header line for Chinese official documents */
-        .official-header-line {
-            border-bottom: 2px solid #df2e23;
-            padding-bottom: 12px;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-        .official-dept-title {
-            color: #df2e23;
-            font-family: 'Noto Serif SC', 'Songti SC', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            margin: 0;
-        }
-        .official-doc-no {
-            font-size: 0.72rem;
-            color: #4f5e7b;
-            font-family: var(--font-sans);
-            margin-top: 8px;
-            letter-spacing: 0.05em;
-        }
-
         .meet-page-body .contact-modal-icon-wrap {
-            display: none; /* Hide standard check icon to use official theme */
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--meet-accent-gold);
+            color: var(--meet-accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
         }
 
         .meet-page-body .contact-modal-title {
             color: var(--meet-accent) !important;
             font-family: var(--font-serif);
             font-weight: 700;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             margin-bottom: 15px;
+            text-align: center;
         }
 
         .meet-page-body .contact-modal-desc {
             color: var(--meet-text-secondary) !important;
             font-size: 0.88rem;
             line-height: 1.6;
+            text-align: center;
         }
 
-        /* WeChat formal invitation block */
+        /* WeChat card */
         .meet-page-body .contact-modal-wechat-card {
             background-color: rgba(184, 151, 90, 0.05) !important;
             border: 1px dashed var(--meet-accent-gold) !important;
             padding: 15px !important;
             border-radius: 4px !important;
             margin: 20px 0 !important;
+            text-align: center;
             transition: var(--transition-smooth);
         }
         .meet-page-body .contact-modal-wechat-card:hover {
@@ -992,6 +735,9 @@
             line-height: 1.6;
             margin-bottom: 12px;
             color: var(--meet-text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
         }
         .meet-page-body .contact-modal-step-item:last-child {
             margin-bottom: 0;
@@ -1004,6 +750,12 @@
             height: 18px;
             font-size: 0.7rem;
             font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
         .meet-page-body .contact-modal-btn-primary {
@@ -1041,46 +793,6 @@
             color: var(--meet-accent-gold) !important;
         }
 
-        /* Official Red Seal styling on modal */
-        .official-seal-wrap {
-            position: absolute;
-            bottom: 40px;
-            right: 40px;
-            pointer-events: none;
-            opacity: 0.85;
-            z-index: 10;
-        }
-        .official-seal {
-            width: 90px;
-            height: 90px;
-            border: 2px solid #df2e23;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            transform: rotate(-12deg);
-        }
-        .official-seal-text {
-            color: #df2e23;
-            font-size: 8px;
-            font-weight: 800;
-            text-align: center;
-            font-family: 'Noto Serif SC', 'Songti SC', serif;
-            line-height: 1.2;
-            padding: 2px;
-        }
-        .official-seal-star {
-            color: #df2e23;
-            font-size: 14px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            opacity: 0.75;
-        }
-
         @media (max-width: 768px) {
             .meet-page-body .nav-menu {
                 background-color: #ffffff !important;
@@ -1088,11 +800,6 @@
             }
             .meet-page-body .menu-toggle {
                 color: var(--meet-accent) !important;
-            }
-            .official-seal-wrap {
-                bottom: 20px;
-                right: 20px;
-                opacity: 0.55;
             }
         }
     </style>
@@ -1109,10 +816,9 @@
             </button>
             <nav class="nav-menu" id="navMenu">
                 <a href="#schedule" class="nav-link">日程公示</a>
-                <a href="#themes" class="nav-link">会面呈报</a>
-                <a href="#locations" class="nav-link">接见地点</a>
-                <a href="#booking" class="nav-link">呈批申报</a>
-                <a href="#tracker" class="nav-link">进度查询</a>
+                <a href="#themes" class="nav-link">会面主题</a>
+                <a href="#locations" class="nav-link">会面地点</a>
+                <a href="#booking" class="nav-link">在线预约</a>
                 <a href="../index.html" class="nav-link contact-btn">返回主页</a>
             </nav>
         </div>
@@ -1123,17 +829,17 @@
         <section class="meet-hero-section">
             <div class="container">
                 <div class="hero-content" style="max-width: 900px;">
-                    <span class="meet-hero-tag">Official Appointment System</span>
+                    <span class="meet-hero-tag">Meeting Scheduler</span>
                     <h1 class="meet-hero-title">
-                        马骁煜特约接见与<br>
-                        <span class="accent-gradient">日程预约呈批系统</span>
+                        会面与<br>
+                        <span class="accent-gradient">日程预约系统</span>
                     </h1>
                     <p class="meet-hero-description">
-                        本系统专门用于校内外单位、师生以及技术合作伙伴呈报与<strong>马骁煜主管（用友 U8 运行维护处首席技术专家暨高级财务分析师）</strong>的正式会面申请。请根据以下公式日程选择合适时间段进行在线呈批申报。
+                        欢迎在此与我取得联系。无论是关于用友 U8 技术维护与数据诊断、高级财务数据分析探讨，还是学业学术交流、日常工作对接，都欢迎您通过下方日程表选择时段并提交预约。
                     </p>
                     <div class="hero-actions">
-                        <a href="#booking" class="btn btn-primary">立即呈批申报 <i data-lucide="arrow-right" class="btn-icon"></i></a>
-                        <a href="#schedule" class="btn btn-secondary">查看领导公示日程</a>
+                        <a href="#booking" class="btn btn-primary">立即在线预约 <i data-lucide="arrow-right" class="btn-icon"></i></a>
+                        <a href="#schedule" class="btn btn-secondary">查看日程表</a>
                     </div>
                 </div>
             </div>
@@ -1145,29 +851,29 @@
                 <div class="section-grid">
                     <div class="section-header">
                         <span class="section-num">01 /</span>
-                        <h2 class="section-title">领导日程公示</h2>
-                        <p class="section-subtitle" style="color: var(--meet-accent-gold);">LEADER'S AGENDA</p>
+                        <h2 class="section-title">会面日程公示</h2>
+                        <p class="section-subtitle" style="color: var(--meet-accent-gold);">MY SCHEDULE</p>
                     </div>
                     <div class="schedule-content">
-                        <p class="meet-lead-text">“科学调配时间资源，确保每次接见与会谈高效且有实质性成果。”</p>
+                        <p class="meet-lead-text">“合理安排会面时间，提高沟通效率与针对性。”</p>
                         
                         <!-- Interactive Weekly Calendar Grid -->
                         <div class="calendar-wrapper">
                             <div class="calendar-header">
-                                <span class="calendar-nav-title"><i data-lucide="calendar" style="width:18px;height:18px;color:var(--meet-accent-gold);"></i> 马骁煜主管个人日程表 (每周动态更新)</span>
+                                <span class="calendar-nav-title"><i data-lucide="calendar" style="width:18px;height:18px;color:var(--meet-accent-gold);"></i> 个人日程安排表 (每周更新)</span>
                                 <span class="calendar-status-legend">
-                                    <span class="legend-item"><span class="dot dot-avail"></span>可预约接见</span>
-                                    <span class="legend-item"><span class="dot dot-busy"></span>会议/集中办公</span>
-                                    <span class="legend-item"><span class="dot dot-out"></span>公务外出巡检</span>
+                                    <span class="legend-item"><span class="dot dot-avail"></span>可预约</span>
+                                    <span class="legend-item"><span class="dot dot-busy"></span>集中办公/会议</span>
+                                    <span class="legend-item"><span class="dot dot-out"></span>公务外出</span>
                                 </span>
                             </div>
                             <div class="calendar-grid">
                                 <!-- Monday -->
                                 <div class="calendar-day-col">
                                     <div class="day-name">周一 (Mon)</div>
-                                    <div class="day-slot slot-busy" title="每周工作例会及U8数据库备份部署">
+                                    <div class="day-slot slot-busy" title="日常例会及系统例检维护">
                                         <span class="slot-time">上午 09:00-11:30</span>
-                                        <span class="slot-label">U8巡检例会</span>
+                                        <span class="slot-label">系统维护</span>
                                     </div>
                                     <div class="day-slot slot-out" title="前往校外进行系统现场故障处理">
                                         <span class="slot-time">下午 14:30-17:00</span>
@@ -1179,11 +885,11 @@
                                     <div class="day-name">周二 (Tue)</div>
                                     <div class="day-slot slot-avail" data-time="周二 上午 (09:00 - 11:30)" title="点击立即预约此接见时段">
                                         <span class="slot-time">上午 09:00-11:30</span>
-                                        <span class="slot-label">开放接见申请</span>
+                                        <span class="slot-label">可预约会面</span>
                                     </div>
                                     <div class="day-slot slot-busy" title="高级财会模拟与学术研讨会">
                                         <span class="slot-time">下午 14:30-17:00</span>
-                                        <span class="slot-label">学术闭门研讨</span>
+                                        <span class="slot-label">学术研讨</span>
                                     </div>
                                 </div>
                                 <!-- Wednesday -->
@@ -1191,11 +897,11 @@
                                     <div class="day-name">周三 (Wed)</div>
                                     <div class="day-slot slot-avail" data-time="周三 上午 (09:00 - 11:30)" title="点击立即预约此接见时段">
                                         <span class="slot-time">上午 09:00-11:30</span>
-                                        <span class="slot-label">开放接见申请</span>
+                                        <span class="slot-label">可预约会面</span>
                                     </div>
-                                    <div class="day-slot slot-busy" title="用友U8系统运行周检及数据合规性审查">
+                                    <div class="day-slot slot-busy" title="用友U8系统运行及数据合规性审查">
                                         <span class="slot-time">下午 14:30-17:00</span>
-                                        <span class="slot-label">U8账套周度例检</span>
+                                        <span class="slot-label">例行系统检查</span>
                                     </div>
                                 </div>
                                 <!-- Thursday -->
@@ -1203,11 +909,11 @@
                                     <div class="day-name">周四 (Thu)</div>
                                     <div class="day-slot slot-avail" data-time="周四 上午 (09:00 - 11:30)" title="点击立即预约此接见时段">
                                         <span class="slot-time">上午 09:00-11:30</span>
-                                        <span class="slot-label">开放接见申请</span>
+                                        <span class="slot-label">可预约会面</span>
                                     </div>
-                                    <div class="day-slot slot-busy" title="学院日常事务及课程集中办公">
+                                    <div class="day-slot slot-busy" title="学院事务与课程集中办公">
                                         <span class="slot-time">下午 14:30-17:00</span>
-                                        <span class="slot-label">集中处理公务</span>
+                                        <span class="slot-label">集中办公</span>
                                     </div>
                                 </div>
                                 <!-- Friday -->
@@ -1215,11 +921,11 @@
                                     <div class="day-name">周五 (Fri)</div>
                                     <div class="day-slot slot-avail" data-time="周五 上午 (09:00 - 11:30)" title="点击立即预约此接见时段">
                                         <span class="slot-time">上午 09:00-11:30</span>
-                                        <span class="slot-label">开放接见申请</span>
+                                        <span class="slot-label">可预约会面</span>
                                     </div>
                                     <div class="day-slot slot-avail" data-time="周五 下午 (14:30 - 17:00)" title="点击立即预约此接见时段">
                                         <span class="slot-time">下午 14:30-17:00</span>
-                                        <span class="slot-label">开放接见申请</span>
+                                        <span class="slot-label">可预约会面</span>
                                     </div>
                                 </div>
                             </div>
@@ -1235,8 +941,8 @@
                 <div class="section-grid">
                     <div class="section-header">
                         <span class="section-num">02 /</span>
-                        <h2 class="section-title">会面呈报类别</h2>
-                        <p class="section-subtitle" style="color: var(--meet-accent-gold);">APPOINTMENT CATEGORIES</p>
+                        <h2 class="section-title">会面探讨主题</h2>
+                        <p class="section-subtitle" style="color: var(--meet-accent-gold);">MEETING THEMES</p>
                     </div>
                     <div class="service-details-content">
                         <div class="meet-card-grid">
@@ -1245,35 +951,35 @@
                                 <div class="meet-card-icon">
                                     <i data-lucide="briefcase"></i>
                                 </div>
-                                <h3 class="meet-card-title">💼 财务合规与信息化呈报</h3>
-                                <p class="meet-card-desc">关于用友 U8 系统底层维护、账套故障紧急修复、数据库日志修改以及财务信息化建设等技术事宜的呈报与方案研审。</p>
+                                <h3 class="meet-card-title">💼 商务合作与项目洽谈</h3>
+                                <p class="meet-card-desc">关于财务维护诊断、数据模型开发、信息化建设以及其他校内外项目合作的正式会面与方案洽谈。</p>
                             </div>
 
                             <!-- Theme 2 -->
                             <div class="meet-life-card">
                                 <div class="meet-card-icon">
-                                    <i data-lucide="line-chart"></i>
+                                    <i data-lucide="graduation-cap"></i>
                                 </div>
-                                <h3 class="meet-card-title">📊 智能数据分析与决策汇报</h3>
-                                <p class="meet-card-desc">关于 Excel 财务高级建模、Python 自动化数据清洗与可视化在财务预测中的应用请示与战略技术合作会谈。</p>
+                                <h3 class="meet-card-title">🎓 学术探讨与学业交流</h3>
+                                <p class="meet-card-desc">关于财会专业核心课程学习、案例分析研讨、跨学科技能拓展（如 Excel/Python 财务应用）的学术交流。</p>
                             </div>
 
                             <!-- Theme 3 -->
                             <div class="meet-life-card featured-card">
                                 <div class="meet-card-icon" style="color: var(--meet-accent-gold);">
-                                    <i data-lucide="graduation-cap"></i>
+                                    <i data-lucide="database"></i>
                                 </div>
-                                <h3 class="meet-card-title">🎓 学术前沿探讨与课业请示</h3>
-                                <p class="meet-card-desc">关于中级财务会计、成本核算、税务稽查理论学习难题、学术案例研讨，以及个人跨学科成长路径规划的咨询与面对面交流。</p>
+                                <h3 class="meet-card-title">🛠 技术支持与系统咨询</h3>
+                                <p class="meet-card-desc">针对用友 U8 运行维护、数据库故障恢复等具体技术问题的线下或线上诊断，以及相关操作咨询。</p>
                             </div>
 
                             <!-- Theme 4 -->
                             <div class="meet-life-card">
                                 <div class="meet-card-icon">
-                                    <i data-lucide="user-check"></i>
+                                    <i data-lucide="calendar-days"></i>
                                 </div>
-                                <h3 class="meet-card-title">💬 个人谈心谈话与思想交流</h3>
-                                <p class="meet-card-desc">针对日常校园活动开展、组织管理与沟通工作、班级日常建设，以及日常放松性质的思想沟通与生活感悟交流（树洞咨询）。</p>
+                                <h3 class="meet-card-title">💬 日常交流与休闲约会</h3>
+                                <p class="meet-card-desc">课余时间的散步扯淡、约顿美食、游戏开黑或者是寻找倾听的树洞，怎么放松怎么来。</p>
                             </div>
                         </div>
                     </div>
@@ -1288,26 +994,26 @@
                     <div class="section-header">
                         <span class="section-num">03 /</span>
                         <h2 class="section-title">常用会面地点</h2>
-                        <p class="section-subtitle" style="color: var(--meet-accent-gold);">MEETING VENUES</p>
+                        <p class="section-subtitle" style="color: var(--meet-accent-gold);">MEETING LOCATIONS</p>
                     </div>
                     <div class="advantages-content">
-                        <p class="meet-lead-text">“根据事务涉密及紧急等级，合理匹配合适的接见场所与沟通通道。”</p>
+                        <p class="meet-lead-text">“选择合适的会面场地，保证沟通顺畅舒适。”</p>
                         <div class="advantages-list">
                             <div class="meet-list-item">
-                                <h3 class="meet-item-title">🏛️ 首席专家办公室 / 专属研讨室</h3>
-                                <p class="meet-item-desc">设于校园综合楼/讨论室。提供高度私密的单独交流空间，适合进行学术方案指导、技术架构剖析及正式项目会商。</p>
+                                <h3 class="meet-item-title">🏫 校园综合楼 / 讨论室</h3>
+                                <p class="meet-item-desc">适合进行面对面的学术交流、课程探讨或小组研讨，环境安静，利于深入沟通。</p>
                             </div>
                             <div class="meet-list-item">
-                                <h3 class="meet-item-title">☕ 特约接待区 / 商务洽谈所</h3>
-                                <p class="meet-item-desc">设于校园咖啡厅/接待沙龙。环境相对轻松，适合开展商务合作意向初步接洽、思想交流以及一般性日常工作的沟通对接。</p>
+                                <h3 class="meet-item-title">☕ 线下茶歇 / 商务咖啡馆</h3>
+                                <p class="meet-item-desc">适用于正式的合作项目接洽、日常沟通或课后碰头，氛围轻松自然。</p>
                             </div>
                             <div class="meet-list-item">
-                                <h3 class="meet-item-title">💻 腾讯会议 · 数字云端接见厅</h3>
-                                <p class="meet-item-desc">针对异地合作单位、突发紧急系统维护或不便到场的会面申请。支持屏幕共享、多方视讯，可提供高效远程诊断服务。</p>
+                                <h3 class="meet-item-title">💻 腾讯会议 / 线上视频会议</h3>
+                                <p class="meet-item-desc">如受时间或地域限制，可选择线上会议，支持共享屏幕、远程协作进行系统诊断。</p>
                             </div>
                             <div class="meet-list-item no-border">
-                                <h3 class="meet-item-title">📞 机密专线 / 电话保密音频</h3>
-                                <p class="meet-item-desc">适用于紧急、简短的指令性工作传达、技术异常点对点咨询或不方便线上视频的电话实时音频对接。</p>
+                                <h3 class="meet-item-title">📞 电话会议 / 语音即时沟通</h3>
+                                <p class="meet-item-desc">针对紧急或简短事务的沟通，可在此预定时间，系统会在约定时间发起语音连线。</p>
                             </div>
                         </div>
                     </div>
@@ -1316,176 +1022,71 @@
         </section>
 
         <!-- Booking Form Section -->
-        <section class="meet-section" id="booking">
+        <section class="meet-section" id="booking" style="border-bottom: none;">
             <div class="container">
                 <div class="meet-booking-container">
                     <div class="booking-header">
                         <span class="booking-subtitle">RESERVE APPOINTMENT</span>
                         <h2 class="meet-booking-title">
-                            呈报您的<span class="wechat-highlight">接见预约申请表</span>
+                            填写您的<span class="wechat-highlight">会面预约申请</span>
                         </h2>
                         <p class="booking-desc">
-                            请依法依规填报以下真实信息。呈批通过后，系统将自动生成正式公函。您需要添加主管阁下的微信 <strong style="color: var(--meet-accent);">Austin-love-m</strong> 并发送该函完成席位最终锁定。
+                            填写下方预约卡片提交，信息会自动复制。复制我的微信号 <strong style="color: var(--meet-accent);">Austin-love-m</strong> 并跳转微信发送预约详情即可。
                         </p>
-                    </div>
-
-                    <!-- Step Indicator -->
-                    <div class="form-steps-indicator">
-                        <span class="form-step-badge active">
-                            <span class="form-step-number">1</span>
-                            <span>申报类别与级别</span>
-                        </span>
-                        <span class="form-step-badge active">
-                            <span class="form-step-number">2</span>
-                            <span>填报个人信息</span>
-                        </span>
-                        <span class="form-step-badge active">
-                            <span class="form-step-number">3</span>
-                            <span>预约时间与地点</span>
-                        </span>
-                        <span class="form-step-badge active">
-                            <span class="form-step-number">4</span>
-                            <span>提交呈批</span>
-                        </span>
                     </div>
 
                     <form class="contact-form booking-form" id="meetForm">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="meetName">申请单位/个人名称 *</label>
-                                <input type="text" id="meetName" required placeholder="如：南宁理工大学XX班委员会 / 李同学">
+                                <label for="meetName">您的姓名/单位名称 *</label>
+                                <input type="text" id="meetName" required placeholder="例如：李同学 / 某某项目团队">
                             </div>
                             <div class="form-group">
-                                <label for="meetContact">申请人微信号/手机号 *</label>
-                                <input type="text" id="meetContact" required placeholder="请留下真实联系电话或微信号">
+                                <label for="meetContact">您的联系微信 / 手机号 *</label>
+                                <input type="text" id="meetContact" required placeholder="请留下能及时联系到您的微信号或电话">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="meetType">呈报会面主题类别 *</label>
+                                <label for="meetType">会面探讨主题 *</label>
                                 <select id="meetType" required>
-                                    <option value="" disabled selected>请选择会面类别</option>
-                                    <option value="💼 财务合规与信息化呈报">💼 财务合规与信息化呈报 (用友U8维护)</option>
-                                    <option value="📊 智能数据分析与决策汇报">📊 智能数据分析与决策汇报 (Excel/Python建模)</option>
-                                    <option value="🎓 学术前沿探讨与课业请示">🎓 学术前沿探讨与课业请示 (课程难题及学术研讨)</option>
-                                    <option value="💬 个人谈心谈话与思想交流">💬 个人谈心谈话与思想交流 (班级事务/树洞沟通)</option>
+                                    <option value="" disabled selected>请选择会面主题</option>
+                                    <option value="💼 商务合作与项目洽谈">💼 商务合作与项目洽谈</option>
+                                    <option value="🎓 学术探讨与学业交流">🎓 学术探讨与学业交流</option>
+                                    <option value="🛠 技术支持与系统咨询">🛠 技术支持与系统咨询</option>
+                                    <option value="💬 日常交流与休闲约会">💬 日常交流与休闲约会</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="meetLocation">期望接见场所 *</label>
+                                <label for="meetLocation">期望会面地点 *</label>
                                 <select id="meetLocation" required>
-                                    <option value="" disabled selected>请选择接见场所</option>
-                                    <option value="🏛️ 首席专家办公室/专属研讨室">🏛️ 首席专家办公室/专属研讨室</option>
-                                    <option value="☕ 特约接待区/商务洽谈所">☕ 特约接待区/商务洽谈所</option>
-                                    <option value="💻 腾讯会议 · 数字云端接见厅">💻 腾讯会议 · 数字云端接见厅</option>
-                                    <option value="📞 机密专线/电话保密音频">📞 机密专线/电话保密音频</option>
+                                    <option value="" disabled selected>请选择会面地点</option>
+                                    <option value="校园综合楼/讨论室">校园综合楼/讨论室</option>
+                                    <option value="线下会议室/咖啡厅">线下会议室/咖啡厅</option>
+                                    <option value="腾讯会议/线上视频会议">腾讯会议/线上视频会议</option>
+                                    <option value="线上语音/微信通话">线上语音/微信通话</option>
+                                    <option value="其他临时商定地点">其他临时商定地点</option>
                                 </select>
                             </div>
                         </div>
 
-                        <!-- Invitation VIP Code Input -->
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="meetCode">专属邀约验证码 (机要通道可选)</label>
-                                <div class="input-with-action">
-                                    <input type="text" id="meetCode" placeholder="输入机密邀约码 (如 VIP888) 可提升审批优先级">
-                                    <button type="button" id="verifyCodeBtn" class="btn-verify">校验邀请码</button>
-                                </div>
-                                <div id="verifyMessage" class="verify-status"></div>
-                            </div>
+                        <div class="form-group">
+                            <label for="meetTime">期望会面时间段 *</label>
+                            <input type="text" id="meetTime" required placeholder="可双击日程表时段自动选定，或在此手动填写。如：下周一下午">
                         </div>
 
                         <div class="form-group">
-                            <label for="meetTime">期望会面接见时间段 *</label>
-                            <input type="text" id="meetTime" required placeholder="请双击上方日程表中的可预约时段，或在此手动填写。例如：周五 下午">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="meetDesc">呈报会面具体事由与备忘内容 *</label>
-                            <textarea id="meetDesc" rows="4" required placeholder="请详细陈述本次会见的汇报议题、具体解决的业务痛点或面临的学术难题，以便主管办公室提前准备机要档案及解决方案..."></textarea>
+                            <label for="meetDesc">会面具体事由与备忘内容 *</label>
+                            <textarea id="meetDesc" rows="4" required placeholder="请简要写明本次会面的具体事由、涉及的项目或要讨论的问题，以便提前做相关资料准备..."></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-submit">
-                            <span>提交呈批申请书</span>
+                            <span>提交预约申请</span>
                             <i data-lucide="send" class="btn-icon"></i>
                         </button>
                         <div id="meetStatus" class="form-status" style="margin-top: 15px;"></div>
                     </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Progress Tracker Section -->
-        <section class="meet-section" id="tracker" style="background-color: #ffffff;">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="section-header">
-                        <span class="section-num">04 /</span>
-                        <h2 class="section-title">呈批进度查询</h2>
-                        <p class="section-subtitle" style="color: var(--meet-accent-gold);">APPROVAL TRACKING</p>
-                    </div>
-                    <div class="tracker-content">
-                        <p class="meet-lead-text">“遵循公开、透明、高效原则，申请人可在此全程追踪呈批件进展。”</p>
-                        
-                        <div class="tracker-card">
-                            <p class="tracker-intro">请输入申请时填写的<strong>手机号/微信号</strong>或<strong>呈批件文号</strong>，调取实时审批详情：</p>
-                            <div class="tracker-form-group">
-                                <input type="text" id="trackerInput" placeholder="输入微信号 / 手机号 / 呈批件编号 (如 APPT-2026-X809)" class="tracker-input">
-                                <button id="trackerSearchBtn" class="btn-tracker">立即查询 <i data-lucide="search" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-left:4px;"></i></button>
-                            </div>
-                            
-                            <!-- Tracker Result block -->
-                            <div id="trackerResult" class="tracker-result-container hide">
-                                <div class="tracker-result-header">
-                                    <span class="result-id-tag">呈批文号：<strong id="resultApptId">骁字〔2026〕第088号</strong></span>
-                                    <span class="result-status-tag" id="resultStatusTag">机要室审查中</span>
-                                </div>
-                                
-                                <div class="tracker-steps-timeline">
-                                    <!-- Step 1 -->
-                                    <div class="tracker-timeline-step step-done">
-                                        <div class="step-icon"><i data-lucide="check" style="width:10px;height:10px;"></i></div>
-                                        <div class="step-info">
-                                            <h4 class="step-title">1. 呈批申请递交成功</h4>
-                                            <p class="step-time" id="step1Time">2026-06-06 20:50</p>
-                                            <p class="step-desc">预约人已在系统登记申报，申请书已盖数字时间戳，录入机要队列。</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Step 2 -->
-                                    <div class="tracker-timeline-step step-done" id="trackerStep2">
-                                        <div class="step-icon"><i data-lucide="check" style="width:10px;height:10px;"></i></div>
-                                        <div class="step-info">
-                                            <h4 class="step-title">2. 秘书处安全级别与资历初审</h4>
-                                            <p class="step-time" id="step2Time">2026-06-06 21:10</p>
-                                            <p class="step-desc">申请资质校验通过，利益冲突检索完毕，同意呈送主管阁下亲阅批示。</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Step 3 -->
-                                    <div class="tracker-timeline-step step-active" id="trackerStep3">
-                                        <div class="step-icon"><i data-lucide="loader-2" style="width:10px;height:10px;animation:spin 2s linear infinite;"></i></div>
-                                        <div class="step-info">
-                                            <h4 class="step-title">3. 主管办公室阅批终审</h4>
-                                            <p class="step-time" id="step3Time">批阅中...</p>
-                                            <p class="step-desc">正在呈送主管马骁煜阁下进行日程排期批复与会面议题审查。</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Step 4 -->
-                                    <div class="tracker-timeline-step step-pending" id="trackerStep4">
-                                        <div class="step-icon"><i data-lucide="user-check" style="width:10px;height:10px;"></i></div>
-                                        <div class="step-info">
-                                            <h4 class="step-title">4. 批准发给接见公函</h4>
-                                            <p class="step-time">待签发</p>
-                                            <p class="step-desc">最终准予接见复函发给，秘书处协调具体接见座次。</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1495,7 +1096,7 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-bottom">
-                <p class="copyright">&copy; 2026 马骁煜办公室. 首席技术专家日程呈批系统. All rights reserved.</p>
+                <p class="copyright">&copy; 2026 Austin. 会面预约管理系统. All rights reserved.</p>
                 <div class="footer-links">
                     <a href="#">回到顶部</a>
                 </div>
@@ -1505,11 +1106,5 @@
 
     <!-- JavaScript -->
     <script src="app.js?v=1.8"></script>
-    <style>
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
 </body>
 </html>

@@ -19,6 +19,146 @@
     <link rel="stylesheet" href="style.css?v=1.8">
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Pricing Section Styles */
+        .pricing-cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        @media (max-width: 768px) {
+            .pricing-cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .pricing-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+        }
+        .pricing-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(140, 98, 57, 0.05);
+        }
+        .featured-pricing-card {
+            border-color: var(--accent-color);
+            background: linear-gradient(135deg, #ffffff 0%, rgba(140, 98, 57, 0.01) 100%);
+            border-width: 2px;
+        }
+        .pricing-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: #ffffff;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.05em;
+        }
+        .pricing-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        .pricing-card-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 25px;
+            min-height: 44px;
+        }
+        .price-wrap {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 25px;
+        }
+        .currency {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-right: 4px;
+        }
+        .price-val {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+        .unit {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-left: 8px;
+        }
+        .price-custom {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 35px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+        }
+        .pricing-features li {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .check-icon {
+            width: 16px;
+            height: 16px;
+            color: var(--accent-color);
+            flex-shrink: 0;
+        }
+        .btn-pricing {
+            display: block;
+            text-align: center;
+            padding: 14px 30px;
+            font-weight: 600;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+        .btn-pricing-primary {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border: 1px solid var(--accent-color);
+        }
+        .btn-pricing-primary:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+            box-shadow: 0 4px 15px rgba(140, 98, 57, 0.15);
+        }
+        .btn-pricing-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        .btn-pricing-secondary:hover {
+            background-color: rgba(140, 98, 57, 0.05);
+            border-color: var(--accent-color);
+        }
+    </style>
 </head>
 <body class="subpage-body">
 
@@ -32,6 +172,7 @@
             </button>
             <nav class="nav-menu" id="navMenu">
                 <a href="#details" class="nav-link">核心服务</a>
+                <a href="#pricing" class="nav-link">收费标准</a>
                 <a href="#workflow" class="nav-link">服务流程</a>
                 <a href="#booking" class="nav-link contact-btn">与我联络</a>
             </nav>
@@ -111,12 +252,65 @@
             </div>
         </section>
 
+        <!-- Pricing Section -->
+        <section class="pricing-section" id="pricing" style="border-bottom: 1px solid var(--border-color); padding: 100px 0; background-color: #ffffff;">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-header">
+                        <span class="section-num">02 /</span>
+                        <h2 class="section-title">收费标准</h2>
+                        <p class="section-subtitle">SERVICE PRICING</p>
+                    </div>
+                    <div class="pricing-content">
+                        <p class="lead-text">“明码标价，拒绝隐形消费，专为本校学子提供的高性价比服务。”</p>
+                        
+                        <div class="pricing-cards-container">
+                            <!-- Popular Package Card (一条龙) -->
+                            <div class="pricing-card featured-pricing-card">
+                                <div class="pricing-badge">最受欢迎</div>
+                                <h3 class="pricing-card-title">全系统无痕“一条龙”服务</h3>
+                                <p class="pricing-card-desc">修改姓名、学号、以及上机实验日志时间戳等，全方位完美对齐，完美无漏。</p>
+                                <div class="price-wrap">
+                                    <span class="currency">¥</span>
+                                    <span class="price-val">60</span>
+                                    <span class="unit">/ 账套</span>
+                                </div>
+                                <ul class="pricing-features">
+                                    <li><i data-lucide="check" class="check-icon"></i> 姓名、学号底层无痕覆盖</li>
+                                    <li><i data-lucide="check" class="check-icon"></i> 上机实验日志自动匹配对齐</li>
+                                    <li><i data-lucide="check" class="check-icon"></i> 兼容学校机房机器时间要求</li>
+                                    <li><i data-lucide="check" class="check-icon"></i> 导入导出数据校验</li>
+                                </ul>
+                                <a href="#booking" class="btn btn-pricing btn-pricing-primary">立即预定一条龙</a>
+                            </div>
+                            
+                            <!-- Custom Pricing Card (其他服务) -->
+                            <div class="pricing-card">
+                                <h3 class="pricing-card-title">其他单项及高级技术服务</h3>
+                                <p class="pricing-card-desc">针对用友 U8 数据库损坏、备份导入报错、试算表不平衡、报表勾稽错误等高级技术会诊。</p>
+                                <div class="price-wrap">
+                                    <span class="price-custom">在线咨询</span>
+                                </div>
+                                <ul class="pricing-features">
+                                    <li><i data-lucide="check" class="check-icon"></i> 账套备份无法导入诊断与修复</li>
+                                    <li><i data-lucide="check" class="check-icon"></i> 期末结账试算不平衡分析与调平</li>
+                                    <li><i data-lucide="check" class="check-icon"></i> SQL Server 数据库表底层校验</li>
+                                    <li><i data-lucide="check" class="check-icon"></i> 视具体故障难度与工作量协商定价</li>
+                                </ul>
+                                <a href="#booking" class="btn btn-pricing btn-pricing-secondary">在线咨询详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Service Workflow Section -->
         <section class="service-workflow-section" id="workflow">
             <div class="container">
                 <div class="section-grid">
                     <div class="section-header">
-                        <span class="section-num">02 /</span>
+                        <span class="section-num">03 /</span>
                         <h2 class="section-title">服务流程</h2>
                         <p class="section-subtitle">WORKFLOW</p>
                     </div>
@@ -169,7 +363,7 @@
             <div class="container">
                 <div class="section-grid">
                     <div class="section-header">
-                        <span class="section-num">03 /</span>
+                        <span class="section-num">04 /</span>
                         <h2 class="section-title">我们的优势</h2>
                         <p class="section-subtitle">OUR ADVANTAGES</p>
                     </div>
