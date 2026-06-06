@@ -246,13 +246,14 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
 
             const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
+            const contactInfo = document.getElementById('contactInfo').value;
+            const email = document.getElementById('email').value || '未提供';
             const subject = document.getElementById('subject').value || '来自个人网站的留言';
             const message = document.getElementById('message').value;
 
             // Construct mailto link
             const emailReceiver = 'maxiaoyu666888@gmail.com';
-            const mailtoBody = `发件人姓名: ${name}\n发件人邮箱: ${email}\n\n内容:\n${message}`;
+            const mailtoBody = `发件人姓名: ${name}\n发件人微信/手机: ${contactInfo}\n发件人邮箱: ${email}\n\n留言内容:\n${message}`;
             const mailtoUrl = `mailto:${emailReceiver}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailtoBody)}`;
 
             // Set loading and feedback
@@ -278,6 +279,57 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => {
                         formStatus.textContent = '';
                         formStatus.style.opacity = '1';
+                    }, 400);
+                }, 5000);
+            }, 1000);
+        });
+    }
+
+    // 8. U8 Booking Form (mailto)
+    const bookingForm = document.getElementById('bookingForm');
+    const bookingStatus = document.getElementById('bookingStatus');
+
+    if (bookingForm && bookingStatus) {
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('bookingName').value;
+            const contact = document.getElementById('bookingContact').value;
+            const type = document.getElementById('bookingType').value;
+            const deadline = document.getElementById('bookingDeadline').value || '无紧急截止时间';
+            const desc = document.getElementById('bookingDesc').value;
+
+            // Construct mailto link
+            const emailReceiver = 'maxiaoyu666888@gmail.com';
+            const subject = `【U8预约】${name} - ${type}`;
+            const mailtoBody = `客户姓名: ${name}\n联系微信/手机: ${contact}\n服务类型: ${type}\n期望完成时间: ${deadline}\n\n具体报错与要求:\n${desc}`;
+            const mailtoUrl = `mailto:${emailReceiver}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailtoBody)}`;
+
+            // Set loading and feedback
+            const bookingSubmitBtn = bookingForm.querySelector('button[type="submit"]');
+            bookingSubmitBtn.disabled = true;
+            const btnText = bookingSubmitBtn.querySelector('span');
+            const originalText = btnText.textContent;
+            btnText.textContent = '正在唤起邮件...';
+
+            bookingStatus.className = 'form-status';
+            bookingStatus.style.color = '#ebdcc9'; // Light ochre feedback color
+            bookingStatus.textContent = '正在唤起您的本地邮箱客户端发送预约邮件...';
+
+            // Open mail client
+            window.location.href = mailtoUrl;
+
+            // Reset UI after short delay
+            setTimeout(() => {
+                bookingForm.reset();
+                bookingSubmitBtn.disabled = false;
+                btnText.textContent = originalText;
+                
+                setTimeout(() => {
+                    bookingStatus.style.opacity = '0';
+                    setTimeout(() => {
+                        bookingStatus.textContent = '';
+                        bookingStatus.style.opacity = '1';
                     }, 400);
                 }, 5000);
             }, 1000);
