@@ -64,7 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.about-section'),
         document.querySelector('.skills-section'),
         document.querySelector('.experience-section'),
-        document.querySelector('.contact-section')
+        document.querySelector('.contact-section'),
+        document.querySelector('.service-details-section'),
+        document.querySelector('.service-workflow-section'),
+        document.querySelector('.service-advantages-section'),
+        document.querySelector('.cta-section')
     ];
 
     // Add reveal class to sections

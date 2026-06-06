@@ -798,3 +798,50 @@ section {
     }
 }
 
+/* Service Subpage Featured Styles */
+.service-hero-section {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 0;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.service-hero-content {
+    max-width: 900px;
+}
+
+.featured-skill-card {
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 10px 30px rgba(140, 98, 57, 0.05);
+}
+
+.featured-skill-card .skill-icon-wrap {
+    background-color: var(--accent-color) !important;
+    color: var(--bg-color) !important;
+    border-color: var(--accent-color) !important;
+}
+
+.skill-card-link i {
+    transition: transform 0.3s ease;
+}
+
+.skill-card-link:hover {
+    color: var(--text-primary) !important;
+}
+
+.skill-card-link:hover i {
+    transform: translate(2px, -2px);
+}
+
+.subpage-body section {
+    border-bottom: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+    .service-hero-section {
+        min-height: 60vh;
+        padding: 60px 0;
+    }
+}
