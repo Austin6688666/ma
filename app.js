@@ -496,4 +496,54 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 600);
         });
     }
+
+    // 11. Personal Meeting Form
+    const meetForm = document.getElementById('meetForm');
+    const meetStatus = document.getElementById('meetStatus');
+
+    if (meetForm && meetStatus) {
+        meetForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('meetName').value;
+            const contact = document.getElementById('meetContact').value;
+            const type = document.getElementById('meetType').value;
+            const location = document.getElementById('meetLocation').value;
+            const time = document.getElementById('meetTime').value;
+            const desc = document.getElementById('meetDesc').value;
+
+            const formattedText = `【Austin 会面约会预约】
+预约人：${name}
+联系微信/手机：${contact}
+会面主题：${type}
+期望地点：${location}
+期望时间：${time}
+探讨内容与备注：${desc}`;
+
+            const meetSubmitBtn = meetForm.querySelector('button[type="submit"]');
+            meetSubmitBtn.disabled = true;
+            const btnText = meetSubmitBtn.querySelector('span');
+            const originalText = btnText.textContent;
+            btnText.textContent = '正在处理...';
+
+            meetStatus.className = 'form-status';
+            meetStatus.style.color = 'var(--accent-color)';
+            meetStatus.textContent = '已复制预约信息，正在打开向导...';
+
+            setTimeout(() => {
+                showContactSuccessModal(formattedText, 'Austin-love-m');
+                meetForm.reset();
+                meetSubmitBtn.disabled = false;
+                btnText.textContent = originalText;
+                
+                setTimeout(() => {
+                    meetStatus.style.opacity = '0';
+                    setTimeout(() => {
+                        meetStatus.textContent = '';
+                        meetStatus.style.opacity = '1';
+                    }, 400);
+                }, 3000);
+            }, 600);
+        });
+    }
 });
