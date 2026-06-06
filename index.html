@@ -20,6 +20,7 @@
 
     <!-- Header Navigation -->
     <header class="site-header">
+        <div class="scroll-progress-container"><div class="scroll-progress" id="scrollProgress"></div></div>
         <div class="nav-container">
             <a href="#" class="logo">MXY<span>.</span></a>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
@@ -29,6 +30,7 @@
                 <a href="#about" class="nav-link">关于我</a>
                 <a href="#skills" class="nav-link">专业技能</a>
                 <a href="#experience" class="nav-link">校园经历</a>
+                <a href="#" class="nav-link tour-link" id="navTourBtn"><i data-lucide="compass" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 4px;"></i>开启导览</a>
                 <a href="#contact" class="nav-link contact-btn">与我联络</a>
             </nav>
         </div>
@@ -48,8 +50,8 @@
                         我是马骁煜，今年 20 岁，现就读于<strong>南宁理工大学会计学专业</strong>。在资产负债表与数字的理性世界里，我追求精准与严密。致力于结合传统财务智慧与数字化数据分析，探索未来智能财务的无限可能。
                     </p>
                     <div class="hero-actions">
-                        <a href="#about" class="btn btn-primary">探索更多 <i data-lucide="arrow-down" class="btn-icon"></i></a>
-                        <a href="#contact" class="btn btn-secondary">取得联系</a>
+                        <button class="btn btn-primary" id="heroTourBtn"><i data-lucide="compass" class="btn-icon"></i> 开启系统导览</button>
+                        <a href="#about" class="btn btn-secondary">手动探索 <i data-lucide="arrow-down" class="btn-icon"></i></a>
                     </div>
                 </div>
             </div>
@@ -260,6 +262,23 @@
             </div>
         </div>
     </footer>
+
+    <!-- Interactive Tour Overlay & Modal -->
+    <div class="tour-overlay" id="tourOverlay"></div>
+    <div class="tour-card" id="tourCard">
+        <div class="tour-card-header">
+            <span class="tour-step-indicator" id="tourStepIndicator">步骤 1/5</span>
+            <button class="tour-close-btn" id="tourCloseBtn" aria-label="关闭导览"><i data-lucide="x"></i></button>
+        </div>
+        <div class="tour-card-body">
+            <h4 class="tour-card-title" id="tourCardTitle">导览标题</h4>
+            <p class="tour-card-text" id="tourCardText">导览说明内容。</p>
+        </div>
+        <div class="tour-card-footer">
+            <button class="tour-btn tour-btn-prev" id="tourPrevBtn">上一步</button>
+            <button class="tour-btn tour-btn-next" id="tourNextBtn">下一步</button>
+        </div>
+    </div>
 
     <!-- JavaScript -->
     <script src="app.js"></script>

@@ -353,7 +353,8 @@ section {
 }
 
 .skill-card:hover {
-    border-color: var(--text-primary);
+    border-color: var(--accent-color);
+    box-shadow: 0 15px 35px rgba(140, 98, 57, 0.08);
     transform: translateY(-5px);
 }
 
@@ -428,6 +429,7 @@ section {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
     transform: scale(1.3);
+    box-shadow: 0 0 10px rgba(140, 98, 57, 0.5);
 }
 
 .timeline-year {
@@ -641,3 +643,158 @@ section {
         display: block;
     }
 }
+
+/* Scroll Progress Indicator */
+.scroll-progress-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: transparent;
+    z-index: 1001;
+}
+.scroll-progress {
+    width: 0%;
+    height: 100%;
+    background-color: var(--accent-color);
+    transition: width 0.1s ease-out;
+}
+
+/* Interactive Tour Styles */
+.tour-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 26, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.tour-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.tour-highlighted {
+    position: relative;
+    z-index: 9999 !important;
+    background-color: var(--bg-color) !important;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12) !important;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.tour-card {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 380px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--text-primary);
+    padding: 30px;
+    z-index: 9999;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.tour-card.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.tour-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+}
+.tour-step-indicator {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--accent-color);
+    text-transform: uppercase;
+}
+.tour-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+.tour-close-btn:hover {
+    color: var(--text-primary);
+}
+.tour-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.tour-card-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+.tour-card-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 10px;
+}
+.tour-btn {
+    padding: 10px 20px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid var(--text-primary);
+    background-color: transparent;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    flex: 1;
+    text-align: center;
+}
+.tour-btn-next {
+    background-color: var(--text-primary);
+    color: var(--bg-color);
+}
+.tour-btn-next:hover {
+    background-color: transparent;
+    color: var(--text-primary);
+}
+.tour-btn-prev:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-color);
+}
+.tour-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+@media (max-width: 480px) {
+    .tour-card {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+        width: calc(100% - 40px);
+        padding: 24px;
+    }
+}
+
