@@ -321,10 +321,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Safe localStorage Wrapper to prevent script crash when blocked (e.g., in Incognito mode)
+    function safeGetItem(key) {
+        try {
+            return localStorage.getItem(key);
+        } catch (e) {
+            console.warn('localStorage is disabled or blocked:', e);
+            return null;
+        }
+    }
+
+    function safeSetItem(key, value) {
+        try {
+            localStorage.setItem(key, value);
+            return true;
+        } catch (e) {
+            console.warn('localStorage is disabled or blocked:', e);
+            return false;
+        }
+    }
+
     // Initialize/Check localStorage Coupon state
     if (btnGenerateCoupon && couponBoxView && voucherTicketWrapper) {
-        const savedCode = localStorage.getItem('u8_ticket_code');
-        const savedVal = localStorage.getItem('u8_ticket_value');
+        const savedCode = safeGetItem('u8_ticket_code');
+        const savedVal = safeGetItem('u8_ticket_value');
 
         if (savedCode && savedVal) {
             // Render previously drawn ticket card
@@ -337,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         btnGenerateCoupon.addEventListener('click', () => {
-            if (localStorage.getItem('u8_ticket_code')) return;
+            if (safeGetItem('u8_ticket_code')) return;
 
             btnGenerateCoupon.disabled = true;
             btnGenerateCoupon.querySelector('span').textContent = '正在计算专属折扣...';
@@ -359,8 +379,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 voucherTicketWrapper.classList.add('show');
 
                 // Save to localStorage
-                localStorage.setItem('u8_ticket_code', code);
-                localStorage.setItem('u8_ticket_value', val.toFixed(1));
+                safeSetItem('u8_ticket_code', code);
+                safeSetItem('u8_ticket_value', val.toFixed(1));
 
                 // Trigger congratulations alert modal with bold screenshot rule
                 showTicketNoticeModal(val, code);
