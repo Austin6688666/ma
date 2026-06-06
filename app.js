@@ -266,13 +266,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 8. Elegant Success Modal Overlay (Optimized for WeChat)
     function showContactSuccessModal(formattedText, wechatId = 'Austin-love-ma') {
-        // Automatically copy reservation details to clipboard
-        copyTextToClipboard(formattedText, () => {
-            console.log('Reservation details copied to clipboard.');
-        }, (err) => {
-            console.error('Could not copy reservation details: ', err);
-        });
-
         // Create overlay and modal
         const overlay = document.createElement('div');
         overlay.className = 'contact-modal-overlay';
@@ -281,37 +274,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="contact-modal-icon-wrap">
                     <i data-lucide="check" style="width: 28px; height: 28px;"></i>
                 </div>
-                <h3 class="contact-modal-title">信息已复制，微信联络</h3>
+                <h3 class="contact-modal-title">预约申请已生成</h3>
                 <p class="contact-modal-desc">
-                    已为您生成专属预约信息并<strong>自动复制到您的剪贴板</strong>！请通过以下步骤添加我的微信并发送信息：
+                    您的留言/需求已排版完毕。请跟随下方两步指引，添加我的微信并发送：
                 </p>
                 
-                <div class="contact-modal-wechat-card" id="wechatCard" style="cursor: pointer;" title="点击可再次复制微信号">
-                    <span class="contact-modal-wechat-label">微信 ID（点击可复制）</span>
+                <div class="contact-modal-wechat-card" id="wechatCard" style="cursor: pointer;" title="点击可复制微信号">
+                    <span class="contact-modal-wechat-label">微信号（点击可复制）</span>
                     <span class="contact-modal-wechat-id">${wechatId}</span>
                 </div>
                 
                 <div class="contact-modal-steps">
                     <div class="contact-modal-step-item">
                         <span class="contact-modal-step-num">1</span>
-                        <span><strong>详情已复制</strong>：您刚才填写的留言或预约需求，已经安全存在您的剪贴板中。</span>
+                        <span>点击下方 <strong>“1. 复制微信号并跳转微信”</strong>，搜索并添加好友。</span>
                     </div>
                     <div class="contact-modal-step-item">
                         <span class="contact-modal-step-num">2</span>
-                        <span><strong>复制微信并跳转</strong>：点击下方黑色按钮，会自动复制微信号并尝试跳转到微信。</span>
+                        <span>添加成功后，回到此页面点击 <strong>“2. 复制我的预约详情”</strong>。</span>
                     </div>
                     <div class="contact-modal-step-item">
                         <span class="contact-modal-step-num">3</span>
-                        <span><strong>添加好友并粘贴</strong>：在微信中搜索并添加好友，通过后直接“粘贴”发送即可！</span>
+                        <span>在微信聊天框直接 <strong>“粘贴”</strong> 并发送给我即可！</span>
                     </div>
                 </div>
                 
-                <div class="contact-modal-actions">
-                    <button class="contact-modal-btn contact-modal-btn-primary" id="modalCopyOpenBtn">
-                        <span>复制微信号并打开微信</span>
+                <div class="contact-modal-actions" style="flex-direction: column; width: 100%; gap: 12px;">
+                    <button class="contact-modal-btn contact-modal-btn-primary" id="modalCopyWechatBtn" style="width: 100%;">
+                        <span>1. 复制微信号并跳转微信</span>
                         <i data-lucide="message-circle" style="width: 16px; height: 16px;"></i>
                     </button>
-                    <button class="contact-modal-btn contact-modal-btn-secondary" id="modalCloseBtn">
+                    <button class="contact-modal-btn" id="modalCopyDataBtn" style="width: 100%; background-color: var(--accent-color); color: var(--bg-color); border-color: var(--accent-color);">
+                        <span>2. 复制我的预约详情</span>
+                        <i data-lucide="copy" style="width: 16px; height: 16px;"></i>
+                    </button>
+                    <button class="contact-modal-btn contact-modal-btn-secondary" id="modalCloseBtn" style="width: 100%;">
                         <span>关闭窗口</span>
                     </button>
                 </div>
@@ -337,17 +334,18 @@ document.addEventListener('DOMContentLoaded', () => {
             overlay.classList.add('active');
         }, 50);
 
-        const copyOpenBtn = overlay.querySelector('#modalCopyOpenBtn');
+        const copyWechatBtn = overlay.querySelector('#modalCopyWechatBtn');
+        const copyDataBtn = overlay.querySelector('#modalCopyDataBtn');
         const wechatCard = overlay.querySelector('#wechatCard');
         const closeBtn = overlay.querySelector('#modalCloseBtn');
 
+        // Copy WeChat ID and jump to WeChat
         function doWeChatCopyAndJump() {
             copyTextToClipboard(wechatId, () => {
-                const btnText = copyOpenBtn.querySelector('span');
+                const btnText = copyWechatBtn.querySelector('span');
                 const originalText = btnText.textContent;
-                btnText.textContent = '微信号已复制！正在跳转...';
+                btnText.textContent = '微信号已复制！正在跳转微信...';
                 
-                // Show floating tip on card
                 const label = wechatCard.querySelector('.contact-modal-wechat-label');
                 const originalLabel = label.textContent;
                 label.textContent = '微信号复制成功！';
@@ -362,7 +360,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        copyOpenBtn.addEventListener('click', doWeChatCopyAndJump);
+        // Copy Reservation Details
+        function doDataCopy() {
+            copyTextToClipboard(formattedText, () => {
+                const btnText = copyDataBtn.querySelector('span');
+                const originalText = btnText.textContent;
+                btnText.textContent = '✓ 预约详情已复制到剪贴板！';
+                
+                setTimeout(() => {
+                    btnText.textContent = originalText;
+                }, 2500);
+            });
+        }
+
+        copyWechatBtn.addEventListener('click', doWeChatCopyAndJump);
+        copyDataBtn.addEventListener('click', doDataCopy);
         wechatCard.addEventListener('click', () => {
             copyTextToClipboard(wechatId, () => {
                 const label = wechatCard.querySelector('.contact-modal-wechat-label');
