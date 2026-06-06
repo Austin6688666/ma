@@ -236,7 +236,161 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. Contact Form (Method B - mailto)
+    // 7. Robust Clipboard Copy Function
+    function copyTextToClipboard(text, onSuccess, onFailure) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(onSuccess).catch(onFailure);
+        } else {
+            // Fallback for non-HTTPS or older browsers
+            try {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                textArea.style.top = '0';
+                textArea.style.left = '0';
+                textArea.style.position = 'fixed';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                const successful = document.execCommand('copy');
+                document.body.removeChild(textArea);
+                if (successful) {
+                    if (onSuccess) onSuccess();
+                } else {
+                    if (onFailure) onFailure();
+                }
+            } catch (err) {
+                if (onFailure) onFailure(err);
+            }
+        }
+    }
+
+    // 8. Elegant Success Modal Overlay (Optimized for WeChat)
+    function showContactSuccessModal(formattedText, wechatId = 'austin-love-ma') {
+        // Automatically copy reservation details to clipboard
+        copyTextToClipboard(formattedText, () => {
+            console.log('Reservation details copied to clipboard.');
+        }, (err) => {
+            console.error('Could not copy reservation details: ', err);
+        });
+
+        // Create overlay and modal
+        const overlay = document.createElement('div');
+        overlay.className = 'contact-modal-overlay';
+        overlay.innerHTML = `
+            <div class="contact-modal">
+                <div class="contact-modal-icon-wrap">
+                    <i data-lucide="check" style="width: 28px; height: 28px;"></i>
+                </div>
+                <h3 class="contact-modal-title">信息已复制，微信联络</h3>
+                <p class="contact-modal-desc">
+                    已为您生成专属预约信息并<strong>自动复制到您的剪贴板</strong>！请通过以下步骤添加我的微信并发送信息：
+                </p>
+                
+                <div class="contact-modal-wechat-card" id="wechatCard" style="cursor: pointer;" title="点击可再次复制微信号">
+                    <span class="contact-modal-wechat-label">微信 ID（点击可复制）</span>
+                    <span class="contact-modal-wechat-id">${wechatId}</span>
+                </div>
+                
+                <div class="contact-modal-steps">
+                    <div class="contact-modal-step-item">
+                        <span class="contact-modal-step-num">1</span>
+                        <span><strong>详情已复制</strong>：您刚才填写的留言或预约需求，已经安全存在您的剪贴板中。</span>
+                    </div>
+                    <div class="contact-modal-step-item">
+                        <span class="contact-modal-step-num">2</span>
+                        <span><strong>复制微信并跳转</strong>：点击下方黑色按钮，会自动复制微信号并尝试跳转到微信。</span>
+                    </div>
+                    <div class="contact-modal-step-item">
+                        <span class="contact-modal-step-num">3</span>
+                        <span><strong>添加好友并粘贴</strong>：在微信中搜索并添加好友，通过后直接“粘贴”发送即可！</span>
+                    </div>
+                </div>
+                
+                <div class="contact-modal-actions">
+                    <button class="contact-modal-btn contact-modal-btn-primary" id="modalCopyOpenBtn">
+                        <span>复制微信号并打开微信</span>
+                        <i data-lucide="message-circle" style="width: 16px; height: 16px;"></i>
+                    </button>
+                    <button class="contact-modal-btn contact-modal-btn-secondary" id="modalCloseBtn">
+                        <span>关闭窗口</span>
+                    </button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        // Render Lucide icons inside the modal
+        if (window.lucide) {
+            window.lucide.createIcons({
+                attrs: { class: 'lucide' },
+                nameAttr: 'data-lucide',
+                node: overlay
+            });
+        }
+
+        // Lock background scroll
+        document.body.style.overflow = 'hidden';
+
+        // Animate modal in
+        setTimeout(() => {
+            overlay.classList.add('active');
+        }, 50);
+
+        const copyOpenBtn = overlay.querySelector('#modalCopyOpenBtn');
+        const wechatCard = overlay.querySelector('#wechatCard');
+        const closeBtn = overlay.querySelector('#modalCloseBtn');
+
+        function doWeChatCopyAndJump() {
+            copyTextToClipboard(wechatId, () => {
+                const btnText = copyOpenBtn.querySelector('span');
+                const originalText = btnText.textContent;
+                btnText.textContent = '微信号已复制！正在跳转...';
+                
+                // Show floating tip on card
+                const label = wechatCard.querySelector('.contact-modal-wechat-label');
+                const originalLabel = label.textContent;
+                label.textContent = '微信号复制成功！';
+                
+                // Attempt to open WeChat application
+                window.location.href = 'weixin://';
+                
+                setTimeout(() => {
+                    btnText.textContent = originalText;
+                    label.textContent = originalLabel;
+                }, 2000);
+            });
+        }
+
+        copyOpenBtn.addEventListener('click', doWeChatCopyAndJump);
+        wechatCard.addEventListener('click', () => {
+            copyTextToClipboard(wechatId, () => {
+                const label = wechatCard.querySelector('.contact-modal-wechat-label');
+                const originalLabel = label.textContent;
+                label.textContent = '微信号复制成功！';
+                setTimeout(() => {
+                    label.textContent = originalLabel;
+                }, 1500);
+            });
+        });
+
+        function closeModal() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                overlay.remove();
+            }, 500);
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                closeModal();
+            }
+        });
+    }
+
+    // 9. Homepage Contact Form
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
     const submitBtn = document.getElementById('submitBtn');
@@ -251,25 +405,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const subject = document.getElementById('subject').value || '来自个人网站的留言';
             const message = document.getElementById('message').value;
 
-            // Construct mailto link
-            const emailReceiver = 'maxiaoyu666888@gmail.com';
-            const mailtoBody = `发件人姓名: ${name}\n发件人微信/手机: ${contactInfo}\n发件人邮箱: ${email}\n\n留言内容:\n${message}`;
-            const mailtoUrl = `mailto:${emailReceiver}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailtoBody)}`;
+            const formattedText = `【主页留言联络】
+姓名：${name}
+微信/手机：${contactInfo}
+邮箱：${email}
+主题：${subject}
+留言内容：${message}`;
 
-            // Set loading and feedback
             submitBtn.disabled = true;
             const btnText = submitBtn.querySelector('span');
             const originalText = btnText.textContent;
-            btnText.textContent = '正在唤起邮件...';
+            btnText.textContent = '正在处理...';
 
             formStatus.className = 'form-status success';
-            formStatus.textContent = '正在唤起您的本地邮箱客户端发送邮件...';
+            formStatus.textContent = '已复制留言，正在打开联络向导...';
 
-            // Open mail client
-            window.location.href = mailtoUrl;
-
-            // Reset UI after short delay
             setTimeout(() => {
+                showContactSuccessModal(formattedText, 'austin-love-ma');
                 contactForm.reset();
                 submitBtn.disabled = false;
                 btnText.textContent = originalText;
@@ -280,12 +432,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         formStatus.textContent = '';
                         formStatus.style.opacity = '1';
                     }, 400);
-                }, 5000);
-            }, 1000);
+                }, 3000);
+            }, 600);
         });
     }
 
-    // 8. U8 Booking Form (mailto)
+    // 10. U8 Booking Form
     const bookingForm = document.getElementById('bookingForm');
     const bookingStatus = document.getElementById('bookingStatus');
 
@@ -299,28 +451,25 @@ document.addEventListener('DOMContentLoaded', () => {
             const deadline = document.getElementById('bookingDeadline').value || '无紧急截止时间';
             const desc = document.getElementById('bookingDesc').value;
 
-            // Construct mailto link
-            const emailReceiver = 'maxiaoyu666888@gmail.com';
-            const subject = `【U8预约】${name} - ${type}`;
-            const mailtoBody = `客户姓名: ${name}\n联系微信/手机: ${contact}\n服务类型: ${type}\n期望完成时间: ${deadline}\n\n具体报错与要求:\n${desc}`;
-            const mailtoUrl = `mailto:${emailReceiver}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailtoBody)}`;
+            const formattedText = `【用友 U8 预约需求】
+客户姓名：${name}
+联系方式：${contact}
+服务类型：${type}
+期望截止时间：${deadline}
+报错描述与修改要求：${desc}`;
 
-            // Set loading and feedback
             const bookingSubmitBtn = bookingForm.querySelector('button[type="submit"]');
             bookingSubmitBtn.disabled = true;
             const btnText = bookingSubmitBtn.querySelector('span');
             const originalText = btnText.textContent;
-            btnText.textContent = '正在唤起邮件...';
+            btnText.textContent = '正在处理...';
 
             bookingStatus.className = 'form-status';
-            bookingStatus.style.color = '#ebdcc9'; // Light ochre feedback color
-            bookingStatus.textContent = '正在唤起您的本地邮箱客户端发送预约邮件...';
+            bookingStatus.style.color = 'var(--accent-color)';
+            bookingStatus.textContent = '已复制预约信息，正在打开向导...';
 
-            // Open mail client
-            window.location.href = mailtoUrl;
-
-            // Reset UI after short delay
             setTimeout(() => {
+                showContactSuccessModal(formattedText, 'austin-love-ma');
                 bookingForm.reset();
                 bookingSubmitBtn.disabled = false;
                 btnText.textContent = originalText;
@@ -331,8 +480,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         bookingStatus.textContent = '';
                         bookingStatus.style.opacity = '1';
                     }, 400);
-                }, 5000);
-            }, 1000);
+                }, 3000);
+            }, 600);
         });
     }
 });
