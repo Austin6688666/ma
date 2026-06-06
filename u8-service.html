@@ -188,7 +188,7 @@
         <!-- Booking Form Section -->
         <section class="booking-section" id="booking" style="border-bottom: none; padding: 100px 0 140px 0;">
             <div class="container">
-                <div style="border: 1px solid var(--border-color); padding: 60px 50px; border-radius: 0;">
+                <div class="booking-container">
                     <div style="text-align: center; margin-bottom: 40px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
                         <span style="font-size: 0.85rem; letter-spacing: 0.2em; color: var(--accent-color); font-weight: 600; text-transform: uppercase;">BOOK SERVICE NOW</span>
                         <h2 style="font-family: var(--font-serif); font-size: 2.5rem; line-height: 1.3; font-weight: 500; max-width: 600px; color: var(--text-primary);">
@@ -200,7 +200,7 @@
                     </div>
 
                     <form class="contact-form" id="bookingForm" style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px;">
-                        <div class="form-row" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                        <div class="form-row">
                             <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
                                 <label style="color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">您的姓名 *</label>
                                 <input type="text" id="bookingName" required placeholder="例如：李同学" style="border-bottom-color: var(--border-color); color: var(--text-primary); background: transparent; border: none; border-bottom: 1px solid var(--border-color); padding: 12px 0; outline: none; transition: var(--transition-smooth);" onfocus="this.style.borderBottomColor='var(--text-primary)'" onblur="this.style.borderBottomColor='var(--border-color)'">
@@ -211,7 +211,7 @@
                             </div>
                         </div>
 
-                        <div class="form-row" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                        <div class="form-row">
                             <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
                                 <label style="color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">服务需求类型 *</label>
                                 <select id="bookingType" required style="border: none; border-bottom: 1px solid var(--border-color); padding: 12px 0; outline: none; background: transparent; color: var(--text-primary); font-family: var(--font-sans); font-size: 1rem; transition: var(--transition-smooth);" onfocus="this.style.borderBottomColor='var(--text-primary)'" onblur="this.style.borderBottomColor='var(--border-color)'">
