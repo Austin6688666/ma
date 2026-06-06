@@ -120,13 +120,22 @@ body {
 
 .logo {
     font-family: var(--font-serif);
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--text-primary);
     text-decoration: none;
+    transition: var(--transition-smooth);
 }
 
 .logo span {
+    color: var(--accent-color);
+    margin-left: 2px;
+}
+
+.logo:hover {
+    letter-spacing: 0.22em;
     color: var(--accent-color);
 }
 
@@ -236,15 +245,33 @@ section {
 
 /* Hero Section */
 .hero-section {
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
     padding-top: var(--header-height);
     background-color: var(--bg-color);
     border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.hero-bg-letter {
+    position: absolute;
+    right: 8%;
+    top: 45%;
+    transform: translateY(-50%);
+    font-family: var(--font-serif);
+    font-size: 32rem;
+    font-weight: 700;
+    color: rgba(140, 98, 57, 0.025);
+    user-select: none;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .hero-content {
+    position: relative;
+    z-index: 1;
     max-width: 800px;
     padding-bottom: 40px;
 }
