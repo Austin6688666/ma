@@ -159,112 +159,177 @@
             border-color: var(--accent-color);
         }
 
-        /* Lucky Wheel UI Styles */
-        .wheel-outer-ring {
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            border: 10px solid var(--accent-color);
+        /* Ticket Stub UI Styles */
+        .coupon-box-view {
+            text-align: center;
+            padding: 40px 30px;
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            max-width: 480px;
+            margin: 0 auto;
+            background: #ffffff;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+        }
+        .coupon-box-view.hide {
+            display: none;
+        }
+        .btn-generate-coupon {
             background-color: var(--accent-color);
-            position: relative;
-            box-shadow: 0 10px 30px rgba(140, 98, 57, 0.15), inset 0 0 20px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            display: flex;
+            color: #ffffff;
+            border: 1px solid var(--accent-color);
+            padding: 14px 35px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            margin-top: 15px;
+            display: inline-flex;
             align-items: center;
+            gap: 8px;
+        }
+        .btn-generate-coupon:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+            box-shadow: 0 4px 15px rgba(140, 98, 57, 0.15);
+        }
+
+        .voucher-ticket-wrapper {
+            display: none; /* Initially hidden */
+            width: 100%;
             justify-content: center;
             margin: 0 auto;
         }
-        .wheel-plate {
+        .voucher-ticket-wrapper.show {
+            display: flex;
+        }
+
+        .voucher-ticket {
+            display: flex;
             width: 100%;
-            height: 100%;
-            border-radius: 50%;
+            max-width: 500px;
+            background: #fffdf9;
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
             position: relative;
-            background: #ffffff;
-            transition: transform 6s cubic-bezier(0.15, 1, 0.2, 1);
             overflow: hidden;
+            box-shadow: 0 10px 35px rgba(140, 98, 57, 0.08);
+            transition: var(--transition-smooth);
+            transform: scale(0.95);
+            opacity: 0;
+            min-height: 150px;
         }
-        .wheel-sector {
+        .voucher-ticket-wrapper.show .voucher-ticket {
+            transform: scale(1);
+            opacity: 1;
+        }
+        /* Ticket circular cutouts on sides */
+        .voucher-ticket::before,
+        .voucher-ticket::after {
+            content: '';
             position: absolute;
-            width: 50%;
-            height: 50%;
-            left: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fcfbfa; /* Matches section/pricing bg */
             top: 50%;
-            transform-origin: 0 0;
-            overflow: hidden;
+            transform: translateY(-50%);
+            z-index: 5;
+            border: 2px solid var(--accent-color);
         }
-        .sector-text {
-            position: absolute;
-            left: 20px;
-            top: 30px;
+        .voucher-ticket::before {
+            left: -11px;
+        }
+        .voucher-ticket::after {
+            right: -11px;
+        }
+        
+        /* Left segment of ticket (Value block) */
+        .ticket-left {
+            width: 32%;
+            border-right: 2px dashed rgba(140, 98, 57, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(140, 98, 57, 0.02);
+            padding: 15px;
+        }
+        .ticket-price-symbol {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .ticket-price-val {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            line-height: 1;
+        }
+        .ticket-price-label {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Right segment of ticket (Info block) */
+        .ticket-right {
+            width: 68%;
+            padding: 20px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+        .ticket-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .ticket-code-row {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin: 5px 0;
+        }
+        .ticket-code {
+            font-family: monospace;
             font-size: 0.95rem;
             font-weight: 700;
             color: var(--text-primary);
-            transform: rotate(30deg);
-            white-space: nowrap;
+            background: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 5px;
         }
-        /* Sector angles (6 sectors: 60 degrees each) */
-        .sector-1 { transform: rotate(0deg) skewY(30deg); background-color: #fffaf0; }
-        .sector-2 { transform: rotate(60deg) skewY(30deg); background-color: #fcf6e8; }
-        .sector-3 { transform: rotate(120deg) skewY(30deg); background-color: #fffaf0; }
-        .sector-4 { transform: rotate(180deg) skewY(30deg); background-color: #fcf6e8; }
-        .sector-5 { transform: rotate(240deg) skewY(30deg); background-color: #fffaf0; }
-        .sector-6 { transform: rotate(300deg) skewY(30deg); background-color: #fcf6e8; }
-        
-        /* Correct text orientation inside skewed sectors */
-        .sector-1 .sector-text { transform: skewY(-30deg) rotate(30deg); color: #b8975a; }
-        .sector-2 .sector-text { transform: skewY(-30deg) rotate(30deg); color: #11223f; }
-        .sector-3 .sector-text { transform: skewY(-30deg) rotate(30deg); color: #b8975a; }
-        .sector-4 .sector-text { transform: skewY(-30deg) rotate(30deg); color: #11223f; }
-        .sector-5 .sector-text { transform: skewY(-30deg) rotate(30deg); color: #b8975a; }
-        .sector-6 .sector-text { transform: skewY(-30deg) rotate(30deg); color: #11223f; }
-
-        .wheel-pointer-btn {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background-color: var(--accent-color);
-            border: 4px solid #ffffff;
-            color: #ffffff;
-            position: absolute;
-            z-index: 10;
+        .ticket-rule {
+            font-size: 0.75rem;
+            color: #ef4444; /* Red for high visibility rule */
+            font-weight: 700;
+            margin-top: 4px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-            font-weight: 700;
-            line-height: 1.2;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            transition: var(--transition-smooth);
+            gap: 4px;
         }
-        .wheel-pointer-btn:hover {
-            transform: scale(1.08);
-            background-color: #9e7345;
+        .ticket-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 8px;
+            margin-top: 5px;
         }
-        /* Triangle indicator pointer */
-        .wheel-pointer-btn::after {
-            content: '';
-            position: absolute;
-            top: -16px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-width: 10px;
-            border-style: solid;
-            border-color: transparent transparent var(--accent-color) transparent;
-        }
-        .wheel-pointer-btn:hover::after {
-            border-color: transparent transparent #9e7345 transparent;
-        }
-        .wheel-pointer-btn.disabled {
-            background-color: #cbd5e1;
-            border-color: #f1f5f9;
-            color: #94a3b8;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-        .wheel-pointer-btn.disabled::after {
-            border-color: transparent transparent #cbd5e1 transparent;
+        
+        /* Barcode decoration */
+        .ticket-barcode {
+            width: 60px;
+            height: 22px;
+            background-image: repeating-linear-gradient(90deg, #11223f 0px, #11223f 1px, transparent 1px, transparent 3px, #11223f 3px, #11223f 5px, transparent 5px, transparent 7px);
+            opacity: 0.65;
         }
     </style>
 </head>
@@ -409,36 +474,52 @@
                             </div>
                         </div>
 
-                        <!-- Lucky Wheel Draw Module -->
-                        <div class="wheel-draw-wrapper" style="margin-top: 60px; border-top: 1px dashed var(--border-color); padding-top: 50px; width: 100%;">
+                        <!-- Coupon Generator Module -->
+                        <div class="coupon-generator-wrapper" style="margin-top: 60px; border-top: 1px dashed var(--border-color); padding-top: 50px; width: 100%;">
                             <div class="wheel-draw-header" style="text-align: center; margin-bottom: 40px;">
-                                <h3 class="wheel-draw-title" style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary);"><i data-lucide="gift" style="width: 22px; height: 22px; color: var(--accent-color); display: inline-block; vertical-align: middle; margin-right: 6px;"></i> 幸运抽奖 · 即享优惠</h3>
-                                <p class="wheel-draw-subtitle" style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 8px;">预约前先试手气！最高可抽取 <strong>¥5.00</strong> 专属无门槛优惠券，抽中即可立减。</p>
+                                <h3 class="wheel-draw-title" style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary);"><i data-lucide="gift" style="width: 22px; height: 22px; color: var(--accent-color); display: inline-block; vertical-align: middle; margin-right: 6px;"></i> 领券中心 · 获取专属优惠</h3>
+                                <p class="wheel-draw-subtitle" style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 8px;">预约服务前先获取您的专属优惠券！最高可随机生成 <strong>¥5.00</strong> 优惠券，截图保存立享折扣。</p>
                             </div>
                             
-                            <div class="wheel-container-flex" style="display: flex; justify-content: center; align-items: center; gap: 50px; flex-wrap: wrap; width: 100%;">
-                                <!-- Wheel Canvas Block -->
-                                <div class="wheel-outer-ring">
-                                    <div class="wheel-plate" id="wheelPlate">
-                                        <div class="wheel-sector sector-1"><span class="sector-text">¥5.00</span></div>
-                                        <div class="wheel-sector sector-2"><span class="sector-text">¥1.00</span></div>
-                                        <div class="wheel-sector sector-3"><span class="sector-text">¥3.00</span></div>
-                                        <div class="wheel-sector sector-4"><span class="sector-text">¥2.00</span></div>
-                                        <div class="wheel-sector sector-5"><span class="sector-text">¥4.50</span></div>
-                                        <div class="wheel-sector sector-6"><span class="sector-text">¥1.50</span></div>
+                            <!-- State 1: Before Drawing (Button box) -->
+                            <div class="coupon-box-view" id="couponBoxView">
+                                <i data-lucide="ticket" style="width: 48px; height: 48px; color: var(--accent-color); opacity: 0.8; margin-bottom: 15px; display: inline-block;"></i>
+                                <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">您的专属优惠券待领取</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 6px;">每个浏览器/用户限领一张，点击下方按钮随机生成。</p>
+                                <button type="button" class="btn-generate-coupon" id="btnGenerateCoupon">
+                                    <span>获取我的专属优惠券</span>
+                                    <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- State 2: After Drawing (Voucher Ticket Stub) -->
+                            <div class="voucher-ticket-wrapper" id="voucherTicketWrapper">
+                                <div class="voucher-ticket">
+                                    <!-- Ticket Left (Price Value) -->
+                                    <div class="ticket-left">
+                                        <div>
+                                            <span class="ticket-price-symbol">¥</span>
+                                            <span class="ticket-price-val" id="ticketPriceVal">5.0</span>
+                                        </div>
+                                        <span class="ticket-price-label">无门槛代金券</span>
                                     </div>
-                                    <div class="wheel-pointer-btn" id="wheelPointerBtn">开始<br>抽奖</div>
-                                </div>
-                                
-                                <!-- Wheel Info Panel -->
-                                <div class="wheel-info-panel" style="max-width: 380px; display: flex; flex-direction: column; gap: 15px;">
-                                    <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">抽奖细则：</h4>
-                                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px;">
-                                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--accent-color); font-weight: 700;">•</span> 专为南宁理工大学U8服务预约学子提供，即抽即中，100%有奖。</li>
-                                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--accent-color); font-weight: 700;">•</span> 每台设备/每名用户仅限抽奖<strong>一次</strong>，抽中优惠券后将生成专属代码。</li>
-                                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--accent-color); font-weight: 700;">•</span> 优惠券代码会自动附加在您的预约单里，在线客服核对后立减对应金额。</li>
-                                    </ul>
-                                    <div id="drawStatusText" style="font-size: 0.95rem; font-weight: 600; color: var(--accent-color); min-height: 20px; margin-top: 10px;"></div>
+                                    
+                                    <!-- Ticket Right (Info Details) -->
+                                    <div class="ticket-right">
+                                        <div>
+                                            <h4 class="ticket-title">用友 U8 维护专属优惠凭证</h4>
+                                            <div class="ticket-code-row">券码：<strong class="ticket-code" id="ticketCodeVal">U8-TICKET-8902</strong></div>
+                                            <!-- Ticket Screenshot Rule Highlighted in Bold Red -->
+                                            <div class="ticket-rule">
+                                                <i data-lucide="info" style="width: 14px; height: 14px; flex-shrink:0;"></i>
+                                                <span>优惠规则：请截图保存此凭证。在微信预约时发送截图给客服即可享受立减。</span>
+                                            </div>
+                                        </div>
+                                        <div class="ticket-footer">
+                                            <span id="ticketDateVal">有效期限：2026-06-06</span>
+                                            <div class="ticket-barcode" title="Voucher Barcode"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -257,58 +257,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. Interactive Lucky Spin Wheel logic
-    const wheelPointerBtn = document.getElementById('wheelPointerBtn');
-    const wheelPlate = document.getElementById('wheelPlate');
-    const drawStatusText = document.getElementById('drawStatusText');
-    const bookingDesc = document.getElementById('bookingDesc');
+    // 7. Interactive Ticket Stub Coupon Generator
+    const btnGenerateCoupon = document.getElementById('btnGenerateCoupon');
+    const couponBoxView = document.getElementById('couponBoxView');
+    const voucherTicketWrapper = document.getElementById('voucherTicketWrapper');
+    const ticketPriceVal = document.getElementById('ticketPriceVal');
+    const ticketCodeVal = document.getElementById('ticketCodeVal');
+    const ticketDateVal = document.getElementById('ticketDateVal');
 
-    const prizes = [
-        { text: "¥5.00 大额优惠券", value: 5, code: "U8-LUCKY-5RMB", angle: 30 },
-        { text: "¥1.00 体验优惠券", value: 1, code: "U8-LUCKY-1RMB", angle: 90 },
-        { text: "¥3.00 专享优惠券", value: 3, code: "U8-LUCKY-3RMB", angle: 150 },
-        { text: "¥2.00 幸运优惠券", value: 2, code: "U8-LUCKY-2RMB", angle: 210 },
-        { text: "¥4.50 惊喜优惠券", value: 4.5, code: "U8-LUCKY-4.5RMB", angle: 270 },
-        { text: "¥1.50 体验优惠券", value: 1.5, code: "U8-LUCKY-1.5RMB", angle: 330 }
-    ];
+    const couponValues = [1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0];
+    const expDate = "2026-07-06"; // Coupon validity period
 
-    function appendCouponToForm(code, value) {
-        if (bookingDesc) {
-            const currentVal = bookingDesc.value;
-            // Prevent duplicate appending
-            if (!currentVal.includes(code)) {
-                bookingDesc.value = `[已启用专属优惠券: ${code} (立减${value}元)]\n` + currentVal;
-            }
-        }
-    }
-
-    function showDrawSuccessModal(prizeText, value, code) {
+    // Show screenshot-friendly modal notice
+    function showTicketNoticeModal(value, code) {
         const overlay = document.createElement('div');
         overlay.className = 'contact-modal-overlay';
         overlay.innerHTML = `
             <div class="contact-modal" style="text-align: center;">
                 <div class="contact-modal-icon-wrap" style="background-color: var(--accent-color); color: #ffffff; border-color: var(--accent-color);">
-                    <i data-lucide="gift" style="width: 28px; height: 28px;"></i>
+                    <i data-lucide="ticket" style="width: 28px; height: 28px;"></i>
                 </div>
-                <h3 class="contact-modal-title">🎉 恭喜中奖！</h3>
+                <h3 class="contact-modal-title">🎉 优惠券生成成功！</h3>
                 <p class="contact-modal-desc">
-                    恭喜您在幸运转盘抽中 <strong>${prizeText}</strong>！
+                    恭喜您成功获取了 <strong>¥${value.toFixed(1)}</strong> 专属无门槛优惠券！
                 </p>
-                <div style="background-color: rgba(140, 98, 57, 0.05); border: 1px dashed var(--accent-color); padding: 15px; border-radius: 4px; margin: 20px 0;">
-                    <span style="font-size: 0.75rem; color: var(--accent-color); font-weight: 600;">您的优惠券券码：</span>
+                <div style="background-color: rgba(140, 98, 57, 0.05); border: 1px dashed var(--accent-color); padding: 12px; border-radius: 4px; margin: 15px 0;">
+                    <span style="font-size: 0.75rem; color: var(--accent-color); font-weight: 600;">优惠券代码：</span>
                     <br>
-                    <span style="font-size: 1.3rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.05em;">${code}</span>
+                    <span style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); font-family: monospace;">${code}</span>
                 </div>
-                <p class="contact-modal-desc" style="font-size: 0.82rem; margin-bottom: 25px;">
-                    该券码已<strong>自动追加到下方的预约表单中</strong>。提交预约并将需求发送给微信客服，即可享受立减优惠！
+                
+                <!-- BOLD RED WARNING FOR SCREENSHOT RULE -->
+                <p class="contact-modal-desc" style="font-size: 0.82rem; color: #ef4444 !important; font-weight: 700; margin-bottom: 25px;">
+                    重要规则：请关闭当前窗口，然后务必【截图保存】页面上显示的电子票券凭证。微信预约时将该截图发送给客服，即可享受立减！
                 </p>
-                <div class="contact-modal-actions" style="flex-direction: column; width: 100%; gap: 12px;">
-                    <button class="contact-modal-btn contact-modal-btn-primary" id="modalCopyCodeBtn" style="width: 100%;">
-                        <span>复制券码并去预约</span>
-                        <i data-lucide="copy" style="width: 16px; height: 16px;"></i>
-                    </button>
-                    <button class="contact-modal-btn contact-modal-btn-secondary" id="modalCloseDrawBtn" style="width: 100%;">
-                        <span>好的</span>
+                <div class="contact-modal-actions">
+                    <button class="contact-modal-btn contact-modal-btn-primary" id="modalOkBtn" style="width: 100%;">
+                        <span>好的，我去截图</span>
                     </button>
                 </div>
             </div>
@@ -325,86 +310,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
         overlay.classList.add('active');
 
-        const copyCodeBtn = overlay.querySelector('#modalCopyCodeBtn');
-        const closeDrawBtn = overlay.querySelector('#modalCloseDrawBtn');
-
-        copyCodeBtn.addEventListener('click', () => {
-            copyTextToClipboard(code, () => {
-                const btnText = copyCodeBtn.querySelector('span');
-                btnText.textContent = '✓ 券码已复制！正在跳转预约...';
-                setTimeout(() => {
-                    overlay.classList.remove('active');
-                    overlay.remove();
-                    // Scroll to form
-                    const bookingSec = document.getElementById('booking');
-                    if (bookingSec) {
-                        bookingSec.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                }, 1200);
-            });
-        });
-
-        closeDrawBtn.addEventListener('click', () => {
+        overlay.querySelector('#modalOkBtn').addEventListener('click', () => {
             overlay.classList.remove('active');
             overlay.remove();
+            
+            // Scroll down a tiny bit to center the ticket
+            if (voucherTicketWrapper) {
+                voucherTicketWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         });
     }
 
     // Initialize/Check localStorage Coupon state
-    if (wheelPointerBtn && drawStatusText) {
-        const savedCoupon = localStorage.getItem('u8_coupon_code');
-        const savedVal = localStorage.getItem('u8_coupon_value');
+    if (btnGenerateCoupon && couponBoxView && voucherTicketWrapper) {
+        const savedCode = localStorage.getItem('u8_ticket_code');
+        const savedVal = localStorage.getItem('u8_ticket_value');
 
-        if (savedCoupon && savedVal) {
-            wheelPointerBtn.classList.add('disabled');
-            wheelPointerBtn.innerHTML = '已抽';
-            drawStatusText.style.color = '#10b981';
-            drawStatusText.innerHTML = `您已抽过奖，获得：<strong>¥${savedVal} 优惠券</strong><br>代码：<code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;">${savedCoupon}</code> (已追加至表单)`;
-            appendCouponToForm(savedCoupon, savedVal);
+        if (savedCode && savedVal) {
+            // Render previously drawn ticket card
+            ticketPriceVal.textContent = parseFloat(savedVal).toFixed(1);
+            ticketCodeVal.textContent = savedCode;
+            ticketDateVal.textContent = `有效期限：${expDate}`;
+
+            couponBoxView.classList.add('hide');
+            voucherTicketWrapper.classList.add('show');
         }
 
-        let isSpinning = false;
-        wheelPointerBtn.addEventListener('click', () => {
-            if (isSpinning || localStorage.getItem('u8_coupon_code')) return;
-            
-            isSpinning = true;
-            wheelPointerBtn.classList.add('disabled');
-            
-            // Weighted random selector
-            const rand = Math.random();
-            let selectedIndex = 1; // Default ¥1.00 (10%)
-            if (rand < 0.12) selectedIndex = 0; // ¥5.00 (12%)
-            else if (rand < 0.24) selectedIndex = 4; // ¥4.50 (12%)
-            else if (rand < 0.50) selectedIndex = 2; // ¥3.00 (26%)
-            else if (rand < 0.78) selectedIndex = 3; // ¥2.00 (28%)
-            else if (rand < 0.90) selectedIndex = 5; // ¥1.50 (12%)
-            else selectedIndex = 1; // ¥1.00 (10%)
+        btnGenerateCoupon.addEventListener('click', () => {
+            if (localStorage.getItem('u8_ticket_code')) return;
 
-            const prize = prizes[selectedIndex];
-            
-            // Spin parameters: rotate 10 circles + stop on specific angle
-            const rotations = 10;
-            const targetDeg = rotations * 360 - prize.angle;
-            
-            wheelPlate.style.transform = `rotate(${targetDeg}deg)`;
-            drawStatusText.style.color = 'var(--text-secondary)';
-            drawStatusText.textContent = '好运降临中，转盘转动中...';
+            btnGenerateCoupon.disabled = true;
+            btnGenerateCoupon.querySelector('span').textContent = '正在计算专属折扣...';
 
-            wheelPlate.addEventListener('transitionend', () => {
-                isSpinning = false;
-                wheelPointerBtn.innerHTML = '已抽';
+            setTimeout(() => {
+                // Generate random value (¥1.0 to ¥5.0)
+                const val = couponValues[Math.floor(Math.random() * couponValues.length)];
+                // Generate random code
+                const randId = Math.floor(Math.random() * 8999 + 1000);
+                const code = `U8-TICKET-${randId}`;
+
+                // Update UI elements
+                ticketPriceVal.textContent = val.toFixed(1);
+                ticketCodeVal.textContent = code;
+                ticketDateVal.textContent = `有效期限：${expDate}`;
+
+                // Animate views
+                couponBoxView.classList.add('hide');
+                voucherTicketWrapper.classList.add('show');
+
+                // Save to localStorage
+                localStorage.setItem('u8_ticket_code', code);
+                localStorage.setItem('u8_ticket_value', val.toFixed(1));
+
+                // Trigger congratulations alert modal with bold screenshot rule
+                showTicketNoticeModal(val, code);
                 
-                // Store results locally
-                localStorage.setItem('u8_coupon_code', prize.code);
-                localStorage.setItem('u8_coupon_value', prize.value);
-
-                drawStatusText.style.color = '#10b981';
-                drawStatusText.innerHTML = `恭喜抽中：<strong>${prize.text}</strong>！<br>代码：<code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;">${prize.code}</code> (已追加至表单)`;
-                
-                // Auto inject and show popup
-                appendCouponToForm(prize.code, prize.value);
-                showDrawSuccessModal(prize.text, prize.value, prize.code);
-            }, { once: true });
+                btnGenerateCoupon.disabled = false;
+                btnGenerateCoupon.querySelector('span').textContent = '获取我的专属优惠券';
+            }, 800);
         });
     }
 
@@ -442,14 +405,6 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 showContactSuccessModal(formattedText, 'Austin-love-m');
                 bookingForm.reset();
-                
-                // Re-append coupon from local storage if won
-                const savedCoupon = localStorage.getItem('u8_coupon_code');
-                const savedVal = localStorage.getItem('u8_coupon_value');
-                if (savedCoupon && savedVal) {
-                    appendCouponToForm(savedCoupon, savedVal);
-                }
-
                 bookingSubmitBtn.disabled = false;
                 btnText.textContent = originalText;
                 
