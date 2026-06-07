@@ -3336,4 +3336,435 @@ body::before {
     outline-offset: 2px;
 }
 
+/* ==========================================
+   Membership Section & Cards Styles
+   ========================================== */
+.membership-section {
+    padding: 8rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#membership-section::after {
+    content: '18°D CLUB // TIER STRUCTURE // RMB PRICING';
+}
+
+.membership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.member-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 3rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.member-card:hover {
+    background-color: #FFF;
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(43, 76, 48, 0.2);
+}
+
+.member-card.popular {
+    border: 2px solid var(--primary);
+    background-color: rgba(255, 255, 255, 0.65);
+    box-shadow: var(--shadow-md);
+}
+
+.member-card.popular:hover {
+    background-color: #FFF;
+}
+
+.popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 2.2rem;
+    background-color: var(--primary);
+    color: var(--bg-primary);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.member-tier {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--primary);
+    background-color: var(--primary-light);
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 0.8rem;
+}
+
+.member-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.2rem;
+}
+
+.member-eng {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+}
+
+.member-price {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 2rem;
+    color: var(--text-main);
+}
+
+.member-price .currency {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-right: 2px;
+}
+
+.member-price .price-val {
+    font-family: var(--font-sans);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.member-price .period {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-left: 6px;
+}
+
+.member-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.member-benefits li {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.4;
+}
+
+.member-benefits li i {
+    color: var(--primary);
+    margin-right: 10px;
+    margin-top: 3px;
+    font-size: 0.85rem;
+}
+
+.join-member-btn {
+    width: 100%;
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition-quick);
+    text-align: center;
+}
+
+.join-member-btn:hover {
+    background-color: var(--primary);
+    color: var(--bg-primary);
+}
+
+.join-member-btn.premium-btn {
+    background-color: var(--primary);
+    color: var(--bg-primary);
+}
+
+.join-member-btn.premium-btn:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+/* ==========================================
+   Membership Modal & Digital Card
+   ========================================== */
+.member-modal-card {
+    max-width: 480px !important;
+}
+
+.member-form-container h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.member-form-container p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.member-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.digital-member-card {
+    width: 100%;
+    max-width: 360px;
+    height: 210px;
+    border-radius: 16px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 15px 35px rgba(28, 26, 23, 0.15);
+    margin-bottom: 1.8rem;
+    color: #FFF;
+    transition: var(--transition-smooth);
+}
+
+/* Card Glow Effect */
+.card-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Card Tier Colors */
+.digital-member-card.wanderer-card {
+    background: linear-gradient(135deg, #7A7062 0%, #4E473F 100%);
+}
+
+.digital-member-card.curator-card {
+    background: linear-gradient(135deg, #2D2721 0%, #151311 100%);
+    border: 1px solid rgba(229, 181, 96, 0.3);
+}
+
+.digital-member-card.host-card {
+    background: linear-gradient(135deg, #1C3E2B 0%, #0D2015 100%);
+    border: 1px solid rgba(229, 181, 96, 0.4);
+}
+
+/* Card Header */
+.digital-member-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.digital-member-card .card-header .brand {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.digital-member-card .card-header .tier-badge {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.digital-member-card.curator-card .card-header .tier-badge {
+    background-color: rgba(229, 181, 96, 0.15);
+    border-color: rgba(229, 181, 96, 0.3);
+    color: var(--accent);
+}
+
+.digital-member-card.host-card .card-header .tier-badge {
+    background-color: rgba(229, 181, 96, 0.2);
+    border-color: rgba(229, 181, 96, 0.4);
+    color: var(--accent);
+}
+
+/* Card Body */
+.digital-member-card .card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.card-info .card-label {
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.card-info .card-val {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.digital-member-card.curator-card .card-info .card-val {
+    color: var(--accent);
+}
+
+.digital-member-card.host-card .card-info .card-val {
+    color: var(--accent);
+}
+
+/* Card Footer */
+.digital-member-card .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 0.8rem;
+}
+
+.card-coords {
+    font-family: var(--font-sans);
+    font-size: 0.55rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.1em;
+}
+
+.barcode-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.barcode-stripes {
+    width: 80px;
+    height: 18px;
+    background: repeating-linear-gradient(90deg, 
+        #FFF, 
+        #FFF 1px, 
+        transparent 1px, 
+        transparent 3px, 
+        #FFF 3px, 
+        #FFF 5px, 
+        transparent 5px, 
+        transparent 6px
+    );
+    opacity: 0.8;
+}
+
+.digital-member-card.curator-card .barcode-stripes,
+.digital-member-card.host-card .barcode-stripes {
+    background: repeating-linear-gradient(90deg, 
+        var(--accent), 
+        var(--accent) 1px, 
+        transparent 1px, 
+        transparent 3px, 
+        var(--accent) 3px, 
+        var(--accent) 5px, 
+        transparent 5px, 
+        transparent 6px
+    );
+    opacity: 0.9;
+}
+
+.barcode-number {
+    font-family: monospace;
+    font-size: 0.55rem;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 1px;
+}
+
+.member-success-msg {
+    text-align: center;
+    width: 100%;
+}
+
+.member-success-msg h4 {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-bottom: 0.4rem;
+}
+
+.member-success-msg p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================
+   Mobile overrides for Membership
+   ========================================== */
+@media (max-width: 1024px) {
+    .membership-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .membership-section {
+        padding: 4.5rem 0 !important;
+    }
+    
+    .membership-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+    }
+    
+    .member-card {
+        padding: 2.2rem 1.8rem;
+    }
+    
+    .member-price .price-val {
+        font-size: 2.5rem;
+    }
+}
+
+
 

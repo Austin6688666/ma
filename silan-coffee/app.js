@@ -1,6 +1,6 @@
 /**
  * 18°D COFFEE - App Controller
- * Dynamic menu loading, Sunset seat booking flow, Live parameters, and UI interactions with i18n support.
+ * Dynamic menu loading, Sunset seat booking flow, Member registration, Live parameters, and UI interactions with i18n support.
  */
 
 // ==========================================
@@ -301,6 +301,7 @@ const I18N_DICTS = {
         "nav-services": "门店服务",
         "nav-careers": "加入我们",
         "nav-branches": "旗下分店",
+        "nav-club": "海岛会员",
         "nav-booking": "卡座预约",
         "nav-reserve-btn": "预约日落席",
         
@@ -394,6 +395,39 @@ const I18N_DICTS = {
         "pion-c4-title": "沙滩贝壳砂环保杯",
         "pion-c4-desc": "我们在海滩漫步时，会把海滩上的碎贝壳和粗沙收集起来，与竹纤维融合制成可以重复使用的‘沙滩粗砂杯’。杯子拿在手里有沙滩的粗粝质感。它百分之百来自自然，即使旧了丢弃，也能在海水里自然融为沙子。您可以带它去沙滩走走，让环保变成随手的习惯。",
 
+        // Membership
+        "member-badge": "18°D Club",
+        "member-title": "海岛旅人计划 · <span class=\"italic\">加入会员</span>",
+        "member-desc": "每一杯咖啡，都是一次关于风土与善意的探索。加入 18°D 会员，解锁您的专属海岛特权。",
+        "member-t1-title": "浪迹旅人",
+        "member-free-tag": "/ 免费加入",
+        "member-t1-b1": "<i class=\"fa-solid fa-check\"></i> 消费积攒低碳绿意积分",
+        "member-t1-b2": "<i class=\"fa-solid fa-check\"></i> 首杯特调立减 ¥5 体验券",
+        "member-t1-b3": "<i class=\"fa-solid fa-check\"></i> 生日免单咖啡 1 杯",
+        "member-join-btn1": "免费加入",
+        "member-popular-tag": "推荐首选",
+        "member-t2-title": "火山风物师",
+        "member-year-tag": "/ 年",
+        "member-t2-b1": "<i class=\"fa-solid fa-check\"></i> 全年手冲与特调咖啡享 8.8 折",
+        "member-t2-b2": "<i class=\"fa-solid fa-check\"></i> 每月赠送当季隐藏款特调 1 杯",
+        "member-t2-b3": "<i class=\"fa-solid fa-check\"></i> 会员专属“沙滩贝壳粗砂杯”1个",
+        "member-t2-b4": "<i class=\"fa-solid fa-check\"></i> 预约露台落日卡座优先安排",
+        "member-join-btn2": "付费开通",
+        "member-t3-title": "潮汐主理人",
+        "member-t3-b1": "<i class=\"fa-solid fa-check\"></i> 全年全品类饮品/轻食享 8.2 折",
+        "member-t3-b2": "<i class=\"fa-solid fa-check\"></i> 每月赠送当季单一源手冲 2 杯",
+        "member-t3-b3": "<i class=\"fa-solid fa-check\"></i> 赠 18°D「海风产地探索」礼包",
+        "member-t3-b4": "<i class=\"fa-solid fa-check\"></i> 无限次优先预留落日面海席位",
+        "member-t3-b5": "<i class=\"fa-solid fa-check\"></i> 旗下中餐及粉面馆优先品鉴特权",
+        "member-join-btn3": "付费开通",
+        "member-modal-title": "开通海岛旅人会员",
+        "member-modal-desc": "只需填写基本信息即可生成您的 18°D 专属电子会员卡。",
+        "member-modal-submit": "立即激活会员卡",
+        "member-card-name-lbl": "会员姓名",
+        "member-card-id-lbl": "会员卡号",
+        "member-success-title": "🎉 会员激活成功！",
+        "member-success-desc": "欢迎成为 18°D 同频旅人，会员卡条形码已激活，到店消费出示即可享受专属权益。",
+
         // Booking
         "book-badge": "SUNSET SEAT RESERVATION",
         "book-title": "预约三亚海岸 · <span class=\"italic\">日落席位</span>",
@@ -473,6 +507,7 @@ const I18N_DICTS = {
         "nav-services": "Services",
         "nav-careers": "Careers",
         "nav-branches": "Branches",
+        "nav-club": "Club",
         "nav-booking": "Booking",
         "nav-reserve-btn": "Sunset Reservation",
         
@@ -565,6 +600,39 @@ const I18N_DICTS = {
         "pion-c3-desc": "To make communication with our silent baristas warmer, we crafted wooden tags representing flavor notes. Just point or pass them to customize your drink. A simple gesture and a smile speak volumes.",
         "pion-c4-title": "Recycled Beach Sand Cup",
         "pion-c4-desc": "We collect broken shells and sand on beach walks to blend with bamboo fiber for our reusable cups. Tactile and raw, they are 100% natural, returning to sand in seawater in 90 days. Take it to the beach with you.",
+
+        // Membership
+        "member-badge": "18°D Club",
+        "member-title": "Traveler Club · <span class=\"italic\">Join Membership</span>",
+        "member-desc": "Every coffee is an exploration of terroir and kindness. Join 18°D Club to unlock your exclusive island privileges.",
+        "member-t1-title": "Coastal Wanderer",
+        "member-free-tag": "/ Free",
+        "member-t1-b1": "<i class=\"fa-solid fa-check\"></i> Earn low-carbon green carbon credits",
+        "member-t1-b2": "<i class=\"fa-solid fa-check\"></i> ¥5 discount coupon for your first drink",
+        "member-t1-b3": "<i class=\"fa-solid fa-check\"></i> 1 free specialty coffee on your birthday",
+        "member-join-btn1": "Join Free",
+        "member-popular-tag": "Best Value",
+        "member-t2-title": "Volcanic Curator",
+        "member-year-tag": "/ Yr",
+        "member-t2-b1": "<i class=\"fa-solid fa-check\"></i> 12% off all pour-over & espresso drinks",
+        "member-t2-b2": "<i class=\"fa-solid fa-check\"></i> 1 free seasonal hidden menu drink monthly",
+        "member-t2-b3": "<i class=\"fa-solid fa-check\"></i> 1 free signature shell sandstone cup",
+        "member-t2-b4": "<i class=\"fa-solid fa-check\"></i> Priority booking for sunset terrace tables",
+        "member-join-btn2": "Subscribe",
+        "member-t3-title": "Tidal Host",
+        "member-t3-b1": "<i class=\"fa-solid fa-check\"></i> 18% off all coffee drinks and pastries",
+        "member-t3-b2": "<i class=\"fa-solid fa-check\"></i> 2 free single origin pour-overs monthly",
+        "member-t3-b3": "<i class=\"fa-solid fa-check\"></i> 1 free 'Seabreeze Origin' exploration gift box",
+        "member-t3-b4": "<i class=\"fa-solid fa-check\"></i> Unlimited priority pre-booking for sunset seats",
+        "member-t3-b5": "<i class=\"fa-solid fa-check\"></i> Priority entry to sister bistros & noodle labs",
+        "member-join-btn3": "Subscribe",
+        "member-modal-title": "Join Traveler Club",
+        "member-modal-desc": "Fill in basic details to instantly generate your 18°D digital member card.",
+        "member-modal-submit": "Activate Member Card Now",
+        "member-card-name-lbl": "Member Name",
+        "member-card-id-lbl": "Card Number",
+        "member-success-title": "🎉 Membership Activated!",
+        "member-success-desc": "Welcome to 18°D Club! Your digital barcode has been activated. Present it at checkout to enjoy benefits.",
 
         // Booking
         "book-badge": "SUNSET SEAT RESERVATION",
@@ -665,6 +733,20 @@ document.addEventListener("DOMContentLoaded", () => {
     // Booking Form & Modal Elements
     const bookingForm = document.getElementById("seat-booking-form");
     const voucherModal = document.getElementById("voucher-modal");
+    
+    // Membership Elements
+    const memberModal = document.getElementById("member-modal");
+    const memberJoinForm = document.getElementById("member-join-form");
+    const memberFormBox = document.getElementById("member-form-box");
+    const memberCardBox = document.getElementById("member-card-box");
+    const memberSelectedTierInput = document.getElementById("member-selected-tier");
+    const cardTierBadge = document.getElementById("card-tier-badge");
+    const cardNameEl = document.getElementById("card-name");
+    const cardNumberEl = document.getElementById("card-number");
+    const cardBarcodeNum = document.getElementById("card-barcode-number");
+    const digitalCard = document.getElementById("digital-member-card");
+    const joinMemberButtons = document.querySelectorAll(".join-member-btn");
+
     const modalCloseBtns = document.querySelectorAll(".modal-close");
     
     // Voucher fields
@@ -1101,7 +1183,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             
             const successMsg = currentLang === "en"
-                ? "Seat Reserved! Your digital Sanya coast voucher has been generated"
+                ? "Seat Reserved! Your Sanya coast voucher has been generated"
                 : "预约成功！已为您生成电子海岛确认单";
             showToast(successMsg, "success");
             bookingForm.reset();
@@ -1112,6 +1194,87 @@ document.addEventListener("DOMContentLoaded", () => {
                 tomorrow.setDate(tomorrow.getDate() + 1);
                 bookDateInput.value = tomorrow.toISOString().split('T')[0];
             }
+        });
+    }
+
+    // ==========================================
+    // 7.5 Interactive Loyalty Membership Program
+    // ==========================================
+    if (joinMemberButtons.length > 0) {
+        joinMemberButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const tier = btn.getAttribute("data-tier");
+                if (memberSelectedTierInput) {
+                    memberSelectedTierInput.value = tier;
+                }
+                
+                // Reset Modal View to form state
+                if (memberFormBox) memberFormBox.classList.remove("hidden");
+                if (memberCardBox) memberCardBox.classList.add("hidden");
+                
+                // Show modal
+                if (memberModal) {
+                    memberModal.classList.remove("hidden");
+                    document.body.style.overflow = "hidden"; // Lock scroll
+                }
+            });
+        });
+    }
+
+    if (memberJoinForm) {
+        memberJoinForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById("member-name").value.trim().toUpperCase();
+            const phone = document.getElementById("member-phone").value.trim();
+            const tier = memberSelectedTierInput ? memberSelectedTierInput.value : "wanderer";
+            
+            // Generate Member Card details
+            const randomSuffix1 = Math.floor(1000 + Math.random() * 9000);
+            const randomSuffix2 = Math.floor(1000 + Math.random() * 9000);
+            const memberId = `18D-${randomSuffix1}-${randomSuffix2}`;
+            
+            const randomBarcode = `18D${Date.now().toString().slice(-8)}`;
+            
+            // Localize tier display on the member card
+            let tierName = "浪迹旅人";
+            if (tier === "curator") {
+                tierName = currentLang === "en" ? "Volcanic Curator" : "火山风物师";
+            } else if (tier === "host") {
+                tierName = currentLang === "en" ? "Tidal Host" : "潮汐主理人";
+            } else {
+                tierName = currentLang === "en" ? "Coastal Wanderer" : "浪迹旅人";
+            }
+            
+            // Populate card info
+            if (cardNameEl) cardNameEl.textContent = name;
+            if (cardNumberEl) cardNumberEl.textContent = memberId;
+            if (cardTierBadge) cardTierBadge.textContent = tierName;
+            if (cardBarcodeNum) cardBarcodeNum.textContent = randomBarcode;
+            
+            // Set card theme class
+            if (digitalCard) {
+                digitalCard.className = "digital-member-card"; // reset
+                if (tier === "curator") {
+                    digitalCard.classList.add("curator-card");
+                } else if (tier === "host") {
+                    digitalCard.classList.add("host-card");
+                } else {
+                    digitalCard.classList.add("wanderer-card");
+                }
+            }
+            
+            // Switch views in modal
+            if (memberFormBox) memberFormBox.classList.add("hidden");
+            if (memberCardBox) memberCardBox.classList.remove("hidden");
+            
+            // Trigger toast
+            const successMsg = currentLang === "en"
+                ? `Welcome to 18°D! Your ${tierName} card is now active ☕️`
+                : `恭喜您！您的 18°D「${tierName}」会员卡已成功开通 ☕️`;
+            showToast(successMsg, "success");
+            
+            memberJoinForm.reset();
         });
     }
 
@@ -1131,6 +1294,15 @@ document.addEventListener("DOMContentLoaded", () => {
         voucherModal.addEventListener("click", (e) => {
             if (e.target === voucherModal) {
                 voucherModal.classList.add("hidden");
+                document.body.style.overflow = "";
+            }
+        });
+    }
+
+    if (memberModal) {
+        memberModal.addEventListener("click", (e) => {
+            if (e.target === memberModal) {
+                memberModal.classList.add("hidden");
                 document.body.style.overflow = "";
             }
         });

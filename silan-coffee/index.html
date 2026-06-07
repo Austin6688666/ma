@@ -30,6 +30,7 @@
             <a href="#service-section" class="menu-item" data-key="nav-services">门店服务</a>
             <a href="#careers-section" class="menu-item" data-key="nav-careers">加入我们</a>
             <a href="#affiliates-section" class="menu-item" data-key="nav-branches">旗下分店</a>
+            <a href="#membership-section" class="menu-item" data-key="nav-club">海岛会员</a>
             <a href="#booking-section" class="menu-item" data-key="nav-booking">卡座预约</a>
         </nav>
         <div class="nav-actions">
@@ -58,6 +59,7 @@
             <a href="#service-section" class="drawer-link-item" data-key="nav-services">门店服务</a>
             <a href="#careers-section" class="drawer-link-item" data-key="nav-careers">加入我们</a>
             <a href="#affiliates-section" class="drawer-link-item" data-key="nav-branches">旗下分店</a>
+            <a href="#membership-section" class="drawer-link-item" data-key="nav-club">海岛会员</a>
             <a href="#booking-section" class="drawer-link-item" data-key="nav-booking">卡座预约</a>
             <a href="#booking-section" class="primary-btn-wide drawer-reserve-btn" data-key="nav-reserve-btn">预约日落席</a>
         </div>
@@ -109,14 +111,14 @@
                             <!-- SVG Drawing of coordinate grid with global coffee belt map overlay -->
                             <svg class="map-grid-svg" viewBox="0 0 400 300">
                                 <image href="coffee_belt_map.png" x="0" y="0" width="400" height="300" opacity="0.85"/>
-                                <line x1="20" y1="116" x2="380" y2="116" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3"/>
-                                <line x1="320" y1="20" x2="320" y2="280" stroke="var(--border-color)" stroke-width="1" stroke-dasharray="4"/>
-                                <circle cx="320" cy="116" r="6" fill="var(--primary)"/>
-                                <circle cx="320" cy="116" r="6" fill="none" stroke="var(--primary)" stroke-width="1.5">
+                                <line x1="20" y1="154" x2="380" y2="154" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3"/>
+                                <line x1="300" y1="20" x2="300" y2="280" stroke="var(--border-color)" stroke-width="1" stroke-dasharray="4"/>
+                                <circle cx="300" cy="154" r="6" fill="var(--primary)"/>
+                                <circle cx="300" cy="154" r="6" fill="none" stroke="var(--primary)" stroke-width="1.5">
                                     <animate attributeName="r" from="6" to="45" dur="3s" repeatCount="indefinite" />
                                     <animate attributeName="opacity" from="1" to="0" dur="3s" repeatCount="indefinite" />
                                 </circle>
-                                <text x="320" y="100" fill="var(--text-main)" font-size="11" font-weight="700" text-anchor="middle" data-key="lat-map-txt">18.25° N (三亚)</text>
+                                <text x="300" y="138" fill="var(--text-main)" font-size="11" font-weight="700" text-anchor="middle" data-key="lat-map-txt">18.25° N (三亚)</text>
                                 <text x="25" y="280" fill="var(--text-muted)" font-size="9" data-key="lat-belt-txt">COFFEE BELT 咖啡腰带</text>
                             </svg>
                         </div>
@@ -420,6 +422,79 @@
                     <h3 data-key="pion-c4-title">沙滩贝壳砂环保杯</h3>
                     <span class="pioneer-tag" data-key="pion-c4-tag">Eco Sand Cup</span>
                     <p data-key="pion-c4-desc">我们在海滩漫步时，会把海滩上的碎贝壳和粗沙收集起来，与竹纤维融合制成可以重复使用的‘沙滩粗砂杯’。杯子拿在手里有沙滩的粗粝质感。它百分之百来自自然，即使旧了丢弃，也能在海水里自然融为沙子。您可以带它去沙滩走走，让环保变成随手的习惯。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3.8: MEMBER LAB (会员计划) -->
+        <section class="membership-section scroll-reveal" id="membership-section">
+            <div class="section-badge" data-key="member-badge">18°D Club</div>
+            <h2 class="editorial-title text-center" data-key="member-title">海岛旅人计划 · <span class="italic">加入会员</span></h2>
+            <p class="section-desc text-center margin-center" data-key="member-desc">每一杯咖啡，都是一次关于风土与善意的探索。加入 18°D 会员，解锁您的专属海岛特权。</p>
+            
+            <div class="membership-grid">
+                <!-- Tier 1 -->
+                <div class="member-card">
+                    <div class="member-card-header">
+                        <span class="member-tier">T1</span>
+                        <h3 data-key="member-t1-title">浪迹旅人</h3>
+                        <p class="member-eng">Coastal Wanderer</p>
+                    </div>
+                    <div class="member-price">
+                        <span class="currency">¥</span>
+                        <strong class="price-val">0</strong>
+                        <span class="period" data-key="member-free-tag">/ 免费加入</span>
+                    </div>
+                    <ul class="member-benefits">
+                        <li data-key="member-t1-b1"><i class="fa-solid fa-check"></i> 消费积攒低碳绿意积分</li>
+                        <li data-key="member-t1-b2"><i class="fa-solid fa-check"></i> 首杯特调立减 ¥5 体验券</li>
+                        <li data-key="member-t1-b3"><i class="fa-solid fa-check"></i> 生日免单咖啡 1 杯</li>
+                    </ul>
+                    <button class="join-member-btn" data-tier="wanderer" data-key="member-join-btn1">免费加入</button>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="member-card popular">
+                    <div class="popular-badge" data-key="member-popular-tag">推荐首选</div>
+                    <div class="member-card-header">
+                        <span class="member-tier">T2</span>
+                        <h3 data-key="member-t2-title">火山风物师</h3>
+                        <p class="member-eng">Volcanic Curator</p>
+                    </div>
+                    <div class="member-price">
+                        <span class="currency">¥</span>
+                        <strong class="price-val">88</strong>
+                        <span class="period" data-key="member-year-tag">/ 年</span>
+                    </div>
+                    <ul class="member-benefits">
+                        <li data-key="member-t2-b1"><i class="fa-solid fa-check"></i> 全年手冲与特调咖啡享 8.8 折</li>
+                        <li data-key="member-t2-b2"><i class="fa-solid fa-check"></i> 每月赠送当季隐藏款特调 1 杯</li>
+                        <li data-key="member-t2-b3"><i class="fa-solid fa-check"></i> 会员专属“沙滩贝壳粗砂杯”1个</li>
+                        <li data-key="member-t2-b4"><i class="fa-solid fa-check"></i> 预约露台落日卡座优先安排</li>
+                    </ul>
+                    <button class="join-member-btn premium-btn" data-tier="curator" data-key="member-join-btn2">付费开通</button>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="member-card">
+                    <div class="member-card-header">
+                        <span class="member-tier">T3</span>
+                        <h3 data-key="member-t3-title">潮汐主理人</h3>
+                        <p class="member-eng">Tidal Host</p>
+                    </div>
+                    <div class="member-price">
+                        <span class="currency">¥</span>
+                        <strong class="price-val">288</strong>
+                        <span class="period" data-key="member-year-tag">/ 年</span>
+                    </div>
+                    <ul class="member-benefits">
+                        <li data-key="member-t3-b1"><i class="fa-solid fa-check"></i> 全年全品类饮品/轻食享 8.2 折</li>
+                        <li data-key="member-t3-b2"><i class="fa-solid fa-check"></i> 每月赠送当季单一源手冲 2 杯</li>
+                        <li data-key="member-t3-b3"><i class="fa-solid fa-check"></i> 赠 18°D「海风产地探索」礼包</li>
+                        <li data-key="member-t3-b4"><i class="fa-solid fa-check"></i> 无限次优先预留落日面海席位</li>
+                        <li data-key="member-t3-b5"><i class="fa-solid fa-check"></i> 旗下中餐及粉面馆优先品鉴特权</li>
+                    </ul>
+                    <button class="join-member-btn" data-tier="host" data-key="member-join-btn3">付费开通</button>
                 </div>
             </div>
         </section>
@@ -798,6 +873,61 @@
             
             <div class="voucher-modal-footer">
                 <button class="primary-btn-wide modal-close" data-target="voucher-modal" data-key="ticket-close-btn">我知道了，锁定预约</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEMBER CARD MODAL -->
+    <div class="modal-overlay hidden" id="member-modal">
+        <div class="modal-card member-modal-card">
+            <button class="modal-close" data-target="member-modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="member-form-container" id="member-form-box">
+                <h3 data-key="member-modal-title">开通海岛旅人会员</h3>
+                <p data-key="member-modal-desc">只需填写基本信息即可生成您的 18°D 专属电子会员卡。</p>
+                <form id="member-join-form">
+                    <input type="hidden" id="member-selected-tier" value="wanderer">
+                    <div class="form-group">
+                        <label for="member-name" data-key="book-label-name">姓名 / 称呼</label>
+                        <input type="text" id="member-name" required placeholder="请填写您的姓名/称呼" data-placeholder-key="book-ph-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="member-phone" data-key="book-label-phone">手机号码</label>
+                        <input type="tel" id="member-phone" required pattern="[0-9]{11}" placeholder="请输入11位手机号" data-placeholder-key="book-ph-phone">
+                    </div>
+                    <button type="submit" class="primary-btn-wide" data-key="member-modal-submit">立即激活会员卡</button>
+                </form>
+            </div>
+            
+            <div class="member-card-container hidden" id="member-card-box">
+                <div class="digital-member-card" id="digital-member-card">
+                    <div class="card-glow"></div>
+                    <div class="card-header">
+                        <span class="brand">18°D COFFEE</span>
+                        <span class="tier-badge" id="card-tier-badge">浪迹旅人</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <span class="card-label" data-key="member-card-name-lbl">会员姓名</span>
+                            <strong class="card-val" id="card-name">AUSTIN</strong>
+                        </div>
+                        <div class="card-info">
+                            <span class="card-label" data-key="member-card-id-lbl">会员卡号</span>
+                            <strong class="card-val" id="card-number">18D-8898-3298</strong>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-coords">18.25° N, 109.51° E SANYA</span>
+                        <div class="barcode-area">
+                            <div class="barcode-stripes"></div>
+                            <span class="barcode-number" id="card-barcode-number">18D99203810</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-success-msg">
+                    <h4 data-key="member-success-title">🎉 会员激活成功！</h4>
+                    <p data-key="member-success-desc">欢迎成为 18°D 同频旅人，会员卡条形码已激活，到店消费出示即可享受专属权益。</p>
+                    <button class="primary-btn-wide modal-close" data-target="member-modal" data-key="ticket-close-btn">我知道了</button>
+                </div>
             </div>
         </div>
     </div>
