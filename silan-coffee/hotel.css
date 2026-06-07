@@ -1,0 +1,1967 @@
+/* ==========================================================================
+   YAMEI Hotel - CSS Design System & Variables
+   ========================================================================== */
+
+:root {
+    /* Font Stacks */
+    --font-serif: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+    --font-sans: 'Outfit', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Theme Colors (Warm Minimalism & Sustainability) */
+    --bg-app: #FAF7F2;          /* Warm Oatmeal Paper */
+    --bg-card: #FFFFFF;         /* Pure Card White */
+    --bg-input: #F3ECE2;        /* Low-contrast Sand Input */
+    --bg-header: rgba(250, 247, 242, 0.82);
+    --bg-modal-overlay: rgba(43, 45, 47, 0.5);
+    
+    --text-main: #2C2E30;       /* Soft Charcoal Slate */
+    --text-muted: #7A7D80;      /* Editorial Muted Gray */
+    --text-inverse: #FAF7F2;    
+    
+    --primary: #556B2F;         /* Sage Olive Green (Atour Eco-Style) */
+    --primary-light: #7E8F62;   /* Soft Greenery */
+    --primary-glow: rgba(85, 107, 47, 0.1);
+    
+    --accent: #C49B71;          /* Warm Brass/Gold */
+    --accent-light: #FAF2E8;    /* Soft Brass Background */
+    --accent-glow: rgba(196, 155, 113, 0.15);
+    
+    --border-color: #E6DDD0;    /* Warm Clay Border */
+    --border-color-hover: #D8CEBE;
+    
+    --success: #6E9B7B;
+    --error: #BC6C25;
+    
+    /* Rounded Radii */
+    --radius-sm: 4px;
+    --radius-md: 12px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(44, 46, 48, 0.03);
+    --shadow-md: 0 8px 24px rgba(44, 46, 48, 0.04);
+    --shadow-lg: 0 20px 48px rgba(44, 46, 48, 0.08);
+    --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+    
+    /* Transitions */
+    --transition-fast: 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-normal: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-slow: 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    
+    --backdrop-blur: blur(16px);
+}
+
+/* ==========================================================================
+   Global Resets & Base Configuration
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    line-height: 1.6;
+    font-weight: 400;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-app);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/* Utility Helper Classes */
+.hidden {
+    display: none !important;
+}
+
+.italic {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.green-text {
+    color: var(--primary) !important;
+}
+
+/* ==========================================================================
+   Elegant Header & Navigation Bar
+   ========================================================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    transition: background-color var(--transition-normal), padding var(--transition-normal), border-bottom var(--transition-normal), backdrop-filter var(--transition-normal);
+}
+
+.navbar.transparent {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(230, 221, 208, 0.0);
+}
+
+.navbar.scrolled {
+    background-color: var(--bg-header);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 5%;
+    backdrop-filter: var(--backdrop-blur);
+    -webkit-backdrop-filter: var(--backdrop-blur);
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo-text-en {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+}
+
+.logo-divider {
+    color: var(--accent);
+    opacity: 0.5;
+}
+
+.logo-text-zh {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.menu-item {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    position: relative;
+    padding: 0.4rem 0;
+    color: var(--text-main);
+    opacity: 0.85;
+}
+
+.menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-fast);
+}
+
+.menu-item:hover {
+    opacity: 1;
+    color: var(--primary);
+}
+
+.menu-item:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-book-btn {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    background-color: var(--primary);
+    color: white;
+    padding: 0.6rem 1.4rem;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+}
+
+.nav-book-btn:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.3rem;
+    color: var(--text-main);
+}
+
+/* Mobile Drawer Styles */
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    background-color: var(--bg-app);
+    z-index: 2000;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    transition: transform var(--transition-normal);
+}
+
+.mobile-drawer.hidden {
+    transform: translateX(100%);
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.drawer-close {
+    font-size: 1.4rem;
+}
+
+.drawer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.drawer-link-item {
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.drawer-book-btn {
+    margin-top: 2rem;
+}
+
+/* ==========================================================================
+   Hero Container & Booking Panel
+   ========================================================================== */
+
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5%;
+    overflow: hidden;
+}
+
+.hero-bg-zoom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.03);
+    animation: zoomBackground 18s ease-in-out infinite alternate;
+}
+
+@keyframes zoomBackground {
+    to {
+        transform: scale(1.08);
+    }
+}
+
+.hero-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(44, 46, 48, 0.45) 0%, rgba(44, 46, 48, 0.65) 100%);
+    z-index: 2;
+}
+
+.hero-text-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+    max-width: 760px;
+    margin-top: -3rem;
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: 3.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-title .highlight {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+}
+
+.hero-subtitle {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+}
+
+.hero-separator {
+    width: 60px;
+    height: 1px;
+    background-color: var(--accent);
+    margin: 0 auto 2rem;
+}
+
+.hero-desc {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+}
+
+.hero-scroll-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    color: white;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+    animation: bounce 2s infinite;
+}
+
+.hero-scroll-btn:hover {
+    background-color: white;
+    color: var(--text-main);
+    border-color: white;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-4px);
+    }
+}
+
+/* Float Booking Panel CSS */
+.float-booking-card {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 980px;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: var(--backdrop-blur);
+    -webkit-backdrop-filter: var(--backdrop-blur);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+}
+
+.booking-panel-grid {
+    display: grid;
+    grid-template-columns: 1.1fr auto 1.1fr auto 0.9fr auto 1.2fr 1.1fr;
+    align-items: center;
+    padding: 1.1rem 1.5rem;
+}
+
+.booking-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 1rem;
+}
+
+.booking-col label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.booking-col input, .booking-col select {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-main);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.booking-divider {
+    width: 1px;
+    height: 36px;
+    background-color: var(--border-color);
+}
+
+.booking-search-btn {
+    width: 100%;
+    background-color: var(--primary);
+    color: white;
+    padding: 0.9rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.88rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.booking-search-btn:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Page Content & Global Grid Layouts
+   ========================================================================== */
+
+.page-content {
+    max-width: 1300px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 7rem;
+    padding-bottom: 7rem;
+}
+
+/* Editorial Badges & Titles */
+.section-badge {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.green-badge {
+    color: var(--primary);
+}
+
+.editorial-title {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text-main);
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   SECTION 1: Brand Story (Editorial Section)
+   ========================================================================== */
+
+.brand-story-section {
+    padding-top: 7rem;
+}
+
+.brand-story-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4.5rem;
+    align-items: center;
+}
+
+.brand-story-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.brand-para {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+.brand-para.text-highlight {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    font-weight: 400;
+    border-left: 2px solid var(--accent);
+    padding-left: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.brand-signature {
+    margin-top: 1.5rem;
+}
+
+.signature-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+}
+
+.signature-name {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-top: 4px;
+}
+
+/* Brand Story Images */
+.brand-story-images {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.image-box-main {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.story-img-main {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-slow);
+}
+
+.image-box-main:hover .story-img-main {
+    transform: scale(1.02);
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.image-box-sub {
+    position: absolute;
+    bottom: -2rem;
+    left: -2.5rem;
+    width: 250px;
+    z-index: 10;
+}
+
+.quote-card-inner {
+    background-color: var(--primary);
+    color: white;
+    padding: 1.8rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+}
+
+.quote-icon {
+    font-size: 1.8rem;
+    color: var(--accent);
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+}
+
+.quote-card-inner p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.quote-author {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ==========================================================================
+   SECTION 2: Sustainability Board (Eco Section)
+   ========================================================================== */
+
+.eco-section {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 4rem 3.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.eco-layout-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.right-desc {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+/* Stats Scoreboard */
+.eco-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.eco-stat-card {
+    text-align: center;
+    background-color: var(--bg-app);
+    padding: 2.5rem 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.eco-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.stat-num {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.stat-details {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+/* Eco Feature list */
+.eco-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.5rem;
+}
+
+.eco-feat-item {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.eco-feat-num {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-style: italic;
+    color: var(--accent);
+    line-height: 1;
+    font-weight: 600;
+}
+
+.eco-feat-body h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.eco-feat-body p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   SECTION 3: Rooms & Suites Section
+   ========================================================================== */
+
+.rooms-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-desc {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.room-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.room-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.room-img-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 68%;
+    overflow: hidden;
+    background-color: var(--bg-input);
+}
+
+.room-card-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.room-card:hover .room-card-img {
+    transform: scale(1.03);
+}
+
+.room-badge-eco {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(85, 107, 47, 0.85);
+    color: white;
+    padding: 0.35rem 0.8rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: var(--radius-sm);
+    backdrop-filter: blur(4px);
+    z-index: 10;
+}
+
+.room-card-body {
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 1.1rem;
+}
+
+.room-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.room-card-header h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.room-price {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.room-price strong {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.room-card-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    height: 3.4em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.room-amenities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 0.5rem;
+}
+
+.amenity-tag {
+    background-color: var(--bg-app);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Premium Primary Buttons */
+.primary-btn-wide {
+    width: 100%;
+    background-color: var(--primary);
+    color: white;
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.88rem;
+    letter-spacing: 1.5px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(85, 107, 47, 0.15);
+    transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.primary-btn-wide:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(85, 107, 47, 0.25);
+}
+
+.primary-btn-wide:active {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   SECTION 4: Spaces Section (Lifestyle Spaces)
+   ========================================================================== */
+
+.spaces-section {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.spaces-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.spaces-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+/* Accordion Component Style */
+.space-accordion {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--border-color);
+    margin-top: 1rem;
+}
+
+.accordion-item {
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem 0;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.acc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.acc-num {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-right: 1.5rem;
+}
+
+.acc-header h4 {
+    flex: 1;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: color var(--transition-fast);
+}
+
+.acc-arrow {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    transform: rotate(0deg);
+    transition: transform var(--transition-normal);
+}
+
+.acc-content {
+    max-height: 0;
+    overflow: hidden;
+    padding-left: 2.5rem;
+    transition: max-height var(--transition-normal), margin-top var(--transition-normal);
+}
+
+.acc-content p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* Active accordion styles */
+.accordion-item.active {
+    background-color: rgba(85, 107, 47, 0.02);
+    padding: 1.25rem 1rem;
+    border-left: 3px solid var(--primary);
+}
+
+.accordion-item.active .acc-header h4 {
+    color: var(--primary);
+}
+
+.accordion-item.active .acc-arrow {
+    transform: rotate(90deg);
+    color: var(--primary);
+}
+
+.accordion-item.active .acc-content {
+    max-height: 120px;
+    margin-top: 0.75rem;
+}
+
+/* Accordion Right Dynamic Image panel */
+.spaces-right {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    background-color: var(--bg-input);
+}
+
+.spaces-dynamic-img-container {
+    width: 100%;
+    padding-bottom: 90%;
+    position: relative;
+}
+
+#spaces-dynamic-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity var(--transition-normal), transform var(--transition-slow);
+}
+
+.spaces-right:hover #spaces-dynamic-img {
+    transform: scale(1.02);
+}
+
+/* ==========================================================================
+   Page Scroll Reveal Animation styles
+   ========================================================================== */
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-on-load {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealOnLoadAnimation 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.reveal-on-load.delay-1 {
+    animation-delay: 0.3s;
+}
+
+@keyframes revealOnLoadAnimation {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   Sustainable Footer Design
+   ========================================================================== */
+
+.main-footer {
+    background-color: #353D32;  /* Deep Forest Green */
+    color: rgba(250, 247, 242, 0.7);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 5rem 5% 2.5rem;
+}
+
+.footer-grid {
+    max-width: 1300px;
+    margin: 0 auto 4rem;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 5rem;
+}
+
+.footer-logo {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--bg-app);
+    margin-bottom: 0.5rem;
+}
+
+.footer-slogan {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.footer-badges {
+    display: flex;
+    gap: 8px;
+}
+
+.eco-cert-badge {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 1px;
+}
+
+.footer-links-col h5, .footer-newsletter-col h5 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: white;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.footer-links-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-links-col li {
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-newsletter-col p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.footer-input-row {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: 0.3rem 0.3rem 0.3rem 1rem;
+}
+
+.footer-input-row input {
+    background: transparent;
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.footer-input-row input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-send-btn {
+    background-color: var(--accent);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+}
+
+.footer-send-btn:hover {
+    background-color: white;
+    color: var(--text-main);
+}
+
+.footer-bottom {
+    max-width: 1300px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================================================
+   Modals & Interaction Windows
+   ========================================================================== */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-modal-overlay);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    backdrop-filter: blur(8px);
+    opacity: 1;
+    transition: opacity var(--transition-normal);
+}
+
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-card {
+    background-color: var(--bg-modal-overlay);
+    background-color: rgba(250, 247, 242, 0.95);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    transform: scale(1) translateY(0);
+    transition: transform var(--transition-normal);
+}
+
+.modal-overlay.hidden .modal-card {
+    transform: scale(0.96) translateY(20px);
+}
+
+.booking-modal-card {
+    max-width: 580px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.8rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h2 {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-close {
+    width: 32px;
+    height: 32px;
+    background-color: var(--bg-input);
+    color: var(--text-main);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.modal-close:hover {
+    background-color: var(--border-color-hover);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Selected Room Meta Card */
+.booking-selected-room-info {
+    background-color: var(--bg-input);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.booking-selected-room-info .label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.booking-selected-room-info h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+.booking-selected-room-info .price-row {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.booking-selected-room-info .price-row strong {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+/* Form layouts within Modal */
+.form-row {
+    display: flex;
+    gap: 12px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.form-group label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.form-group label .required {
+    color: var(--error);
+}
+
+.form-group input, .form-group select {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.65rem 1rem;
+    font-size: 0.88rem;
+    color: var(--text-main);
+    transition: all var(--transition-fast);
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* Eco checkboxes choices */
+.eco-choice-group {
+    background-color: rgba(85, 107, 47, 0.04);
+    border: 1.5px dashed var(--primary-light);
+    border-radius: var(--radius-md);
+    padding: 1.1rem;
+    margin: 0.25rem 0;
+}
+
+.eco-choice-group label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--primary) !important;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.eco-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Custom Checkbox styles overrides */
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    font-size: 0.8rem !important;
+    user-select: none;
+    font-weight: 500 !important;
+    color: var(--text-main) !important;
+}
+
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: var(--bg-card);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.custom-checkbox:hover input ~ .checkmark {
+    border-color: var(--primary-light);
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.custom-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.custom-checkbox .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Estimate Summary */
+.booking-estimate-summary {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.summary-line.total-line {
+    border-top: 1.5px dashed var(--border-color);
+    padding-top: 8px;
+    margin-top: 4px;
+    font-size: 1.05rem;
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.summary-line.total-line strong {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--primary);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 0.5rem;
+}
+
+.secondary-btn {
+    background-color: var(--bg-input);
+    color: var(--text-main);
+    padding: 0.75rem 1.4rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.88rem;
+    letter-spacing: 1.5px;
+    transition: background-color var(--transition-fast);
+}
+
+.secondary-btn:hover {
+    background-color: var(--border-color-hover);
+}
+
+/* ==========================================================================
+   Voucher confirmation ticket modal design (Success popup)
+   ========================================================================== */
+
+.voucher-modal-card {
+    max-width: 440px;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+
+.voucher-ticket {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+/* Ticket tear line marks on side */
+.voucher-ticket::before, .voucher-ticket::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: var(--bg-modal-overlay);
+    border-radius: 50%;
+    top: 220px;
+    z-index: 10;
+}
+
+.voucher-ticket::before {
+    left: -12px;
+    box-shadow: inset -1px 0 0 var(--border-color);
+}
+
+.voucher-ticket::after {
+    right: -12px;
+    box-shadow: inset 1px 0 0 var(--border-color);
+}
+
+.ticket-header {
+    background-color: #353D32;  /* Forest Eco */
+    padding: 1.25rem 2rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ticket-header .logo {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--accent);
+}
+
+.ticket-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-full);
+}
+
+.ticket-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.ticket-success-title {
+    font-family: var(--font-serif);
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.ticket-order-id {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+.ticket-divider {
+    border-top: 1.5px dashed var(--border-color);
+    margin: 0.25rem 0;
+    position: relative;
+}
+
+.ticket-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.ticket-row-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.ticket-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ticket-val {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.ticket-val.text-large {
+    font-size: 1.15rem;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.ticket-eco-badge {
+    background-color: var(--accent-light);
+    border: 1px solid rgba(196, 155, 113, 0.2);
+    border-radius: var(--radius-md);
+    padding: 0.9rem;
+    display: flex;
+    gap: 12px;
+}
+
+.ticket-eco-badge .left-icon {
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+.ticket-eco-badge h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 2px;
+}
+
+.ticket-eco-badge p {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* Custom Mock QR Code */
+.ticket-qr-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 0.5rem;
+}
+
+.mock-qr-code {
+    width: 90px;
+    height: 90px;
+    border: 6px solid var(--bg-app);
+    background-color: var(--text-main);
+    border-radius: 6px;
+    position: relative;
+}
+
+/* Generate lookalike QR elements */
+.qr-box {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: var(--bg-card);
+    border: 6px solid var(--text-main);
+    border-radius: 2px;
+}
+
+.qr-top-left { top: 0; left: 0; }
+.qr-top-right { top: 0; right: 0; }
+.qr-bottom-left { bottom: 0; left: 0; }
+
+.qr-center-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    background-color: var(--accent);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    border: 2px solid var(--text-main);
+}
+
+.qr-tip {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.voucher-modal-footer {
+    padding-top: 1.25rem;
+}
+
+/* ==========================================================================
+   Toast Notification Panels
+   ========================================================================== */
+
+.toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 2100;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background-color: var(--bg-card);
+    border-left: 4px solid var(--primary);
+    color: var(--text-main);
+    padding: 0.9rem 1.4rem;
+    border-radius: 6px;
+    box-shadow: var(--shadow-lg);
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 280px;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: toastFadeIn 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.toast.toast-success {
+    border-left-color: var(--success);
+}
+
+@keyframes toastFadeIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.toast.fade-out {
+    transform: translateY(-20px);
+    opacity: 0;
+}
+
+/* ==========================================================================
+   Mobile Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 992px) {
+    .booking-panel-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+    
+    .booking-divider {
+        display: none;
+    }
+    
+    .booking-col-btn {
+        grid-column: span 2;
+        margin-top: 8px;
+    }
+    
+    .brand-story-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .eco-layout-header {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .eco-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .eco-features {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .rooms-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .spaces-section {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .nav-book-btn {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .hero-title {
+        font-size: 2.6rem;
+    }
+    
+    .hero-desc {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+    
+    .float-booking-card {
+        position: static;
+        transform: none;
+        width: 100%;
+        margin-top: 2rem;
+        border-radius: var(--radius-md);
+    }
+    
+    .hero-container {
+        height: auto;
+        padding-top: 8rem;
+        padding-bottom: 4rem;
+        justify-content: flex-start;
+    }
+    
+    .booking-panel-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .booking-col-btn {
+        grid-column: span 1;
+    }
+    
+    .eco-section {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .editorial-title {
+        font-size: 2rem;
+    }
+    
+    .brand-story-section {
+        padding-top: 3rem;
+    }
+    
+    .image-box-sub {
+        position: static;
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+}
+
+/* Room Card Highlight Pulse Animation */
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(85, 107, 47, 0.7);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 25px 12px rgba(85, 107, 47, 0.4);
+        transform: scale(1.025);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(85, 107, 47, 0);
+        transform: scale(1);
+    }
+}
+
+.room-card.highlight-card {
+    animation: pulse-glow 2.2s cubic-bezier(0.25, 1, 0.5, 1) 2;
+    border: 2px solid var(--primary);
+    position: relative;
+    z-index: 10;
+}

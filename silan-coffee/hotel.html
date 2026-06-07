@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAMEI 亚美酒店官网 - 旅途中的松弛与绿意共生</title>
+    <meta name="description" content="亚美酒店官方网站 - 体验如 Atour 般温暖的极简设计与人文生活美学。我们倡导环保与绿色循环理念，提供竹纤维有机床品、24小时阅读书阁与在地有机茶饮，让您的旅途回归自然与松弛。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="hotel.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar transparent" id="main-nav">
+        <a href="hotel.html" class="nav-logo">
+            <span class="logo-text-en">YAMEI</span>
+            <span class="logo-divider">|</span>
+            <span class="logo-text-zh">亚美酒店</span>
+        </a>
+        <nav class="nav-menu">
+            <a href="index.html" class="menu-item"><i class="fa-solid fa-mug-hot"></i> 汐澜咖啡</a>
+            <a href="#brand-story" class="menu-item">品牌起源</a>
+            <a href="#rooms-section" class="menu-item">舒心雅居</a>
+            <a href="#eco-section" class="menu-item">环保承诺</a>
+            <a href="#humanitarian-section" class="menu-item">人文关怀</a>
+            <a href="#spaces-section" class="menu-item">空间美学</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="#rooms-section" class="nav-book-btn">立即预约</a>
+            <button class="menu-toggle" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer hidden" id="mobile-drawer">
+        <div class="drawer-header">
+            <span class="logo-text-en">YAMEI</span>
+            <button class="drawer-close" id="mobile-close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="drawer-links">
+            <a href="index.html" class="drawer-link-item"><i class="fa-solid fa-mug-hot"></i> 汐澜咖啡</a>
+            <a href="#brand-story" class="drawer-link-item">品牌起源</a>
+            <a href="#rooms-section" class="drawer-link-item">舒心雅居</a>
+            <a href="#eco-section" class="drawer-link-item">环保承诺</a>
+            <a href="#humanitarian-section" class="drawer-link-item">人文关怀</a>
+            <a href="#spaces-section" class="drawer-link-item">空间美学</a>
+            <a href="#rooms-section" class="primary-btn-wide drawer-book-btn">立即预约</a>
+        </div>
+    </div>
+
+    <!-- Immersive Hero Banner Section -->
+    <section class="hero-container" id="home">
+        <div class="hero-bg-zoom">
+            <div class="hero-image-overlay"></div>
+            <img src="yamei_brand_concept.png" alt="亚美酒店大堂实景" class="hero-img" id="hero-bg-img">
+        </div>
+        
+        <div class="hero-text-content reveal-on-load">
+            <h1 class="hero-title">心有安处 · <span class="highlight">绿意共生</span></h1>
+            <p class="hero-subtitle">Warm Minimalism & Natural Living</p>
+            <div class="hero-separator"></div>
+            <p class="hero-desc">以温暖极简的木质美学、茶书相伴的邻里温度，融入可持续环保理念，唤醒心灵的片刻松弛。</p>
+            <a href="#rooms-section" class="hero-scroll-btn"><i class="fa-solid fa-chevron-down"></i></a>
+        </div>
+
+        <!-- Float Booking Panel -->
+        <div class="float-booking-card reveal-on-load delay-1">
+            <div class="booking-panel-grid">
+                <div class="booking-col">
+                    <label><i class="fa-regular fa-calendar-days"></i> 入住日期</label>
+                    <input type="date" id="book-checkin" value="2026-06-08">
+                </div>
+                <div class="booking-divider"></div>
+                <div class="booking-col">
+                    <label><i class="fa-regular fa-calendar-days"></i> 退房日期</label>
+                    <input type="date" id="book-checkout" value="2026-06-09">
+                </div>
+                <div class="booking-divider"></div>
+                <div class="booking-col">
+                    <label><i class="fa-solid fa-user-group"></i> 房客人数</label>
+                    <select id="book-guests">
+                        <option value="1">1 位客人</option>
+                        <option value="2" selected>2 位客人</option>
+                        <option value="3">3 位客人</option>
+                        <option value="4">4 位客人</option>
+                    </select>
+                </div>
+                <div class="booking-divider"></div>
+                <div class="booking-col">
+                    <label><i class="fa-solid fa-bed"></i> 预约房型</label>
+                    <select id="book-room-type">
+                        <option value="room-zen" selected>竹影静音大床房 (￥480)</option>
+                        <option value="room-forest">林境生态双床房 (￥520)</option>
+                        <option value="room-suite">绿意人文套房 (￥880)</option>
+                    </select>
+                </div>
+                <div class="booking-col-btn">
+                    <button id="hero-book-search-btn" class="booking-search-btn">
+                        <span>探索舒心雅居</span> <i class="fa-solid fa-arrow-right-long"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="page-content">
+
+        <!-- SECTION 1: BRAND STORY (EDITORIAL GRID) -->
+        <section class="brand-story-section scroll-reveal" id="brand-story">
+            <div class="section-badge">ABOUT YAMEI</div>
+            <div class="brand-story-layout">
+                <div class="brand-story-text">
+                    <h2 class="editorial-title">竹影茶香，<br><span class="italic">寻回内心的松弛</span></h2>
+                    <p class="brand-para text-highlight">“我们相信，最好的旅居体验不是奢华的堆砌，而是如邻里般的温暖关怀与自然原木的质朴呼吸。”</p>
+                    <p class="brand-para">亚美酒店（YAMEI）致力于为现代都市人打造一处融于自然、关照人文的静谧之所。在这里，大片的原木墙面、天然棉麻寝具以及温暖的灯光交互，塑造出 Atour 般治愈的松弛体验。</p>
+                    <p class="brand-para">客房的每一处细节都融入了对可持续地球的思考：定制竹原纤维无化学染色棉床品、全套可降解玉米秸秆备品、智能节能系统，让您的每一次好梦，都在为地球减少一分负担。</p>
+                    <p class="brand-para">作为倡导“自然共生”的先锋旅宿，亚美不仅在室内设计上做减法，更在社区连接上做加法。我们与紧邻的姐妹品牌“汐澜咖啡”和“汐澜中餐精选”深度联手，在大堂一角开设了无声咖啡慢递角，并选用澄迈火山岩红土产区的精品单品豆。我们希望通过这一杯极品手冲和热忱奉茶，将海岛的泥土呼吸与人文温情，化作您旅途中最深刻的感官印记。</p>
+                    <div class="brand-signature">
+                        <span class="signature-title">YAMEI CREATIVE DIRECTOR</span>
+                        <h4 class="signature-name">亚美设计生活美学</h4>
+                    </div>
+                </div>
+                <div class="brand-story-images">
+                    <div class="image-box-main">
+                        <img src="yamei_brand_concept.png" alt="亚美品牌概念空间" class="story-img-main">
+                        <div class="image-caption">温暖大堂书阁 · 邻里共享空间</div>
+                    </div>
+                    <div class="image-box-sub scroll-reveal delay-2">
+                        <div class="quote-card-inner">
+                            <i class="fa-solid fa-quote-left quote-icon"></i>
+                            <p>“在书香与茶香中，让旅途脚步慢下来，与绿色生态和谐共处。”</p>
+                            <span class="quote-author">— 亚美绿色宣言</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: SUSTAINABILITY BOARD (ECO-COMMITMENTS) -->
+        <section class="eco-section scroll-reveal" id="eco-section">
+            <div class="eco-layout-header">
+                <div class="left">
+                    <div class="section-badge green-badge">ECO SUSTAINABILITY</div>
+                    <h2 class="editorial-title">绿意循环 · <span class="italic">自然共栖</span></h2>
+                </div>
+                <p class="right-desc">我们承诺在日常运营中最大程度保护生态。通过践行循环经济理念，亚美酒店在每个运营环节实现低碳减碳，守护蔚蓝星球。</p>
+            </div>
+
+            <!-- Stats grid -->
+            <div class="eco-stats-grid">
+                <div class="eco-stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-droplet-slash"></i></div>
+                    <h3 class="stat-num" data-target="36420">0</h3>
+                    <p class="stat-label">节约水资源 (升)</p>
+                    <span class="stat-details">采用节水花洒与中水循环灌溉系统</span>
+                </div>
+                <div class="eco-stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-recycle"></i></div>
+                    <h3 class="stat-num" data-target="15200">0</h3>
+                    <p class="stat-label">避免一次性塑料瓶 (个)</p>
+                    <span class="stat-details">客房标配玻璃随行杯，客房无塑料包装</span>
+                </div>
+                <div class="eco-stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <h3 class="stat-num" data-target="980">0</h3>
+                    <p class="stat-label">减少二氧化碳排放 (千克)</p>
+                    <span class="stat-details">100% 屋顶光伏发电与绿色出行积分鼓励</span>
+                </div>
+            </div>
+
+            <!-- Eco feature grid -->
+            <div class="eco-features">
+                <div class="eco-feat-item">
+                    <span class="eco-feat-num">01</span>
+                    <div class="eco-feat-body">
+                        <h4>100% 竹原纤维棉织</h4>
+                        <p>客房床品毛巾均使用无农药、快速生长竹类纤维棉混纺，相比普通棉纺织，减少50%的水足迹，带来丝滑透气、抑菌天然的亲肤体验。</p>
+                    </div>
+                </div>
+                <div class="eco-feat-item">
+                    <span class="eco-feat-num">02</span>
+                    <div class="eco-feat-body">
+                        <h4>秸秆植物备品</h4>
+                        <p>彻底告别传统的塑料梳子、牙刷。亚美客房全部配备以天然玉米秸秆和燕麦稻壳压缩制成的盥洗套装，可在弃用后实现6个月内自然生物降解。</p>
+                    </div>
+                </div>
+                <div class="eco-feat-item">
+                    <span class="eco-feat-num">03</span>
+                    <div class="eco-feat-body">
+                        <h4>空气净化植生墙</h4>
+                        <p>每一间亚美酒店的公区及套房均栽种了利用水培灌溉的吸音植生墙，吸收微尘，释放负氧离子，如同在室内筑起一片微型雨林。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: ROOMS & SUITES -->
+        <section class="rooms-section scroll-reveal" id="rooms-section">
+            <div class="rooms-header">
+                <div class="section-badge">ROOMS & SUITES</div>
+                <h2 class="editorial-title">静谧雅居 · <span class="italic">宿入森林</span></h2>
+                <p class="section-desc">每一间客房都选用北美进口可持续认证樱桃木制成，环保无漆胶，极简而温暖，让身心浸泡在木香的清爽中。</p>
+            </div>
+
+            <!-- Room Grid -->
+            <div class="rooms-grid" id="rooms-container">
+                <!-- Room Card 1 -->
+                <div class="room-card" data-room-id="room-zen" id="room-zen">
+                    <div class="room-img-container">
+                        <img src="yamei_room.png" alt="竹影静音大床房" class="room-card-img">
+                        <span class="room-badge-eco"><i class="fa-solid fa-leaf"></i> 极佳低碳房</span>
+                    </div>
+                    <div class="room-card-body">
+                        <div class="room-card-header">
+                            <h3>竹影静音大床房</h3>
+                            <span class="room-price">￥<strong>480</strong> <small>/晚</small></span>
+                        </div>
+                        <p class="room-card-desc">以浅淡的原色竹板和亚麻装饰，配有Atour同款舒压床垫及天然竹原纤维床品，享受深睡体验。</p>
+                        <div class="room-amenities">
+                            <span class="amenity-tag"><i class="fa-solid fa-volume-xmark"></i> 隔音升级</span>
+                            <span class="amenity-tag"><i class="fa-solid fa-seedling"></i> 秸秆备品</span>
+                            <span class="amenity-tag"><i class="fa-solid fa-wifi"></i> 无线网络</span>
+                        </div>
+                        <button class="primary-btn-wide room-book-btn-trigger" data-room="竹影静音大床房" data-price="480">
+                            立即预约
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Room Card 2 -->
+                <div class="room-card" data-room-id="room-forest" id="room-forest">
+                    <div class="room-img-container">
+                        <!-- Reusing the room image with different aspect ratio styling or same image -->
+                        <img src="yamei_room.png" alt="林境生态双床房" class="room-card-img" style="filter: hue-rotate(15deg) contrast(1.05);">
+                        <span class="room-badge-eco"><i class="fa-solid fa-leaf"></i> 100% 减塑</span>
+                    </div>
+                    <div class="room-card-body">
+                        <div class="room-card-header">
+                            <h3>林境生态双床房</h3>
+                            <span class="room-price">￥<strong>520</strong> <small>/晚</small></span>
+                        </div>
+                        <p class="room-card-desc">拥有270度超大观景窗将绿色引入房间，配备节水花洒及全降解棉麻面拖，在林雾的拥抱中醒来。</p>
+                        <div class="room-amenities">
+                            <span class="amenity-tag"><i class="fa-solid fa-mountain-sun"></i> 全景视野</span>
+                            <span class="amenity-tag"><i class="fa-solid fa-droplet-slash"></i> 智能节水</span>
+                            <span class="amenity-tag"><i class="fa-solid fa-coffee"></i> 有机挂耳</span>
+                        </div>
+                        <button class="primary-btn-wide room-book-btn-trigger" data-room="林境生态双床房" data-price="520">
+                            立即预约
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Room Card 3 -->
+                <div class="room-card" data-room-id="room-suite" id="room-suite">
+                    <div class="room-img-container">
+                        <!-- Reusing the tea room image with different aspect ratio styling -->
+                        <img src="yamei_lobby.png" alt="绿意人文套房" class="room-card-img" style="filter: saturate(0.9) brightness(0.95);">
+                        <span class="room-badge-eco"><i class="fa-solid fa-leaf"></i> 负碳体验</span>
+                    </div>
+                    <div class="room-card-body">
+                        <div class="room-card-header">
+                            <h3>绿意人文套房</h3>
+                            <span class="room-price">￥<strong>880</strong> <small>/晚</small></span>
+                        </div>
+                        <p class="room-card-desc">配有独立竹影书房与天然植生墙，房内所有家具均为北美樱桃木原木雕琢，尽享私密的人文舒展空间。</p>
+                        <div class="room-amenities">
+                            <span class="amenity-tag"><i class="fa-solid fa-book"></i> 专属书阁</span>
+                            <span class="amenity-tag"><i class="fa-solid fa-couch"></i> 宽阔空间</span>
+                            <span class="amenity-tag"><i class="fa-solid fa-mug-hot"></i> 极品功夫茶</span>
+                        </div>
+                        <button class="primary-btn-wide room-book-btn-trigger" data-room="绿意人文套房" data-price="880">
+                            立即预约
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3.5: HUMANISTIC CARE (人文关怀) -->
+        <section class="eco-section scroll-reveal" id="humanitarian-section">
+            <div class="eco-layout-header">
+                <div class="left">
+                    <div class="section-badge green-badge">HUMANISTIC CARE</div>
+                    <h2 class="editorial-title">人文关怀 · <span class="italic">邻里温情</span></h2>
+                </div>
+                <p class="right-desc">我们相信，酒店不仅是旅途中的歇脚处，更是传递温度的社会邻里。亚美致力于为每一位旅人提供适度、包容且充满尊严的人文关怀服务。</p>
+            </div>
+
+            <!-- Eco feature grid adapted for humanistic care -->
+            <div class="eco-features">
+                <div class="eco-feat-item">
+                    <span class="eco-feat-num">A</span>
+                    <div class="eco-feat-body">
+                        <h4>「暖心一杯」迎宾奉茶</h4>
+                        <p>每一位抵达亚美的邻里，不论晴雨，都将收到我们亲手奉上的一杯本地特产鹧鸪菊花茶。茶汤微温，洗去您车马劳顿的一路风尘。</p>
+                    </div>
+                </div>
+                <div class="eco-feat-item">
+                    <span class="eco-feat-num">B</span>
+                    <div class="eco-feat-body">
+                        <h4>「无障碍」有爱出行</h4>
+                        <p>亚美全区覆盖轮椅坡道，配有无障碍客房与智能升降扶手，并为视障/听障邻里提供专属大堂引导服务，让每一位旅人均能安全、平等、尊严地居停。</p>
+                    </div>
+                </div>
+                <div class="eco-feat-item">
+                    <span class="eco-feat-num">C</span>
+                    <div class="eco-feat-body">
+                        <h4>「宠物共栖」友好空间</h4>
+                        <p>我们热情接纳您的毛孩子一同入住。酒店特备宠物客房床垫、消毒餐盘和免费自制椰肉犬用零食，并在中庭花园开辟宠物嬉戏角，让旅途不留缺憾。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: LIFESTYLE SPACES -->
+        <section class="spaces-section scroll-reveal" id="spaces-section">
+            <div class="spaces-left">
+                <div class="section-badge">LIFESTYLE SPACES</div>
+                <h2 class="editorial-title">茶书共伴 · <span class="italic">温暖邻里</span></h2>
+                <p class="spaces-desc">亚美酒店不仅是歇脚的居所，更是与志同道合者产生共鸣的精神社群。我们在大堂和茶室开辟了温暖的人文交互区，等候您的光临。</p>
+                
+                <div class="space-accordion">
+                    <div class="accordion-item active" data-img="yamei_brand_concept.png">
+                        <div class="acc-header">
+                            <span class="acc-num">A</span>
+                            <h4>亚美书阁 (YAMEI Library)</h4>
+                            <i class="fa-solid fa-angle-right acc-arrow"></i>
+                        </div>
+                        <div class="acc-content">
+                            <p>大堂内设有24小时免费向邻里和房客开放的共享图书馆。精选哲学、建筑与环保生态书籍，您可以挑选一本带回房间阅读，也可以留下一本写着您寄语的书，在此交换故事。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item" data-img="yamei_tea.png">
+                        <div class="acc-header">
+                            <span class="acc-num">B</span>
+                            <h4>自然茶发寮 (Zen Tea Bar)</h4>
+                            <i class="fa-solid fa-angle-right acc-arrow"></i>
+                        </div>
+                        <div class="acc-content">
+                            <p>亚美的入户奉茶源自本地茶农有机栽培的茶山。大堂设有自助茶台，提供定制有机龙井与普洱，在温暖的茶汤里，洗去周身的车马劳顿。</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item" data-img="yamei_lobby.png">
+                        <div class="acc-header">
+                            <span class="acc-num">C</span>
+                            <h4>竹林中庭 (Bamboo Courtyard)</h4>
+                            <i class="fa-solid fa-angle-right acc-arrow"></i>
+                        </div>
+                        <div class="acc-content">
+                            <p>我们用上千竿绿竹在酒店中央开辟了一口天井庭院。夏夜风吹竹响，月影斑驳，这里是清晨冥想与傍晚微醺的绝佳绿色共生岛。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="spaces-right">
+                <div class="spaces-dynamic-img-container">
+                    <img src="yamei_brand_concept.png" alt="空间展示" id="spaces-dynamic-img">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Warm Footer Section -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-brand-col">
+                <h3 class="footer-logo">YAMEI 亚美酒店</h3>
+                <p class="footer-slogan">心有安处，绿意共生</p>
+                <div class="footer-badges">
+                    <span class="eco-cert-badge"><i class="fa-solid fa-earth-asia"></i> 碳中和运营</span>
+                    <span class="eco-cert-badge"><i class="fa-solid fa-shield-heart"></i> 邻里温情勋章</span>
+                </div>
+            </div>
+            <div class="footer-links-col">
+                <h5>联系与支持</h5>
+                <ul>
+                    <li><i class="fa-solid fa-phone"></i> 400-820-8888</li>
+                    <li><i class="fa-solid fa-envelope"></i> contact@yameihotels.com</li>
+                    <li><i class="fa-solid fa-location-dot"></i> 中国·南宁东盟商务区绿地路1号</li>
+                </ul>
+            </div>
+            <div class="footer-newsletter-col">
+                <h5>订阅绿意资讯</h5>
+                <p>订阅即能获取最新房型折扣、环保积分活动及大堂沙龙讲座通知。</p>
+                <div class="footer-input-row">
+                    <input type="email" placeholder="输入您的电子邮箱地址...">
+                    <button class="footer-send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 亚美酒店集团 Yamei Hotel Group | 仅限学术与Atour人文设计官网模拟使用 | 环保可持续旅居</p>
+        </div>
+    </footer>
+
+    <!-- MODAL 1: BOOKING FORM -->
+    <div class="modal-overlay hidden" id="booking-modal">
+        <div class="modal-card booking-modal-card">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-leaf"></i> 绿色出行预订登记</h2>
+                <button class="modal-close" data-target="booking-modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <form id="booking-form" class="modal-body">
+                <div class="booking-selected-room-info">
+                    <span class="label">已选房型:</span>
+                    <h3 id="modal-room-name">竹影静音大床房</h3>
+                    <div class="price-row">
+                        <span>日单价:</span>
+                        <strong class="green-text">￥<span id="modal-room-price">480</span></strong>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="book-in-date">入住日期 <span class="required">*</span></label>
+                        <input type="date" id="book-in-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="book-out-date">退房日期 <span class="required">*</span></label>
+                        <input type="date" id="book-out-date" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group flex-2">
+                        <label for="book-guest-name">入住人姓名 <span class="required">*</span></label>
+                        <input type="text" id="book-guest-name" required placeholder="请填写入住人真实姓名">
+                    </div>
+                    <div class="form-group flex-1">
+                        <label for="book-guest-gender">称谓</label>
+                        <select id="book-guest-gender">
+                            <option value="先生">先生</option>
+                            <option value="女士">女士</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="book-guest-phone">联系手机号码 <span class="required">*</span></label>
+                    <input type="tel" id="book-guest-phone" required pattern="[0-9]{11}" placeholder="请输入11位手机号以接收预订短信">
+                </div>
+
+                <!-- Green Choices Option (Eco Theme) -->
+                <div class="form-group eco-choice-group">
+                    <label><i class="fa-solid fa-shield-halved"></i> 亚美绿色出行低碳选项（选勾可获得绿色环保积分）</label>
+                    <div class="eco-checkboxes">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="eco-opt-toiletries" checked>
+                            <span class="checkmark"></span>
+                            自备洗漱备品 (免用客房全降解一次性牙刷/梳子，积分+50)
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="eco-opt-linen" checked>
+                            <span class="checkmark"></span>
+                            续住床单不折叠更换 (水资源保护，积分+80)
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="eco-opt-transit" checked>
+                            <span class="checkmark"></span>
+                            搭乘低碳公交/地铁前往 (绿色出行，积分+100)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="booking-estimate-summary">
+                    <div class="summary-line">
+                        <span>入住天数:</span>
+                        <span><span id="summary-days">1</span> 晚</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>环保积分返还:</span>
+                        <span class="green-text">+<span id="summary-points">230</span> 积分</span>
+                    </div>
+                    <div class="summary-line total-line">
+                        <span>应付总额:</span>
+                        <strong>￥<span id="summary-total-price">480</span></strong>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="secondary-btn modal-close" data-target="booking-modal">取消</button>
+                    <button type="submit" class="primary-btn-wide">确认预订，获取低碳凭证</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: BOOKING VOUCHER (SUCCESS) -->
+    <div class="modal-overlay hidden" id="voucher-modal">
+        <div class="modal-card voucher-modal-card">
+            <div class="voucher-ticket">
+                <div class="ticket-header">
+                    <div class="logo">YAMEI</div>
+                    <span class="ticket-badge"><i class="fa-solid fa-circle-check"></i> 绿色出行确认单</span>
+                </div>
+                
+                <div class="ticket-body">
+                    <div class="ticket-row text-center">
+                        <span class="ticket-label">预订成功凭证</span>
+                        <h2 class="ticket-success-title">亚美酒店 · 绿色宿入</h2>
+                        <p class="ticket-order-id">订单编号: <span id="voucher-order-id">YM202606078942</span></p>
+                    </div>
+                    
+                    <div class="ticket-divider"></div>
+                    
+                    <div class="ticket-row-grid">
+                        <div>
+                            <span class="ticket-label">入住人</span>
+                            <span class="ticket-val" id="voucher-name">张先生</span>
+                        </div>
+                        <div>
+                            <span class="ticket-label">联系电话</span>
+                            <span class="ticket-val" id="voucher-phone">138****0000</span>
+                        </div>
+                    </div>
+
+                    <div class="ticket-row">
+                        <span class="ticket-label">已定雅居房型</span>
+                        <span class="ticket-val text-large" id="voucher-room">竹影静音大床房</span>
+                    </div>
+
+                    <div class="ticket-row-grid">
+                        <div>
+                            <span class="ticket-label">入住日期</span>
+                            <span class="ticket-val" id="voucher-checkin">2026-06-08</span>
+                        </div>
+                        <div>
+                            <span class="ticket-label">退房日期</span>
+                            <span class="ticket-val" id="voucher-checkout">2026-06-09</span>
+                        </div>
+                    </div>
+
+                    <div class="ticket-divider"></div>
+
+                    <div class="ticket-eco-badge">
+                        <div class="left-icon"><i class="fa-solid fa-seedling"></i></div>
+                        <div class="right-text">
+                            <h4>低碳积分回馈：+<span id="voucher-points">230</span> 积分</h4>
+                            <p>您已加入亚美绿色循环，本次入住将避免使用一次性塑料备品。</p>
+                        </div>
+                    </div>
+
+                    <div class="ticket-qr-section">
+                        <!-- Custom Mock QR Code via Pure CSS -->
+                        <div class="mock-qr-code">
+                            <div class="qr-box qr-top-left"></div>
+                            <div class="qr-box qr-top-right"></div>
+                            <div class="qr-box qr-bottom-left"></div>
+                            <div class="qr-center-logo">YM</div>
+                        </div>
+                        <p class="qr-tip">办理入住时出示此绿色凭证二维码</p>
+                    </div>
+                </div>
+            </div>
+            <div class="voucher-modal-footer">
+                <button class="primary-btn-wide modal-close" data-target="voucher-modal">我知道了</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Script Entry -->
+    <script src="hotel.js"></script>
+</body>
+</html>
