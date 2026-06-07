@@ -255,7 +255,8 @@ button, input, select, textarea {
     transition: var(--transition-quick);
 }
 
-.menu-item:hover::after {
+.menu-item:hover::after,
+.menu-item.active::after {
     width: 100%;
 }
 
@@ -3765,6 +3766,207 @@ body::before {
         font-size: 2.5rem;
     }
 }
+
+/* ==========================================
+   Header Dropdown Menu (PC)
+   ========================================== */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-dropdown .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    cursor: pointer;
+}
+
+.nav-dropdown .menu-item i {
+    font-size: 0.75rem;
+    transition: transform var(--transition-quick);
+}
+
+.nav-dropdown:hover .menu-item i {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(28, 26, 23, 0.12);
+    min-width: 140px;
+    padding: 0.6rem 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 1000;
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+}
+
+.nav-dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 0.5rem 1.2rem;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: var(--transition-quick);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.navbar.transparent .dropdown-content a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.navbar.transparent .dropdown-content {
+    background-color: rgba(28, 26, 23, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar.transparent .dropdown-content a:hover {
+    color: #FFF;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.navbar.scrolled .dropdown-content a:hover {
+    color: var(--primary);
+    background-color: rgba(229, 181, 96, 0.08);
+}
+
+/* ==========================================
+   Mobile Accordion Menu (Drawer)
+   ========================================== */
+.drawer-accordion {
+    width: 100%;
+    border-bottom: 1px solid rgba(28, 26, 23, 0.05);
+}
+
+.drawer-accordion-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    background: none;
+    border: none;
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-main);
+    text-align: left;
+    cursor: pointer;
+}
+
+.drawer-accordion-btn i {
+    font-size: 0.8rem;
+    transition: transform var(--transition-smooth);
+    color: var(--text-muted);
+}
+
+.drawer-accordion.active .drawer-accordion-btn i {
+    transform: rotate(45deg);
+}
+
+.drawer-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    background-color: rgba(28, 26, 23, 0.015);
+}
+
+.drawer-accordion.active .drawer-accordion-content {
+    max-height: 250px; /* Adjust based on contents */
+    padding-bottom: 0.8rem;
+}
+
+.drawer-sublink {
+    padding: 0.45rem 0;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: var(--transition-quick);
+}
+
+.drawer-sublink:hover {
+    color: var(--primary);
+}
+
+/* ==========================================
+   Mobile Membership Modal Padding & Scaling
+   ========================================== */
+.member-modal-card {
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.member-form-container, .member-card-container {
+    padding: 2.2rem;
+    overflow-y: auto;
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+    .member-form-container, .member-card-container {
+        padding: 1.5rem 1.2rem;
+    }
+    
+    .digital-member-card {
+        max-width: 100% !important;
+        height: auto;
+        aspect-ratio: 1.7 / 1;
+        padding: 1.2rem;
+    }
+    
+    .digital-member-card .card-header .brand {
+        font-size: 0.95rem;
+    }
+    
+    .digital-member-card .card-header .tier-badge {
+        padding: 0.2rem 0.6rem;
+        font-size: 0.65rem;
+    }
+    
+    .digital-member-card .card-body {
+        margin: 0.6rem 0;
+    }
+    
+    .digital-member-card .card-info .card-val {
+        font-size: 0.95rem;
+    }
+    
+    .digital-member-card .card-footer .card-coords {
+        font-size: 0.6rem;
+    }
+    
+    .digital-member-card .barcode-area .barcode-stripes {
+        height: 22px;
+    }
+    
+    .digital-member-card .barcode-area .barcode-number {
+        font-size: 0.6rem;
+    }
+}
+
 
 
 

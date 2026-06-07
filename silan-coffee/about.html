@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18°D COFFEE | 关于我们 - 旗下风物食肆与分店选址</title>
+    <meta name="description" content="关于 18°D 咖啡 - 旗下食肆与分店选址，以及我们在三亚海岸的职位招募通道。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400&family=Outfit:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar transparent" id="main-nav">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-coord">18°D</span>
+            <span class="logo-text">COFFEE</span>
+        </a>
+        <nav class="nav-menu">
+            <!-- Brand stories Dropdown -->
+            <div class="nav-dropdown">
+                <a href="index.html" class="menu-item" data-key="nav-brand">品牌故事 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="index.html#brand-origins" data-key="nav-latitude">黄金纬度</a>
+                    <a href="index.html#brand-story" data-key="nav-story-sub">山海故事</a>
+                    <a href="index.html#pioneer-section" data-key="nav-details-sub">风物细节</a>
+                </div>
+            </div>
+            <!-- Flavor Dropdown -->
+            <div class="nav-dropdown">
+                <a href="menu.html" class="menu-item" data-key="nav-flavor">探索风味 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="menu.html#origins-section" data-key="nav-materials">地理溯源</a>
+                    <a href="menu.html#menu-section" data-key="nav-menu-sub">汐澜菜单</a>
+                    <a href="menu.html#lab-dashboard" data-key="nav-dash-sub">实时数据</a>
+                </div>
+            </div>
+            <!-- Club Dropdown -->
+            <div class="nav-dropdown">
+                <a href="club.html" class="menu-item" data-key="nav-club">海岛会员 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="club.html#membership-section" data-key="nav-tiers-sub">会员权益</a>
+                    <a href="club.html#membership-section" class="join-member-btn-trigger" data-key="nav-activate-sub">专属激活</a>
+                </div>
+            </div>
+            <!-- Booking Dropdown -->
+            <div class="nav-dropdown">
+                <a href="booking.html" class="menu-item" data-key="nav-booking-nav">体验预约 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="booking.html#booking-section" data-key="nav-reserve-sub">卡座预约</a>
+                    <a href="booking.html#service-section" data-key="nav-services-sub">极致服务</a>
+                    <a href="booking.html#community-section" data-key="nav-community-sub">社区关怀</a>
+                </div>
+            </div>
+            <!-- About Dropdown -->
+            <div class="nav-dropdown">
+                <a href="about.html" class="menu-item" data-key="nav-about-sub">关于我们 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="about.html#affiliates-section" data-key="nav-branches-sub">旗下分店</a>
+                    <a href="about.html#careers-section" data-key="nav-careers-sub">加入我们</a>
+                </div>
+            </div>
+        </nav>
+        <div class="nav-actions">
+            <button class="lang-switch-btn" id="lang-switch-btn">EN</button>
+            <a href="booking.html#booking-section" class="nav-reserve-btn" data-key="nav-reserve-btn">预约日落席</a>
+            <button class="menu-toggle" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer hidden" id="mobile-drawer">
+        <div class="drawer-header">
+            <span class="logo-coord">18°D COFFEE</span>
+            <div class="drawer-header-actions">
+                <button class="lang-switch-btn drawer-lang-btn" id="drawer-lang-btn">EN</button>
+                <button class="drawer-close" id="mobile-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+        <div class="drawer-links">
+            <!-- Brand Stories Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-brand">品牌故事</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="index.html" class="drawer-sublink" data-key="nav-home-link">首页</a>
+                    <a href="index.html#brand-origins" class="drawer-sublink" data-key="nav-latitude">黄金纬度</a>
+                    <a href="index.html#brand-story" class="drawer-sublink" data-key="nav-story-sub">山海故事</a>
+                    <a href="index.html#pioneer-section" class="drawer-sublink" data-key="nav-details-sub">风物细节</a>
+                </div>
+            </div>
+            
+            <!-- Flavor Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-flavor">探索风味</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="menu.html" class="drawer-sublink" data-key="nav-menu-home">风味页面</a>
+                    <a href="menu.html#origins-section" class="drawer-sublink" data-key="nav-materials">地理溯源</a>
+                    <a href="menu.html#menu-section" class="drawer-sublink" data-key="nav-menu-sub">汐澜菜单</a>
+                    <a href="menu.html#lab-dashboard" class="drawer-sublink" data-key="nav-dash-sub">实时数据</a>
+                </div>
+            </div>
+
+            <!-- Club Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-club">海岛会员</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="club.html" class="drawer-sublink" data-key="nav-club-home">会员中心</a>
+                    <a href="club.html#membership-section" class="drawer-sublink" data-key="nav-tiers-sub">会员权益</a>
+                    <a href="club.html#membership-section" class="drawer-sublink join-member-btn-trigger" data-key="nav-activate-sub">专属激活</a>
+                </div>
+            </div>
+
+            <!-- Booking Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-booking-nav">体验预约</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="booking.html" class="drawer-sublink" data-key="nav-booking-home">预约页面</a>
+                    <a href="booking.html#booking-section" class="drawer-sublink" data-key="nav-reserve-sub">卡座预约</a>
+                    <a href="booking.html#service-section" class="drawer-sublink" data-key="nav-services-sub">极致服务</a>
+                    <a href="booking.html#community-section" class="drawer-sublink" data-key="nav-community-sub">社区关怀</a>
+                </div>
+            </div>
+
+            <!-- About Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-about-sub">关于我们</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="about.html" class="drawer-sublink" data-key="nav-about-home">关于亚美/汐澜</a>
+                    <a href="about.html#affiliates-section" class="drawer-sublink" data-key="nav-branches-sub">旗下分店</a>
+                    <a href="about.html#careers-section" class="drawer-sublink" data-key="nav-careers-sub">加入我们</a>
+                </div>
+            </div>
+
+            <a href="booking.html#booking-section" class="primary-btn-wide drawer-reserve-btn" data-key="nav-reserve-btn" style="margin-top: 1.5rem;">预约日落席</a>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="page-content" style="padding-top: 80px;">
+
+        <!-- SECTION 5.5: LOCATIONS & SISTER BRANDS -->
+        <section class="affiliates-section scroll-reveal" id="affiliates-section">
+            <div class="section-badge" data-key="aff-badge">Branches & Affiliates</div>
+            <h2 class="editorial-title" data-key="aff-title">分店选址 · <span class="italic">旗下风物食肆</span></h2>
+            <p class="section-desc" data-key="aff-desc">从海岸日落到火山地质公园，从咖啡香气到创意中餐美学，我们致力于将地缘风土地貌与温暖人情融入每一次旅人餐桌体验中。</p>
+            
+            <div class="affiliates-layout">
+                <!-- Left: Branches list -->
+                <div class="branches-box">
+                    <h3 data-key="aff-branch-title">18°D 全球分店选址</h3>
+                    <div class="branches-grid">
+                        <div class="branch-item-card">
+                            <h4>三亚海棠湾店 (Flagship Sanya)</h4>
+                            <p class="branch-meta"><i class="fa-solid fa-location-dot"></i> 三亚市海棠湾椰风路8号 (18.25° N)</p>
+                            <p class="branch-meta"><i class="fa-solid fa-clock"></i> 每日 08:30 - 22:00</p>
+                            <span class="branch-badge" data-key="aff-b1-tag">海岸露台 / 日落卡座</span>
+                        </div>
+                        <div class="branch-item-card">
+                            <h4>京都岚山店 (Kyoto Arashiyama)</h4>
+                            <p class="branch-meta"><i class="fa-solid fa-location-dot"></i> 日本京都市右京区嵯峨天龙寺 (35.01° N)</p>
+                            <p class="branch-meta"><i class="fa-solid fa-clock"></i> 每日 09:00 - 18:00</p>
+                            <span class="branch-badge" data-key="aff-b2-tag">岚山竹林 / 枫叶工坊</span>
+                        </div>
+                        <div class="branch-item-card">
+                            <h4>巴黎玛黑区店 (Paris Marais)</h4>
+                            <p class="branch-meta"><i class="fa-solid fa-location-dot"></i> 法国巴黎 Rue de Turenne 38号 (48.85° N)</p>
+                            <p class="branch-meta"><i class="fa-solid fa-clock"></i> 每日 08:00 - 20:00</p>
+                            <span class="branch-badge" data-key="aff-b3-tag">塞纳左岸 / 艺术沙龙</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Sister brands info -->
+                <div class="sister-brands-box">
+                    <h3 data-key="aff-sister-title">旗下风物姐妹品牌</h3>
+                    <div class="sister-brand-item">
+                        <div class="sister-header">
+                            <h4>汐澜中餐精选 (SILAN BISTRO)</h4>
+                            <span class="sister-tag" data-key="aff-s1-tag">自然有机川粤</span>
+                        </div>
+                        <p class="sister-desc" data-key="aff-s1-desc">以海南在地有机蔬菜与近海野生海鲜为原材，融汇创意川粤火候。我们用低碳烹饪理念，在原木清水石的环境中，为您呈现健康且不失烟火气的现代中式美学晚宴。</p>
+                        <div class="sister-meta">
+                            <span><i class="fa-solid fa-clock"></i> 11:30 - 14:00 / 17:30 - 21:30</span>
+                            <span><i class="fa-solid fa-leaf"></i> 每日鲜活采收直送</span>
+                        </div>
+                    </div>
+
+                    <div class="sister-brand-item">
+                        <div class="sister-header">
+                            <h4>汐澜粉面社 (SILAN NOODLES)</h4>
+                            <span class="sister-tag" data-key="aff-s2-tag">海南手工粉面</span>
+                        </div>
+                        <p class="sister-desc" data-key="aff-s2-desc">专注于传承海南本土手作米粉精髓。精选文昌慢熬土鸡浓汤与新鲜石磨手工粉，让每一位清晨冲浪归来的旅人，或是辛勤工作的环卫邻里，都能喝上一口暖胃又暖心的浓郁鸡汤。</p>
+                        <div class="sister-meta">
+                            <span><i class="fa-solid fa-clock"></i> 06:30 - 20:30 (全天候)</span>
+                            <span><i class="fa-solid fa-heart"></i> 社区环卫工人享半价</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-geo-tag">GLOBAL SISTER BRANDS // Kyoto - Paris - NY</div>
+        </section>
+
+        <!-- SECTION 5: CAREERS & JOINING US -->
+        <section class="careers-section scroll-reveal" id="careers-section">
+            <div class="section-badge" data-key="care-badge">Join the Lab</div>
+            <h2 class="editorial-title" data-key="care-title">寻找同频旅人 · <span class="italic">加入我们</span></h2>
+            <p class="section-desc" data-key="care-desc">我们一直在寻找对风土地理心存敬畏、对邻里社区满怀温情的伙伴。这不仅是一份工作，更是一场关于风味与人情的美好旅程。</p>
+            
+            <div class="careers-layout">
+                <!-- Job Cards -->
+                <div class="careers-jobs">
+                    <!-- Job 1 -->
+                    <div class="job-card">
+                        <div class="job-header">
+                            <h3 data-key="job1-title">精品咖啡师 / 风味研究员</h3>
+                            <span class="job-tag" data-key="job-tag-full">全职 / 兼职</span>
+                        </div>
+                        <p class="job-desc" data-key="job1-desc">负责科学金杯手冲与特调咖啡的萃取，深入倾听宾客偏好并提供风味定制，以温暖、适度的服务礼仪接待店内的每一位邻里。</p>
+                        <div class="job-requirements">
+                            <h5 data-key="job-req-lbl">职位要求</h5>
+                            <ul>
+                                <li data-key="job1-r1"><i class="fa-solid fa-check"></i> 拥有SCA中级或以上认证者优先，但更看重您对咖啡的纯粹热爱；</li>
+                                <li data-key="job1-r2"><i class="fa-solid fa-check"></i> 具备极强的共情与主动沟通能力，认同且愿意践行“十秒微笑原则”；</li>
+                                <li data-key="job1-r3"><i class="fa-solid fa-check"></i> 熟练掌握手势点单，愿意与我们的听障“无声咖啡师”伙伴包容协作。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Job 2 -->
+                    <div class="job-card">
+                        <div class="job-header">
+                            <h3 data-key="job2-title">「无声咖啡师」风味共创者</h3>
+                            <span class="job-tag" data-key="job-tag-silent">全职 (残障人士通道)</span>
+                        </div>
+                        <p class="job-desc" data-key="job2-desc">面向听障、语障等特殊群体开放。进行咖啡日常冲煮及出杯，通过眼神、手势及文字与宾客无声传递温暖。</p>
+                        <div class="job-requirements">
+                            <h5 data-key="job-req-lbl">职位要求</h5>
+                            <ul>
+                                <li data-key="job2-r1"><i class="fa-solid fa-check"></i> 欢迎听觉或言语障碍人士申请，门店提供完善的无障碍工作流程；</li>
+                                <li data-key="job2-r2"><i class="fa-solid fa-check"></i> 具有咖啡冲煮热情，有无经验均可，提供全面且有薪的专业师带徒培训；</li>
+                                <li data-key="job2-r3"><i class="fa-solid fa-check"></i> 具有温暖阳光的笑容，能适应团队的友善静音协作。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Job 3 -->
+                    <div class="job-card">
+                        <div class="job-header">
+                            <h3 data-key="job3-title">海岸空间体验主理人 (店长)</h3>
+                            <span class="job-tag" data-key="job-tag-full">全职</span>
+                        </div>
+                        <p class="job-desc" data-key="job3-desc">统筹门店的整体运营，监督落实以人为本的服务标准，管理气象应急备品，策划社区公益与宠物友好活动。</p>
+                        <div class="job-requirements">
+                            <h5 data-key="job-req-lbl">职位要求</h5>
+                            <ul>
+                                <li data-key="job3-r1"><i class="fa-solid fa-check"></i> 2年以上精品咖啡或中高端服务业店长经验，懂咖啡，更懂人情；</li>
+                                <li data-key="job3-r2"><i class="fa-solid fa-check"></i> 关注海棠湾本地气象与潮汐，能从细节上周全调度海岸气象应急服务；</li>
+                                <li data-key="job3-r3"><i class="fa-solid fa-check"></i> 善于团队包容性管理，能将员工与宾客的尊严与快乐放在运营首位。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recruitment Channels -->
+                <div class="careers-channels">
+                    <div class="channels-box">
+                        <h3 data-key="care-recruit-title">招聘渠道与应聘方式</h3>
+                        <div class="channel-item">
+                            <div class="channel-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="channel-text">
+                                <h5 data-key="care-c1-title">官方简历邮箱</h5>
+                                <p data-key="care-c1-desc">发送简历至 <a href="mailto:talent@18dcoffee.com" class="highlight-link">talent@18dcoffee.com</a>。邮件中可附上一段关于您个人冲煮日常或风味自述的短视频，让我们更立体地认识您。</p>
+                            </div>
+                        </div>
+
+                        <div class="channel-item">
+                            <div class="channel-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                            <div class="channel-text">
+                                <h5 data-key="care-c2-title">店内“一杯直面”</h5>
+                                <p data-key="care-c2-desc">每周二下午 14:00 - 17:00，您可以直接携带您的常用咖啡杯来到三亚海棠湾门店。我们会请您喝一杯火山豆手冲，在海风中面对面边喝边聊。</p>
+                            </div>
+                        </div>
+
+                        <div class="channel-item">
+                            <div class="channel-icon"><i class="fa-solid fa-leaf"></i></div>
+                            <div class="channel-text">
+                                <h5 data-key="care-c3-title">「低碳同行」绿色推荐</h5>
+                                <p data-key="care-c3-desc">如果你有同频的朋友热爱咖啡与人情，欢迎推荐。推荐成功入职并满三个月，推荐人与被推荐人都将获得 18°D 「海风产地溯源探索之旅」积分大礼包。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-geo-tag">COOPERATIVE VACANCY // 18°D HUMANITY</div>
+        </section>
+
+    </main>
+
+    <!-- High-end Minimalist Footer -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-left-col">
+                <h3 class="footer-brand" data-key="foot-brand">18°D COFFEE</h3>
+                <p class="footer-slogan" data-key="foot-slogan">Sanya Specialty Coffee Laboratory</p>
+                <p class="footer-desc" data-key="foot-desc">在三亚海棠湾的咸湿海风与椰影斜照下，我们以一杯火山岩风味的咖啡豆，写一首给自然的温情诗篇。</p>
+            </div>
+            
+            <div class="footer-links-col">
+                <h5 data-key="foot-shop-title">三亚海岸门店</h5>
+                <ul>
+                    <li data-key="foot-shop-addr"><i class="fa-solid fa-location-dot"></i> 三亚市海棠湾椰风路8号（喜来登旁海滩）</li>
+                    <li data-key="foot-shop-time"><i class="fa-solid fa-clock"></i> 每日 08:30 - 22:00</li>
+                    <li data-key="foot-shop-phone"><i class="fa-solid fa-phone"></i> 0898-8888-1818</li>
+                </ul>
+            </div>
+
+            <div class="footer-cert-col">
+                <h5 data-key="foot-eco-title">绿色环保指标</h5>
+                <div class="eco-metrics">
+                    <span class="metric-badge" data-key="foot-eco-m1"><i class="fa-solid fa-recycle"></i> 100% 纸质降解吸管</span>
+                    <span class="metric-badge" data-key="foot-eco-m2"><i class="fa-solid fa-seedling"></i> 循环咖啡渣有机基肥料</span>
+                    <span class="metric-badge" data-key="foot-eco-m3"><i class="fa-solid fa-solar-panel"></i> 太阳能中和加热热水</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p data-key="foot-copy">&copy; 2026 18°D 咖啡集团 18°Degree Coffee Group | 极简海岸咖啡店设计演示官网</p>
+        </div>
+    </footer>
+
+    <!-- Script Entry -->
+    <script src="app.js"></script>
+</body>
+</html>

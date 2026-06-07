@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18°D COFFEE | 海岛会员 - 加入海岛旅人会员计划</title>
+    <meta name="description" content="18°D 海岛会员中心 - 免费成为浪迹旅人，或升级为火山风物师、潮汐主理人，解锁海南本土单一源特调折扣、优先预留面海落日席位等专属特权。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400&family=Outfit:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar transparent" id="main-nav">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-coord">18°D</span>
+            <span class="logo-text">COFFEE</span>
+        </a>
+        <nav class="nav-menu">
+            <!-- Brand stories Dropdown -->
+            <div class="nav-dropdown">
+                <a href="index.html" class="menu-item" data-key="nav-brand">品牌故事 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="index.html#brand-origins" data-key="nav-latitude">黄金纬度</a>
+                    <a href="index.html#brand-story" data-key="nav-story-sub">山海故事</a>
+                    <a href="index.html#pioneer-section" data-key="nav-details-sub">风物细节</a>
+                </div>
+            </div>
+            <!-- Flavor Dropdown -->
+            <div class="nav-dropdown">
+                <a href="menu.html" class="menu-item" data-key="nav-flavor">探索风味 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="menu.html#origins-section" data-key="nav-materials">地理溯源</a>
+                    <a href="menu.html#menu-section" data-key="nav-menu-sub">汐澜菜单</a>
+                    <a href="menu.html#lab-dashboard" data-key="nav-dash-sub">实时数据</a>
+                </div>
+            </div>
+            <!-- Club Dropdown -->
+            <div class="nav-dropdown">
+                <a href="club.html" class="menu-item" data-key="nav-club">海岛会员 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="club.html#membership-section" data-key="nav-tiers-sub">会员权益</a>
+                    <a href="club.html#membership-section" class="join-member-btn-trigger" data-key="nav-activate-sub">专属激活</a>
+                </div>
+            </div>
+            <!-- Booking Dropdown -->
+            <div class="nav-dropdown">
+                <a href="booking.html" class="menu-item" data-key="nav-booking-nav">体验预约 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="booking.html#booking-section" data-key="nav-reserve-sub">卡座预约</a>
+                    <a href="booking.html#service-section" data-key="nav-services-sub">极致服务</a>
+                    <a href="booking.html#community-section" data-key="nav-community-sub">社区关怀</a>
+                </div>
+            </div>
+            <!-- About Dropdown -->
+            <div class="nav-dropdown">
+                <a href="about.html" class="menu-item" data-key="nav-about-sub">关于我们 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="about.html#affiliates-section" data-key="nav-branches-sub">旗下分店</a>
+                    <a href="about.html#careers-section" data-key="nav-careers-sub">加入我们</a>
+                </div>
+            </div>
+        </nav>
+        <div class="nav-actions">
+            <button class="lang-switch-btn" id="lang-switch-btn">EN</button>
+            <a href="booking.html#booking-section" class="nav-reserve-btn" data-key="nav-reserve-btn">预约日落席</a>
+            <button class="menu-toggle" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer hidden" id="mobile-drawer">
+        <div class="drawer-header">
+            <span class="logo-coord">18°D COFFEE</span>
+            <div class="drawer-header-actions">
+                <button class="lang-switch-btn drawer-lang-btn" id="drawer-lang-btn">EN</button>
+                <button class="drawer-close" id="mobile-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+        <div class="drawer-links">
+            <!-- Brand Stories Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-brand">品牌故事</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="index.html" class="drawer-sublink" data-key="nav-home-link">首页</a>
+                    <a href="index.html#brand-origins" class="drawer-sublink" data-key="nav-latitude">黄金纬度</a>
+                    <a href="index.html#brand-story" class="drawer-sublink" data-key="nav-story-sub">山海故事</a>
+                    <a href="index.html#pioneer-section" class="drawer-sublink" data-key="nav-details-sub">风物细节</a>
+                </div>
+            </div>
+            
+            <!-- Flavor Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-flavor">探索风味</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="menu.html" class="drawer-sublink" data-key="nav-menu-home">风味页面</a>
+                    <a href="menu.html#origins-section" class="drawer-sublink" data-key="nav-materials">地理溯源</a>
+                    <a href="menu.html#menu-section" class="drawer-sublink" data-key="nav-menu-sub">汐澜菜单</a>
+                    <a href="menu.html#lab-dashboard" class="drawer-sublink" data-key="nav-dash-sub">实时数据</a>
+                </div>
+            </div>
+
+            <!-- Club Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-club">海岛会员</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="club.html" class="drawer-sublink" data-key="nav-club-home">会员中心</a>
+                    <a href="club.html#membership-section" class="drawer-sublink" data-key="nav-tiers-sub">会员权益</a>
+                    <a href="club.html#membership-section" class="drawer-sublink join-member-btn-trigger" data-key="nav-activate-sub">专属激活</a>
+                </div>
+            </div>
+
+            <!-- Booking Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-booking-nav">体验预约</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="booking.html" class="drawer-sublink" data-key="nav-booking-home">预约页面</a>
+                    <a href="booking.html#booking-section" class="drawer-sublink" data-key="nav-reserve-sub">卡座预约</a>
+                    <a href="booking.html#service-section" class="drawer-sublink" data-key="nav-services-sub">极致服务</a>
+                    <a href="booking.html#community-section" class="drawer-sublink" data-key="nav-community-sub">社区关怀</a>
+                </div>
+            </div>
+
+            <!-- About Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-about-sub">关于我们</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="about.html" class="drawer-sublink" data-key="nav-about-home">关于亚美/汐澜</a>
+                    <a href="about.html#affiliates-section" class="drawer-sublink" data-key="nav-branches-sub">旗下分店</a>
+                    <a href="about.html#careers-section" class="drawer-sublink" data-key="nav-careers-sub">加入我们</a>
+                </div>
+            </div>
+
+            <a href="booking.html#booking-section" class="primary-btn-wide drawer-reserve-btn" data-key="nav-reserve-btn" style="margin-top: 1.5rem;">预约日落席</a>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="page-content" style="padding-top: 80px;">
+
+        <!-- SECTION 3.8: MEMBER LAB (会员计划) -->
+        <section class="membership-section scroll-reveal" id="membership-section">
+            <div class="section-badge" data-key="member-badge">18°D Club</div>
+            <h2 class="editorial-title text-center" data-key="member-title">海岛旅人计划 · <span class="italic">加入会员</span></h2>
+            <p class="section-desc text-center margin-center" data-key="member-desc">每一杯咖啡，都是一次关于风土与善意的探索。加入 18°D 会员，解锁您的专属海岛特权。</p>
+            
+            <div class="membership-grid">
+                <!-- Tier 1 -->
+                <div class="member-card">
+                    <div class="member-card-header">
+                        <span class="member-tier">T1</span>
+                        <h3 data-key="member-t1-title">浪迹旅人</h3>
+                        <p class="member-eng">Coastal Wanderer</p>
+                    </div>
+                    <div class="member-price">
+                        <span class="currency">¥</span>
+                        <strong class="price-val">0</strong>
+                        <span class="period" data-key="member-free-tag">/ 免费加入</span>
+                    </div>
+                    <ul class="member-benefits">
+                        <li data-key="member-t1-b1"><i class="fa-solid fa-check"></i> 消费积攒低碳绿意积分</li>
+                        <li data-key="member-t1-b2"><i class="fa-solid fa-check"></i> 首杯特调立减 ¥5 体验券</li>
+                        <li data-key="member-t1-b3"><i class="fa-solid fa-check"></i> 生日免单咖啡 1 杯</li>
+                    </ul>
+                    <button class="join-member-btn" data-tier="wanderer" data-key="member-join-btn1">免费加入</button>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="member-card popular">
+                    <div class="popular-badge" data-key="member-popular-tag">推荐首选</div>
+                    <div class="member-card-header">
+                        <span class="member-tier">T2</span>
+                        <h3 data-key="member-t2-title">火山风物师</h3>
+                        <p class="member-eng">Volcanic Curator</p>
+                    </div>
+                    <div class="member-price">
+                        <span class="currency">¥</span>
+                        <strong class="price-val">88</strong>
+                        <span class="period" data-key="member-year-tag">/ 年</span>
+                    </div>
+                    <ul class="member-benefits">
+                        <li data-key="member-t2-b1"><i class="fa-solid fa-check"></i> 全年手冲与特调咖啡享 8.8 折</li>
+                        <li data-key="member-t2-b2"><i class="fa-solid fa-check"></i> 每月赠送当季隐藏款特调 1 杯</li>
+                        <li data-key="member-t2-b3"><i class="fa-solid fa-check"></i> 会员专属“沙滩贝壳粗砂杯”1个</li>
+                        <li data-key="member-t2-b4"><i class="fa-solid fa-check"></i> 预约露台落日卡座优先安排</li>
+                    </ul>
+                    <button class="join-member-btn premium-btn" data-tier="curator" data-key="member-join-btn2">付费开通</button>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="member-card">
+                    <div class="member-card-header">
+                        <span class="member-tier">T3</span>
+                        <h3 data-key="member-t3-title">潮汐主理人</h3>
+                        <p class="member-eng">Tidal Host</p>
+                    </div>
+                    <div class="member-price">
+                        <span class="currency">¥</span>
+                        <strong class="price-val">288</strong>
+                        <span class="period" data-key="member-year-tag">/ 年</span>
+                    </div>
+                    <ul class="member-benefits">
+                        <li data-key="member-t3-b1"><i class="fa-solid fa-check"></i> 全年全品类饮品/轻食享 8.2 折</li>
+                        <li data-key="member-t3-b2"><i class="fa-solid fa-check"></i> 每月赠送当季单一源手冲 2 杯</li>
+                        <li data-key="member-t3-b3"><i class="fa-solid fa-check"></i> 赠 18°D「海风产地探索」礼包</li>
+                        <li data-key="member-t3-b4"><i class="fa-solid fa-check"></i> 无限次优先预留落日面海席位</li>
+                        <li data-key="member-t3-b5"><i class="fa-solid fa-check"></i> 旗下中餐及粉面馆优先品鉴特权</li>
+                    </ul>
+                    <button class="join-member-btn" data-tier="host" data-key="member-join-btn3">付费开通</button>
+                </div>
+            </div>
+            <div class="section-geo-tag">MEMBERSHIP ARCHIVE // 18°D CLUB</div>
+        </section>
+
+    </main>
+
+    <!-- High-end Minimalist Footer -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-left-col">
+                <h3 class="footer-brand" data-key="foot-brand">18°D COFFEE</h3>
+                <p class="footer-slogan" data-key="foot-slogan">Sanya Specialty Coffee Laboratory</p>
+                <p class="footer-desc" data-key="foot-desc">在三亚海棠湾的咸湿海风与椰影斜照下，我们以一杯火山岩风味的咖啡豆，写一首给自然的温情诗篇。</p>
+            </div>
+            
+            <div class="footer-links-col">
+                <h5 data-key="foot-shop-title">三亚海岸门店</h5>
+                <ul>
+                    <li data-key="foot-shop-addr"><i class="fa-solid fa-location-dot"></i> 三亚市海棠湾椰风路8号（喜来登旁海滩）</li>
+                    <li data-key="foot-shop-time"><i class="fa-solid fa-clock"></i> 每日 08:30 - 22:00</li>
+                    <li data-key="foot-shop-phone"><i class="fa-solid fa-phone"></i> 0898-8888-1818</li>
+                </ul>
+            </div>
+
+            <div class="footer-cert-col">
+                <h5 data-key="foot-eco-title">绿色环保指标</h5>
+                <div class="eco-metrics">
+                    <span class="metric-badge" data-key="foot-eco-m1"><i class="fa-solid fa-recycle"></i> 100% 纸质降解吸管</span>
+                    <span class="metric-badge" data-key="foot-eco-m2"><i class="fa-solid fa-seedling"></i> 循环咖啡渣有机基肥料</span>
+                    <span class="metric-badge" data-key="foot-eco-m3"><i class="fa-solid fa-solar-panel"></i> 太阳能中和加热热水</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p data-key="foot-copy">&copy; 2026 18°D 咖啡集团 18°Degree Coffee Group | 极简海岸咖啡店设计演示官网</p>
+        </div>
+    </footer>
+
+    <!-- MEMBER CARD MODAL -->
+    <div class="modal-overlay hidden" id="member-modal">
+        <div class="modal-card member-modal-card">
+            <button class="modal-close" data-target="member-modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="member-form-container" id="member-form-box">
+                <h3 data-key="member-modal-title">开通海岛旅人会员</h3>
+                <p data-key="member-modal-desc">只需填写基本信息即可生成您的 18°D 专属电子会员卡。</p>
+                <form id="member-join-form">
+                    <input type="hidden" id="member-selected-tier" value="wanderer">
+                    <div class="form-group">
+                        <label for="member-name" data-key="book-label-name">姓名 / 称呼</label>
+                        <input type="text" id="member-name" required placeholder="请填写您的姓名/称呼" data-placeholder-key="book-ph-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="member-phone" data-key="book-label-phone">手机号码</label>
+                        <input type="tel" id="member-phone" required pattern="[0-9]{11}" placeholder="请输入11位手机号" data-placeholder-key="book-ph-phone">
+                    </div>
+                    <button type="submit" class="primary-btn-wide" data-key="member-modal-submit">立即激活会员卡</button>
+                </form>
+            </div>
+            
+            <div class="member-card-container hidden" id="member-card-box">
+                <div class="digital-member-card" id="digital-member-card">
+                    <div class="card-glow"></div>
+                    <div class="card-header">
+                        <span class="brand">18°D COFFEE</span>
+                        <span class="tier-badge" id="card-tier-badge">浪迹旅人</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <span class="card-label" data-key="member-card-name-lbl">会员姓名</span>
+                            <strong class="card-val" id="card-name">AUSTIN</strong>
+                        </div>
+                        <div class="card-info">
+                            <span class="card-label" data-key="member-card-id-lbl">会员卡号</span>
+                            <strong class="card-val" id="card-number">18D-8898-3298</strong>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-coords">18.25° N, 109.51° E SANYA</span>
+                        <div class="barcode-area">
+                            <div class="barcode-stripes"></div>
+                            <span class="barcode-number" id="card-barcode-number">18D99203810</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-success-msg">
+                    <h4 data-key="member-success-title">🎉 会员激活成功！</h4>
+                    <p data-key="member-success-desc">欢迎成为 18°D 同频旅人，会员卡条形码已激活，到店消费出示即可享受专属权益。</p>
+                    <button class="primary-btn-wide modal-close" data-target="member-modal" data-key="ticket-close-btn">我知道了</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Entry -->
+    <script src="app.js"></script>
+</body>
+</html>

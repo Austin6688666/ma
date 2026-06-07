@@ -304,6 +304,29 @@ const I18N_DICTS = {
         "nav-club": "海岛会员",
         "nav-booking": "卡座预约",
         "nav-reserve-btn": "预约日落席",
+        "nav-brand": "品牌故事",
+        "nav-story-sub": "山海故事",
+        "nav-details-sub": "风物细节",
+        "nav-flavor": "探索风味",
+        "nav-menu-sub": "汐澜菜单",
+        "nav-dash-sub": "实时数据",
+        "nav-tiers-sub": "会员权益",
+        "nav-activate-sub": "专属激活",
+        "nav-booking-nav": "体验预约",
+        "nav-reserve-sub": "卡座预约",
+        "nav-services-sub": "极致服务",
+        "nav-community-sub": "社区关怀",
+        "nav-about-sub": "关于我们",
+        "nav-branches-sub": "旗下分店",
+        "nav-careers-sub": "加入我们",
+        "nav-home-link": "首页",
+        "nav-menu-home": "风味页面",
+        "nav-club-home": "会员中心",
+        "nav-booking-home": "预约页面",
+        "nav-about-home": "关于亚美/汐澜",
+        "hero-bar-temp": "当日温度",
+        "hero-bar-beans": "本季豆选",
+        "hero-bar-wind": "海风流向",
         
         // Hero
         "hero-title": "黄金纬度 · <span class=\"highlight\">风味重塑</span>",
@@ -510,6 +533,29 @@ const I18N_DICTS = {
         "nav-club": "Club",
         "nav-booking": "Booking",
         "nav-reserve-btn": "Sunset Reservation",
+        "nav-brand": "Brand Story",
+        "nav-story-sub": "Terroir Story",
+        "nav-details-sub": "Terroir Details",
+        "nav-flavor": "Flavors",
+        "nav-menu-sub": "Specialty Menu",
+        "nav-dash-sub": "Live Dash",
+        "nav-tiers-sub": "Member Tiers",
+        "nav-activate-sub": "Activate Card",
+        "nav-booking-nav": "Booking",
+        "nav-reserve-sub": "Reserve Seat",
+        "nav-services-sub": "Bespoke Service",
+        "nav-community-sub": "Community Care",
+        "nav-about-sub": "About Us",
+        "nav-branches-sub": "Global Branches",
+        "nav-careers-sub": "Join Us",
+        "nav-home-link": "Home",
+        "nav-menu-home": "Flavor Page",
+        "nav-club-home": "Member Club",
+        "nav-booking-home": "Booking Page",
+        "nav-about-home": "About Brand",
+        "hero-bar-temp": "Temperature",
+        "hero-bar-beans": "Featured Beans",
+        "hero-bar-wind": "Wind Vector",
         
         // Hero
         "hero-title": "18°N Latitude · <span class=\"highlight\">Flavor Reborn</span>",
@@ -1451,4 +1497,90 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }, 3000);
     }
+
+    // ==========================================
+    // 11. Multi-Page Navigation Helpers
+    // ==========================================
+
+    // Accordion Menu Toggle for Mobile Drawer
+    const accordionBtns = document.querySelectorAll(".drawer-accordion-btn");
+    accordionBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const accordion = btn.closest(".drawer-accordion");
+            if (accordion) {
+                // Close other accordions for cleaner accordion behavior
+                document.querySelectorAll(".drawer-accordion").forEach(acc => {
+                    if (acc !== accordion) acc.classList.remove("active");
+                });
+                accordion.classList.toggle("active");
+            }
+        });
+    });
+
+    // Auto High-lighting for active navigation links
+    const activePath = window.location.pathname;
+    const navLinks = document.querySelectorAll(".nav-menu a, .dropdown-content a, .drawer-links a");
+    navLinks.forEach(link => {
+        const href = link.getAttribute("href");
+        if (href) {
+            // Check if current URL ends with href or is equivalent
+            const isMatch = activePath.endsWith(href) || 
+                            (activePath === "/" && href === "index.html") || 
+                            (activePath.endsWith("/") && href === "index.html");
+            if (isMatch) {
+                link.classList.add("active");
+                
+                // Highlight parent dropdown if inside one
+                const dropdown = link.closest(".nav-dropdown");
+                if (dropdown) {
+                    const parentMenu = dropdown.querySelector(".menu-item");
+                    if (parentMenu) parentMenu.classList.add("active");
+                }
+                
+                // Expand parent accordion if inside one
+                const accordion = link.closest(".drawer-accordion");
+                if (accordion) {
+                    accordion.classList.add("active");
+                }
+            }
+        }
+    });
+
+    // Cross-page Member activation trigger click listener
+    const joinMemberTriggers = document.querySelectorAll(".join-member-btn-trigger");
+    joinMemberTriggers.forEach(trigger => {
+        trigger.addEventListener("click", (e) => {
+            const isClubPage = window.location.pathname.includes("club.html");
+            if (isClubPage) {
+                e.preventDefault();
+                closeMobileDrawer(); // Close mobile drawer if open
+                
+                if (memberSelectedTierInput) {
+                    memberSelectedTierInput.value = "wanderer";
+                }
+                if (memberFormBox) memberFormBox.classList.remove("hidden");
+                if (memberCardBox) memberCardBox.classList.add("hidden");
+                if (memberModal) {
+                    memberModal.classList.remove("hidden");
+                    document.body.style.overflow = "hidden";
+                }
+            } else {
+                trigger.setAttribute("href", "club.html?join=true");
+            }
+        });
+    });
+
+    // Check query params on page load for immediate join trigger (e.g. club.html?join=true)
+    if (window.location.search.includes("join=true")) {
+        if (memberSelectedTierInput) {
+            memberSelectedTierInput.value = "wanderer";
+        }
+        if (memberFormBox) memberFormBox.classList.remove("hidden");
+        if (memberCardBox) memberCardBox.classList.add("hidden");
+        if (memberModal) {
+            memberModal.classList.remove("hidden");
+            document.body.style.overflow = "hidden";
+        }
+    }
 });
+
