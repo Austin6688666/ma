@@ -3967,6 +3967,392 @@ body::before {
     }
 }
 
+/* ==========================================
+   Table Order Simulator (Homepage Menu)
+   ========================================== */
+.table-order-input-container {
+    max-width: 500px;
+    margin: 1.5rem auto 2.5rem;
+    padding: 0 1rem;
+}
+
+.order-input-box {
+    background: rgba(28, 26, 23, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: var(--transition-smooth);
+}
+
+.order-input-box label {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.order-input-box .input-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.2rem 0.6rem 0.2rem 1rem;
+}
+
+.order-input-box .input-row i {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.order-input-box .input-row input {
+    flex: 1;
+    border: none;
+    background: none;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--text-main);
+    padding: 0.5rem 0;
+    outline: none;
+}
+
+.order-input-box .input-row input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.65;
+}
+
+.order-input-box .input-row button {
+    background-color: var(--text-main);
+    color: var(--bg-primary);
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1.2rem;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-quick);
+}
+
+.order-input-box .input-row button:hover {
+    background-color: var(--primary);
+    color: var(--bg-primary);
+}
+
+.order-input-box.active {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(229, 181, 96, 0.15);
+}
+
+.order-input-box.glow-alert {
+    animation: glow-red 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes glow-red {
+    0% {
+        border-color: rgba(229, 181, 96, 0.4);
+        box-shadow: 0 0 0 rgba(229, 181, 96, 0);
+    }
+    100% {
+        border-color: var(--primary);
+        box-shadow: 0 0 12px rgba(229, 181, 96, 0.35);
+    }
+}
+
+/* Quantity Selector in Menu Card */
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(28, 26, 23, 0.04);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 0.2rem;
+    transition: var(--transition-quick);
+    margin-left: 0.8rem;
+}
+
+.qty-btn {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: none;
+    background: var(--bg-primary);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.7rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: var(--transition-quick);
+}
+
+.qty-btn:hover {
+    background: var(--text-main);
+    color: var(--bg-primary);
+}
+
+.qty-value {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+    min-width: 14px;
+    text-align: center;
+}
+
+.quantity-selector.active {
+    border-color: var(--primary);
+    background: rgba(229, 181, 96, 0.05);
+}
+
+/* Floating Cart Bar */
+.floating-cart-bar {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    width: 90%;
+    max-width: 480px;
+    z-index: 1050;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+}
+
+.floating-cart-bar.hidden {
+    transform: translateX(-50%) translateY(40px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.cart-glass-container {
+    background: rgba(250, 247, 242, 0.85);
+    backdrop-filter: blur(12px) saturate(160%);
+    border: 1px solid rgba(28, 26, 23, 0.1);
+    border-radius: 24px;
+    padding: 0.8rem 1rem 0.8rem 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.cart-details {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.cart-icon-box {
+    position: relative;
+    font-size: 1.4rem;
+    color: var(--text-main);
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--primary);
+    color: var(--bg-primary);
+    font-size: 0.65rem;
+    font-weight: 700;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.cart-table-info {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.cart-table-info strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.cart-total-info {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--text-main);
+}
+
+.cart-total-info strong {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.cart-submit-btn {
+    background-color: var(--text-main);
+    color: var(--bg-primary);
+    border: none;
+    border-radius: 16px;
+    padding: 0.8rem 1.6rem;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-quick);
+}
+
+.cart-submit-btn:hover {
+    background-color: var(--primary);
+    color: var(--bg-primary);
+}
+
+/* Order Modal / Progress Bar */
+.order-modal-card {
+    max-width: 480px !important;
+}
+
+.brewing-progress-container {
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 0.8rem;
+}
+
+.progress-steps .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    z-index: 2;
+}
+
+.progress-steps .step .step-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 1.5px solid var(--border-color);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    transition: var(--transition-smooth);
+}
+
+.progress-steps .step.active .step-dot {
+    border-color: var(--primary);
+    background: var(--primary);
+    color: var(--bg-primary);
+    box-shadow: 0 0 10px rgba(229, 181, 96, 0.35);
+}
+
+.progress-steps .step.done .step-dot {
+    border-color: var(--text-main);
+    background: var(--text-main);
+    color: var(--bg-primary);
+}
+
+.progress-steps .step span {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: var(--transition-smooth);
+}
+
+.progress-steps .step.active span {
+    color: var(--primary);
+}
+
+.progress-steps .step.done span {
+    color: var(--text-main);
+}
+
+.progress-bar-outer {
+    height: 4px;
+    background: rgba(28, 26, 23, 0.06);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar-inner {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--text-main) 0%, var(--primary) 100%);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+}
+
+.progress-status-text {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+}
+
+.progress-status-text span {
+    color: var(--text-muted);
+}
+
+.progress-status-text strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.ordered-items-container {
+    margin-top: 1.2rem;
+}
+
+.ordered-items-list {
+    margin-top: 0.5rem;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.ordered-items-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: var(--text-main);
+    padding: 0.3rem 0;
+    border-bottom: 1px dashed rgba(28, 26, 23, 0.06);
+}
+
+.ordered-items-list li .item-name {
+    font-weight: 500;
+}
+
+.ordered-items-list li .item-qty-price {
+    color: var(--text-muted);
+}
+
+.ordered-items-list li .item-qty-price span {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+
 
 
 

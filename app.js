@@ -519,7 +519,27 @@ const I18N_DICTS = {
         "ticket-eco-desc": "您已承诺低碳出行前往，本次预约将同步减少碳排放。可在前台出示获取积分赠礼！",
         "ticket-care-title": "人文关怀专属登记",
         "ticket-qr-tip": "到店出示此电子核销二维码",
-        "ticket-close-btn": "我知道了，锁定预约"
+        "ticket-close-btn": "我知道了，锁定预约",
+        
+        // Table Order Simulator
+        "order-table-lbl": "桌号点餐模拟：",
+        "order-table-ph": "输入桌号 (如 A06 / Sea02)",
+        "order-start-btn": "开始点餐",
+        "order-table-prefix": "桌号",
+        "order-total-prefix": "总计",
+        "order-submit-btn": "确认下单",
+        "order-ticket-title": "18°D LAB · 模拟点餐凭证",
+        "order-ticket-subtitle": "订单发送成功",
+        "ticket-order-prefix-lbl": "订单编号:",
+        "order-step-grind": "研磨豆子",
+        "order-step-brew": "金杯萃取",
+        "order-step-serve": "服务派送",
+        "order-status-prefix": "制作状态:",
+        "order-label-table": "点餐桌号",
+        "order-label-total": "支付合计",
+        "order-label-items": "已点饮品",
+        "order-qr-tip": "可在吧台屏幕查看此订单制作进度",
+        "ticket-close-btn-order": "我知道了"
     },
     en: {
         // Nav Menu
@@ -748,7 +768,27 @@ const I18N_DICTS = {
         "ticket-eco-desc": "You promised low-carbon transport. This booking reduces carbon footprints. Show this at the counter for an eco-gift!",
         "ticket-care-title": "Special Care Arrangement",
         "ticket-qr-tip": "Present this QR code upon arrival",
-        "ticket-close-btn": "Understood, Secure Seating"
+        "ticket-close-btn": "Understood, Secure Seating",
+        
+        // Table Order Simulator
+        "order-table-lbl": "Table Order Simulator:",
+        "order-table-ph": "Enter Table No. (e.g., A06 / Sea02)",
+        "order-start-btn": "Start Order",
+        "order-table-prefix": "Table",
+        "order-total-prefix": "Total",
+        "order-submit-btn": "Place Order",
+        "order-ticket-title": "18°D LAB · Simulated Order Ticket",
+        "order-ticket-subtitle": "Order Sent Successfully",
+        "ticket-order-prefix-lbl": "Order ID:",
+        "order-step-grind": "Grind Beans",
+        "order-step-brew": "Gold Cup Brew",
+        "order-step-serve": "Serve & Deliver",
+        "order-status-prefix": "Brew Status:",
+        "order-label-table": "Table No.",
+        "order-label-total": "Total Price",
+        "order-label-items": "Ordered Items",
+        "order-qr-tip": "Scan or view on bar counter screen for live progress",
+        "ticket-close-btn-order": "Dismiss"
     }
 };
 
@@ -764,6 +804,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let sharedCoconutClaimed = 38;
     let sharedCoconutRemaining = 12;
     let sharedHerbalTeaLiters = 45;
+
+    // Table Order Simulator State
+    let cart = {};
+    let tableNumber = "";
+    let currentOrderStage = 0; // 0: none, 1: grind, 2: brew, 3: serve, 4: complete
+    let brewingTimer = null;
+    let brewingAnimFrame = null;
 
     // Navigation / Header Elements
     const navbar = document.getElementById("main-nav");
@@ -857,6 +904,14 @@ document.addEventListener("DOMContentLoaded", () => {
         // Persist language state
         localStorage.setItem("lang", lang);
         currentLang = lang;
+
+        // Update table ordering simulator texts if active
+        if (typeof updateOrderStatusDisplay === "function") {
+            updateOrderStatusDisplay();
+        }
+        if (typeof updateTicketItems === "function") {
+            updateTicketItems();
+        }
     }
 
     function toggleLanguage() {
@@ -1052,6 +1107,9 @@ document.addEventListener("DOMContentLoaded", () => {
             
             const formulaPrefix = currentLang === "en" ? "Formula" : "萃取配方";
             
+            // Get quantity from cart
+            const qty = cart[item.id] || 0;
+
             card.innerHTML = `
                 <div class="menu-item-top">
                     <div class="menu-item-title-box">
@@ -1060,6 +1118,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     <div class="menu-item-price-box">
                         <span class="menu-item-price">${displayPrice}</span>
+                        ${item.price !== undefined ? `
+                        <div class="quantity-selector ${qty > 0 ? 'active' : ''}" data-id="${item.id}">
+                            <button type="button" class="qty-btn minus" data-id="${item.id}">-</button>
+                            <span class="qty-value" data-id="${item.id}">${qty}</span>
+                            <button type="button" class="qty-btn plus" data-id="${item.id}">+</button>
+                        </div>
+                        ` : ''}
                         <i class="fa-solid fa-chevron-down accordion-arrow"></i>
                     </div>
                 </div>
@@ -1581,6 +1646,406 @@ document.addEventListener("DOMContentLoaded", () => {
             memberModal.classList.remove("hidden");
             document.body.style.overflow = "hidden";
         }
+    }
+
+    // ==========================================
+    // 10.5 Table Order Simulator Controller
+    // ==========================================
+    const BREWING_STATUS_DICTS = {
+        zh: {
+            grind: { badge: "磨粉中...", msg: "磨粉粒径 480μm 研磨中..." },
+            brew: { badge: "萃取中...", msg: "92°C金杯准则 恒温萃取中..." },
+            serve: { badge: "派送中...", msg: "正在由专属侍者送往您的卡座..." },
+            complete: { badge: "已送达", msg: "制作完成，请慢用！" }
+        },
+        en: {
+            grind: { badge: "Grinding...", msg: "Grinding beans at 480μm particle size..." },
+            brew: { badge: "Extracting...", msg: "92°C Gold Cup standard extraction in progress..." },
+            serve: { badge: "Delivering...", msg: "Our dedicated server is delivering to your table..." },
+            complete: { badge: "Delivered", msg: "Brewing complete, enjoy your coffee!" }
+        }
+    };
+
+    function updateOrderStatusDisplay() {
+        if (currentOrderStage === 0) return;
+        
+        const badgeEl = document.getElementById("order-status-badge");
+        const msgEl = document.getElementById("order-status-msg");
+        if (!badgeEl || !msgEl) return;
+        
+        let key = "";
+        if (currentOrderStage === 1) key = "grind";
+        else if (currentOrderStage === 2) key = "brew";
+        else if (currentOrderStage === 3) key = "serve";
+        else if (currentOrderStage === 4) key = "complete";
+        
+        const lang = currentLang;
+        const textData = BREWING_STATUS_DICTS[lang][key];
+        if (textData) {
+            badgeEl.textContent = textData.badge;
+            msgEl.textContent = textData.msg;
+        }
+    }
+
+    function updateTicketItems() {
+        const ticketItemsEl = document.getElementById("order-ticket-items");
+        if (!ticketItemsEl) return;
+        
+        ticketItemsEl.innerHTML = "";
+        Object.keys(cart).forEach(id => {
+            const qty = cart[id];
+            const item = MENU_DATA.find(i => i.id === id);
+            if (item) {
+                const name = currentLang === "en" ? item.englishName : item.name;
+                const price = item.price === 0 
+                    ? (currentLang === "en" ? "Free" : "免费") 
+                    : `¥${item.price}`;
+                const li = document.createElement("li");
+                li.className = "ordered-item-row";
+                li.innerHTML = `
+                    <span class="item-name">${name} <strong class="item-qty">x${qty}</strong></span>
+                    <span class="item-price">${price}</span>
+                `;
+                ticketItemsEl.appendChild(li);
+            }
+        });
+    }
+
+    function updateTableDisplays() {
+        const tableInput = document.getElementById("table-num-input");
+        if (tableInput) {
+            tableInput.value = tableNumber;
+        }
+        
+        const cartTableDisplay = document.getElementById("cart-table-display");
+        if (cartTableDisplay) {
+            cartTableDisplay.textContent = tableNumber;
+        }
+        
+        const ticketTableEl = document.getElementById("order-ticket-table");
+        if (ticketTableEl) {
+            ticketTableEl.textContent = tableNumber;
+        }
+        
+        // Highlight active order-input-box
+        const inputContainer = document.querySelector(".order-input-box");
+        if (inputContainer) {
+            inputContainer.classList.add("active");
+        }
+    }
+
+    function updateFloatingCart() {
+        let totalCount = 0;
+        let totalPrice = 0;
+        
+        Object.keys(cart).forEach(id => {
+            const qty = cart[id];
+            const item = MENU_DATA.find(i => i.id === id);
+            if (item) {
+                totalCount += qty;
+                totalPrice += qty * item.price;
+            }
+        });
+        
+        const cartCountEl = document.getElementById("cart-count");
+        if (cartCountEl) {
+            cartCountEl.textContent = totalCount;
+        }
+        
+        const cartTotalDisplay = document.getElementById("cart-total-display");
+        if (cartTotalDisplay) {
+            cartTotalDisplay.textContent = totalPrice;
+        }
+        
+        const floatingCartBar = document.getElementById("floating-cart-bar");
+        if (floatingCartBar) {
+            if (totalCount > 0) {
+                floatingCartBar.classList.remove("hidden");
+            } else {
+                floatingCartBar.classList.add("hidden");
+            }
+        }
+        
+        // Also sync order ticket total for checkout modal
+        const ticketTotalEl = document.getElementById("order-ticket-total");
+        if (ticketTotalEl) {
+            ticketTotalEl.textContent = totalPrice;
+        }
+    }
+
+    function handleQuantityChange(itemId, isPlus) {
+        // Read input table number
+        const tableInput = document.getElementById("table-num-input");
+        const currentTableVal = tableInput ? tableInput.value.trim() : "";
+        
+        // If not set, check if tableNumber global is set.
+        // If both are empty, trigger alert.
+        if (!currentTableVal && !tableNumber) {
+            // Flash alert
+            const inputContainer = document.querySelector(".order-input-box");
+            if (inputContainer) {
+                inputContainer.classList.add("glow-alert");
+                setTimeout(() => {
+                    inputContainer.classList.remove("glow-alert");
+                }, 2000);
+            }
+            
+            // Scroll to table input
+            const container = document.querySelector(".table-order-input-container");
+            if (container) {
+                container.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+            
+            if (tableInput) {
+                tableInput.focus();
+            }
+            
+            // Show toast
+            const msg = currentLang === "en"
+                ? "Please enter your table number to start ordering!"
+                : "请先输入桌号以开始点餐！";
+            showToast(msg, "warning");
+            return;
+        }
+        
+        // If table number input has value but tableNumber global is not set, set it!
+        if (currentTableVal && !tableNumber) {
+            tableNumber = currentTableVal;
+            updateTableDisplays();
+        }
+        
+        // Initialize item in cart if not present
+        if (!cart[itemId]) {
+            cart[itemId] = 0;
+        }
+        
+        if (isPlus) {
+            cart[itemId] += 1;
+        } else {
+            if (cart[itemId] > 0) {
+                cart[itemId] -= 1;
+            }
+        }
+        
+        // Clean up cart item if 0
+        if (cart[itemId] === 0) {
+            delete cart[itemId];
+        }
+        
+        // Update item selector UI in DOM
+        const selectors = document.querySelectorAll(`.quantity-selector[data-id="${itemId}"]`);
+        selectors.forEach(sel => {
+            const qtyVal = sel.querySelector(".qty-value");
+            if (qtyVal) {
+                qtyVal.textContent = cart[itemId] || 0;
+            }
+            if (cart[itemId] > 0) {
+                sel.classList.add("active");
+            } else {
+                sel.classList.remove("active");
+            }
+        });
+        
+        // Update floating cart display
+        updateFloatingCart();
+    }
+
+    function startBrewingSimulation() {
+        // Clear any previous animations/intervals
+        if (brewingTimer) clearInterval(brewingTimer);
+        if (brewingAnimFrame) cancelAnimationFrame(brewingAnimFrame);
+        
+        const progressBar = document.getElementById("order-progress-bar");
+        const stepGrind = document.getElementById("step-grind");
+        const stepBrew = document.getElementById("step-brew");
+        const stepServe = document.getElementById("step-serve");
+        
+        // Reset classes
+        [stepGrind, stepBrew, stepServe].forEach(step => {
+            if (step) {
+                step.classList.remove("active", "done");
+            }
+        });
+        
+        let startTime = Date.now();
+        const duration = 9000; // 9 seconds
+        
+        currentOrderStage = 1;
+        if (stepGrind) stepGrind.classList.add("active");
+        updateOrderStatusDisplay();
+        
+        function animate() {
+            let elapsed = Date.now() - startTime;
+            let percent = Math.min((elapsed / duration) * 100, 100);
+            
+            if (progressBar) {
+                progressBar.style.width = percent + "%";
+            }
+            
+            let newStage = 1;
+            if (elapsed >= 9000) {
+                newStage = 4;
+            } else if (elapsed >= 6000) {
+                newStage = 3;
+            } else if (elapsed >= 3000) {
+                newStage = 2;
+            }
+            
+            if (newStage !== currentOrderStage) {
+                currentOrderStage = newStage;
+                
+                // Update step classes
+                if (currentOrderStage === 2) {
+                    if (stepGrind) {
+                        stepGrind.classList.remove("active");
+                        stepGrind.classList.add("done");
+                    }
+                    if (stepBrew) stepBrew.classList.add("active");
+                } else if (currentOrderStage === 3) {
+                    if (stepGrind) {
+                        stepGrind.classList.remove("active");
+                        stepGrind.classList.add("done");
+                    }
+                    if (stepBrew) {
+                        stepBrew.classList.remove("active");
+                        stepBrew.classList.add("done");
+                    }
+                    if (stepServe) stepServe.classList.add("active");
+                } else if (currentOrderStage === 4) {
+                    if (stepGrind) {
+                        stepGrind.classList.remove("active");
+                        stepGrind.classList.add("done");
+                    }
+                    if (stepBrew) {
+                        stepBrew.classList.remove("active");
+                        stepBrew.classList.add("done");
+                    }
+                    if (stepServe) {
+                        stepServe.classList.remove("active");
+                        stepServe.classList.add("done");
+                    }
+                    
+                    // Clear cart upon delivery
+                    cart = {};
+                    updateFloatingCart();
+                    
+                    // Refresh current tab rendering to show quantities = 0
+                    renderMenuItems(activeCategory);
+                }
+                
+                updateOrderStatusDisplay();
+            }
+            
+            if (elapsed < duration) {
+                brewingAnimFrame = requestAnimationFrame(animate);
+            }
+        }
+        
+        brewingAnimFrame = requestAnimationFrame(animate);
+    }
+
+    // Set up quantity selectors click handler via delegation
+    if (menuItemsGrid) {
+        menuItemsGrid.addEventListener("click", (e) => {
+            const plusBtn = e.target.closest(".qty-btn.plus");
+            const minusBtn = e.target.closest(".qty-btn.minus");
+            
+            if (plusBtn || minusBtn) {
+                e.stopPropagation(); // Stop card accordion click
+                
+                const btn = plusBtn || minusBtn;
+                const itemId = btn.getAttribute("data-id");
+                const isPlus = !!plusBtn;
+                
+                handleQuantityChange(itemId, isPlus);
+            }
+        });
+    }
+
+    // Start order button click
+    const startOrderBtn = document.getElementById("start-order-btn");
+    if (startOrderBtn) {
+        startOrderBtn.addEventListener("click", () => {
+            const tableInput = document.getElementById("table-num-input");
+            const val = tableInput ? tableInput.value.trim() : "";
+            if (!val) {
+                // Flash alert
+                const inputContainer = document.querySelector(".order-input-box");
+                if (inputContainer) {
+                    inputContainer.classList.add("glow-alert");
+                    setTimeout(() => {
+                        inputContainer.classList.remove("glow-alert");
+                    }, 2000);
+                }
+                const msg = currentLang === "en" ? "Please enter a valid table number." : "请输入有效的桌号。";
+                showToast(msg, "warning");
+                return;
+            }
+            
+            tableNumber = val;
+            updateTableDisplays();
+            
+            const msg = currentLang === "en"
+                ? `Table ${tableNumber} set! You can select items now.`
+                : `桌号 ${tableNumber} 已设定！请选择您的饮品。`;
+            showToast(msg, "success");
+        });
+    }
+
+    // Input change synchronization
+    const tableNumInput = document.getElementById("table-num-input");
+    if (tableNumInput) {
+        tableNumInput.addEventListener("input", (e) => {
+            tableNumber = e.target.value.trim();
+            updateTableDisplays();
+        });
+    }
+
+    // Submit order button click
+    const cartSubmitBtn = document.getElementById("cart-submit-btn");
+    if (cartSubmitBtn) {
+        cartSubmitBtn.addEventListener("click", () => {
+            let totalCount = 0;
+            Object.keys(cart).forEach(id => totalCount += cart[id]);
+            if (totalCount === 0) return;
+            
+            // Generate Random Order ID
+            const dateStr = new Date().toISOString().split('T')[0].replace(/-/g, "");
+            const randomNum = Math.floor(1000 + Math.random() * 9000);
+            const orderId = `18D${dateStr}${randomNum}`;
+            
+            const ticketIdEl = document.getElementById("order-ticket-id");
+            if (ticketIdEl) {
+                ticketIdEl.textContent = orderId;
+            }
+            
+            // Populate Ticket Table
+            updateTableDisplays();
+            
+            // Populate Ordered Items
+            updateTicketItems();
+            
+            // Open Modal
+            const orderModal = document.getElementById("order-modal");
+            if (orderModal) {
+                orderModal.classList.remove("hidden");
+                document.body.style.overflow = "hidden"; // Lock scroll
+            }
+            
+            // Start Brewing Progress Simulation
+            startBrewingSimulation();
+        });
+    }
+
+    // Close Modal overlay click
+    const orderModalOverlay = document.getElementById("order-modal");
+    if (orderModalOverlay) {
+        orderModalOverlay.addEventListener("click", (e) => {
+            if (e.target === orderModalOverlay) {
+                orderModalOverlay.classList.add("hidden");
+                document.body.style.overflow = "";
+            }
+        });
     }
 });
 
