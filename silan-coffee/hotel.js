@@ -325,20 +325,6 @@ function setupBookingFlow() {
         });
     });
 
-    const memberForm = document.getElementById("membership-query-form");
-    if (memberForm) {
-        memberForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const name = document.getElementById("member-name").value.trim();
-            const phone = document.getElementById("member-phone").value.trim();
-            
-            showToast("正在为您导向绿意邻里会员中心...", "info");
-            
-            setTimeout(() => {
-                window.location.href = `hotel-club.html?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}`;
-            }, 600);
-        });
-    }
 }
 
 function calculateCarbonLedgerValues() {

@@ -1880,6 +1880,14 @@ button {
 }
 
 @media (max-width: 768px) {
+    .story-img-main {
+        height: 260px;
+    }
+    
+    .spaces-dynamic-img-container {
+        padding-bottom: 60%;
+    }
+
     .nav-menu {
         display: none;
     }
