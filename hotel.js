@@ -227,11 +227,30 @@ function setupBookingFlow() {
         });
     });
 
-    // 3. Search button in Hero Panel
+    // 3. Search button in Hero Panel - Scroll & Highlight Room Card
     document.getElementById("hero-book-search-btn").addEventListener("click", () => {
-        // Scroll to rooms section smoothly
-        document.getElementById("rooms-section").scrollIntoView({ behavior: 'smooth' });
-        showToast("已为您筛选可用房型，请选择入住！", "success");
+        const roomSelect = document.getElementById("book-room-type");
+        const selectedRoomId = roomSelect.value;
+        const selectedRoomText = roomSelect.options[roomSelect.selectedIndex].text.split(" (")[0];
+
+        // Scroll to the selected room card smoothly
+        const roomCard = document.getElementById(selectedRoomId);
+        if (roomCard) {
+            roomCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Remove highlight from all cards first
+            document.querySelectorAll(".room-card").forEach(card => card.classList.remove("highlight-card"));
+            
+            // Add highlight class to trigger animation after a short delay
+            setTimeout(() => {
+                roomCard.classList.add("highlight-card");
+            }, 600); // delay to wait for scrolling to complete
+            
+            showToast(`已为您筛选出【${selectedRoomText}】，请点击立即预约！`, "success");
+        } else {
+            document.getElementById("rooms-section").scrollIntoView({ behavior: 'smooth' });
+            showToast("已为您筛选可用房型，请选择入住！", "success");
+        }
     });
 
     // 4. Eco choices checkboxes change recalculation

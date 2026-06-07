@@ -60,7 +60,7 @@
     <section class="hero-container" id="home">
         <div class="hero-bg-zoom">
             <div class="hero-image-overlay"></div>
-            <img src="yamei_lobby.png" alt="亚美酒店大堂实景" class="hero-img" id="hero-bg-img">
+            <img src="yamei_brand_concept.png" alt="亚美酒店大堂实景" class="hero-img" id="hero-bg-img">
         </div>
         
         <div class="hero-text-content reveal-on-load">
@@ -93,6 +93,15 @@
                         <option value="4">4 位客人</option>
                     </select>
                 </div>
+                <div class="booking-divider"></div>
+                <div class="booking-col">
+                    <label><i class="fa-solid fa-bed"></i> 预约房型</label>
+                    <select id="book-room-type">
+                        <option value="room-zen" selected>竹影静音大床房 (￥480)</option>
+                        <option value="room-forest">林境生态双床房 (￥520)</option>
+                        <option value="room-suite">绿意人文套房 (￥880)</option>
+                    </select>
+                </div>
                 <div class="booking-col-btn">
                     <button id="hero-book-search-btn" class="booking-search-btn">
                         <span>探索舒心雅居</span> <i class="fa-solid fa-arrow-right-long"></i>
@@ -122,8 +131,8 @@
                 </div>
                 <div class="brand-story-images">
                     <div class="image-box-main">
-                        <img src="yamei_tea.png" alt="亚美茶寮美学空间" class="story-img-main">
-                        <div class="image-caption">自然茶寮 · 闲时啜饮</div>
+                        <img src="yamei_brand_concept.png" alt="亚美品牌概念空间" class="story-img-main">
+                        <div class="image-caption">温暖大堂书阁 · 邻里共享空间</div>
                     </div>
                     <div class="image-box-sub scroll-reveal delay-2">
                         <div class="quote-card-inner">
@@ -205,7 +214,7 @@
             <!-- Room Grid -->
             <div class="rooms-grid" id="rooms-container">
                 <!-- Room Card 1 -->
-                <div class="room-card" data-room-id="room-zen">
+                <div class="room-card" data-room-id="room-zen" id="room-zen">
                     <div class="room-img-container">
                         <img src="yamei_room.png" alt="竹影静音大床房" class="room-card-img">
                         <span class="room-badge-eco"><i class="fa-solid fa-leaf"></i> 极佳低碳房</span>
@@ -228,7 +237,7 @@
                 </div>
 
                 <!-- Room Card 2 -->
-                <div class="room-card" data-room-id="room-forest">
+                <div class="room-card" data-room-id="room-forest" id="room-forest">
                     <div class="room-img-container">
                         <!-- Reusing the room image with different aspect ratio styling or same image -->
                         <img src="yamei_room.png" alt="林境生态双床房" class="room-card-img" style="filter: hue-rotate(15deg) contrast(1.05);">
@@ -252,7 +261,7 @@
                 </div>
 
                 <!-- Room Card 3 -->
-                <div class="room-card" data-room-id="room-suite">
+                <div class="room-card" data-room-id="room-suite" id="room-suite">
                     <div class="room-img-container">
                         <!-- Reusing the tea room image with different aspect ratio styling -->
                         <img src="yamei_lobby.png" alt="绿意人文套房" class="room-card-img" style="filter: saturate(0.9) brightness(0.95);">
@@ -321,7 +330,7 @@
                 <p class="spaces-desc">亚美酒店不仅是歇脚的居所，更是与志同道合者产生共鸣的精神社群。我们在大堂和茶室开辟了温暖的人文交互区，等候您的光临。</p>
                 
                 <div class="space-accordion">
-                    <div class="accordion-item active" data-img="yamei_lobby.png">
+                    <div class="accordion-item active" data-img="yamei_brand_concept.png">
                         <div class="acc-header">
                             <span class="acc-num">A</span>
                             <h4>亚美书阁 (YAMEI Library)</h4>
@@ -358,7 +367,7 @@
             
             <div class="spaces-right">
                 <div class="spaces-dynamic-img-container">
-                    <img src="yamei_lobby.png" alt="空间展示" id="spaces-dynamic-img">
+                    <img src="yamei_brand_concept.png" alt="空间展示" id="spaces-dynamic-img">
                 </div>
             </div>
         </section>
