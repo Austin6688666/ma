@@ -1,0 +1,915 @@
+/* ==========================================================================
+   YAMEI Hotel - Membership Center (hotel-club.css)
+   ========================================================================== */
+
+/* Hero Membership Block */
+.membership-hero {
+    margin-bottom: 2rem;
+}
+
+.hero-header-text {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.hero-header-text .editorial-title {
+    font-size: 3.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-header-text .section-desc {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+/* Split Form and Card Layout */
+.activation-card-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 3.5rem;
+    box-shadow: var(--shadow-lg);
+    align-items: center;
+}
+
+.activation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.activation-form h3 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.activation-form h3 i {
+    color: var(--primary);
+}
+
+.activation-form .desc {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 0.8rem;
+}
+
+.active-form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.input-group-half {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+}
+
+.active-form-row input[type="text"],
+.active-form-row input[type="tel"],
+.active-form-row select {
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    padding: 0.9rem 1.2rem;
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.95rem;
+    width: 100%;
+    transition: all var(--transition-fast);
+}
+
+.active-form-row input[type="text"]:focus,
+.active-form-row input[type="tel"]:focus,
+.active-form-row select:focus {
+    border-color: var(--primary);
+    background-color: var(--bg-card);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* Tag Selector */
+.tag-selector-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 0.5rem 0;
+}
+
+.tag-label {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tag-chips {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.chip {
+    background: var(--bg-app);
+    border: 1.5px solid var(--border-color);
+    padding: 0.5rem 1.1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-weight: 500;
+    color: var(--text-muted);
+    user-select: none;
+}
+
+.chip:hover {
+    border-color: var(--primary-light);
+    color: var(--primary);
+}
+
+.chip.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #FAF7F2;
+    box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+/* Submit Button */
+.activation-btn {
+    background: var(--primary);
+    color: #FAF7F2;
+    border-radius: var(--radius-md);
+    padding: 1.05rem;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all var(--transition-fast);
+    box-shadow: 0 6px 18px var(--primary-glow);
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.activation-btn:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px var(--primary-glow);
+}
+
+.activation-btn:active {
+    transform: translateY(0);
+}
+
+/* 3D Card Viewer Styling */
+.card-viewer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.card-shadow-wrapper {
+    perspective: 1200px;
+    padding: 1rem;
+}
+
+#card-3d-wrapper {
+    transform-style: preserve-3d;
+    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.virtual-member-card {
+    width: 380px;
+    height: 230px;
+    border-radius: 16px;
+    padding: 1.8rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform-style: preserve-3d;
+    transition: box-shadow 0.3s ease, background 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 15px 35px rgba(44, 46, 48, 0.12), 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    z-index: 10;
+}
+
+/* Light beam overlay on card */
+.card-glass-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.1) 100%);
+    z-index: 5;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    transition: transform 0.1s ease;
+}
+
+/* Smart chip on card */
+.card-chip {
+    width: 44px;
+    height: 32px;
+    background: linear-gradient(135deg, #e5c086 0%, #b88748 100%);
+    border-radius: 6px;
+    position: relative;
+    margin-bottom: 0.2rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4);
+    transform: translateZ(25px);
+}
+
+.card-chip::after {
+    content: '';
+    position: absolute;
+    top: 10%; left: 10%; right: 10%; bottom: 10%;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+.card-logo {
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 2.5px;
+    position: absolute;
+    top: 1.8rem;
+    right: 1.8rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+    transform: translateZ(30px);
+}
+
+.card-status-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    margin-top: 0.5rem;
+    transform: translateZ(20px);
+}
+
+.status-lbl {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 600;
+}
+
+.status-val {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.card-holder {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    transform: translateZ(20px);
+}
+
+.holder-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.holder-id {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: monospace;
+}
+
+.card-footer-desc {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.85);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    padding-top: 0.6rem;
+    margin-top: 0.4rem;
+    transform: translateZ(15px);
+}
+
+/* Card Tiers Skins */
+/* 1. Blank/Guest Card */
+.virtual-member-card.card-blank {
+    background: linear-gradient(135deg, rgba(238, 234, 225, 0.8) 0%, rgba(216, 208, 194, 0.6) 100%);
+    backdrop-filter: var(--backdrop-blur);
+    -webkit-backdrop-filter: var(--backdrop-blur);
+    border: 1px dashed var(--text-muted);
+}
+
+.virtual-member-card.card-blank .card-logo,
+.virtual-member-card.card-blank .status-val,
+.virtual-member-card.card-blank .holder-name,
+.virtual-member-card.card-blank .holder-id,
+.virtual-member-card.card-blank .card-footer-desc {
+    color: var(--text-main) !important;
+}
+
+.virtual-member-card.card-blank .status-lbl {
+    color: var(--text-muted) !important;
+}
+
+.virtual-member-card.card-blank .card-chip {
+    background: linear-gradient(135deg, #CFD2D6 0%, #9FA3A8 100%);
+    box-shadow: none;
+}
+
+/* 2. Wood Card */
+.virtual-member-card.tier-wood {
+    background-color: #5d4636;
+    background-image: linear-gradient(135deg, rgba(132, 102, 78, 0.82) 0%, rgba(77, 51, 31, 0.96) 100%), 
+                      url("data:image/svg+xml,%3Csvg viewBox='0%200%20200%20200'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter%20id='noiseFilter'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.05'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23noiseFilter)'%20opacity='0.08'/%3E%3C/svg%3E");
+    box-shadow: 0 20px 40px rgba(77, 51, 31, 0.28), 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* 3. Bamboo Card */
+.virtual-member-card.tier-bamboo {
+    background-color: #3f5942;
+    background-image: linear-gradient(135deg, rgba(72, 107, 79, 0.85) 0%, rgba(32, 57, 39, 0.98) 100%),
+                      url("data:image/svg+xml,%3Csvg viewBox='0%200%20200%20200'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter%20id='noiseFilter'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.05'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23noiseFilter)'%20opacity='0.08'/%3E%3C/svg%3E");
+    box-shadow: 0 20px 40px rgba(32, 57, 39, 0.28), 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* 4. Forest Card */
+.virtual-member-card.tier-forest {
+    background-color: #1a271f;
+    background-image: linear-gradient(135deg, rgba(34, 56, 42, 0.9) 0%, rgba(13, 21, 16, 0.98) 100%),
+                      url("data:image/svg+xml,%3Csvg viewBox='0%200%20200%20200'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter%20id='noiseFilter'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.05'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23noiseFilter)'%20opacity='0.08'/%3E%3C/svg%3E");
+    border: 1.5px solid var(--accent);
+    box-shadow: 0 20px 45px rgba(13, 21, 16, 0.38), 0 5px 15px rgba(0, 0, 0, 0.12), inset 0 0 15px rgba(196, 155, 113, 0.15);
+}
+
+.card-viewer-hint {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: default;
+    margin-top: 1.5rem;
+    font-weight: 300;
+}
+
+.card-viewer-hint i {
+    animation: spin-hint 4s linear infinite;
+    color: var(--primary);
+}
+
+@keyframes spin-hint {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   SECTION 2: Carbon Footprint Calculator
+   ========================================================================== */
+.calculator-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4rem;
+    align-items: stretch;
+    margin-top: 3rem;
+}
+
+.calc-controls {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.control-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.control-header label {
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.control-header label i {
+    color: var(--primary);
+}
+
+.control-val {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Custom Range Input */
+.calc-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background: var(--bg-input);
+    outline: none;
+    margin: 10px 0;
+    transition: background 0.3s;
+}
+
+.calc-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+    border: 3px solid #FAF7F2;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.calc-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    background-color: var(--primary-light);
+}
+
+.calc-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+    border: 3px solid #FAF7F2;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.calc-slider::-moz-range-thumb:hover {
+    transform: scale(1.15);
+    background-color: var(--primary-light);
+}
+
+.control-main-label {
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
+}
+
+.control-main-label i {
+    color: var(--primary);
+}
+
+.calc-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+/* Custom Checkbox Styles */
+.custom-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    cursor: pointer;
+    font-size: 0.92rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    position: relative;
+    user-select: none;
+    transition: color var(--transition-fast);
+}
+
+.custom-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.custom-checkbox .checkmark {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--bg-app);
+    flex-shrink: 0;
+    position: relative;
+    transition: all var(--transition-fast);
+    margin-top: 2px;
+}
+
+.custom-checkbox:hover .checkmark {
+    border-color: var(--primary-light);
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 3px 8px var(--primary-glow);
+}
+
+.custom-checkbox input:checked ~ .checkmark::after {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #FAF7F2;
+    font-size: 0.72rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-checkbox:hover {
+    color: var(--text-main);
+}
+
+/* Display Card Side */
+.calc-display-card {
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--bg-card) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.calc-display-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: rgba(196, 155, 113, 0.05);
+    pointer-events: none;
+}
+
+.display-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.display-title::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent);
+}
+
+.display-stats-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 2.2rem;
+    flex-grow: 1;
+}
+
+.calc-stat-box {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1rem 1.4rem;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.calc-stat-box:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--primary-light);
+}
+
+.calc-stat-box i {
+    font-size: 1.5rem;
+    width: 28px;
+    text-align: center;
+}
+
+.calc-stat-box i.fa-cloud {
+    color: var(--primary-light);
+}
+
+.calc-stat-box i.fa-droplet {
+    color: #61A5C2;
+}
+
+.calc-stat-box i.fa-recycle {
+    color: var(--accent);
+}
+
+.calc-stat-box .lbl {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    flex-grow: 1;
+}
+
+.calc-stat-box .val {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.blue-text {
+    color: #4a90b0 !important;
+}
+
+.orange-text {
+    color: var(--accent) !important;
+}
+
+.display-points-box {
+    background: var(--primary);
+    color: #FAF7F2;
+    border-radius: var(--radius-md);
+    padding: 1.6rem;
+    text-align: center;
+    box-shadow: 0 8px 22px var(--primary-glow);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.display-points-box .lbl {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(250, 247, 242, 0.75);
+    font-weight: 600;
+}
+
+.display-points-box .points-val {
+    font-family: var(--font-serif);
+    font-size: 2.3rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.display-points-box .points-desc {
+    font-size: 0.72rem;
+    color: rgba(250, 247, 242, 0.65);
+    line-height: 1.4;
+    margin-top: 0.2rem;
+}
+
+/* ==========================================================================
+   SECTION 3: Rewards Mall
+   ========================================================================== */
+.mall-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.mall-card-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.mall-card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+}
+
+.mall-card-item .prod-badge {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 0.28rem 0.7rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-sans);
+}
+
+/* Badge specific themes */
+.mall-card-item[data-name*="18°D"] .prod-badge {
+    background: var(--accent-light);
+    color: var(--accent);
+}
+
+.mall-card-item[data-name*="亚美"] .prod-badge {
+    background: var(--primary-glow);
+    color: var(--primary);
+}
+
+.mall-card-item[data-name*="红树"] .prod-badge {
+    background: #eaf5ec;
+    color: #40916c;
+}
+
+.prod-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: var(--bg-app);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
+}
+
+.mall-card-item:hover .prod-icon-box {
+    background: var(--primary-glow);
+    border-color: var(--primary-light);
+}
+
+.prod-title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-top: 0.5rem;
+    line-height: 1.3;
+}
+
+.prod-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-weight: 300;
+    flex-grow: 1;
+}
+
+.prod-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.prod-cost {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+}
+
+.prod-cost strong {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.exchange-btn {
+    background: var(--primary);
+    color: #FAF7F2;
+    padding: 0.65rem 1.3rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: 1px solid transparent;
+}
+
+.exchange-btn:hover:not(:disabled) {
+    background: var(--primary-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px var(--primary-glow);
+}
+
+.exchange-btn:disabled {
+    background: var(--bg-input);
+    color: var(--text-muted);
+    border-color: var(--border-color);
+    cursor: not-allowed;
+}
+
+/* Mobile Responsiveness Rules */
+@media (max-width: 992px) {
+    .activation-card-inner {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+        padding: 2.5rem;
+    }
+    
+    .calculator-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .hero-header-text .editorial-title {
+        font-size: 2.6rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .activation-card-inner {
+        padding: 1.5rem;
+    }
+    
+    .calc-controls {
+        padding: 1.8rem;
+    }
+    
+    .calc-display-card {
+        padding: 1.8rem;
+    }
+    
+    .virtual-member-card {
+        width: 320px;
+        height: 194px;
+        padding: 1.3rem;
+    }
+    
+    .card-logo {
+        font-size: 1.25rem;
+        top: 1.3rem;
+        right: 1.3rem;
+    }
+    
+    .status-val {
+        font-size: 1rem;
+    }
+    
+    .holder-name {
+        font-size: 0.92rem;
+    }
+    
+    .card-chip {
+        width: 36px;
+        height: 26px;
+    }
+    
+    .input-group-half {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .mall-grid {
+        grid-template-columns: 1fr;
+    }
+}

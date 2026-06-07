@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAMEI 亚美酒店 - 绿意邻里会籍服务中心</title>
+    <meta name="description" content="亚美酒店官方会员中心 - 加入绿意邻里会籍，开启深睡枕头菜单自选、延迟退房关怀与低碳环保特权。累积的环保积分可直接兑换 18°D 精品咖啡券！">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="hotel.css">
+    <link rel="stylesheet" href="hotel-club.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar transparent" id="main-nav">
+        <a href="hotel.html" class="nav-logo">
+            <span class="logo-text-en">YAMEI</span>
+            <span class="logo-divider">|</span>
+            <span class="logo-text-zh">亚美酒店</span>
+        </a>
+        <nav class="nav-menu">
+            <a href="index.html" class="menu-item"><i class="fa-solid fa-mug-hot"></i> 18°D 咖啡</a>
+            <a href="hotel.html#brand-story" class="menu-item">品牌起源</a>
+            <a href="hotel.html#rooms-section" class="menu-item">舒心雅居</a>
+            <a href="hotel.html#eco-section" class="menu-item">环保承诺</a>
+            <a href="hotel.html#humanitarian-section" class="menu-item">人文关怀</a>
+            <a href="hotel-club.html" class="menu-item active">会籍特权</a>
+            <a href="hotel.html#spaces-section" class="menu-item">空间美学</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="hotel.html#rooms-section" class="nav-book-btn">立即预约</a>
+            <button class="menu-toggle" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer hidden" id="mobile-drawer">
+        <div class="drawer-header">
+            <span class="logo-text-en">YAMEI</span>
+            <button class="drawer-close" id="mobile-close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="drawer-links">
+            <a href="index.html" class="drawer-link-item"><i class="fa-solid fa-mug-hot"></i> 18°D 咖啡</a>
+            <a href="hotel.html#brand-story" class="drawer-link-item">品牌起源</a>
+            <a href="hotel.html#rooms-section" class="drawer-link-item">舒心雅居</a>
+            <a href="hotel.html#eco-section" class="drawer-link-item">环保承诺</a>
+            <a href="hotel.html#humanitarian-section" class="drawer-link-item">人文关怀</a>
+            <a href="hotel-club.html" class="drawer-link-item active">会籍特权</a>
+            <a href="hotel.html#spaces-section" class="drawer-link-item">空间美学</a>
+            <a href="hotel.html#rooms-section" class="primary-btn-wide drawer-book-btn">立即预约</a>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="page-content" style="padding-top: 100px;">
+
+        <!-- SECTION 1: VIRTUAL CARD & REGISTRATION -->
+        <section class="membership-hero scroll-reveal active">
+            <div class="hero-header-text">
+                <div class="section-badge green-badge">YAMEI CLUB</div>
+                <h1 class="editorial-title">绿意邻里 · <span class="italic">在线会籍中心</span></h1>
+                <p class="section-desc">欢迎回家。在这里，您的每一次低碳环保选择，都将转化为温暖的人文特权与 18°D 咖啡好礼。</p>
+            </div>
+
+            <div class="activation-card-inner">
+                <!-- Left: Activation Form -->
+                <div class="activation-form">
+                    <h3><i class="fa-solid fa-id-card"></i> 激活 / 办理绿意邻里卡</h3>
+                    <p class="desc">开通后可立即拥有初始 1,200 环保积分奖励，并同步解锁自选深睡枕头菜单与爱宠清洁费免除政策。</p>
+                    
+                    <form id="membership-active-form" class="active-form-row">
+                        <div class="input-group-half">
+                            <input type="text" id="member-reg-name" required placeholder="您的姓名 / Name">
+                            <select id="member-reg-gender">
+                                <option value="先生">先生</option>
+                                <option value="女士">女士</option>
+                            </select>
+                        </div>
+                        <input type="tel" id="member-reg-phone" required pattern="[0-9]{11}" placeholder="11位手机号码 / Phone">
+                        
+                        <div class="tag-selector-container">
+                            <span class="tag-label">选择您的定制标签 (多选):</span>
+                            <div class="tag-chips">
+                                <span class="chip" data-val="sleep">深睡需求者</span>
+                                <span class="chip" data-val="pet">爱宠同行</span>
+                                <span class="chip" data-val="business">商旅先锋</span>
+                                <span class="chip active" data-val="eco">环保达人</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="activation-btn">免费申请开通会籍</button>
+                    </form>
+                </div>
+
+                <!-- Right: 3D Interactive Card -->
+                <div class="card-viewer-container">
+                    <div class="card-shadow-wrapper" id="card-3d-wrapper">
+                        <div class="virtual-member-card card-blank" id="virtual-card-element">
+                            <div class="card-glass-shine"></div>
+                            <div class="card-chip"></div>
+                            <div class="card-logo">YAMEI</div>
+                            <div class="card-status-info">
+                                <span class="status-lbl">CARD STATUS</span>
+                                <span class="status-val" id="card-display-tier">未激活 / Guest</span>
+                            </div>
+                            <div class="card-holder">
+                                <span class="holder-name" id="card-display-name">YOUR NAME</span>
+                                <span class="holder-id" id="card-display-id">ID: YM-00000000</span>
+                            </div>
+                            <div class="card-footer-desc">
+                                <span id="card-display-points">当前积分: 0 points</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="card-viewer-hint"><i class="fa-solid fa-arrows-spin"></i> 移动鼠标，体验 3D 重力视差光影效果</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: CARBON FOOTPRINT CALCULATOR -->
+        <section class="calculator-section scroll-reveal active">
+            <div class="eco-layout-header">
+                <div class="left">
+                    <div class="section-badge green-badge">ECO CALCULATOR</div>
+                    <h2 class="editorial-title">绿意预算 · <span class="italic">低碳积分计算器</span></h2>
+                </div>
+                <p class="right-desc">用数字量化您的低碳贡献。在下方调整您预计的低碳入住方案，提前计算本次行程将省下的资源及累积的邻里积分。</p>
+            </div>
+
+            <div class="calculator-grid">
+                <!-- Left: Sliders & Controls -->
+                <div class="calc-controls">
+                    <div class="control-group">
+                        <div class="control-header">
+                            <label for="calc-nights"><i class="fa-regular fa-moon"></i> 入住晚数 (Nights)</label>
+                            <span class="control-val"><span id="calc-nights-val">1</span> 晚</span>
+                        </div>
+                        <input type="range" id="calc-nights" min="1" max="14" value="1" class="calc-slider">
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-main-label"><i class="fa-solid fa-leaf"></i> 绿色低碳选项行为</label>
+                        <div class="calc-checkboxes">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="calc-toiletries" checked>
+                                <span class="checkmark"></span>
+                                自备个人盥洗包 (免用客房一次性备品)
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="calc-linen" checked>
+                                <span class="checkmark"></span>
+                                续住床单毛巾免拆洗更换
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="calc-transit" checked>
+                                <span class="checkmark"></span>
+                                搭乘公共交通/地铁/公交抵达酒店
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Visual Stat Display -->
+                <div class="calc-display-card">
+                    <h3 class="display-title">您的绿色减碳账单</h3>
+                    <div class="display-stats-row">
+                        <div class="calc-stat-box">
+                            <i class="fa-solid fa-cloud"></i>
+                            <span class="lbl">CO₂ 二氧化碳减排</span>
+                            <strong class="val green-text"><span id="calc-res-carbon">3.5</span> kg</strong>
+                        </div>
+                        <div class="calc-stat-box">
+                            <i class="fa-solid fa-droplet"></i>
+                            <span class="lbl">节约淡水足迹</span>
+                            <strong class="val blue-text"><span id="calc-res-water">70</span> L</strong>
+                        </div>
+                        <div class="calc-stat-box">
+                            <i class="fa-solid fa-recycle"></i>
+                            <span class="lbl">避免塑料瓶降解</span>
+                            <strong class="val orange-text"><span id="calc-res-plastic">2</span> 个</strong>
+                        </div>
+                    </div>
+                    <div class="display-points-box">
+                        <span class="lbl">本次旅途预计产生积分</span>
+                        <strong class="points-val">+<span id="calc-res-points">230</span> 积分</strong>
+                        <p class="points-desc">注：此积分将在您办理入住时生效，可直接在下方积分商城内兑换礼品。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: REWARDS MALL -->
+        <section class="mall-section scroll-reveal active">
+            <div class="eco-layout-header">
+                <div class="left">
+                    <div class="section-badge green-badge">REWARDS MALL</div>
+                    <h2 class="editorial-title">低碳礼遇 · <span class="italic">邻里积分商城</span></h2>
+                </div>
+                <p class="right-desc">积分不仅是数字，更是绿色的真实回馈。我们与 18°D 咖啡及环保基金联动，提供高阶跨界兑换好礼。</p>
+            </div>
+
+            <!-- Mall Grid -->
+            <div class="mall-grid" id="mall-products-container">
+                <!-- Product 1 -->
+                <div class="mall-card-item" data-cost="200" data-name="18°D 特调「椰澜火山拿铁」兑换券">
+                    <div class="prod-badge">18°D COFFEE</div>
+                    <div class="prod-icon-box"><i class="fa-solid fa-mug-hot"></i></div>
+                    <h3 class="prod-title">18°D 椰澜火山拿铁券</h3>
+                    <p class="prod-desc">凭借兑换券至 18°D 咖啡馆免费享用一杯招牌特调椰澜火山拿铁 (海南火山岩特选单品豆配文昌东郊有机椰乳)。</p>
+                    <div class="prod-footer">
+                        <span class="prod-cost"><strong>200</strong> 积分</span>
+                        <button class="exchange-btn" disabled>请先激活会籍</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="mall-card-item" data-cost="300" data-name="18°D 精品「火山慢滤手冲咖啡」兑换券">
+                    <div class="prod-badge">18°D COFFEE</div>
+                    <div class="prod-icon-box"><i class="fa-solid fa-glass-water"></i></div>
+                    <h3 class="prod-title">18°D 火山慢滤手冲券</h3>
+                    <p class="prod-desc">凭借兑换券至 18°D 咖啡馆吧台，由精品咖啡师为您现场冲滤一杯澄迈火山玄武岩红土慢滤手冲咖啡 (TDS金杯监测)。</p>
+                    <div class="prod-footer">
+                        <span class="prod-cost"><strong>300</strong> 积分</span>
+                        <button class="exchange-btn" disabled>请先激活会籍</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="mall-card-item" data-cost="400" data-name="亚美旅宿「爱宠同行免清洁服务费」特权礼包">
+                    <div class="prod-badge">YAMEI HOTEL</div>
+                    <div class="prod-icon-box"><i class="fa-solid fa-paw"></i></div>
+                    <h3 class="prod-title">毛孩子免收清洁费特权</h3>
+                    <p class="prod-desc">兑换后获得“宠物共栖友好特权”，您的下一次入住将完全免收宠物清洁服务费，并赠送椰肉狗粮零食包。</p>
+                    <div class="prod-footer">
+                        <span class="prod-cost"><strong>400</strong> 积分</span>
+                        <button class="exchange-btn" disabled>请先激活会籍</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="mall-card-item" data-cost="600" data-name="亚美旅宿「房型无缝免费升级」特权券">
+                    <div class="prod-badge">YAMEI HOTEL</div>
+                    <div class="prod-icon-box"><i class="fa-solid fa-arrow-up-right-dots"></i></div>
+                    <h3 class="prod-title">房型无缝免费升级券</h3>
+                    <p class="prod-desc">在您预订大床房或双床房时兑换此券，前台将根据当天空余房源，为您无缝升级至尊贵的“绿意人文套房”。</p>
+                    <div class="prod-footer">
+                        <span class="prod-cost"><strong>600</strong> 积分</span>
+                        <button class="exchange-btn" disabled>请先激活会籍</button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="mall-card-item" data-cost="1000" data-name="红树林保护基金「海南三亚红树植树署名证书」">
+                    <div class="prod-badge">ECO CHARITY</div>
+                    <div class="prod-icon-box"><i class="fa-solid fa-earth-asia"></i></div>
+                    <h3 class="prod-title">海南三亚红树捐赠种植</h3>
+                    <p class="prod-desc">亚美酒店将联合红树林公益保护基金，以您的名字在三亚海岸红树林湿地种植并挂牌维护一棵幼树，给您发送电子种植证书。</p>
+                    <div class="prod-footer">
+                        <span class="prod-cost"><strong>1000</strong> 积分</span>
+                        <button class="exchange-btn" disabled>请先激活会籍</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Warm Footer Section -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-brand-col">
+                <h3 class="footer-logo">YAMEI 亚美酒店</h3>
+                <p class="footer-slogan">心有安处，绿意共生</p>
+                <div class="footer-badges">
+                    <span class="eco-cert-badge"><i class="fa-solid fa-earth-asia"></i> 碳中和运营</span>
+                    <span class="eco-cert-badge"><i class="fa-solid fa-shield-heart"></i> 邻里温情勋章</span>
+                </div>
+            </div>
+            <div class="footer-links-col">
+                <h5>联系与支持</h5>
+                <ul>
+                    <li><i class="fa-solid fa-phone"></i> 400-820-8888</li>
+                    <li><i class="fa-solid fa-envelope"></i> contact@yameihotels.com</li>
+                    <li><i class="fa-solid fa-location-dot"></i> 中国·南宁东盟商务区绿地路1号</li>
+                </ul>
+            </div>
+            <div class="footer-newsletter-col">
+                <h5>订阅绿意资讯</h5>
+                <p>订阅即能获取最新房型折扣、环保积分活动及大堂沙龙讲座通知。</p>
+                <div class="footer-input-row">
+                    <input type="email" placeholder="输入您的电子邮箱地址...">
+                    <button class="footer-send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 亚美酒店集团 Yamei Hotel Group | 仅限学术与Atour人文设计官网模拟使用 | 环保可持续旅居</p>
+        </div>
+    </footer>
+
+    <!-- MODAL: EXCHANGE VOUCHER -->
+    <div class="modal-overlay hidden" id="exchange-modal">
+        <div class="modal-card booking-modal-card">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-circle-check"></i> 积分礼遇兑换成功</h2>
+                <button class="modal-close" data-target="exchange-modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body text-center" style="gap: 1.5rem; padding: 2.5rem;">
+                <div style="font-size: 3rem; color: var(--success);"><i class="fa-solid fa-gift"></i></div>
+                <h3 id="exchange-title-display" style="font-family: var(--font-serif); font-size: 1.5rem;">兑换商品名称</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">您的礼品兑换码已生成，请在消费或前台核销时出示此券码：</p>
+                
+                <div style="background-color: var(--bg-app); border: 1.5px dashed var(--accent); border-radius: var(--radius-md); padding: 1.2rem; font-family: monospace; font-size: 1.5rem; font-weight: 700; color: var(--accent); letter-spacing: 2px; text-transform: uppercase;" id="exchange-code-display">
+                    YM-CODE-XXXX
+                </div>
+                
+                <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.5;">注：咖啡兑换券可直接前往 <strong>18°D 咖啡馆</strong> 扫描二维码或提供此券码兑换核销；酒店升级与宠物券在办理入住时由前台核销。</p>
+                <button class="primary-btn-wide modal-close" data-target="exchange-modal" style="margin-top: 1rem;">我知道了</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Script Entry -->
+    <script src="hotel-club.js"></script>
+    <script>
+        // Simple Header Transparency Logic
+        window.addEventListener("scroll", () => {
+            const nav = document.getElementById("main-nav");
+            if (window.scrollY > 60) {
+                nav.classList.add("scrolled");
+                nav.classList.remove("transparent");
+            } else {
+                nav.classList.remove("scrolled");
+                nav.classList.add("transparent");
+            }
+        });
+        
+        // Simple Mobile Menu Drawer Logic
+        const btnOpen = document.getElementById("mobile-menu-btn");
+        const btnClose = document.getElementById("mobile-close-btn");
+        const drawer = document.getElementById("mobile-drawer");
+        
+        btnOpen.addEventListener("click", () => drawer.classList.remove("hidden"));
+        btnClose.addEventListener("click", () => drawer.classList.add("hidden"));
+        drawer.querySelectorAll(".drawer-link-item").forEach(link => {
+            link.addEventListener("click", () => drawer.classList.add("hidden"));
+        });
+    </script>
+</body>
+</html>

@@ -257,7 +257,13 @@ function setupBookingFlow() {
     const ecoCheckboxes = document.querySelectorAll(".eco-checkboxes input[type='checkbox']");
     ecoCheckboxes.forEach(cb => cb.addEventListener("change", calculateBookingSummary));
 
-    // 5. Booking Form Submission (Generating confirmation voucher)
+    // Listen to guest phone input to apply membership discount dynamically
+    const phoneInput = document.getElementById("book-guest-phone");
+    if (phoneInput) {
+        phoneInput.addEventListener("input", calculateBookingSummary);
+    }
+
+    // 5. Booking Form Submission (Generating confirmation voucher & carbon ledger)
     const form = document.getElementById("booking-form");
     form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -265,6 +271,8 @@ function setupBookingFlow() {
         const guestName = document.getElementById("book-guest-name").value.trim();
         const guestPhone = document.getElementById("book-guest-phone").value.trim();
         const gender = document.getElementById("book-guest-gender").value;
+        const pillow = document.getElementById("book-pillow-type").value;
+        const pet = document.getElementById("book-pet-stay").value;
 
         // Generate voucher ticket data
         const orderId = "YM" + String(Date.now()).substring(2, 12) + String(Math.floor(Math.random() * 90 + 10));
@@ -281,9 +289,25 @@ function setupBookingFlow() {
         document.getElementById("voucher-checkout").innerText = modalCheckOut.value;
         document.getElementById("voucher-points").innerText = bookingState.ecoPoints;
 
+        // Update Carbon Ledger values
+        const ledgerStats = calculateCarbonLedgerValues();
+        document.getElementById("ledger-carbon").innerText = ledgerStats.carbon + " kg";
+        document.getElementById("ledger-water").innerText = ledgerStats.water + " L";
+        document.getElementById("ledger-plastic").innerText = ledgerStats.plastic + " 个";
+
         closeModal("booking-modal");
         openModal("voucher-modal");
-        showToast("预订成功！已生成您的低碳出行凭证", "success");
+        
+        // Custom interactive feedback toasts reflecting humanistic care
+        setTimeout(() => {
+            showToast("预订成功！已生成您的低碳出行凭证", "success");
+            if (pillow !== "默认原装防螨枕") {
+                showToast(`已通知前台为您准备【${pillow}】。`, "info");
+            }
+            if (pet === "yes") {
+                showToast("已为您的爱宠备妥客房宠物食盆与免费椰肉犬用零食！", "info");
+            }
+        }, 500);
     });
 
     // 6. Bind Modal overlays and closes
@@ -300,6 +324,57 @@ function setupBookingFlow() {
             }
         });
     });
+
+    const memberForm = document.getElementById("membership-query-form");
+    if (memberForm) {
+        memberForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const name = document.getElementById("member-name").value.trim();
+            const phone = document.getElementById("member-phone").value.trim();
+            
+            showToast("正在为您导向绿意邻里会员中心...", "info");
+            
+            setTimeout(() => {
+                window.location.href = `hotel-club.html?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}`;
+            }, 600);
+        });
+    }
+}
+
+function calculateCarbonLedgerValues() {
+    const checkinVal = document.getElementById("book-in-date").value;
+    const checkoutVal = document.getElementById("book-out-date").value;
+    
+    let days = 1;
+    if (checkinVal && checkoutVal) {
+        const d1 = new Date(checkinVal);
+        const d2 = new Date(checkoutVal);
+        const timeDiff = d2.getTime() - d1.getTime();
+        days = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        if (days <= 0) days = 1;
+    }
+
+    let carbon = 0.5; // Base carbon footprint reduction per booking in kg
+    let water = 20;   // Base water saved in Liters
+    let plastic = 0;  // Base single-use plastic cups saved
+
+    if (document.getElementById("eco-opt-toiletries").checked) {
+        carbon += 1.2 * days;
+        plastic += 2 * days;
+    }
+    if (document.getElementById("eco-opt-linen").checked) {
+        carbon += 0.8 * days;
+        water += 50 * days;
+    }
+    if (document.getElementById("eco-opt-transit").checked) {
+        carbon += 1.5;
+    }
+
+    return {
+        carbon: carbon.toFixed(1),
+        water: water,
+        plastic: plastic
+    };
 }
 
 function calculateBookingSummary() {
@@ -326,13 +401,33 @@ function calculateBookingSummary() {
     
     bookingState.ecoPoints = points;
 
+    // Calculate Member Discount based on guest phone last digit
+    const phoneInput = document.getElementById("book-guest-phone");
+    let discount = 1.0;
+    let discountLabel = "";
+    if (phoneInput && phoneInput.value.length === 11) {
+        const phone = phoneInput.value;
+        const lastDigit = parseInt(phone.slice(-1), 10);
+        if (lastDigit % 3 === 0) {
+            discount = 0.85;
+            discountLabel = " (已享森栖会员85折)";
+        } else if (lastDigit % 2 === 0) {
+            discount = 0.9;
+            discountLabel = " (已享竹友会员90折)";
+        } else {
+            discount = 0.95;
+            discountLabel = " (已享木邻会员95折)";
+        }
+    }
+
     // Calculate Total Price
-    const totalPrice = days * bookingState.selectedRoomPrice;
+    const basePrice = days * bookingState.selectedRoomPrice;
+    const totalPrice = Math.round(basePrice * discount);
 
     // Update Summary in Booking Modal
     document.getElementById("summary-days").innerText = days;
     document.getElementById("summary-points").innerText = points;
-    document.getElementById("summary-total-price").innerText = totalPrice.toLocaleString();
+    document.getElementById("summary-total-price").innerText = totalPrice.toLocaleString() + discountLabel;
 }
 
 // --- Date Formatter Helper ---

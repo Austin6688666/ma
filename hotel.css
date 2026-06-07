@@ -1965,3 +1965,414 @@ button {
     position: relative;
     z-index: 10;
 }
+
+/* ==========================================================================
+   YAMEI Hotel - Green Neighborhood Membership Section
+   ========================================================================== */
+.membership-section {
+    padding: 6rem 2rem;
+    background-color: var(--accent-light);
+    border-radius: var(--radius-lg);
+    margin: 4rem 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.member-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+}
+
+.member-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.member-card .card-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.member-card .tier-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.member-card .tier-badge.active {
+    color: var(--primary);
+}
+
+.member-card .tier-title {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+.member-card .tier-price {
+    font-size: 0.95rem;
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.member-card .tier-price strong {
+    font-size: 1.3rem;
+    font-family: var(--font-serif);
+}
+
+.member-card .tier-privileges {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.member-card .tier-privileges li {
+    font-size: 0.88rem;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.member-card .tier-privileges li i {
+    color: var(--primary-light);
+    font-size: 0.95rem;
+    width: 16px;
+    text-align: center;
+}
+
+/* Background Overlays for Tier Cards */
+.member-card.tier-wood {
+    border-top: 5px solid var(--accent);
+}
+.member-card.tier-wood .card-wood-overlay {
+    position: absolute;
+    top: 0; right: 0;
+    width: 120px; height: 120px;
+    background: radial-gradient(circle, rgba(196, 155, 113, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+}
+
+.member-card.tier-bamboo {
+    border-top: 5px solid var(--primary-light);
+    background-color: #FAFBF9;
+}
+.member-card.tier-bamboo .card-bamboo-overlay {
+    position: absolute;
+    top: 0; right: 0;
+    width: 140px; height: 140px;
+    background: radial-gradient(circle, rgba(126, 143, 98, 0.12) 0%, rgba(255, 255, 255, 0) 75%);
+    border-radius: 50%;
+}
+
+.member-card.tier-forest {
+    border: 1px solid var(--primary);
+    border-top: 5px solid var(--primary);
+    background-color: #F4F6F1;
+}
+.member-card.tier-forest .card-forest-overlay {
+    position: absolute;
+    top: 0; right: 0;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(85, 107, 47, 0.15) 0%, rgba(255, 255, 255, 0) 75%);
+    border-radius: 50%;
+}
+
+/* Membership Activation / Query Form */
+.member-activation-container {
+    margin-top: 4rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 3rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.activation-card-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.activation-form h3 {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--text-main);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.activation-form h3 i {
+    color: var(--accent);
+}
+
+.activation-form .desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.active-form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 460px;
+}
+
+.active-form-row input {
+    background-color: var(--bg-app);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    width: 100%;
+    transition: border-color var(--transition-fast);
+}
+
+.active-form-row input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.activation-btn {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.activation-btn:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-1px);
+}
+
+/* Virtual Digital Card Design */
+.activation-display {
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+}
+
+.virtual-member-card {
+    width: 340px;
+    height: 200px;
+    border-radius: 16px;
+    padding: 1.8rem;
+    color: white;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.virtual-member-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 80%);
+    pointer-events: none;
+}
+
+.virtual-member-card .card-chip {
+    width: 38px;
+    height: 28px;
+    background: linear-gradient(135deg, #e5b560 0%, #c49b71 100%);
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.virtual-member-card .card-logo {
+    position: absolute;
+    top: 1.8rem; right: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 1.1rem;
+}
+
+.virtual-member-card .card-status-info {
+    margin-top: 1.5rem;
+}
+
+.virtual-member-card .status-lbl {
+    display: block;
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+    opacity: 0.7;
+}
+
+.virtual-member-card .status-val {
+    font-size: 1.4rem;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.virtual-member-card .card-holder {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.virtual-member-card .holder-name {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.virtual-member-card .holder-id {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    font-family: monospace;
+}
+
+.virtual-member-card .card-footer-desc {
+    position: absolute;
+    bottom: 0.6rem; left: 1.8rem; right: 1.8rem;
+    font-size: 0.65rem;
+    opacity: 0.8;
+    letter-spacing: 0.5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 4px;
+}
+
+/* Card Skins */
+.virtual-member-card.card-blank {
+    background: linear-gradient(135deg, #4b5563 0%, #1f2937 100%);
+}
+
+.virtual-member-card.tier-wood {
+    background: linear-gradient(135deg, #c49b71 0%, #8c6741 100%);
+}
+
+.virtual-member-card.tier-bamboo {
+    background: linear-gradient(135deg, #7e8f62 0%, #4f5b3a 100%);
+}
+
+.virtual-member-card.tier-forest {
+    background: linear-gradient(135deg, #2b3a1a 0%, #111a07 100%);
+    border: 1px solid rgba(229, 181, 96, 0.3);
+}
+
+.virtual-member-card.tier-forest::after {
+    content: 'GOLDEN';
+    position: absolute;
+    bottom: 1.5rem; right: 1.8rem;
+    font-size: 0.55rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #e5b560;
+    opacity: 0.8;
+}
+
+/* Carbon Ledger Styling in Voucher */
+.ticket-carbon-ledger {
+    background-color: var(--accent-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+}
+
+.ticket-carbon-ledger .ledger-header {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.ticket-carbon-ledger .ledger-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    text-align: center;
+}
+
+.ticket-carbon-ledger .ledger-stat-item {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.6rem 0.4rem;
+}
+
+.ticket-carbon-ledger .ledger-stat-item .lbl {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    margin-bottom: 3px;
+}
+
+.ticket-carbon-ledger .ledger-stat-item strong {
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.ticket-carbon-ledger .ledger-notes {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 0.8rem;
+    border-top: 1px dashed var(--border-color);
+    padding-top: 0.6rem;
+    text-align: center;
+}
+
+.ticket-carbon-ledger .ledger-notes strong {
+    color: var(--primary);
+}
+
+/* Membership responsive query */
+@media (max-width: 992px) {
+    .member-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .activation-card-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
