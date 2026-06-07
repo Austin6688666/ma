@@ -106,14 +106,18 @@
                 <div class="brand-grid-chart">
                     <div class="lat-card-box">
                         <div class="lat-coord-map">
-                            <!-- SVG Drawing of coordinate grid -->
+                            <!-- SVG Drawing of coordinate grid with global coffee belt map overlay -->
                             <svg class="map-grid-svg" viewBox="0 0 400 300">
-                                <line x1="20" y1="150" x2="380" y2="150" stroke="var(--border-color)" stroke-width="1" stroke-dasharray="4"/>
-                                <line x1="200" y1="20" x2="200" y2="280" stroke="var(--border-color)" stroke-width="1" stroke-dasharray="4"/>
-                                <circle cx="200" cy="150" r="8" fill="var(--primary)"/>
-                                <circle cx="200" cy="150" r="40" fill="none" stroke="var(--primary)" stroke-width="1" stroke-dasharray="2" class="pulse-ring"/>
-                                <text x="215" y="145" fill="var(--text-main)" font-size="12" font-weight="700" data-key="lat-map-txt">18.25° N (三亚)</text>
-                                <text x="30" y="140" fill="var(--text-muted)" font-size="10" data-key="lat-belt-txt">COFFEE BELT 咖啡腰带</text>
+                                <image href="coffee_belt_map.png" x="0" y="0" width="400" height="300" opacity="0.85"/>
+                                <line x1="20" y1="116" x2="380" y2="116" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3"/>
+                                <line x1="320" y1="20" x2="320" y2="280" stroke="var(--border-color)" stroke-width="1" stroke-dasharray="4"/>
+                                <circle cx="320" cy="116" r="6" fill="var(--primary)"/>
+                                <circle cx="320" cy="116" r="6" fill="none" stroke="var(--primary)" stroke-width="1.5">
+                                    <animate attributeName="r" from="6" to="45" dur="3s" repeatCount="indefinite" />
+                                    <animate attributeName="opacity" from="1" to="0" dur="3s" repeatCount="indefinite" />
+                                </circle>
+                                <text x="320" y="100" fill="var(--text-main)" font-size="11" font-weight="700" text-anchor="middle" data-key="lat-map-txt">18.25° N (三亚)</text>
+                                <text x="25" y="280" fill="var(--text-muted)" font-size="9" data-key="lat-belt-txt">COFFEE BELT 咖啡腰带</text>
                             </svg>
                         </div>
                         <div class="lat-data-panel">
