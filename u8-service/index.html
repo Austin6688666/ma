@@ -686,6 +686,62 @@
         </div>
     </footer>
 
+    <!-- Online Customer Service Widget -->
+    <div class="chat-widget" id="chat-widget">
+        <!-- Floating Chat Button -->
+        <button class="chat-trigger" id="chat-trigger" aria-label="联系在线客服">
+            <span class="chat-trigger-pulse"></span>
+            <svg class="chat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <span class="chat-badge" id="chat-badge">1</span>
+        </button>
+
+        <!-- Chat Panel -->
+        <div class="chat-panel" id="chat-panel" aria-hidden="true">
+            <!-- Header -->
+            <div class="chat-header">
+                <div class="chat-agent-info">
+                    <div class="chat-avatar-container">
+                        <div class="chat-avatar">A</div>
+                        <span class="chat-status-dot"></span>
+                    </div>
+                    <div class="chat-agent-details">
+                        <span class="chat-agent-name">用友 U8 修复助理 - Austin</span>
+                        <span class="chat-agent-status">正在线值班</span>
+                    </div>
+                </div>
+                <button class="chat-close" id="chat-close" aria-label="关闭客服面板">&times;</button>
+            </div>
+
+            <!-- Messages Log -->
+            <div class="chat-messages" id="chat-messages">
+                <!-- Welcome Message will be dynamically inserted here to avoid static flash -->
+            </div>
+
+            <!-- Quick Reply Chips -->
+            <div class="chat-chips-container">
+                <div class="chat-chips" id="chat-chips">
+                    <button class="chat-chip" data-query="我想预约账套修复">我想预约账套修复 🛠️</button>
+                    <button class="chat-chip" data-query="我想修改日志时间">我想修改日志时间 ⏱️</button>
+                    <button class="chat-chip" data-query="服务怎么收费的？">服务怎么收费？ 💰</button>
+                    <button class="chat-chip" data-query="账套不平衡可以修复吗？">账套不平衡能调平吗？ 📊</button>
+                    <button class="chat-chip" data-query="能直接加微信联系吗？">可以直接加微信吗？ 💬</button>
+                </div>
+            </div>
+
+            <!-- Input Box Footer -->
+            <div class="chat-input-area">
+                <textarea class="chat-input" id="chat-input" placeholder="输入您的问题..." rows="1" maxlength="300"></textarea>
+                <button class="chat-send-btn" id="chat-send-btn" aria-label="发送消息">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script src="app.js?v=1.9"></script>
 </body>

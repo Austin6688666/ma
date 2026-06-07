@@ -438,4 +438,342 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 600);
         });
     }
+
+    /* ==========================================================================
+       9. ONLINE CUSTOMER SERVICE INTERACTIVE CHAT WIDGET (YONYOU U8 STYLE)
+       ========================================================================== */
+    const chatWidget = document.getElementById('chat-widget');
+    const chatTrigger = document.getElementById('chat-trigger');
+    const chatPanel = document.getElementById('chat-panel');
+    const chatClose = document.getElementById('chat-close');
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput = document.getElementById('chat-input');
+    const chatSendBtn = document.getElementById('chat-send-btn');
+    const chatBadge = document.getElementById('chat-badge');
+    const chatChips = document.querySelectorAll('.chat-chip');
+
+    let chatState = 'idle'; // idle, ask_name, ask_contact, ask_type, ask_desc
+    let applicantData = { name: '', contact: '', type: '', desc: '' };
+    let hasSentGreeting = false;
+    let typingTimeoutId = null;
+
+    // Helper: format current time as hh:mm
+    const getFormattedTime = () => {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        return `${hours}:${minutes}`;
+    };
+
+    // Helper: Scroll messages log to bottom
+    const scrollToBottom = () => {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    };
+
+    // Helper: Add message bubble to DOM
+    const addMessage = (sender, text, isCard = false, cardHtml = '') => {
+        const wrapper = document.createElement('div');
+        wrapper.className = `chat-bubble-wrapper ${sender}`;
+
+        if (isCard) {
+            wrapper.innerHTML = cardHtml;
+        } else {
+            const bubble = document.createElement('div');
+            bubble.className = 'chat-bubble';
+            bubble.textContent = text;
+            
+            const timeSpan = document.createElement('span');
+            timeSpan.className = 'chat-time';
+            timeSpan.textContent = getFormattedTime();
+
+            wrapper.appendChild(bubble);
+            wrapper.appendChild(timeSpan);
+        }
+
+        chatMessages.appendChild(wrapper);
+        scrollToBottom();
+    };
+
+    // Helper: Show bouncing dots typing indicator
+    const showTypingIndicator = () => {
+        hideTypingIndicator();
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'typing-indicator-wrapper';
+        wrapper.id = 'typing-indicator-active';
+
+        const indicator = document.createElement('div');
+        indicator.className = 'typing-indicator';
+        indicator.innerHTML = '<span></span><span></span><span></span>';
+
+        wrapper.appendChild(indicator);
+        chatMessages.appendChild(wrapper);
+        scrollToBottom();
+    };
+
+    // Helper: Hide bouncing dots typing indicator
+    const hideTypingIndicator = () => {
+        const activeIndicator = document.getElementById('typing-indicator-active');
+        if (activeIndicator) {
+            activeIndicator.remove();
+        }
+    };
+
+    // Trigger Greeting when opened
+    const triggerGreeting = () => {
+        if (hasSentGreeting) return;
+        hasSentGreeting = true;
+
+        showTypingIndicator();
+        setTimeout(() => {
+            hideTypingIndicator();
+            addMessage('bot', '你好！我是用友 U8 修复与日志维护助理 Austin 🛠️。很高兴为您服务！\n\n我们专为南宁理工学子提供 U8 账套修复、期末试算调平、上机实验日志与机房机器时间匹配修改等一条龙技术保障。\n\n关于服务的收费、时效或技术问题，您可以直接打字问我，或点击下方的快捷标签。如果您想在线预约，可以直接回复【预约】哦！👇');
+        }, 800);
+    };
+
+    // Toggle Chat Panel visibility
+    const openChat = () => {
+        chatPanel.classList.add('active');
+        chatPanel.setAttribute('aria-hidden', 'false');
+        if (chatBadge) {
+            chatBadge.style.display = 'none';
+        }
+        triggerGreeting();
+        if (window.innerWidth > 480) {
+            chatInput.focus();
+        }
+    };
+
+    const closeChat = () => {
+        chatPanel.classList.remove('active');
+        chatPanel.setAttribute('aria-hidden', 'true');
+    };
+
+    chatTrigger.addEventListener('click', () => {
+        if (chatPanel.classList.contains('active')) {
+            closeChat();
+        } else {
+            openChat();
+        }
+    });
+
+    chatClose.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeChat();
+    });
+
+    // Handle Quick Reply Chips
+    chatChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            const query = chip.getAttribute('data-query');
+            handleUserInput(query);
+        });
+    });
+
+    // Input Height Auto Resize
+    chatInput.addEventListener('input', () => {
+        chatInput.style.height = 'auto';
+        chatInput.style.height = (chatInput.scrollHeight) + 'px';
+        if (chatInput.scrollHeight > 80) {
+            chatInput.style.overflowY = 'auto';
+        } else {
+            chatInput.style.overflowY = 'hidden';
+        }
+    });
+
+    // Send Message on click or Enter
+    const handleSendClick = () => {
+        const text = chatInput.value.trim();
+        if (!text) return;
+        
+        chatInput.value = '';
+        chatInput.style.height = 'auto';
+        
+        handleUserInput(text);
+    };
+
+    chatSendBtn.addEventListener('click', handleSendClick);
+
+    chatInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            handleSendClick();
+        }
+    });
+
+    // Process Bot Responses & State Machine
+    const handleUserInput = (inputText) => {
+        // 1. Display user bubble
+        addMessage('user', inputText);
+
+        // 2. Clear typing timeout if user replies ahead of time
+        if (typingTimeoutId) {
+            clearTimeout(typingTimeoutId);
+        }
+
+        // 3. Show typing indicator
+        showTypingIndicator();
+
+        // 4. Compute response
+        let reply = '';
+        let nextState = chatState;
+        let isSpecialCard = false;
+        let cardHtml = '';
+
+        const textClean = inputText.trim();
+
+        // Multistep Booking State Machine
+        if (chatState === 'ask_name') {
+            applicantData.name = textClean;
+            reply = `好的，${applicantData.name}。请问您的微信或者手机号是多少呢？💬\n（方便我稍后加您微信或电联您对接文件）`;
+            nextState = 'ask_contact';
+        } 
+        else if (chatState === 'ask_contact') {
+            applicantData.contact = textClean;
+            reply = `收到联系方式！请问您需要什么服务呢？请输入数字选择：👇\n\n1️⃣ 上机日志/时间修改（改成学校机器时间）\n2️⃣ 全系统信息无痕修改（学号/姓名）\n3️⃣ 账套备份异常导入修复\n4️⃣ 试算平衡与数据校验\n5️⃣ 实操搭建全周期一条龙\n6️⃣ 其他故障咨询`;
+            nextState = 'ask_type';
+        } 
+        else if (chatState === 'ask_type') {
+            const num = parseInt(textClean, 10);
+            const types = {
+                1: '上机日志/时间修改（改成学校机器时间）',
+                2: '全系统信息无痕修改（学号/姓名）',
+                3: '账套备份异常导入修复',
+                4: '试算平衡与数据校验',
+                5: '实操搭建全周期一条龙',
+                6: '其他故障咨询'
+            };
+
+            if (types[num]) {
+                applicantData.type = types[num];
+                reply = `您选择了：【${applicantData.type}】。\n最后，请简单描述一下您的具体报错内容或修改要求（例如：要求时间修改为今晚8点，或者导入账套时提示数据库连接失败）：👇`;
+                nextState = 'ask_desc';
+            } else {
+                reply = `唔……输入无效哦。请输入 1 到 6 的数字来选择您的服务类型：\n\n1️⃣ 上机日志/时间修改\n2️⃣ 全系统无痕修改\n3️⃣ 账套备份导入修复\n4️⃣ 试算平衡与数据校验\n5️⃣ 实操搭建一条龙\n6️⃣ 其他故障咨询`;
+                nextState = 'ask_type';
+            }
+        } 
+        else if (chatState === 'ask_desc') {
+            applicantData.desc = textClean;
+            reply = `预约需求已登记！✨\n我已经为您打包好预约单，并已通过后台邮件直接发送给 Austin (maxiaoyu666888@gmail.com)。\n\nAustin 在收到邮件后会第一时间联系您（通过您留下的微信或电话），请保持联系畅通哦！🤝`;
+            nextState = 'idle';
+
+            // Send AJAX email submission via FormSubmit
+            fetch("https://formsubmit.co/ajax/maxiaoyu666888@gmail.com", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    "姓名": applicantData.name,
+                    "联系方式": applicantData.contact,
+                    "服务类型": applicantData.type,
+                    "报错与修改要求": applicantData.desc,
+                    "_subject": `用友 U8 修复新预约: ${applicantData.name} - ${applicantData.type}`
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Email submitted successfully via FormSubmit:", data);
+            })
+            .catch(error => {
+                console.error("Error sending email via FormSubmit:", error);
+            });
+
+            // Synchronize and Submit with UI inputs in page form (just to keep form state sync)
+            const mainName = document.getElementById('bookingName');
+            const mainContact = document.getElementById('bookingContact');
+            const mainType = document.getElementById('bookingType');
+            const mainDesc = document.getElementById('bookingDesc');
+            if (mainName) mainName.value = applicantData.name;
+            if (mainContact) mainContact.value = applicantData.contact;
+            if (mainType) mainType.value = applicantData.type;
+            if (mainDesc) mainDesc.value = applicantData.desc;
+
+            // Trigger success invoice display card inside chat
+            isSpecialCard = true;
+            cardHtml = `
+                <div class="chat-apply-success-card">
+                    <h5>✅ U8 修复预约已自动发送邮件</h5>
+                    <p><strong>服务项目：</strong>${applicantData.type}</p>
+                    <p><strong>客户姓名：</strong>${applicantData.name}</p>
+                    <p><strong>联系方式：</strong>${applicantData.contact}</p>
+                    <p><strong>需求描述：</strong>${applicantData.desc}</p>
+                    <p style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--accent-color); font-size: 0.75rem; color: var(--text-secondary);">
+                        * 提示：预约详情已通过自动邮件直接发送至 Austin 邮箱（maxiaoyu666888@gmail.com）。请留意您的联系方式，Austin 会尽快联络您！
+                    </p>
+                </div>
+            `;
+        } 
+        else {
+            // Idle State: Keyword Router
+            const textLower = textClean.toLowerCase();
+
+            // 1. Booking triggers
+            if (/(预约|登记|修改|修复|修复账套|改时间|修改日志|改学号|改姓名|申请|一条龙)/.test(textLower)) {
+                reply = `好的！我很乐意为您提供用友 U8 修复与日志时间修改服务。💻\n我来在线帮您快速登记预约需求。\n\n首先请问怎么称呼您呢？（例如：李同学）👇`;
+                nextState = 'ask_name';
+                // Reset data
+                applicantData = { name: '', contact: '', type: '', desc: '' };
+            }
+            // 2. Salary / Price triggers
+            else if (/(价格|收费|多少钱|几块|便宜点|优惠|券|怎么收|代金券|怎么收费)/.test(textLower)) {
+                reply = `我们的收费标准公开透明，专为本校学子提供高性价比服务：\n\n1. 🌟 **全系统无痕一条龙服务**（修改姓名、学号、日志对齐机房）：**60元/账套**。\n2. 🛠️ **其他单项技术服务**（备份修复、期末试算平衡调平等）：视具体故障难度与工作量协商，童叟无欺。\n\n💡 提示：在页面上方的【领券中心】可随机抽取专属代金券（最高可减 ¥5.00），微信预约时发送截图即可直接抵扣！💰`;
+            }
+            // 3. Work hours and location triggers
+            else if (/(多久|多长时间|什么时候|几点|来得及吗|急|什么时候做好|多久修好)/.test(textLower)) {
+                reply = `一般而言，账套修复与日志修改在 **1 - 2 小时** 内即可快速完成交付 ⚡️。\n如果您有紧急截止需求（如明天上交、今晚截止等），请在登记预约时说明，我会为您排单加急优先处理！`;
+            }
+            // 4. Requirements / Details triggers
+            else if (/(日志|时间|修改日志|修改时间|机房时间|上机日志|时间戳)/.test(textLower)) {
+                reply = `没问题！我们可以将用友 U8 账套中的所有系统上机操作日志、凭证时间修改为您所需要的**任何指定时间**，或者直接**匹配修改成您学校机房机器的对应时间**。时间逻辑严密，无痕修改，完全符合学校老师检查标准！⏱️`;
+            }
+            // 5. Balance triggers
+            else if (/(平衡|不平|试算|报表|期末|损益|报错|试算平衡|调平)/.test(textLower)) {
+                reply = `这是很多财会学子的心头大恨！期末试算不平衡、资产负债表与利润表勾稽错误等，我们都可以调平。\n我们有专业财务与数据库技术支持，直接通过 SQL Server 数据库底层核对凭证，帮您完成平衡修复，不收多余费用！📊`;
+            }
+            // 6. Name/ID triggers
+            else if (/(学号|姓名|改名字|改学号|改人|换人|无痕)/.test(textLower)) {
+                reply = `是的，我们可以修改用友 U8 运行系统以及账套底层的**学生姓名**和**学号**。提供从错误诊断、信息修正到导出交档的全方位『一条龙』服务，保证数据包干干净净，只有您的信息！`;
+            }
+            // 7. Greetings
+            else if (/(你好|哈喽|在吗|有人吗|hello|hi|嗨|austin)/.test(textLower)) {
+                reply = `您好！我是用友 U8 修复小助手 Austin 🌸，正在线值班中。\n关于用友 U8 的『收费』、『修复时间』、『修改日志/学号姓名』、『试算平衡』等问题，您都可以问我，或者直接打字发送『预约』开始在线登记需求！`;
+            }
+            // 8. What is U8
+            else if (/(u8|平台|是什么|做什么|什么软件|用友)/.test(textLower)) {
+                reply = `用友 U8 是一款广泛应用于企业财务、供应链、生产等管理领域的 ERP 软件，也是高校财会实操课程的核心系统。我们主要为您提供该系统在实验、考核中的账套受损修复、日志和凭证时间戳无痕修改、数据校对等技术保障。`;
+            }
+            // 9. WeChat contact
+            else if (/(微信|联系|加你|好友|怎么联系|微信号|电话|联系方式)/.test(textLower)) {
+                reply = `您可以直接复制并添加我的微信：**Austin-love-m**（备注 U8 咨询）。\n或者在聊天框发送『预约』，我将协助您在线生成格式化需求单，方便加微信后一键粘贴发送！💬`;
+            }
+            // 10. Fallbacks
+            else {
+                const fallbacks = [
+                    `唔……Austin 刚才眨了眨眼睛，好像没有太看明白您的意思 🥺。您可以问我『怎么收费』、『可以改时间吗』、『试算不平衡能调吗』，或者直接点击下方的快捷标签快速提问！`,
+                    `抱歉呢，这个问题难倒 Austin 啦 🌸。您可以试试问我关于用友 U8 维护的事情，比如输入『修改日志时间』、『无痕改名学号』。如果您想直接在线预约，发送【预约】就可以啦！`,
+                    `Austin 刚才正在帮一位理工的同学调平资产负债表，没太理解这个问题 😅。建议您直接点击下方的快捷引导标签，或者打字关于『价格』、『修复时效』，我会立刻给您最详细的解答！`
+                ];
+                reply = fallbacks[Math.floor(Math.random() * fallbacks.length)];
+            }
+        }
+
+        const chatDelay = Math.max(700, Math.min(1500, (reply.length / 5) * 200));
+
+        typingTimeoutId = setTimeout(() => {
+            hideTypingIndicator();
+            chatState = nextState;
+
+            if (isSpecialCard) {
+                addMessage('bot', reply);
+                setTimeout(() => {
+                    addMessage('bot', '', true, cardHtml);
+                }, 300);
+            } else {
+                addMessage('bot', reply);
+            }
+        }, chatDelay);
+    };
 });
