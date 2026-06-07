@@ -2694,7 +2694,7 @@ button, input, select, textarea {
 
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
     gap: 1rem;
 }
 
@@ -2875,8 +2875,8 @@ button, input, select, textarea {
         gap: 0.6rem;
     }
 
-    .dashboard-grid .dash-item:nth-child(5) {
-        grid-column: span 2; /* center grind item */
+    .dashboard-grid .dash-item:nth-child(7) {
+        grid-column: span 2; /* center the 7th item */
     }
 
     .dash-item {
@@ -3009,6 +3009,210 @@ button, input, select, textarea {
         flex: 0 0 82% !important;
         scroll-snap-align: start !important;
         margin-bottom: 0 !important;
+    }
+}
+
+/* ==========================================
+   Brand Story & Journal (风物纪实) Styles
+   ========================================== */
+.story-section {
+    padding: 8rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.story-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.story-img-container {
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    border-radius: 24px;
+    padding: 1.8rem;
+    box-shadow: var(--shadow-md);
+}
+
+.story-main-img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    display: block;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+}
+
+.story-img-container:hover .story-main-img {
+    transform: scale(1.02);
+}
+
+.story-img-caption {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.caption-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+.story-img-caption p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.story-text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.story-lead {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--primary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    border-left: 2px solid var(--primary);
+    padding-left: 1.2rem;
+    font-style: italic;
+}
+
+.story-body {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.story-body:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   Pioneer Unique Selling Points Styles
+   ========================================== */
+.pioneer-section {
+    padding: 8rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pioneer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.pioneer-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2.2rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+}
+
+.pioneer-card:hover {
+    background-color: #FFF;
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(229, 181, 96, 0.3);
+}
+
+.pioneer-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: var(--primary-light);
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    transition: var(--transition-quick);
+}
+
+.pioneer-card:hover .pioneer-icon-box {
+    background-color: var(--primary);
+    color: var(--bg-primary);
+}
+
+.pioneer-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.3rem;
+}
+
+.pioneer-tag {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+}
+
+.pioneer-card p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* ==========================================
+   Mobile overrides for Story and Pioneer Sections
+   ========================================== */
+@media (max-width: 1024px) {
+    .pioneer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .story-section {
+        padding: 4.5rem 0 !important;
+    }
+    
+    .story-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .story-img-container {
+        padding: 1.2rem;
+    }
+
+    .story-lead {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .pioneer-section {
+        padding: 4.5rem 0 !important;
+    }
+
+    .pioneer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+    }
+
+    .pioneer-card {
+        padding: 1.8rem;
     }
 }
 

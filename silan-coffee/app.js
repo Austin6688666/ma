@@ -580,11 +580,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 8000);
     }
 
-    // Fluctuate dashboard parameters (Temp, TDS, Flow, Time)
+    // Fluctuate dashboard parameters (Temp, TDS, Flow, Time, BPM, Wave)
     const dashTempField = document.getElementById("dash-temp");
     const dashTdsField = document.getElementById("dash-tds");
     const dashFlowField = document.getElementById("dash-flow");
     const dashTimeField = document.getElementById("dashboard-time");
+    const dashBpmField = document.getElementById("dash-bpm");
+    const dashWaveField = document.getElementById("dash-wave");
 
     // Live clock update
     if (dashTimeField) {
@@ -594,7 +596,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000);
     }
 
-    if (dashTempField || dashTdsField || dashFlowField) {
+    if (dashTempField || dashTdsField || dashFlowField || dashBpmField || dashWaveField) {
         setInterval(() => {
             if (dashTempField) {
                 const temp = (92.0 + Math.random() * 0.8).toFixed(1);
@@ -607,6 +609,15 @@ document.addEventListener("DOMContentLoaded", () => {
             if (dashFlowField) {
                 const flow = (2.0 + Math.random() * 0.3).toFixed(1);
                 dashFlowField.textContent = `${flow} g/s`;
+            }
+            if (dashWaveField) {
+                const waveFreq = (0.09 + Math.random() * 0.05).toFixed(2);
+                dashWaveField.textContent = `${waveFreq} Hz`;
+                
+                if (dashBpmField) {
+                    const bpm = Math.round(60 + waveFreq * 110);
+                    dashBpmField.textContent = `${bpm} bpm`;
+                }
             }
         }, 3000);
     }
