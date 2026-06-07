@@ -325,56 +325,18 @@ function setupBookingFlow() {
         });
     });
 
-    // 7. Interactive Membership Query & Activation Card Simulator
     const memberForm = document.getElementById("membership-query-form");
     if (memberForm) {
         memberForm.addEventListener("submit", (e) => {
             e.preventDefault();
             const name = document.getElementById("member-name").value.trim();
             const phone = document.getElementById("member-phone").value.trim();
-            const displayArea = document.getElementById("activation-card-display");
             
-            let tierClass = "tier-wood";
-            let tierName = "木邻 Neighbor";
-            let discountText = "订房享 9.5 折 // 24h书阁免费借阅";
-            
-            const lastDigit = parseInt(phone.slice(-1), 10);
-            if (lastDigit % 3 === 0) {
-                tierClass = "tier-forest";
-                tierName = "森栖 Dweller";
-                discountText = "尊享 8.5 折 // 24小时随心住 // 免费红树种植";
-            } else if (lastDigit % 2 === 0) {
-                tierClass = "tier-bamboo";
-                tierName = "竹友 Friend";
-                discountText = "专享 9.0 折 // 枕头菜单自选 // 免宠物清洁费";
-            }
-
-            // Animate card flipping/activation
-            displayArea.style.opacity = "0";
-            displayArea.style.transform = "scale(0.95) rotateY(90deg)";
+            showToast("正在为您导向绿意邻里会员中心...", "info");
             
             setTimeout(() => {
-                displayArea.innerHTML = `
-                    <div class="virtual-member-card ${tierClass}">
-                        <div class="card-chip"></div>
-                        <div class="card-logo">YAMEI</div>
-                        <div class="card-status-info">
-                            <span class="status-lbl">CARD STATUS</span>
-                            <span class="status-val">${tierName}</span>
-                        </div>
-                        <div class="card-holder">
-                            <span class="holder-name">${name.toUpperCase()}</span>
-                            <span class="holder-id">ID: YM-${String(Date.now()).substring(5)}</span>
-                        </div>
-                        <div class="card-footer-desc">
-                            <span>${discountText}</span>
-                        </div>
-                    </div>
-                `;
-                displayArea.style.opacity = "1";
-                displayArea.style.transform = "scale(1) rotateY(0deg)";
-                showToast(`激活成功！欢迎加入亚美【${tierName.split(" ")[0]}】会籍。`, "success");
-            }, 400);
+                window.location.href = `hotel-club.html?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}`;
+            }, 600);
         });
     }
 }
