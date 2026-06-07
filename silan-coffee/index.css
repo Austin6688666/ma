@@ -125,7 +125,7 @@ button, input, select, textarea {
 
 .editorial-title {
     font-family: var(--font-serif);
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     font-weight: 500;
     line-height: 1.25;
     color: var(--text-main);
@@ -300,8 +300,25 @@ button, input, select, textarea {
 
 .menu-toggle {
     display: none;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     cursor: pointer;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: var(--transition-quick);
+}
+
+.menu-toggle:hover {
+    transform: scale(1.05);
+}
+
+.navbar.scrolled .menu-toggle {
+    background-color: rgba(28, 26, 23, 0.04);
+    border-color: rgba(28, 26, 23, 0.08);
 }
 
 .navbar.transparent .menu-toggle {
@@ -319,7 +336,7 @@ button, input, select, textarea {
     position: fixed;
     top: 0;
     right: 0;
-    width: 320px;
+    width: min(320px, 85vw);
     height: 100vh;
     background: var(--glass-bg);
     backdrop-filter: blur(30px);
@@ -350,9 +367,23 @@ button, input, select, textarea {
 }
 
 .drawer-close {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--text-main);
     cursor: pointer;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(28, 26, 23, 0.03);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-quick);
+}
+
+.drawer-close:hover {
+    background-color: rgba(28, 26, 23, 0.08);
+    transform: rotate(90deg);
 }
 
 .drawer-links {
@@ -463,7 +494,7 @@ button, input, select, textarea {
 
 .hero-title {
     font-family: var(--font-serif);
-    font-size: 3.8rem;
+    font-size: clamp(2.2rem, 8vw, 3.8rem);
     font-weight: 500;
     line-height: 1.2;
     margin-bottom: 1rem;
@@ -1106,6 +1137,16 @@ button, input, select, textarea {
     transition: var(--transition-quick);
 }
 
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231C1A17'><path d='M2 4l4 4 4-4z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem !important;
+    cursor: pointer;
+}
+
 .form-group input::placeholder {
     color: #A59C8F;
 }
@@ -1141,8 +1182,7 @@ button, input, select, textarea {
 .checkmark {
     position: absolute;
     left: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 2px;
     height: 16px;
     width: 16px;
     background-color: var(--bg-primary);
@@ -1335,7 +1375,9 @@ button, input, select, textarea {
     z-index: 3000;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    overflow-y: auto;
+    padding: 2rem 0;
     opacity: 1;
     transition: opacity 0.4s ease;
 }
@@ -1351,6 +1393,7 @@ button, input, select, textarea {
     border-radius: 20px;
     max-width: 460px;
     width: 90%;
+    margin: auto;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     transform: translateY(0);
@@ -1428,7 +1471,7 @@ button, input, select, textarea {
 .ticket-divider {
     height: 1px;
     border-top: 1px dashed var(--border-color);
-    margin: 1.2rem 0;
+    margin: 1.2rem -1.8rem;
     position: relative;
 }
 
@@ -1446,11 +1489,11 @@ button, input, select, textarea {
 }
 
 .ticket-divider::before {
-    left: -26px;
+    left: -8px;
 }
 
 .ticket-divider::after {
-    right: -26px;
+    right: -8px;
 }
 
 .ticket-row-grid {
@@ -1700,7 +1743,7 @@ button, input, select, textarea {
     }
     
     .menu-toggle {
-        display: block;
+        display: flex !important;
     }
     
     .hero-title {
@@ -1719,8 +1762,36 @@ button, input, select, textarea {
         font-size: 2rem;
     }
     
+    .menu-tabs {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 0.5rem 4%;
+        margin-left: -4%;
+        margin-right: -4%;
+        margin-bottom: 2.5rem !important;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+    
+    .menu-tabs::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .menu-tab {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        font-size: 0.8rem;
+        padding: 0.5rem 1.2rem;
+    }
+    
     .menu-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .community-card {
+        padding: 1.8rem !important;
     }
     
     .booking-card-layout {
@@ -2327,6 +2398,240 @@ button, input, select, textarea {
 @media (max-width: 600px) {
     .branches-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
+   Advanced Mobile Layout Optimizations
+   ========================================== */
+@media (max-width: 768px) {
+    /* Reduce section margins on mobile to save vertical scrolling load */
+    .brand-section, 
+    .origins-section, 
+    .menu-section, 
+    .community-section, 
+    .service-section, 
+    .careers-section, 
+    .affiliates-section, 
+    .booking-section {
+        padding: 4.5rem 0 !important;
+    }
+
+    .section-badge {
+        margin-bottom: 0.6rem;
+    }
+
+    .section-desc {
+        margin-bottom: 2.2rem;
+        font-size: 0.9rem;
+    }
+
+    /* Hero Section Details on Mobile */
+    .hero-title {
+        font-size: 2.2rem !important;
+        line-height: 1.35 !important;
+        word-break: keep-all;
+    }
+
+    .hero-desc {
+        font-size: 0.9rem !important;
+        line-height: 1.7 !important;
+        padding: 0 1rem;
+        margin-bottom: 2.5rem !important;
+    }
+
+    .hero-scroll-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 0.9rem;
+    }
+
+    /* Brand Section Coords Map on Mobile */
+    .brand-layout {
+        gap: 2rem !important;
+    }
+
+    .brand-para.text-highlight {
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .lat-card-box {
+        padding: 1.5rem !important;
+    }
+
+    /* Origins Tracing Cards Image Zoom Adjust */
+    .source-img-box {
+        height: 200px !important;
+    }
+
+    .source-body {
+        padding: 1.5rem !important;
+    }
+
+    .source-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .source-desc {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Dynamic Menu Grid Mobile adjustments */
+    .menu-tabs {
+        margin-bottom: 2rem !important;
+        gap: 0.5rem;
+    }
+
+    .menu-tab {
+        font-size: 0.78rem;
+        padding: 0.45rem 1rem;
+    }
+
+    .menu-item-card {
+        padding: 1.3rem !important;
+    }
+
+    .menu-item-title-box h4 {
+        font-size: 1.1rem;
+    }
+
+    .menu-item-desc {
+        margin-bottom: 1.2rem;
+    }
+
+    /* Careers & Jobs on Mobile */
+    .job-card {
+        padding: 1.8rem !important;
+    }
+
+    .job-header h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Store Services Cards alignment on Mobile */
+    .service-card {
+        padding: 1.8rem !important;
+        gap: 1.2rem !important;
+    }
+
+    .service-num {
+        font-size: 2rem;
+    }
+
+    .service-content h3 {
+        font-size: 1.15rem;
+    }
+
+    /* Affiliates Section adjustments on Mobile */
+    .branch-item-card {
+        padding: 1.3rem !important;
+    }
+
+    .sister-brand-card {
+        padding: 1.5rem !important;
+    }
+
+    .brand-card-header h4 {
+        font-size: 1.15rem;
+    }
+
+    /* Toast center-bottom alignment for mobile thumb reach */
+    .toast-container {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        right: auto !important;
+        width: 88% !important;
+        bottom: 1.5rem !important;
+    }
+
+    .toast {
+        transform: translateY(50px);
+        animation: toastInMobile 0.4s forwards cubic-bezier(0.16, 1, 0.3, 1);
+        padding: 0.8rem 1.2rem;
+        font-size: 0.8rem;
+        justify-content: center;
+    }
+}
+
+@keyframes toastInMobile {
+    to {
+        opacity: 1;
+        transform: translateY(0) translateX(0);
+    }
+}
+
+/* Extra Small Devices (iPhone SE / small screens) */
+@media (max-width: 480px) {
+    .navbar {
+        height: 60px;
+    }
+
+    .navbar.scrolled {
+        height: 60px;
+    }
+
+    .logo-coord {
+        font-size: 1.1rem;
+    }
+
+    .editorial-title {
+        font-size: 1.75rem !important;
+    }
+
+    /* Modal dialog compact styling for small phone viewports */
+    .voucher-modal-card {
+        padding: 1.2rem !important;
+        width: 95% !important;
+    }
+
+    .ticket-body {
+        padding: 1.2rem !important;
+    }
+
+    .ticket-divider {
+        margin: 1rem -1.2rem !important;
+    }
+
+    .ticket-success-title {
+        font-size: 1.15rem;
+    }
+
+    .ticket-row-grid {
+        gap: 0.6rem !important;
+        margin-bottom: 0.6rem;
+    }
+
+    .ticket-val {
+        font-size: 0.8rem;
+    }
+
+    .ticket-eco-badge,
+    .ticket-care-badge {
+        padding: 0.6rem 0.8rem !important;
+    }
+
+    .ticket-eco-badge .right-text p,
+    .ticket-care-badge .right-text p {
+        font-size: 0.68rem;
+    }
+
+    .mock-qr-code {
+        width: 86px !important;
+        height: 86px !important;
+        padding: 6px !important;
+    }
+
+    .qr-box {
+        width: 22px !important;
+        height: 22px !important;
+        border-width: 4px !important;
+    }
+
+    .qr-center-logo {
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 0.55rem !important;
     }
 }
 
