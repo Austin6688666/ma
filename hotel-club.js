@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupCard3DVisuals();
     setupCarbonCalculator();
     setupMembershipForm();
+    setupDirectPurchase();
     setupPointsMall();
     setupModalBindings();
     
@@ -348,3 +349,169 @@ function showToast(message, type = 'info') {
         });
     }, 3500);
 }
+
+// --- Direct Paid Membership Purchase (Cashier) ---
+let pendingPurchase = null;
+
+function setupDirectPurchase() {
+    const buyGrid = document.getElementById("tiers-buy-section");
+    if (!buyGrid) return;
+
+    // 1. Handle Tier Card button clicks
+    buyGrid.addEventListener("click", (e) => {
+        const btn = e.target.closest(".buy-tier-btn");
+        if (!btn) return;
+
+        const tierId = btn.getAttribute("data-tier-id");
+        
+        // Retrieve name and phone values from registration form
+        const inputName = document.getElementById("member-reg-name").value.trim();
+        const inputPhone = document.getElementById("member-reg-phone").value.trim();
+        const gender = document.getElementById("member-reg-gender").value;
+
+        if (!inputName || !inputPhone || inputPhone.length !== 11) {
+            showToast("请先在上方输入栏填写您的姓名和 11 位手机号码！", "warning");
+            document.getElementById("member-reg-name").focus();
+            document.getElementById("member-reg-name").scrollIntoView({ behavior: "smooth", block: "center" });
+            return;
+        }
+
+        if (tierId === "wood") {
+            // Wood Tier is ¥0, activate directly without checkout!
+            showToast("正在为您激活木邻会籍卡...", "info");
+            setTimeout(() => {
+                activateMemberCard(inputName, gender, inputPhone);
+            }, 500);
+        } else {
+            // Paid Tier checkout flow
+            let tierName = "竹友会籍 · 深度舒适";
+            let price = "99";
+            let points = 2500;
+            
+            if (tierId === "forest") {
+                tierName = "森栖会籍 · 至尊共生";
+                price = "299";
+                points = 5000;
+            }
+
+            // Set Cashier details
+            document.getElementById("cashier-tier-name").innerText = tierName;
+            document.getElementById("cashier-price-display").innerText = `￥${price}`;
+            document.getElementById("cashier-user-name").innerText = `${inputName} ${gender}`;
+            document.getElementById("cashier-user-phone").innerText = inputPhone;
+
+            // Set pending purchase state
+            pendingPurchase = {
+                name: inputName,
+                gender: gender,
+                phone: inputPhone,
+                tierId: tierId,
+                points: points
+            };
+
+            openModal("cashier-modal");
+        }
+    });
+
+    // 2. Handle Payment Method switching
+    const payOptions = document.querySelectorAll(".pay-option");
+    payOptions.forEach(opt => {
+        opt.addEventListener("click", () => {
+            payOptions.forEach(o => {
+                o.classList.remove("active");
+                o.style.borderWidth = "1.5px";
+                o.style.borderColor = "var(--border-color)";
+                o.style.backgroundColor = "var(--bg-card)";
+                o.style.color = "var(--text-muted)";
+            });
+            opt.classList.add("active");
+            opt.style.borderWidth = "2px";
+            opt.style.borderColor = "var(--primary)";
+            opt.style.backgroundColor = "var(--primary-glow)";
+            opt.style.color = "var(--primary)";
+            
+            const payType = opt.getAttribute("data-pay");
+            const qrText = payType === "wechat" ? "微信扫码模拟支付" : "支付宝扫码模拟支付";
+            const qrBorderColor = payType === "wechat" ? "var(--primary)" : "#027AFF";
+            
+            document.querySelector(".mock-qr-payment").style.borderColor = qrBorderColor;
+            document.querySelector(".qr-pay-section p").innerHTML = `<i class="fa-solid fa-mobile-screen-button"></i> ${qrText}，或点击下方按钮直接模拟支付成功`;
+        });
+    });
+
+    // 3. Handle Simulated payment success click
+    const successBtn = document.getElementById("simulate-pay-success-btn");
+    if (successBtn) {
+        successBtn.addEventListener("click", () => {
+            if (!pendingPurchase) return;
+
+            const { name, gender, phone, tierId, points } = pendingPurchase;
+            
+            closeModal("cashier-modal");
+            activatePurchasedMemberCard(name, gender, phone, tierId, points);
+            pendingPurchase = null;
+        });
+    }
+}
+
+// Function to activate purchased card (bypassing tail-digit math)
+function activatePurchasedMemberCard(name, gender, phone, tierId, points) {
+    const cardEl = document.getElementById("virtual-card-element");
+    if (!cardEl) return;
+
+    let tierClass = "tier-wood";
+    let tierName = "木邻 Neighbor";
+    let discountText = "订房享 9.5 折 // 迎宾茶礼 // 24h书阁借阅";
+    
+    if (tierId === "forest") {
+        tierClass = "tier-forest";
+        tierName = "森栖 Dweller";
+        discountText = "尊享 8.5 折 // 24小时随心住 // 免费红树种植";
+    } else if (tierId === "bamboo") {
+        tierClass = "tier-bamboo";
+        tierName = "竹友 Friend";
+        discountText = "专享 9.0 折 // 枕头自选 // 免宠物清洁费";
+    }
+
+    // Set Member State
+    memberState.isActivated = true;
+    memberState.name = name;
+    memberState.gender = gender;
+    memberState.phone = phone;
+    memberState.points = points; 
+    memberState.tierClass = tierClass;
+    memberState.tierName = tierName;
+
+    // 3D flip animation trigger
+    cardEl.style.transform = "rotateY(90deg) scale(0.95)";
+    cardEl.style.opacity = "0.3";
+
+    setTimeout(() => {
+        // Remove blank and old tier classes
+        cardEl.className = `virtual-member-card ${tierClass}`;
+        
+        // Update texts
+        document.getElementById("card-display-tier").innerText = tierName;
+        document.getElementById("card-display-name").innerText = `${name} ${gender}`;
+        document.getElementById("card-display-id").innerText = `ID: YM-${String(phone).slice(7)}${String(Date.now()).slice(-4)}`;
+        document.getElementById("card-display-points").innerText = `当前积分: ${memberState.points.toLocaleString()} points`;
+
+        // Restore card transform
+        cardEl.style.transform = "rotateY(0deg) scale(1)";
+        cardEl.style.opacity = "1";
+
+        // Enable all points mall exchange buttons
+        const exchangeButtons = document.querySelectorAll(".exchange-btn");
+        exchangeButtons.forEach(btn => {
+            btn.removeAttribute("disabled");
+            btn.innerText = "立即兑换";
+        });
+
+        showToast(`恭喜！您的绿意邻里尊贵【${tierName.split(" ")[0]}】电子卡已购买成功并激活！`, "success");
+        showToast(`获得特权初始礼包：已赠送 ${points.toLocaleString()} 环保积分奖励！`, "info");
+        
+        // Scroll to card
+        document.getElementById("card-3d-wrapper").scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 450);
+}
+

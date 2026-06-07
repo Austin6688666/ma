@@ -125,6 +125,82 @@
             </div>
         </section>
 
+        <!-- SECTION 1.5: MEMBERSHIP TIERS & DIRECT PURCHASE -->
+        <section class="tiers-buy-section scroll-reveal active" id="tiers-buy-section">
+            <div class="eco-layout-header">
+                <div class="left">
+                    <div class="section-badge green-badge">MEMBERSHIP TIERS</div>
+                    <h2 class="editorial-title">邻里方案 · <span class="italic">会籍购买通道</span></h2>
+                </div>
+                <p class="right-desc">选择配置您居停习惯的会籍。可免费办理基础卡，或购买直接解锁尊享权益（享更低订房折扣与高额低碳初始积分）。</p>
+            </div>
+
+            <div class="buy-tiers-grid">
+                <!-- Card 1: Wood Neighbor -->
+                <div class="buy-tier-card card-wood-theme" data-tier="wood" data-price="0">
+                    <div class="tier-card-header">
+                        <span class="badge">SEED MEMBER</span>
+                        <h3>木邻会籍 · 绿意启程</h3>
+                        <div class="tier-price-row">
+                            <span class="price">￥<strong>0</strong></span>
+                            <span class="period">/ 终身免费</span>
+                        </div>
+                    </div>
+                    <ul class="tier-features">
+                        <li><i class="fa-solid fa-percent"></i> 预订房型享受 <strong>9.5折</strong> 优惠</li>
+                        <li><i class="fa-solid fa-mug-hot"></i> 18°D 专属迎宾鹧鸪茶</li>
+                        <li><i class="fa-solid fa-book-open"></i> 24小时大堂书阁免押借阅</li>
+                        <li><i class="fa-solid fa-leaf"></i> 绿色出行积分基础双倍累积</li>
+                        <li><i class="fa-solid fa-gift"></i> 赠送 <strong>1,200</strong> 初始低碳积分</li>
+                    </ul>
+                    <button class="buy-tier-btn" data-tier-id="wood">免费开通会籍</button>
+                </div>
+
+                <!-- Card 2: Bamboo Friend -->
+                <div class="buy-tier-card card-bamboo-theme popular" data-tier="bamboo" data-price="99">
+                    <div class="popular-ribbon">推荐 / POPULAR</div>
+                    <div class="tier-card-header">
+                        <span class="badge">SPROUT MEMBER</span>
+                        <h3>竹友会籍 · 深度舒适</h3>
+                        <div class="tier-price-row">
+                            <span class="price">￥<strong>99</strong></span>
+                            <span class="period">/ 终身激活</span>
+                        </div>
+                    </div>
+                    <ul class="tier-features">
+                        <li><i class="fa-solid fa-percent"></i> 预订房型享受 <strong>9.0折</strong> 优惠</li>
+                        <li><i class="fa-solid fa-bed"></i> 预订自选“深睡枕头菜单”</li>
+                        <li><i class="fa-solid fa-paw"></i> 携带宠物入住<strong>免除清洁服务费</strong></li>
+                        <li><i class="fa-solid fa-clock"></i> 延迟退房至 14:00 人文关怀</li>
+                        <li><i class="fa-solid fa-gift"></i> 赠送 <strong>2,500</strong> 初始低碳积分</li>
+                    </ul>
+                    <button class="buy-tier-btn" data-tier-id="bamboo">立即购买会籍</button>
+                </div>
+
+                <!-- Card 3: Forest Dweller -->
+                <div class="buy-tier-card card-forest-theme" data-tier="forest" data-price="299">
+                    <div class="tier-card-header">
+                        <span class="badge">BLOOM GOLDEN</span>
+                        <h3>森栖会籍 · 至尊共生</h3>
+                        <div class="tier-price-row">
+                            <span class="price">￥<strong>299</strong></span>
+                            <span class="period">/ 终身激活</span>
+                        </div>
+                    </div>
+                    <ul class="tier-features">
+                        <li><i class="fa-solid fa-percent"></i> 预订房型享受 <strong>8.5折</strong> 优惠</li>
+                        <li><i class="fa-solid fa-hourglass-half"></i> <strong>24小时随心住</strong> (住满24h退房)</li>
+                        <li><i class="fa-solid fa-couch"></i> 尊享客房无缝免费升级特权</li>
+                        <li><i class="fa-solid fa-clock"></i> 延迟退房至 16:00 人文关怀</li>
+                        <li><i class="fa-solid fa-mug-saucer"></i> 18°D 精品手冲咖啡无限畅饮</li>
+                        <li><i class="fa-solid fa-earth-asia"></i> 每次入住为地球捐赠种植一棵红树</li>
+                        <li><i class="fa-solid fa-gift"></i> 赠送 <strong>5,000</strong> 初始低碳积分</li>
+                    </ul>
+                    <button class="buy-tier-btn" data-tier-id="forest">立即购买会籍</button>
+                </div>
+            </div>
+        </section>
+
         <!-- SECTION 2: CARBON FOOTPRINT CALCULATOR -->
         <section class="calculator-section scroll-reveal active">
             <div class="eco-layout-header">
@@ -324,6 +400,64 @@
                 
                 <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.5;">注：咖啡兑换券可直接前往 <strong>18°D 咖啡馆</strong> 扫描二维码或提供此券码兑换核销；酒店升级与宠物券在办理入住时由前台核销。</p>
                 <button class="primary-btn-wide modal-close" data-target="exchange-modal" style="margin-top: 1rem;">我知道了</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: MEMBERSHIP CASHIER (CHECKOUT) -->
+    <div class="modal-overlay hidden" id="cashier-modal">
+        <div class="modal-card booking-modal-card">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-wallet"></i> 亚美邻里会籍支付收银台</h2>
+                <button class="modal-close" data-target="cashier-modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="cashier-summary">
+                    <div class="cashier-tier-info" style="margin-bottom: 1.2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                        <span class="label" style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">已选会籍级别:</span>
+                        <h3 id="cashier-tier-name" style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--text-main); font-weight: 700; margin: 0.3rem 0 0.5rem 0;">森栖会籍 · 至尊共生</h3>
+                        <div class="price-row" style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.9rem; color: var(--text-muted);">应付金额:</span>
+                            <strong class="green-text" id="cashier-price-display" style="font-size: 1.8rem; font-family: var(--font-serif); color: var(--primary);">￥299</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cashier-user-details" style="background: var(--bg-app); padding: 1.1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.2rem;">
+                    <div><strong>订购人姓名：</strong><span id="cashier-user-name">张先生</span></div>
+                    <div><strong>预留手机号：</strong><span id="cashier-user-phone">13800000000</span></div>
+                </div>
+
+                <div class="payment-methods-container" style="display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0.5rem;">
+                    <label style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">选择支付方式</label>
+                    <div class="payment-options" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="pay-option active" data-pay="wechat" style="border: 2px solid var(--primary); background: var(--primary-glow); padding: 0.8rem; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem; color: var(--primary); transition: all var(--transition-fast);">
+                            <i class="fa-brands fa-weixin" style="color: #1AAD19; font-size: 1.2rem;"></i> 微信支付
+                        </div>
+                        <div class="pay-option" data-pay="alipay" style="border: 1.5px solid var(--border-color); background: var(--bg-card); padding: 0.8rem; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem; color: var(--text-muted); transition: all var(--transition-fast);">
+                            <i class="fa-brands fa-alipay" style="color: #027AFF; font-size: 1.2rem;"></i> 支付宝
+                        </div>
+                    </div>
+                </div>
+
+                <div class="qr-pay-section" style="display: flex; flex-direction: column; align-items: center; gap: 0.8rem; margin: 1.5rem 0; text-align: center;">
+                    <div class="mock-qr-payment" style="width: 150px; height: 150px; border: 4px solid var(--primary); padding: 8px; border-radius: var(--radius-md); background: #fff; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: var(--shadow-md);">
+                        <div class="mock-qr-code" style="width: 100%; height: 100%; position: relative;">
+                            <div class="qr-box qr-top-left" style="width: 24px; height: 24px; border: 4px solid var(--text-main); position: absolute; top: 0; left: 0;"></div>
+                            <div class="qr-box qr-top-right" style="width: 24px; height: 24px; border: 4px solid var(--text-main); position: absolute; top: 0; right: 0;"></div>
+                            <div class="qr-box qr-bottom-left" style="width: 24px; height: 24px; border: 4px solid var(--text-main); position: absolute; bottom: 0; left: 0;"></div>
+                            <div class="qr-center-logo" style="width: 30px; height: 30px; background: var(--primary); color: #fff; font-size: 0.65rem; font-weight: bold; border-radius: 6px; display: flex; align-items: center; justify-content: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 2px solid #fff;">PAY</div>
+                            <div class="qr-scan-line" style="position: absolute; width: 100%; height: 2px; background: var(--primary); top: 0; left: 0; animation: scan-anim 2s linear infinite; box-shadow: 0 0 8px var(--primary-light);"></div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; max-width: 280px; margin: 0 auto;"><i class="fa-solid fa-mobile-screen-button"></i> 扫码支付模拟完成交易，或点击下方按钮直接模拟支付成功</p>
+                </div>
+
+                <div class="modal-footer" style="display: flex; gap: 1rem; border-top: 1px solid var(--border-color); padding-top: 1.2rem; margin-top: 0.5rem;">
+                    <button type="button" class="secondary-btn modal-close" data-target="cashier-modal" style="flex: 1; border: 1.5px solid var(--border-color); padding: 0.8rem; border-radius: var(--radius-md); font-weight: 600; text-align: center; cursor: pointer;">取消</button>
+                    <button type="button" class="primary-btn-wide" id="simulate-pay-success-btn" style="flex: 2; background: var(--primary); color: #FAF7F2; border-radius: var(--radius-md); padding: 0.8rem; font-weight: 600; text-align: center; cursor: pointer; box-shadow: 0 4px 12px var(--primary-glow);">模拟支付成功</button>
+                </div>
             </div>
         </div>
     </div>
