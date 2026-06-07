@@ -14,9 +14,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=1.8">
+    <link rel="stylesheet" href="style.css?v=2.0">
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -42,16 +42,28 @@
             position: relative;
             transition: var(--transition-smooth);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+            overflow: hidden;
         }
         .pricing-card:hover {
             border-color: var(--accent-color);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(140, 98, 57, 0.05);
+            transform: translateY(-8px);
+            box-shadow: 
+                0 6px 0 var(--accent-color),
+                0 30px 60px rgba(140, 98, 57, 0.07);
         }
         .featured-pricing-card {
             border-color: var(--accent-color);
             background: linear-gradient(135deg, #ffffff 0%, rgba(140, 98, 57, 0.01) 100%);
             border-width: 2px;
+        }
+        .featured-pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
         }
         .pricing-badge {
             position: absolute;
@@ -283,6 +295,33 @@
             flex-direction: column;
             justify-content: space-between;
             position: relative;
+            overflow: hidden;
+        }
+        .ticket-right::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                115deg,
+                transparent 0%,
+                transparent 45%,
+                rgba(140, 98, 57, 0.04) 47%,
+                rgba(140, 98, 57, 0.22) 50%,
+                rgba(140, 98, 57, 0.04) 53%,
+                transparent 55%,
+                transparent 100%
+            );
+            z-index: 1;
+            pointer-events: none;
+            transform: rotate(25deg);
+            animation: goldenShimmer 6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+        }
+        @keyframes goldenShimmer {
+            0% { transform: translate(-40%, -40%) rotate(25deg); }
+            30%, 100% { transform: translate(40%, 40%) rotate(25deg); }
         }
         .ticket-title {
             font-size: 1.05rem;
@@ -355,6 +394,23 @@
     <main style="padding-top: var(--header-height);">
         <!-- Service Hero Section -->
         <section class="service-hero-section">
+            <div class="ledger-grid-bg"></div>
+            <div class="vintage-seal-wrap">
+                <div class="vintage-seal">
+                    <svg viewBox="0 0 200 200" width="100%" height="100%">
+                        <path id="seal-text-path" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="none"></path>
+                        <text class="seal-text">
+                            <textPath href="#seal-text-path" startOffset="0%">
+                                • 南宁理工学院专属支持 • 财会实训保障代表
+                            </textPath>
+                        </text>
+                        <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4,4"></circle>
+                        <circle cx="100" cy="100" r="54" fill="none" stroke="currentColor" stroke-width="1"></circle>
+                        <text x="100" y="96" class="seal-center-text" text-anchor="middle">用友 U8</text>
+                        <text x="100" y="122" class="seal-center-subtext" text-anchor="middle">技术专章</text>
+                    </svg>
+                </div>
+            </div>
             <div class="container">
                 <div class="service-hero-content">
                     <span class="hero-tag">Nanning Institute of Technology · Exclusive Support</span>
@@ -389,6 +445,7 @@
                                 <div class="skill-icon-wrap">
                                     <i data-lucide="folder-archive"></i>
                                 </div>
+                                <span class="skill-card-sub">01 / DATABASE RESTORATION</span>
                                 <h3 class="skill-card-title">账套异常备份修复</h3>
                                 <p class="skill-card-desc" style="font-size: 0.92rem;">解决用友 U8 账套备份过程中系统提示“数据库连接失败”、“组件注册缺失”或“备份文件损坏”等导致无法导入的情况，重构受损备份数据，确保账套成功导入。</p>
                             </div>
@@ -398,6 +455,7 @@
                                 <div class="skill-icon-wrap">
                                     <i data-lucide="calculator"></i>
                                 </div>
+                                <span class="skill-card-sub">02 / BALANCE ADJUSTMENT</span>
                                 <h3 class="skill-card-title">差错校验与平衡修复</h3>
                                 <p class="skill-card-desc" style="font-size: 0.92rem;">针对实操期末结账时，因凭证错记、漏记导致的试算不平衡、资产负债表与利润表勾稽关系错误等，直接进行底层数据库表的数据校对，完成平衡修复。</p>
                             </div>
@@ -407,6 +465,7 @@
                                 <div class="skill-icon-wrap" style="background-color: var(--accent-color); color: var(--bg-color);">
                                     <i data-lucide="edit-3"></i>
                                 </div>
+                                <span class="skill-card-sub" style="color: var(--accent-color);">03 / LOG TIMESTAMP COMPLIANCE</span>
                                 <h3 class="skill-card-title">日志与时间合规定制</h3>
                                 <p class="skill-card-desc" style="font-size: 0.92rem;">支持将系统上机操作日志、凭证时间修改为您所需要的**任何指定时间**，或直接**匹配修改成学校机房机器的对应时间**，完美符合检查标准，逻辑无漏洞。</p>
                             </div>
@@ -416,6 +475,7 @@
                                 <div class="skill-icon-wrap">
                                     <i data-lucide="user-check"></i>
                                 </div>
+                                <span class="skill-card-sub">04 / SYSTEM MODIFICATION</span>
                                 <h3 class="skill-card-title">全系统信息无痕修改</h3>
                                 <p class="skill-card-desc" style="font-size: 0.92rem;">支持修改用友 U8 运行系统以及账套底层的**学生姓名**与**学号**。提供从错误诊断、信息修正到导出交档的**全方位“一条龙”自主解决服务**。</p>
                             </div>
