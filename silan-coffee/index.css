@@ -3216,4 +3216,124 @@ button, input, select, textarea {
     }
 }
 
+/* ==========================================
+   Bilingual Switcher & Premium Enhancements Styles
+   ========================================== */
+
+/* Language Switcher Button */
+.lang-switch-btn {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--text-main);
+    border: 1px solid rgba(28, 26, 23, 0.15);
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: transparent;
+    transition: var(--transition-quick);
+    margin-right: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lang-switch-btn:hover {
+    background-color: var(--text-main);
+    color: var(--bg-primary);
+    border-color: var(--text-main);
+}
+
+/* Mobile drawer lang button */
+.drawer-lang-btn {
+    margin-right: 0.8rem;
+    padding: 4px 10px;
+    font-size: 0.7rem;
+}
+
+.drawer-header-actions {
+    display: flex;
+    align-items: center;
+}
+
+/* Lang Transitioning State (Soft Dissolve) */
+body {
+    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+body.lang-transitioning {
+    opacity: 0.03;
+    transform: scale(0.992);
+}
+
+/* Premium Blueprint / Architectural Grid Overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: 
+        linear-gradient(rgba(28, 26, 23, 0.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(28, 26, 23, 0.012) 1px, transparent 1px);
+    background-size: 80px 80px;
+}
+
+/* Extra premium touch: section subtle coordinate labels */
+.page-content section {
+    position: relative;
+}
+
+.page-content section::after {
+    content: '18.25° N // 109.51° E SANYA';
+    position: absolute;
+    bottom: 8px;
+    right: 5%;
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: rgba(28, 26, 23, 0.12);
+    pointer-events: none;
+    display: block;
+}
+
+#brand-story::after {
+    content: 'BRAND JOURNAL // PHOTO: COFFEE_SHELL_CUP';
+}
+
+#origins-section::after {
+    content: 'GEOGRAPHIC TRACING // SECTOR 18';
+}
+
+#menu-section::after {
+    content: 'LAB EXTRACTION DATA // TDS 1.38%';
+}
+
+#community-section::after {
+    content: 'COMMUNITY CARE // BARRIER-FREE SUNSET';
+}
+
+#pioneer-section::after {
+    content: '18°D WIND & SAND // TACTILE ETHICS';
+}
+
+#careers-section::after {
+    content: 'CAREERS // JOIN THE TEAM';
+}
+
+#affiliates-section::after {
+    content: 'GLOBAL SISTER BRANDS // Kyoto - Paris - NY';
+}
+
+/* Accessibility tweak for high-contrast */
+.lang-switch-btn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
 

@@ -23,17 +23,18 @@
             <span class="logo-text">COFFEE</span>
         </a>
         <nav class="nav-menu">
-            <a href="#brand-origins" class="menu-item">黄金纬度</a>
-            <a href="#origins-section" class="menu-item">原料溯源</a>
-            <a href="#menu-section" class="menu-item">风味菜单</a>
-            <a href="#community-section" class="menu-item">社区温情</a>
-            <a href="#service-section" class="menu-item">门店服务</a>
-            <a href="#careers-section" class="menu-item">加入我们</a>
-            <a href="#affiliates-section" class="menu-item">旗下分店</a>
-            <a href="#booking-section" class="menu-item">卡座预约</a>
+            <a href="#brand-origins" class="menu-item" data-key="nav-latitude">黄金纬度</a>
+            <a href="#origins-section" class="menu-item" data-key="nav-materials">原料溯源</a>
+            <a href="#menu-section" class="menu-item" data-key="nav-menu">风味菜单</a>
+            <a href="#community-section" class="menu-item" data-key="nav-community">社区温情</a>
+            <a href="#service-section" class="menu-item" data-key="nav-services">门店服务</a>
+            <a href="#careers-section" class="menu-item" data-key="nav-careers">加入我们</a>
+            <a href="#affiliates-section" class="menu-item" data-key="nav-branches">旗下分店</a>
+            <a href="#booking-section" class="menu-item" data-key="nav-booking">卡座预约</a>
         </nav>
         <div class="nav-actions">
-            <a href="#booking-section" class="nav-reserve-btn">预约日落席</a>
+            <button class="lang-switch-btn" id="lang-switch-btn">EN</button>
+            <a href="#booking-section" class="nav-reserve-btn" data-key="nav-reserve-btn">预约日落席</a>
             <button class="menu-toggle" id="mobile-menu-btn">
                 <i class="fa-solid fa-bars-staggered"></i>
             </button>
@@ -44,18 +45,21 @@
     <div class="mobile-drawer hidden" id="mobile-drawer">
         <div class="drawer-header">
             <span class="logo-coord">18°D COFFEE</span>
-            <button class="drawer-close" id="mobile-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="drawer-header-actions">
+                <button class="lang-switch-btn drawer-lang-btn" id="drawer-lang-btn">EN</button>
+                <button class="drawer-close" id="mobile-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
         </div>
         <div class="drawer-links">
-            <a href="#brand-origins" class="drawer-link-item">黄金纬度</a>
-            <a href="#origins-section" class="drawer-link-item">原料溯源</a>
-            <a href="#menu-section" class="drawer-link-item">风味菜单</a>
-            <a href="#community-section" class="drawer-link-item">社区温情</a>
-            <a href="#service-section" class="drawer-link-item">门店服务</a>
-            <a href="#careers-section" class="drawer-link-item">加入我们</a>
-            <a href="#affiliates-section" class="drawer-link-item">旗下分店</a>
-            <a href="#booking-section" class="drawer-link-item">卡座预约</a>
-            <a href="#booking-section" class="primary-btn-wide drawer-reserve-btn">预约日落席</a>
+            <a href="#brand-origins" class="drawer-link-item" data-key="nav-latitude">黄金纬度</a>
+            <a href="#origins-section" class="drawer-link-item" data-key="nav-materials">原料溯源</a>
+            <a href="#menu-section" class="drawer-link-item" data-key="nav-menu">风味菜单</a>
+            <a href="#community-section" class="drawer-link-item" data-key="nav-community">社区温情</a>
+            <a href="#service-section" class="drawer-link-item" data-key="nav-services">门店服务</a>
+            <a href="#careers-section" class="drawer-link-item" data-key="nav-careers">加入我们</a>
+            <a href="#affiliates-section" class="drawer-link-item" data-key="nav-branches">旗下分店</a>
+            <a href="#booking-section" class="drawer-link-item" data-key="nav-booking">卡座预约</a>
+            <a href="#booking-section" class="primary-btn-wide drawer-reserve-btn" data-key="nav-reserve-btn">预约日落席</a>
         </div>
     </div>
 
@@ -68,10 +72,10 @@
         
         <div class="hero-text-content reveal-on-load">
             <div class="coordinate-badge">18.25° N, 109.51° E SANYA</div>
-            <h1 class="hero-title">黄金纬度 · <span class="highlight">风味重塑</span></h1>
+            <h1 class="hero-title" data-key="hero-title">黄金纬度 · <span class="highlight">风味重塑</span></h1>
             <p class="hero-subtitle">Specialty Coffee Laboratory</p>
             <div class="hero-separator"></div>
-            <p class="hero-desc">在北纬18°的温暖海风中，我们以对自然的敬畏，重塑海岛的味觉基因。让每一杯咖啡的温度，都连接起火山岩红土与椰林的耕作双手。</p>
+            <p class="hero-desc" data-key="hero-desc">在北纬18°的温暖海风中，我们以对自然的敬畏，重塑海岛的味觉基因。让每一杯咖啡的温度，都连接起火山岩红土与椰林的耕作双手。</p>
             <a href="#brand-origins" class="hero-scroll-btn"><i class="fa-solid fa-arrow-down-long"></i></a>
         </div>
 
@@ -90,13 +94,13 @@
 
         <!-- SECTION 1: BRAND ORIGINS & LATITUDE -->
         <section class="brand-section scroll-reveal" id="brand-origins">
-            <div class="section-badge">LATITUDE 18°N</div>
+            <div class="section-badge" data-key="lat-badge">LATITUDE 18°N</div>
             <div class="brand-layout">
                 <div class="brand-text">
-                    <h2 class="editorial-title">为什么是<br><span class="italic">北纬 18°？</span></h2>
-                    <p class="brand-para text-highlight">“地理的科学只能定义生长的边界，而唯有手心的温度，才能重塑风味的灵魂。”</p>
-                    <p class="brand-para">海南三亚，位于北纬 18.25°N。这里拥有富含矿物质的火山岩红土土壤、充沛的阳光和湿润的太平洋海风，提供了咖啡豆生长所需的一切苛刻条件。18°D 咖啡 (18°Degree Coffee) 致力于探究这道地理线条背后的风味奥秘，并向世代耕作的当地咖啡农人致以最诚挚的谢意。</p>
-                    <p class="brand-para">我们坚持“科学金杯萃取”与“人情侍奉”的融合。恒温 92°C 水流、1:15 的科学粉水比与慢速慢热的耐心萃取，只为提取出火山土壤特有的可可坚果后味。这不仅是一杯咖啡，更是一场关于自然风物与人文温度的感官共鸣。</p>
+                    <h2 class="editorial-title" data-key="lat-title">为什么是<br><span class="italic">北纬 18°？</span></h2>
+                    <p class="brand-para text-highlight" data-key="lat-lead">“地理的科学只能定义生长的边界，而唯有手心的温度，才能重塑风味的灵魂。”</p>
+                    <p class="brand-para" data-key="lat-para1">海南三亚，位于北纬 18.25°N。这里拥有富含矿物质的火山岩红土土壤、充沛的阳光和湿润的太平洋海风，提供了咖啡豆生长所需的一切苛刻条件。18°D 咖啡 (18°Degree Coffee) 致力于探究这道地理线条背后的风味奥秘，并向世代耕作的当地咖啡农人致以最诚挚的谢意。</p>
+                    <p class="brand-para" data-key="lat-para2">我们坚持“科学金杯萃取”与“人情侍奉”的融合。恒温 92°C 水流、1:15 的科学粉水比与慢速慢热的耐心萃取，只为提取出火山土壤特有的可可坚果后味。这不仅是一杯咖啡，更是一场关于自然风物与人文温度的感官共鸣。</p>
                 </div>
                 
                 <div class="brand-grid-chart">
@@ -108,21 +112,21 @@
                                 <line x1="200" y1="20" x2="200" y2="280" stroke="var(--border-color)" stroke-width="1" stroke-dasharray="4"/>
                                 <circle cx="200" cy="150" r="8" fill="var(--primary)"/>
                                 <circle cx="200" cy="150" r="40" fill="none" stroke="var(--primary)" stroke-width="1" stroke-dasharray="2" class="pulse-ring"/>
-                                <text x="215" y="145" fill="var(--text-main)" font-size="12" font-weight="700">18.25° N (Sanya)</text>
-                                <text x="30" y="140" fill="var(--text-muted)" font-size="10">COFFEE BELT 咖啡腰带</text>
+                                <text x="215" y="145" fill="var(--text-main)" font-size="12" font-weight="700" data-key="lat-map-txt">18.25° N (三亚)</text>
+                                <text x="30" y="140" fill="var(--text-muted)" font-size="10" data-key="lat-belt-txt">COFFEE BELT 咖啡腰带</text>
                             </svg>
                         </div>
                         <div class="lat-data-panel">
                             <div class="data-item">
-                                <span>海拔高度</span>
+                                <span data-key="lat-altitude">海拔高度</span>
                                 <strong>420 - 650 M</strong>
                             </div>
                             <div class="data-item">
-                                <span>日照时长</span>
+                                <span data-key="lat-sunshine">日照时长</span>
                                 <strong>2,200 HRS/YR</strong>
                             </div>
                             <div class="data-item">
-                                <span>降水量</span>
+                                <span data-key="lat-rainfall">降水量</span>
                                 <strong>1,800 MM/YR</strong>
                             </div>
                         </div>
@@ -133,33 +137,29 @@
 
         <!-- SECTION 1.5: BRAND STORY & JOURNAL (风物纪实) -->
         <section class="story-section scroll-reveal" id="brand-story">
-            <div class="section-badge">Brand Story & Journal</div>
+            <div class="section-badge" data-key="story-badge">Brand Story & Journal</div>
             <div class="story-layout">
                 <div class="story-img-container">
                     <img src="coffee_shell_cup.png" alt="海滩贝壳可循环砂岩杯" class="story-main-img">
                     <div class="story-img-caption">
-                        <span class="caption-label">摄影纪实</span>
-                        <p>放置在海岸玄武岩上的18°D可循环砂岩杯，杯体由海滩清理中回收的贝壳细砂与天然树脂复合制成。</p>
+                        <span class="caption-label" data-key="story-caption-label">摄影纪实</span>
+                        <p data-key="story-caption-desc">放置在海岸玄武岩上的18°D可循环砂岩杯，杯体由海滩清理中回收的贝壳细砂与天然树脂复合制成。</p>
                     </div>
                 </div>
                 <div class="story-text-container">
-                    <h2 class="editorial-title">山海有度，<br>万物皆有<span class="italic">它的故事</span></h2>
-                    <p class="story-lead">“我们不单是在制作一杯流体，更是在拼凑一首关于泥土、海浪、手心温度的叙事诗。”</p>
-                    <p class="story-body">
-                        18°D 咖啡的起点，源自一次看似偶然的野外地质勘测。2024年秋，几位咖啡主理人与澄迈火山地质专家同行，站在富含矿物质的玄武岩红土上，手里握着当地咖啡农捧出的一把生豆。地质学者的一句话点醒了我们：这片土地沉淀了数万年的火山微量元素，海棠湾潮汐海风又源源不断地送来盐分与水分，这就是大自然的风味配方。
-                    </p>
-                    <p class="story-body">
-                        回到三亚后，我们创立了 18°D（18°Degree）。我们建立了一套属于海岸的“提取纪实”：只选用火山岩红土地带的单一源（Single Origin）咖啡，并与文昌东郊椰林签署有机椰乳直供协议。为了能让自然与邻里在这里和谐共处，我们不仅设计了无障碍的清水日落坡道，还引入了“无声咖啡师”点单系统。这是咖啡与社会的温情碰撞，更是我们对三亚这片山海的敬畏礼赞。
-                    </p>
+                    <h2 class="editorial-title" data-key="story-title">山海有度，<br>万物皆有<span class="italic">它的故事</span></h2>
+                    <p class="story-lead" data-key="story-lead">“我们不单是在制作一杯流体，更是在拼凑一首关于泥土、海浪、手心温度的叙事诗。”</p>
+                    <p class="story-body" data-key="story-body1">18°D 咖啡的起点，源自一次看似偶然的野外地质勘测。2024年秋，几位咖啡主理人与澄迈火山地质专家同行，站在富含矿物质的玄武岩红土上，手里握着当地咖啡农捧出的一把生豆。地质学者的一句话点醒了我们：这片土地沉淀了数万年的火山微量元素，海棠湾潮汐海风又源源不断地送来盐分与水分，这就是大自然的风味配方。</p>
+                    <p class="story-body" data-key="story-body2">回到三亚后，我们创立了 18°D（18°Degree）。我们建立了一套属于海岸的“提取纪实”：只选用火山岩红土地带的单一源（Single Origin）咖啡，并与文昌东郊椰林签署有机椰乳直供协议。为了能让自然与邻里在这里和谐共处，我们不仅设计了无障碍的清水日落坡道，还引入了“无声咖啡师”点单系统。这是咖啡与社会的温情碰撞，更是我们对三亚这片山海的敬畏礼赞。</p>
                 </div>
             </div>
         </section>
 
         <!-- SECTION 2: RAW MATERIALS TRACING (COFFEE & COCONUT) -->
         <section class="origins-section scroll-reveal" id="origins-section">
-            <div class="section-badge">GEOGRAPHIC TRACING</div>
-            <h2 class="editorial-title text-center">原料地理溯源 · <span class="italic">风味之源</span></h2>
-            <p class="section-desc text-center">我们不远百里，在海南寻觅那些得天独厚的本土原材。正是因为对风土地理的敬畏，才让 18°D 拥有无可比拟的海岛滋味。</p>
+            <div class="section-badge" data-key="origins-badge">GEOGRAPHIC TRACING</div>
+            <h2 class="editorial-title text-center" data-key="origins-title">原料地理溯源 · <span class="italic">风味之源</span></h2>
+            <p class="section-desc text-center" data-key="origins-desc">我们不远百里，在海南寻觅那些得天独厚的本土原材。正是因为对风土地理的敬畏，才让 18°D 拥有无可比拟的海岛滋味。</p>
             
             <div class="origins-layout">
                 <!-- Left Source: Volcanic Beans -->
@@ -170,22 +170,22 @@
                     </div>
                     <div class="source-body">
                         <div class="source-header">
-                            <h3>澄迈玄武岩火山豆</h3>
+                            <h3 data-key="origins-bean-title">澄迈玄武岩火山豆</h3>
                             <span class="source-level">Premium G1</span>
                         </div>
-                        <p class="source-desc">生长在海南澄迈富含铁、镁等矿物质的火山玄武岩红土土壤中。火山岩的高排水性使咖啡树根系更深，充分汲取矿物养分。中深度烘焙，前段散发出浓郁的坚果黑巧香气，尾段呈现极其圆润饱满的红糖甘甜，极低果酸，非常温和。</p>
+                        <p class="source-desc" data-key="origins-bean-desc">生长在海南澄迈富含铁、镁等矿物质的火山玄武岩红土土壤中。火山岩的高排水性使咖啡树根系更深，充分汲取矿物养分。中深度烘焙，前段散发出浓郁的坚果黑巧香气，尾段呈现极其圆润饱满的红糖甘甜，极低果酸，非常温和。</p>
                         
                         <div class="source-radar-data">
                             <div class="radar-bar">
-                                <span>坚果可可香度</span>
+                                <span data-key="origins-bean-bar1">坚果可可香度</span>
                                 <div class="bar-outer"><div class="bar-inner" style="width: 95%;"></div></div>
                             </div>
                             <div class="radar-bar">
-                                <span>风味醇厚度</span>
+                                <span data-key="origins-bean-bar2">风味醇厚度</span>
                                 <div class="bar-outer"><div class="bar-inner" style="width: 90%;"></div></div>
                             </div>
                             <div class="radar-bar">
-                                <span>清新果酸度</span>
+                                <span data-key="origins-bean-bar3">清新果酸度</span>
                                 <div class="bar-outer"><div class="bar-inner" style="width: 15%;"></div></div>
                             </div>
                         </div>
@@ -200,22 +200,22 @@
                     </div>
                     <div class="source-body">
                         <div class="source-header">
-                            <h3>文昌东郊有机青椰</h3>
+                            <h3 data-key="origins-coco-title">文昌东郊有机青椰</h3>
                             <span class="source-level">100% Organic</span>
                         </div>
-                        <p class="source-desc">文昌东郊椰林毗邻太平洋海岸线，海风吹拂下的砂质土壤赋予了青椰极其纯净且高微量元素的椰水。每一颗椰子都是每日清晨由当地椰农手工采摘、运送至门店。椰水清甜解暑，物理冷榨出乳，保留了极其纯粹的乳脂香气，是特调最佳伴侣。</p>
+                        <p class="source-desc" data-key="origins-coco-desc">文昌东郊椰林毗邻太平洋海岸线，海风吹拂下的砂质土壤赋予了青椰极其纯净且高微量元素的椰水。每一颗椰子都是每日清晨由当地椰农手工采摘、运送至门店。椰水清甜解暑，物理冷榨出乳，保留了极其纯粹的乳脂香气，是特调最佳伴侣。</p>
                         
                         <div class="source-radar-data">
                             <div class="radar-bar">
-                                <span>天然清甜度</span>
+                                <span data-key="origins-coco-bar1">天然清甜度</span>
                                 <div class="bar-outer"><div class="bar-inner" style="width: 85%;"></div></div>
                             </div>
                             <div class="radar-bar">
-                                <span>乳脂椰香度</span>
+                                <span data-key="origins-coco-bar2">乳脂椰香度</span>
                                 <div class="bar-outer"><div class="bar-inner" style="width: 80%;"></div></div>
                             </div>
                             <div class="radar-bar">
-                                <span>矿物质电解质</span>
+                                <span data-key="origins-coco-bar3">矿物质电解质</span>
                                 <div class="bar-outer"><div class="bar-inner" style="width: 95%;"></div></div>
                             </div>
                         </div>
@@ -227,9 +227,9 @@
         <!-- SECTION 3: SPECIALTY MENU -->
         <section class="menu-section scroll-reveal" id="menu-section">
             <div class="menu-header-center">
-                <div class="section-badge">18°D FLAVOR MENU</div>
-                <h2 class="editorial-title">汐澜风味菜单</h2>
-                <p class="section-desc">每一款出品皆是物理浓度（TDS）和风味科学比对的产物，拒绝庸俗的调味，只保留天然的碰撞。</p>
+                <div class="section-badge" data-key="menu-badge">18°D FLAVOR MENU</div>
+                <h2 class="editorial-title" data-key="menu-title">汐澜风味菜单</h2>
+                <p class="section-desc" data-key="menu-desc">每一款出品皆是物理浓度（TDS）和风味科学比对的产物，拒绝庸俗的调味，只保留天然的碰撞。</p>
             </div>
 
             <!-- Lab Live Extraction Dashboard -->
@@ -237,37 +237,37 @@
                 <div class="dashboard-title">
                     <div class="left-title">
                         <span class="pulse-indicator"></span>
-                        <strong>18°D LAB 实时萃取数据监测</strong>
+                        <strong data-key="dash-title">18°D LAB 实时萃取数据监测</strong>
                     </div>
                     <span class="dashboard-time" id="dashboard-time">16:02:05</span>
                 </div>
                 <div class="dashboard-grid">
                     <div class="dash-item">
-                        <span class="dash-label">萃取水温 (Temp)</span>
+                        <span class="dash-label" data-key="dash-label-temp">萃取水温 (Temp)</span>
                         <strong class="dash-value" id="dash-temp">92.4 °C</strong>
                     </div>
                     <div class="dash-item">
-                        <span class="dash-label">金杯浓度 (TDS)</span>
+                        <span class="dash-label" data-key="dash-label-tds">金杯浓度 (TDS)</span>
                         <strong class="dash-value" id="dash-tds">1.38 %</strong>
                     </div>
                     <div class="dash-item">
-                        <span class="dash-label">萃取流速 (Flow)</span>
+                        <span class="dash-label" data-key="dash-label-flow">萃取流速 (Flow)</span>
                         <strong class="dash-value" id="dash-flow">2.1 g/s</strong>
                     </div>
                     <div class="dash-item">
-                        <span class="dash-label">水质硬度 (Hardness)</span>
+                        <span class="dash-label" data-key="dash-label-hardness">水质硬度 (Hardness)</span>
                         <strong class="dash-value">85 ppm</strong>
                     </div>
                     <div class="dash-item">
-                        <span class="dash-label">磨粉粒径 (Grind)</span>
+                        <span class="dash-label" data-key="dash-label-grind">磨粉粒径 (Grind)</span>
                         <strong class="dash-value">480 μm</strong>
                     </div>
                     <div class="dash-item dash-acoustic">
-                        <span class="dash-label">声学音乐节拍 (BPM)</span>
+                        <span class="dash-label" data-key="dash-label-bpm">声学音乐节拍 (BPM)</span>
                         <strong class="dash-value" id="dash-bpm">72 bpm</strong>
                     </div>
                     <div class="dash-item dash-acoustic">
-                        <span class="dash-label">海浪潮汐频率 (Freq)</span>
+                        <span class="dash-label" data-key="dash-label-wave">海浪潮汐频率 (Freq)</span>
                         <strong class="dash-value" id="dash-wave">0.12 Hz</strong>
                     </div>
                 </div>
@@ -292,9 +292,9 @@
 
         <!-- SECTION 3.5: HUMANISTIC CARE & COMMUNITY -->
         <section class="community-section scroll-reveal" id="community-section">
-            <div class="section-badge">Humanistic Care</div>
-            <h2 class="editorial-title">一杯咖啡的善意 · <span class="italic">社区关怀</span></h2>
-            <p class="section-desc">我们相信，咖啡馆不只是售卖饮品的空间，更是连接人与人、人与自然的温情纽带。在 18°D，每一杯咖啡都承载着善意的温度。</p>
+            <div class="section-badge" data-key="comm-badge">Humanistic Care</div>
+            <h2 class="editorial-title" data-key="comm-title">一杯咖啡的善意 · <span class="italic">社区关怀</span></h2>
+            <p class="section-desc" data-key="comm-desc">我们相信，咖啡馆不只是售卖饮品的空间，更是连接人与人、人与自然的温情纽带。在 18°D，每一杯咖啡都承载着善意的温度。</p>
             
             <div class="community-layout">
                 <!-- Card 1: Warm Cup -->
@@ -302,8 +302,8 @@
                     <div class="community-icon-box">
                         <i class="fa-solid fa-mug-hot"></i>
                     </div>
-                    <h3>「暖心一杯」待用计划</h3>
-                    <p>在烈日炎炎的三亚，我们常年为环卫工人、外卖骑手及避暑的清洁义工提供免费的冰镇椰水与防暑凉茶。您也可以在进店消费时参与“待用咖啡”计划，将善意传递给下一个需要清凉的陌生人。</p>
+                    <h3 data-key="comm-c1-title">「暖心一杯」待用计划</h3>
+                    <p data-key="comm-c1-desc">在烈日炎炎的三亚，我们常年为环卫工人、外卖骑手及避暑的清洁义工提供免费的冰镇椰水与防暑凉茶。您也可以在进店消费时参与“待用咖啡”计划，将善意传递给下一个需要清凉的陌生人。</p>
                 </div>
 
                 <!-- Card 2: Pet Friendly -->
@@ -311,8 +311,8 @@
                     <div class="community-icon-box">
                         <i class="fa-solid fa-paw"></i>
                     </div>
-                    <h3>海岛宠物友好空间</h3>
-                    <p>我们非常欢迎您的毛孩子同行。门店内外设有专门的宠物憩息区，并免费提供新鲜过滤水与脱水烘干的自制有机椰肉犬用零食，让您与爱宠共同舒适地享受南海海风的吹拂。</p>
+                    <h3 data-key="comm-c2-title">海岛宠物友好空间</h3>
+                    <p data-key="comm-c2-desc">我们非常欢迎您的毛孩子同行。门店内外设有专门的宠物憩息区，并免费提供新鲜过滤水与脱水烘干的自制有机椰肉犬用零食，让您与爱宠共同舒适地享受南海海风的吹拂。</p>
                 </div>
 
                 <!-- Card 3: Barrier Free -->
@@ -320,25 +320,25 @@
                     <div class="community-icon-box">
                         <i class="fa-solid fa-wheelchair"></i>
                     </div>
-                    <h3>无障碍日落通道</h3>
-                    <p>让落日的美景平等地属于每一个人。18°D 门店全面覆盖无障碍清水坡道，配备宽敞的可活动桌椅，并提供听力与视觉助览引导服务，确保老年人、轮椅使用者与母婴家庭都能安全、尊严地享受日落。</p>
+                    <h3 data-key="comm-c3-title">无障碍日落通道</h3>
+                    <p data-key="comm-c3-desc">让落日的美景平等地属于每一个人。18°D 门店全面覆盖无障碍清水坡道，配备宽敞的可活动桌椅，并提供听力与视觉助览引导服务，确保老年人、轮椅使用者与母婴家庭都能安全、尊严地享受日落。</p>
                 </div>
             </div>
         </section>
 
         <!-- SECTION 3.7: STORE SERVICE & HOSPITALITY -->
         <section class="service-section scroll-reveal" id="service-section">
-            <div class="section-badge">Hospitality & Services</div>
-            <h2 class="editorial-title">海岸侍奉之礼 · <span class="italic">极致门店服务</span></h2>
-            <p class="section-desc">在 18°D，我们秉持以人为本、专注倾听的“敬畏侍奉”理念。咖啡不仅是风味的提炼，更是服务细节中眼神交互、理解与尊重的艺术。</p>
+            <div class="section-badge" data-key="serv-badge">Hospitality & Services</div>
+            <h2 class="editorial-title" data-key="serv-title">海岸侍奉之礼 · <span class="italic">极致门店服务</span></h2>
+            <p class="section-desc" data-key="serv-desc">在 18°D，我们秉持以人为本、专注倾听的“敬畏侍奉”理念。咖啡不仅是风味的提炼，更是服务细节中眼神交互、理解与尊重的艺术。</p>
             
             <div class="service-layout">
                 <!-- Card 1: Custom Brewing -->
                 <div class="service-card">
                     <div class="service-num">01</div>
                     <div class="service-content">
-                        <h3>专注倾听，风味共创</h3>
-                        <p>我们的咖啡师不只是订单的执行者。当您点单时，我们会真诚倾听您对酸度、甜感及浓度的细微偏好，为您动态调整萃取水温（92°C 或更柔和的 88°C）、研磨度甚至奶泡厚度，确保杯中风味完全符合您的感官向往。</p>
+                        <h3 data-key="serv-c1-title">专注倾听，风味共创</h3>
+                        <p data-key="serv-c1-desc">我们的咖啡师不满足于只做机器的冰冷输出。当您点单时，我们会认真倾听您对酸甜、苦感及浓度的细腻偏好，为您动态调整萃取水温（92°C 或更柔滑的 88°C）、研磨细度与奶泡厚度，做出您心目中期待的味道。</p>
                     </div>
                 </div>
 
@@ -346,8 +346,8 @@
                 <div class="service-card">
                     <div class="service-num">02</div>
                     <div class="service-content">
-                        <h3>「无声咖啡师」尊严支持</h3>
-                        <p>为履行社区平等责任，我们的团队包含听障咖啡师。我们设计了直观的图形化手势点单单页、液晶手写板以及振动提示牌。尊重与善意流动在每一次静默却饱含热忱的眼神交汇与躬身致意中。</p>
+                        <h3 data-key="serv-c2-title">「无声咖啡师」尊严支持</h3>
+                        <p data-key="serv-c2-desc">为履行社区平等责任，我们的团队包含听障咖啡师。我们设计了直观的图形化手势点单单页、液晶手写板以及振动提示牌。尊重与善意流动在每一次静默却饱含热忱的眼神交汇与躬身致意中。</p>
                     </div>
                 </div>
 
@@ -355,8 +355,8 @@
                 <div class="service-card">
                     <div class="service-num">03</div>
                     <div class="service-content">
-                        <h3>海岸气象应急备品</h3>
-                        <p>临海多变的气候不应破坏您的惬意。门店前台常备洁净海滩拖鞋（供沾满细沙的宾客免费替换）、速干沙滩毛巾、突发海风骤冷时的温热椰水，以及防雨伞与环保防晒霜，以主动服务的态度防患于未然。</p>
+                        <h3 data-key="serv-c3-title">海岸气象应急备品</h3>
+                        <p data-key="serv-c3-desc">临海多变的气候不应破坏您的惬意。门店前台常备洁净海滩拖鞋（供沾满细沙的宾客免费替换）、速干沙滩毛巾、突发海风骤冷时的温热椰水，以及防雨伞与环保防晒霜，以主动服务的态度防患于未然。</p>
                     </div>
                 </div>
 
@@ -364,18 +364,18 @@
                 <div class="service-card">
                     <div class="service-num">04</div>
                     <div class="service-content">
-                        <h3>「十秒原则」与适度留白</h3>
-                        <p>每一位踏入空间的宾客，都会在10秒内得到咖啡师真诚的点头和微笑注视。我们推崇“体贴而不打扰，关注而不紧跟”的服务距离，在您远眺南海时提供充裕的宁静留白，在您需要时随时躬身效劳。</p>
+                        <h3 data-key="serv-c4-title">「十秒原则」与适度留白</h3>
+                        <p data-key="serv-c4-desc">每一位踏入空间的宾客，都会在10秒内得到咖啡师真诚的点头和微笑注视。我们推崇“体贴而不打扰，关注而不紧跟”的服务距离，在您远眺南海时提供充裕的宁静留白，在您需要时随时躬身效劳。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 3.9: PIONEER SELLING POINTS (先锋卖点) -->
+        <!-- SECTION 3.9: WIND & SAND DETAILS (风物细节) -->
         <section class="pioneer-section scroll-reveal" id="pioneer-section">
-            <div class="section-badge">Pioneer Selling Points</div>
-            <h2 class="editorial-title text-center">别人意想不到的 · <span class="italic">先锋卖点</span></h2>
-            <p class="section-desc text-center margin-center">打破传统咖啡馆的同质化框架，我们从声学、矿物学、材质生态及触觉艺术四个维度，为您定制前所未有的海岛感官体验。</p>
+            <div class="section-badge" data-key="pion-badge">18°D Details</div>
+            <h2 class="editorial-title text-center" data-key="pion-title">18°D 的海岛温度与 <span class="italic">风物细节</span></h2>
+            <p class="section-desc text-center margin-center" data-key="pion-desc">我们不用高不可攀的奢侈包装，而是将对自然的敬畏与对您的体贴，融入这四个温暖的小细节里。</p>
             
             <div class="pioneer-grid">
                 <!-- Point 1 -->
@@ -383,9 +383,9 @@
                     <div class="pioneer-icon-box">
                         <i class="fa-solid fa-water"></i>
                     </div>
-                    <h3>潮汐声学 Lo-Fi 联调</h3>
-                    <span class="pioneer-tag">Tidal Acoustics</span>
-                    <p>门外沙滩布设有水下高灵敏麦克风，实时采集南海的波浪频率与海潮强度。店内音响的 Lo-Fi 节拍与环境背景音，会随着海浪的涨落振幅、海风流速进行智能 BPM 变频联调。音乐在退潮时舒缓空灵，在涨潮时渐入佳境，让您的耳膜与南海同频呼吸。</p>
+                    <h3 data-key="pion-c1-title">听风听海的伴奏</h3>
+                    <span class="pioneer-tag" data-key="pion-c1-tag">Tidal Beats</span>
+                    <p data-key="pion-c1-desc">我们在露台外静候海风。店内的轻柔 Lo-Fi 音乐节奏，会随着海浪的涨落声响自然起落。退潮时音量柔和安静，涨潮时旋律轻快。不需要繁杂的科学设备，只为让您喝咖啡时，耳边能与南海的呼吸同频。</p>
                 </div>
 
                 <!-- Point 2 -->
@@ -393,9 +393,9 @@
                     <div class="pioneer-icon-box">
                         <i class="fa-solid fa-mountain"></i>
                     </div>
-                    <h3>玄武岩冰矿净化矿化</h3>
-                    <span class="pioneer-tag">Basalt Mineralization</span>
-                    <p>我们所有的慢速冰滴咖啡，皆使用澄迈地质公园中收集的天然多孔火山玄武岩作为过滤介质。冰水缓慢渗透玄武岩层，自然析出丰富的铁、镁微量矿物质，在重组水质硬度的同时，神奇地磨平了冷萃咖啡的干涩口感，带来前所未有的饱满圆润可可回甘。</p>
+                    <h3 data-key="pion-c2-title">火山岩红土慢滤</h3>
+                    <span class="pioneer-tag" data-key="pion-c2-tag">Basalt Softened Water</span>
+                    <p data-key="pion-c2-desc">我们用澄迈火山区纯净的玄武岩粗砂，来净化泡制咖啡的过滤水。火山砂岩自带丰富的矿物质，能天然软化水质，让冲出来的每一杯咖啡更加顺滑、不苦涩，带有一丝大自然的微甜。普通的水，因为这一道纯净慢滤，也有了火山的温度。</p>
                 </div>
 
                 <!-- Point 3 -->
@@ -403,9 +403,9 @@
                     <div class="pioneer-icon-box">
                         <i class="fa-solid fa-hands"></i>
                     </div>
-                    <h3>手势风味拓片点单仪式</h3>
-                    <span class="pioneer-tag">Tactile Stamp Art</span>
-                    <p>为了让您与“无声咖啡师”的交流充满尊严与艺术感，我们设计了手势风味木质“拓片”。点单时，您可用金属宣纸压拓代表“风”、“浪”、“火山”或“泥土”的雕版。用触觉表达您当下的风味心情，无声传递给听障咖啡师，将订单升华为一次温润的触感仪式。</p>
+                    <h3 data-key="pion-c3-title">小木牌无声点单</h3>
+                    <span class="pioneer-tag" data-key="pion-c3-tag">Menu Cards</span>
+                    <p data-key="pion-c3-desc">为了让您和我们的听障咖啡师沟通更方便、更暖心，我们做了一批代表风味偏好的小木牌（如“火山”、“海浪”、“微甜”）。您只需指一指或递给咖啡师对应的小木牌，就能轻松完成定制。一个简单的手势与微笑，就是我们之间最美的默契。</p>
                 </div>
 
                 <!-- Point 4 -->
@@ -413,9 +413,9 @@
                     <div class="pioneer-icon-box">
                         <i class="fa-solid fa-recycle"></i>
                     </div>
-                    <h3>海滩贝壳砂可循环杯</h3>
-                    <span class="pioneer-tag">Ocean-Sand Shell Cup</span>
-                    <p>与海洋环保机构直联，我们将海滩日常清洁中回收的贝壳细砂、死珊瑚碎颗粒与可降解竹纤维进行热压融合，制成极具粗粝磨砂质感的“海滩砂岩杯”。杯体100%源于自然，在废弃海水中可在 90 天内无害化降解为天然细砂，支持带去沙滩，践行零废弃海岛生态。</p>
+                    <h3 data-key="pion-c4-title">沙滩贝壳砂环保杯</h3>
+                    <span class="pioneer-tag" data-key="pion-c4-tag">Eco Sand Cup</span>
+                    <p data-key="pion-c4-desc">我们在海滩漫步时，会把海滩上的碎贝壳和粗沙收集起来，与竹纤维融合制成可以重复使用的‘沙滩粗砂杯’。杯子拿在手里有沙滩的粗粝质感。它百分之百来自自然，即使旧了丢弃，也能在海水里自然融为沙子。您可以带它去沙滩走走，让环保变成随手的习惯。</p>
                 </div>
             </div>
         </section>
@@ -424,23 +424,23 @@
         <section class="booking-section scroll-reveal" id="booking-section">
             <div class="booking-card-layout">
                 <div class="booking-left-info">
-                    <div class="section-badge">SUNSET SEAT RESERVATION</div>
-                    <h2 class="editorial-title">预约三亚海岸 · <span class="italic">日落席位</span></h2>
-                    <p class="booking-intro-p">我们在三亚海棠湾海岸边，用粗粝玄武石与白色清水混凝土筑成了一座半开放露台，正对南海一望无际的晚霞与落日。</p>
+                    <div class="section-badge" data-key="book-badge">SUNSET SEAT RESERVATION</div>
+                    <h2 class="editorial-title" data-key="book-title">预约三亚海岸 · <span class="italic">日落席位</span></h2>
+                    <p class="booking-intro-p" data-key="book-desc">我们在三亚海棠湾海岸边，用粗粝玄武石与白色清水混凝土筑成了一座半开放露台，正对南海一望无际的晚霞与落日。</p>
                     
                     <div class="coastal-tips">
                         <div class="tip-item">
                             <i class="fa-solid fa-circle-info"></i>
                             <div>
-                                <h5>科学日落概率提示</h5>
-                                <p>三亚今日落日预计发生于 19:12，目前根据气象湿度测算，晚霞概率为 88%。</p>
+                                <h5 data-key="book-t1-title">科学日落概率提示</h5>
+                                <p data-key="book-t1-desc">三亚今日落日预计发生于 19:12，目前根据气象湿度测算，晚霞概率为 88%。</p>
                             </div>
                         </div>
                         <div class="tip-item">
                             <i class="fa-solid fa-leaf"></i>
                             <div>
-                                <h5>低碳环保倡议</h5>
-                                <p>我们不提供纸质小票。预约成功后，系统将为您生成环保电子品鉴单，凭电子二维码入场消费，可积攒低碳积分。</p>
+                                <h5 data-key="book-t2-title">低碳环保倡议</h5>
+                                <p data-key="book-t2-desc">我们不提供纸质小票。预约成功后，系统将为您生成环保电子品鉴单，凭电子二维码入场消费，可积攒低碳积分。</p>
                             </div>
                         </div>
                     </div>
@@ -448,20 +448,20 @@
 
                 <div class="booking-right-form">
                     <form id="seat-booking-form" class="sunset-form">
-                        <h3>预约海岸卡座</h3>
+                        <h3 data-key="book-form-title">预约海岸卡座</h3>
                         
                         <div class="form-group">
-                            <label for="book-name">预订姓名 <span class="required">*</span></label>
-                            <input type="text" id="book-name" required placeholder="请填写您的姓名/称呼">
+                            <label for="book-name" data-key="book-label-name">预订姓名 <span class="required">*</span></label>
+                            <input type="text" id="book-name" required placeholder="请填写您的姓名/称呼" data-placeholder-key="book-ph-name">
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="book-phone">手机号码 <span class="required">*</span></label>
-                                <input type="tel" id="book-phone" required pattern="[0-9]{11}" placeholder="请输入11位手机号">
+                                <label for="book-phone" data-key="book-label-phone">手机号码 <span class="required">*</span></label>
+                                <input type="tel" id="book-phone" required pattern="[0-9]{11}" placeholder="请输入11位手机号" data-placeholder-key="book-ph-phone">
                             </div>
                             <div class="form-group">
-                                <label for="book-guests-count">座席人数 <span class="required">*</span></label>
+                                <label for="book-guests-count" data-key="book-label-guests">座席人数 <span class="required">*</span></label>
                                 <select id="book-guests-count" required>
                                     <option value="1">1 人自享</option>
                                     <option value="2" selected>2 人临海座</option>
@@ -473,11 +473,11 @@
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="book-date">预约日期 <span class="required">*</span></label>
+                                <label for="book-date" data-key="book-label-date">预约日期 <span class="required">*</span></label>
                                 <input type="date" id="book-date" required>
                             </div>
                             <div class="form-group">
-                                <label for="book-time-slot">预约时段 <span class="required">*</span></label>
+                                <label for="book-time-slot" data-key="book-label-time">预约时段 <span class="required">*</span></label>
                                 <select id="book-time-slot" required>
                                     <option value="晨光初启 (08:30 - 11:30)">晨光初启 (08:30 - 11:30)</option>
                                     <option value="椰影午后 (12:00 - 16:30)">椰影午后 (12:00 - 16:30)</option>
@@ -488,7 +488,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="book-care-need">特殊关怀安排 (暖心服务)</label>
+                            <label for="book-care-need" data-key="book-label-care">特殊关怀安排 (暖心服务)</label>
                             <select id="book-care-need">
                                 <option value="none" selected>无特殊安排需求</option>
                                 <option value="stroller">携婴幼儿同行（需婴儿车停放位/儿童椅）</option>
@@ -502,7 +502,7 @@
                             <label class="custom-checkbox">
                                 <input type="checkbox" id="book-eco-transit" checked>
                                 <span class="checkmark"></span>
-                                我承诺搭乘公共交通/步行前往，减少尾气碳排
+                                <span data-key="book-label-eco">我承诺搭乘公共交通/步行前往，减少尾气碳排</span>
                             </label>
                         </div>
 
@@ -516,9 +516,9 @@
 
         <!-- SECTION 5: CAREERS & JOINING US -->
         <section class="careers-section scroll-reveal" id="careers-section">
-            <div class="section-badge">Join the Lab</div>
-            <h2 class="editorial-title">寻找同频旅人 · <span class="italic">加入我们</span></h2>
-            <p class="section-desc">我们一直在寻找对风土地理心存敬畏、对邻里社区满怀温情的伙伴。这不仅是一份工作，更是一场关于风味与人情的美好旅程。</p>
+            <div class="section-badge" data-key="care-badge">Join the Lab</div>
+            <h2 class="editorial-title" data-key="care-title">寻找同频旅人 · <span class="italic">加入我们</span></h2>
+            <p class="section-desc" data-key="care-desc">我们一直在寻找对风土地理心存敬畏、对邻里社区满怀温情的伙伴。这不仅是一份工作，更是一场关于风味与人情的美好旅程。</p>
             
             <div class="careers-layout">
                 <!-- Job Cards -->
@@ -578,28 +578,28 @@
                 <!-- Recruitment Channels -->
                 <div class="careers-channels">
                     <div class="channels-box">
-                        <h3>招聘渠道与应聘方式</h3>
+                        <h3 data-key="care-recruit-title">招聘渠道与应聘方式</h3>
                         <div class="channel-item">
                             <div class="channel-icon"><i class="fa-solid fa-envelope"></i></div>
                             <div class="channel-text">
-                                <h5>官方简历邮箱</h5>
-                                <p>发送简历至 <a href="mailto:talent@18dcoffee.com" class="highlight-link">talent@18dcoffee.com</a>。邮件中可附上一段关于您个人冲煮日常或风味自述的短视频，让我们更立体地认识您。</p>
+                                <h5 data-key="care-c1-title">官方简历邮箱</h5>
+                                <p data-key="care-c1-desc">发送简历至 <a href="mailto:talent@18dcoffee.com" class="highlight-link">talent@18dcoffee.com</a>。邮件中可附上一段关于您个人冲煮日常或风味自述的短视频，让我们更立体地认识您。</p>
                             </div>
                         </div>
 
                         <div class="channel-item">
                             <div class="channel-icon"><i class="fa-solid fa-mug-hot"></i></div>
                             <div class="channel-text">
-                                <h5>店内“一杯直面”</h5>
-                                <p>每周二下午 14:00 - 17:00，您可以直接携带您的常用咖啡杯来到三亚海棠湾门店。我们会请您喝一杯火山豆手冲，在海风中面对面边喝边聊。</p>
+                                <h5 data-key="care-c2-title">店内“一杯直面”</h5>
+                                <p data-key="care-c2-desc">每周二下午 14:00 - 17:00，您可以直接携带您的常用咖啡杯来到三亚海棠湾门店。我们会请您喝一杯火山豆手冲，在海风中面对面边喝边聊。</p>
                             </div>
                         </div>
 
                         <div class="channel-item">
                             <div class="channel-icon"><i class="fa-solid fa-leaf"></i></div>
                             <div class="channel-text">
-                                <h5>「低碳同行」绿色推荐</h5>
-                                <p>如果你有同频的朋友热爱咖啡与人情，欢迎推荐。推荐成功入职并满三个月，推荐人与被推荐人都将获得 18°D 「海风产地溯源探索之旅」积分大礼包。</p>
+                                <h5 data-key="care-c3-title">「低碳同行」绿色推荐</h5>
+                                <p data-key="care-c3-desc">如果你有同频的朋友热爱咖啡与人情，欢迎推荐。推荐成功入职并满三个月，推荐人与被推荐人都将获得 18°D 「海风产地溯源探索之旅」积分大礼包。</p>
                             </div>
                         </div>
                     </div>
@@ -609,14 +609,14 @@
 
         <!-- SECTION 5.5: LOCATIONS & SISTER BRANDS -->
         <section class="affiliates-section scroll-reveal" id="affiliates-section">
-            <div class="section-badge">Branches & Affiliates</div>
-            <h2 class="editorial-title">分店选址 · <span class="italic">旗下风物食肆</span></h2>
-            <p class="section-desc">从海岸日落到火山地质公园，从咖啡香气到创意中餐美学，我们致力于将地缘风土地貌与温暖人情融入每一次旅人餐桌体验中。</p>
+            <div class="section-badge" data-key="aff-badge">Branches & Affiliates</div>
+            <h2 class="editorial-title" data-key="aff-title">分店选址 · <span class="italic">旗下风物食肆</span></h2>
+            <p class="section-desc" data-key="aff-desc">从海岸日落到火山地质公园，从咖啡香气到创意中餐美学，我们致力于将地缘风土地貌与温暖人情融入每一次旅人餐桌体验中。</p>
             
             <div class="affiliates-layout">
                 <!-- Left: Branches list -->
                 <div class="branches-box">
-                    <h3>18°D 全球分店选址</h3>
+                    <h3 data-key="aff-branch-title">18°D 全球分店选址</h3>
                     <div class="branches-grid">
                         <div class="branch-item-card">
                             <h4>三亚海棠湾店 (Flagship Sanya)</h4>
@@ -647,7 +647,7 @@
 
                 <!-- Right: Sister Brands (Creative Chinese Dining) -->
                 <div class="brands-box">
-                    <h3>旗下创意中餐</h3>
+                    <h3 data-key="aff-sister-title">旗下创意中餐</h3>
                     <div class="sister-brand-card">
                         <div class="brand-card-header">
                             <h4>汐野食肆 (18°D CHINESE BISTRO)</h4>
@@ -681,32 +681,32 @@
     <footer class="main-footer">
         <div class="footer-grid">
             <div class="footer-left-col">
-                <h3 class="footer-brand">18°D COFFEE</h3>
-                <p class="footer-slogan">Sanya Specialty Coffee Laboratory</p>
-                <p class="footer-desc">在三亚海棠湾的咸湿海风与椰影斜照下，我们以一杯火山岩风味的咖啡豆，写一首给自然的温情诗篇。</p>
+                <h3 class="footer-brand" data-key="foot-brand">18°D COFFEE</h3>
+                <p class="footer-slogan" data-key="foot-slogan">Sanya Specialty Coffee Laboratory</p>
+                <p class="footer-desc" data-key="foot-desc">在三亚海棠湾的咸湿海风与椰影斜照下，我们以一杯火山岩风味的咖啡豆，写一首给自然的温情诗篇。</p>
             </div>
             
             <div class="footer-links-col">
-                <h5>三亚海岸门店</h5>
+                <h5 data-key="foot-shop-title">三亚海岸门店</h5>
                 <ul>
-                    <li><i class="fa-solid fa-location-dot"></i> 三亚市海棠湾椰风路8号（喜来登旁海滩）</li>
-                    <li><i class="fa-solid fa-clock"></i> 每日 08:30 - 22:00</li>
-                    <li><i class="fa-solid fa-phone"></i> 0898-8888-1818</li>
+                    <li data-key="foot-shop-addr"><i class="fa-solid fa-location-dot"></i> 三亚市海棠湾椰风路8号（喜来登旁海滩）</li>
+                    <li data-key="foot-shop-time"><i class="fa-solid fa-clock"></i> 每日 08:30 - 22:00</li>
+                    <li data-key="foot-shop-phone"><i class="fa-solid fa-phone"></i> 0898-8888-1818</li>
                 </ul>
             </div>
 
             <div class="footer-cert-col">
-                <h5>绿色环保指标</h5>
+                <h5 data-key="foot-eco-title">绿色环保指标</h5>
                 <div class="eco-metrics">
-                    <span class="metric-badge"><i class="fa-solid fa-recycle"></i> 100% 纸质降解吸管</span>
-                    <span class="metric-badge"><i class="fa-solid fa-seedling"></i> 循环咖啡渣有机基肥料</span>
-                    <span class="metric-badge"><i class="fa-solid fa-solar-panel"></i> 太阳能中和加热热水</span>
+                    <span class="metric-badge" data-key="foot-eco-m1"><i class="fa-solid fa-recycle"></i> 100% 纸质降解吸管</span>
+                    <span class="metric-badge" data-key="foot-eco-m2"><i class="fa-solid fa-seedling"></i> 循环咖啡渣有机基肥料</span>
+                    <span class="metric-badge" data-key="foot-eco-m3"><i class="fa-solid fa-solar-panel"></i> 太阳能中和加热热水</span>
                 </div>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 18°D 咖啡集团 18°Degree Coffee Group | 极简海岸咖啡店设计演示官网</p>
+            <p data-key="foot-copy">&copy; 2026 18°D 咖啡集团 18°Degree Coffee Group | 极简海岸咖啡店设计演示官网</p>
         </div>
     </footer>
 
@@ -716,47 +716,47 @@
             <div class="voucher-ticket">
                 <div class="ticket-header">
                     <div class="logo">18°D COFFEE</div>
-                    <span class="ticket-badge"><i class="fa-solid fa-circle-check"></i> 已锁定落日座</span>
+                    <span class="ticket-badge" data-key="ticket-badge"><i class="fa-solid fa-circle-check"></i> 已锁定落日座</span>
                 </div>
                 
                 <div class="ticket-body">
                     <div class="ticket-row text-center">
-                        <span class="ticket-label">三亚海棠湾店 · 席位凭证</span>
-                        <h2 class="ticket-success-title">海岸落日卡座预留成功</h2>
-                        <p class="ticket-order-id">预订编号: <span id="voucher-order-id">18D20260607823</span></p>
+                        <span class="ticket-label" data-key="ticket-sub">三亚海棠湾店 · 席位凭证</span>
+                        <h2 class="ticket-success-title" data-key="ticket-title">海岸落日卡座预留成功</h2>
+                        <p class="ticket-order-id"><span data-key="ticket-order-prefix">预订编号:</span> <span id="voucher-order-id">18D20260607823</span></p>
                     </div>
                     
                     <div class="ticket-divider"></div>
                     
                     <div class="ticket-row-grid">
                         <div>
-                            <span class="ticket-label">预订人</span>
+                            <span class="ticket-label" data-key="ticket-label-name">预订人</span>
                             <span class="ticket-val" id="voucher-name">张先生</span>
                         </div>
                         <div>
-                            <span class="ticket-label">电话</span>
+                            <span class="ticket-label" data-key="ticket-label-phone">电话</span>
                             <span class="ticket-val" id="voucher-phone">138****0000</span>
                         </div>
                     </div>
 
                     <div class="ticket-row-grid">
                         <div>
-                            <span class="ticket-label">预订人数</span>
+                            <span class="ticket-label" data-key="ticket-label-guests">预订人数</span>
                             <span class="ticket-val" id="voucher-guests">2 人临海座</span>
                         </div>
                         <div>
-                            <span class="ticket-label">落日概率预测</span>
+                            <span class="ticket-label" data-key="ticket-label-sun">落日概率预测</span>
                             <span class="ticket-val green-text"><i class="fa-solid fa-cloud-sun-rain"></i> 88% 晚霞</span>
                         </div>
                     </div>
 
                     <div class="ticket-row-grid">
                         <div>
-                            <span class="ticket-label">预订日期</span>
+                            <span class="ticket-label" data-key="ticket-label-date">预订日期</span>
                             <span class="ticket-val" id="voucher-date">2026-06-08</span>
                         </div>
                         <div>
-                            <span class="ticket-label">预约时段</span>
+                            <span class="ticket-label" data-key="ticket-label-time">预约时段</span>
                             <span class="ticket-val" id="voucher-time">落日时分 (17:00-19:30)</span>
                         </div>
                     </div>
@@ -766,15 +766,15 @@
                     <div class="ticket-eco-badge">
                         <div class="left-icon"><i class="fa-solid fa-leaf"></i></div>
                         <div class="right-text">
-                            <h4>绿色出行积分累积：+100 积分</h4>
-                            <p>您已承诺低碳出行前往，本次预约将同步减少碳排放。可在前台出示获取积分赠礼！</p>
+                            <h4 data-key="ticket-eco-title">绿色出行积分累积：+100 积分</h4>
+                            <p data-key="ticket-eco-desc">您已承诺低碳出行前往，本次预约将同步减少碳排放。可在前台出示获取积分赠礼！</p>
                         </div>
                     </div>
 
                     <div class="ticket-care-badge" id="voucher-care-container" style="display: none; margin-top: 0.8rem;">
                         <div class="left-icon"><i class="fa-solid fa-heart"></i></div>
                         <div class="right-text">
-                            <h4>人文关怀专属登记</h4>
+                            <h4 data-key="ticket-care-title">人文关怀专属登记</h4>
                             <p id="voucher-care-text">已安排宠物友好席位并提供饮水盆</p>
                         </div>
                     </div>
@@ -787,13 +787,13 @@
                             <div class="qr-box qr-bottom-left"></div>
                             <div class="qr-center-logo">18°</div>
                         </div>
-                        <p class="qr-tip">到店出示此电子核销二维码</p>
+                        <p class="qr-tip" data-key="ticket-qr-tip">到店出示此电子核销二维码</p>
                     </div>
                 </div>
             </div>
             
             <div class="voucher-modal-footer">
-                <button class="primary-btn-wide modal-close" data-target="voucher-modal">我知道了，锁定预约</button>
+                <button class="primary-btn-wide modal-close" data-target="voucher-modal" data-key="ticket-close-btn">我知道了，锁定预约</button>
             </div>
         </div>
     </div>
