@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18°D COFFEE | 探索风味 - 汐澜风味菜单与原料地理溯源</title>
+    <meta name="description" content="18°D 咖啡菜单与地理溯源 - 甄选澄迈火山岩特选豆与文昌东郊有机椰乳，通过物理浓度监测，呈现最纯粹的海岛风味。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400&family=Outfit:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar transparent" id="main-nav">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-coord">18°D</span>
+            <span class="logo-text">COFFEE</span>
+        </a>
+        <nav class="nav-menu">
+            <!-- Brand stories Dropdown -->
+            <div class="nav-dropdown">
+                <a href="index.html" class="menu-item" data-key="nav-brand">品牌故事 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="index.html#brand-origins" data-key="nav-latitude">黄金纬度</a>
+                    <a href="index.html#brand-story" data-key="nav-story-sub">山海故事</a>
+                    <a href="index.html#pioneer-section" data-key="nav-details-sub">风物细节</a>
+                </div>
+            </div>
+            <!-- Flavor Dropdown -->
+            <div class="nav-dropdown">
+                <a href="menu.html" class="menu-item" data-key="nav-flavor">探索风味 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="menu.html#origins-section" data-key="nav-materials">地理溯源</a>
+                    <a href="menu.html#menu-section" data-key="nav-menu-sub">汐澜菜单</a>
+                    <a href="menu.html#lab-dashboard" data-key="nav-dash-sub">实时数据</a>
+                </div>
+            </div>
+            <!-- Club Dropdown -->
+            <div class="nav-dropdown">
+                <a href="club.html" class="menu-item" data-key="nav-club">海岛会员 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="club.html#membership-section" data-key="nav-tiers-sub">会员权益</a>
+                    <a href="club.html#membership-section" class="join-member-btn-trigger" data-key="nav-activate-sub">专属激活</a>
+                </div>
+            </div>
+            <!-- Booking Dropdown -->
+            <div class="nav-dropdown">
+                <a href="booking.html" class="menu-item" data-key="nav-booking-nav">体验预约 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="booking.html#booking-section" data-key="nav-reserve-sub">卡座预约</a>
+                    <a href="booking.html#service-section" data-key="nav-services-sub">极致服务</a>
+                    <a href="booking.html#community-section" data-key="nav-community-sub">社区关怀</a>
+                </div>
+            </div>
+            <!-- About Dropdown -->
+            <div class="nav-dropdown">
+                <a href="about.html" class="menu-item" data-key="nav-about-sub">关于我们 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="about.html#affiliates-section" data-key="nav-branches-sub">旗下分店</a>
+                    <a href="about.html#careers-section" data-key="nav-careers-sub">加入我们</a>
+                </div>
+            </div>
+        </nav>
+        <div class="nav-actions">
+            <button class="lang-switch-btn" id="lang-switch-btn">EN</button>
+            <a href="booking.html#booking-section" class="nav-reserve-btn" data-key="nav-reserve-btn">预约日落席</a>
+            <button class="menu-toggle" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer hidden" id="mobile-drawer">
+        <div class="drawer-header">
+            <span class="logo-coord">18°D COFFEE</span>
+            <div class="drawer-header-actions">
+                <button class="lang-switch-btn drawer-lang-btn" id="drawer-lang-btn">EN</button>
+                <button class="drawer-close" id="mobile-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+        <div class="drawer-links">
+            <!-- Brand Stories Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-brand">品牌故事</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="index.html" class="drawer-sublink" data-key="nav-home-link">首页</a>
+                    <a href="index.html#brand-origins" class="drawer-sublink" data-key="nav-latitude">黄金纬度</a>
+                    <a href="index.html#brand-story" class="drawer-sublink" data-key="nav-story-sub">山海故事</a>
+                    <a href="index.html#pioneer-section" class="drawer-sublink" data-key="nav-details-sub">风物细节</a>
+                </div>
+            </div>
+            
+            <!-- Flavor Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-flavor">探索风味</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="menu.html" class="drawer-sublink" data-key="nav-menu-home">风味页面</a>
+                    <a href="menu.html#origins-section" class="drawer-sublink" data-key="nav-materials">地理溯源</a>
+                    <a href="menu.html#menu-section" class="drawer-sublink" data-key="nav-menu-sub">汐澜菜单</a>
+                    <a href="menu.html#lab-dashboard" class="drawer-sublink" data-key="nav-dash-sub">实时数据</a>
+                </div>
+            </div>
+
+            <!-- Club Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-club">海岛会员</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="club.html" class="drawer-sublink" data-key="nav-club-home">会员中心</a>
+                    <a href="club.html#membership-section" class="drawer-sublink" data-key="nav-tiers-sub">会员权益</a>
+                    <a href="club.html#membership-section" class="drawer-sublink join-member-btn-trigger" data-key="nav-activate-sub">专属激活</a>
+                </div>
+            </div>
+
+            <!-- Booking Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-booking-nav">体验预约</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="booking.html" class="drawer-sublink" data-key="nav-booking-home">预约页面</a>
+                    <a href="booking.html#booking-section" class="drawer-sublink" data-key="nav-reserve-sub">卡座预约</a>
+                    <a href="booking.html#service-section" class="drawer-sublink" data-key="nav-services-sub">极致服务</a>
+                    <a href="booking.html#community-section" class="drawer-sublink" data-key="nav-community-sub">社区关怀</a>
+                </div>
+            </div>
+
+            <!-- About Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-about-sub">关于我们</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="about.html" class="drawer-sublink" data-key="nav-about-home">关于亚美/汐澜</a>
+                    <a href="about.html#affiliates-section" class="drawer-sublink" data-key="nav-branches-sub">旗下分店</a>
+                    <a href="about.html#careers-section" class="drawer-sublink" data-key="nav-careers-sub">加入我们</a>
+                </div>
+            </div>
+
+            <a href="booking.html#booking-section" class="primary-btn-wide drawer-reserve-btn" data-key="nav-reserve-btn" style="margin-top: 1.5rem;">预约日落席</a>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="page-content" style="padding-top: 80px;">
+
+        <!-- SECTION 2: RAW MATERIALS TRACING (COFFEE & COCONUT) -->
+        <section class="origins-section scroll-reveal" id="origins-section">
+            <div class="section-badge" data-key="origins-badge">GEOGRAPHIC TRACING</div>
+            <h2 class="editorial-title text-center" data-key="origins-title">原料地理溯源 · <span class="italic">风味之源</span></h2>
+            <p class="section-desc text-center" data-key="origins-desc">我们不远百里，在海南寻觅那些得天独厚的本土原材。正是因为对风土地理的敬畏，才让 18°D 拥有无可比拟的海岛滋味。</p>
+            
+            <div class="origins-layout">
+                <!-- Left Source: Volcanic Beans -->
+                <div class="source-card">
+                    <div class="source-img-box">
+                        <img src="coffee_source.png" alt="澄迈玄武岩火山豆" class="source-img">
+                        <div class="source-badge">19.23° N 澄迈火山产区</div>
+                    </div>
+                    <div class="source-body">
+                        <div class="source-header">
+                            <h3 data-key="origins-bean-title">澄迈玄武岩火山豆</h3>
+                            <span class="source-level">Premium G1</span>
+                        </div>
+                        <p class="source-desc" data-key="origins-bean-desc">生长在海南澄迈富含铁、镁等矿物质的火山玄武岩红土土壤中。火山岩的高排水性使咖啡树根系更深，充分汲取矿物养分。中深度烘焙，前段散发出浓郁的坚果黑巧香气，尾段呈现极其圆润饱满的红糖甘甜，极低果酸，非常温和。</p>
+                        
+                        <div class="source-radar-data">
+                            <div class="radar-bar">
+                                <span data-key="origins-bean-bar1">坚果可可香度</span>
+                                <div class="bar-outer"><div class="bar-inner" style="width: 95%;"></div></div>
+                            </div>
+                            <div class="radar-bar">
+                                <span data-key="origins-bean-bar2">风味醇厚度</span>
+                                <div class="bar-outer"><div class="bar-inner" style="width: 90%;"></div></div>
+                            </div>
+                            <div class="radar-bar">
+                                <span data-key="origins-bean-bar3">清新果酸度</span>
+                                <div class="bar-outer"><div class="bar-inner" style="width: 15%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Source: Wenchang Coconut -->
+                <div class="source-card">
+                    <div class="source-img-box">
+                        <img src="coffee_source.png" alt="文昌东郊有机青椰" class="source-img" style="filter: hue-rotate(45deg) saturate(0.95);">
+                        <div class="source-badge">19.61° N 文昌东郊椰林</div>
+                    </div>
+                    <div class="source-body">
+                        <div class="source-header">
+                            <h3 data-key="origins-coco-title">文昌东郊有机青椰</h3>
+                            <span class="source-level">100% Organic</span>
+                        </div>
+                        <p class="source-desc" data-key="origins-coco-desc">文昌东郊椰林毗邻太平洋海岸线，海风吹拂下的砂质土壤赋予了青椰极其纯净且高微量元素的椰水。每一颗椰子都是每日清晨由当地椰农手工采摘、运送至门店。椰水清甜解暑，物理冷榨出乳，保留了极其纯粹的乳脂香气，是特调最佳伴侣。</p>
+                        
+                        <div class="source-radar-data">
+                            <div class="radar-bar">
+                                <span data-key="origins-coco-bar1">天然清甜度</span>
+                                <div class="bar-outer"><div class="bar-inner" style="width: 85%;"></div></div>
+                            </div>
+                            <div class="radar-bar">
+                                <span data-key="origins-coco-bar2">乳脂椰香度</span>
+                                <div class="bar-outer"><div class="bar-inner" style="width: 80%;"></div></div>
+                            </div>
+                            <div class="radar-bar">
+                                <span data-key="origins-coco-bar3">矿物质电解质</span>
+                                <div class="bar-outer"><div class="bar-inner" style="width: 95%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-geo-tag">GEOGRAPHIC TRACING // SECTOR 18</div>
+        </section>
+
+        <!-- SECTION 3: SPECIALTY MENU -->
+        <section class="menu-section scroll-reveal" id="menu-section">
+            <div class="menu-header-center">
+                <div class="section-badge" data-key="menu-badge">18°D FLAVOR MENU</div>
+                <h2 class="editorial-title" data-key="menu-title">汐澜风味菜单</h2>
+                <p class="section-desc" data-key="menu-desc">每一款出品皆是物理浓度（TDS）和风味科学比对的产物，拒绝庸俗的调味，只保留天然的碰撞。</p>
+            </div>
+
+            <!-- Lab Live Extraction Dashboard -->
+            <div class="lab-dashboard" id="lab-dashboard">
+                <div class="dashboard-title">
+                    <div class="left-title">
+                        <span class="pulse-indicator"></span>
+                        <strong data-key="dash-title">18°D LAB 实时萃取数据监测</strong>
+                    </div>
+                    <span class="dashboard-time" id="dashboard-time">16:02:05</span>
+                </div>
+                <div class="dashboard-grid">
+                    <div class="dash-item">
+                        <span class="dash-label" data-key="dash-label-temp">萃取水温 (Temp)</span>
+                        <strong class="dash-value" id="dash-temp">92.4 °C</strong>
+                    </div>
+                    <div class="dash-item">
+                        <span class="dash-label" data-key="dash-label-tds">金杯浓度 (TDS)</span>
+                        <strong class="dash-value" id="dash-tds">1.38 %</strong>
+                    </div>
+                    <div class="dash-item">
+                        <span class="dash-label" data-key="dash-label-flow">萃取流速 (Flow)</span>
+                        <strong class="dash-value" id="dash-flow">2.1 g/s</strong>
+                    </div>
+                    <div class="dash-item">
+                        <span class="dash-label" data-key="dash-label-hardness">水质硬度 (Hardness)</span>
+                        <strong class="dash-value">85 ppm</strong>
+                    </div>
+                    <div class="dash-item">
+                        <span class="dash-label" data-key="dash-label-grind">磨粉粒径 (Grind)</span>
+                        <strong class="dash-value">480 μm</strong>
+                    </div>
+                    <div class="dash-item dash-acoustic">
+                        <span class="dash-label" data-key="dash-label-bpm">声学音乐节拍 (BPM)</span>
+                        <strong class="dash-value" id="dash-bpm">72 bpm</strong>
+                    </div>
+                    <div class="dash-item dash-acoustic">
+                        <span class="dash-label" data-key="dash-label-wave">海浪潮汐频率 (Freq)</span>
+                        <strong class="dash-value" id="dash-wave">0.12 Hz</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Filter Tabs -->
+            <nav class="menu-tabs" id="menu-filter-tabs">
+                <button class="menu-tab active" data-filter="all">全部风味</button>
+                <button class="menu-tab" data-filter="signature">18°特调系列</button>
+                <button class="menu-tab" data-filter="so-pour">手冲单一源</button>
+                <button class="menu-tab" data-filter="espresso">经典意式</button>
+                <button class="menu-tab" data-filter="pastry">海岛轻食</button>
+                <button class="menu-tab" data-filter="hidden" style="border-color: rgba(229, 181, 96, 0.4); color: #C08D38;"><i class="fa-solid fa-gift"></i> 暖心隐藏款</button>
+            </nav>
+
+            <!-- Menu Grid -->
+            <div class="menu-grid" id="menu-items-grid">
+                <!-- Items will be dynamically loaded here by JS -->
+            </div>
+            <div class="section-geo-tag">PHYSICAL FLAVOR LAB // TDS Gold Cup</div>
+        </section>
+
+    </main>
+
+    <!-- High-end Minimalist Footer -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-left-col">
+                <h3 class="footer-brand" data-key="foot-brand">18°D COFFEE</h3>
+                <p class="footer-slogan" data-key="foot-slogan">Sanya Specialty Coffee Laboratory</p>
+                <p class="footer-desc" data-key="foot-desc">在三亚海棠湾的咸湿海风与椰影斜照下，我们以一杯火山岩风味的咖啡豆，写一首给自然的温情诗篇。</p>
+            </div>
+            
+            <div class="footer-links-col">
+                <h5 data-key="foot-shop-title">三亚海岸门店</h5>
+                <ul>
+                    <li data-key="foot-shop-addr"><i class="fa-solid fa-location-dot"></i> 三亚市海棠湾椰风路8号（喜来登旁海滩）</li>
+                    <li data-key="foot-shop-time"><i class="fa-solid fa-clock"></i> 每日 08:30 - 22:00</li>
+                    <li data-key="foot-shop-phone"><i class="fa-solid fa-phone"></i> 0898-8888-1818</li>
+                </ul>
+            </div>
+
+            <div class="footer-cert-col">
+                <h5 data-key="foot-eco-title">绿色环保指标</h5>
+                <div class="eco-metrics">
+                    <span class="metric-badge" data-key="foot-eco-m1"><i class="fa-solid fa-recycle"></i> 100% 纸质降解吸管</span>
+                    <span class="metric-badge" data-key="foot-eco-m2"><i class="fa-solid fa-seedling"></i> 循环咖啡渣有机基肥料</span>
+                    <span class="metric-badge" data-key="foot-eco-m3"><i class="fa-solid fa-solar-panel"></i> 太阳能中和加热热水</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p data-key="foot-copy">&copy; 2026 18°D 咖啡集团 18°Degree Coffee Group | 极简海岸咖啡店设计演示官网</p>
+        </div>
+    </footer>
+
+    <!-- Script Entry -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18°D COFFEE | 体验预约 - 三亚海岸日落席位预约与极致服务</title>
+    <meta name="description" content="18°D 体验与席位预约 - 预订三亚海棠湾露台落日卡座，倾听海浪与南海同频呼吸，体验我们的听障无声咖啡师温情侍奉与无障碍服务。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400&family=Outfit:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar transparent" id="main-nav">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-coord">18°D</span>
+            <span class="logo-text">COFFEE</span>
+        </a>
+        <nav class="nav-menu">
+            <!-- Brand stories Dropdown -->
+            <div class="nav-dropdown">
+                <a href="index.html" class="menu-item" data-key="nav-brand">品牌故事 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="index.html#brand-origins" data-key="nav-latitude">黄金纬度</a>
+                    <a href="index.html#brand-story" data-key="nav-story-sub">山海故事</a>
+                    <a href="index.html#pioneer-section" data-key="nav-details-sub">风物细节</a>
+                </div>
+            </div>
+            <!-- Flavor Dropdown -->
+            <div class="nav-dropdown">
+                <a href="menu.html" class="menu-item" data-key="nav-flavor">探索风味 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="menu.html#origins-section" data-key="nav-materials">地理溯源</a>
+                    <a href="menu.html#menu-section" data-key="nav-menu-sub">汐澜菜单</a>
+                    <a href="menu.html#lab-dashboard" data-key="nav-dash-sub">实时数据</a>
+                </div>
+            </div>
+            <!-- Club Dropdown -->
+            <div class="nav-dropdown">
+                <a href="club.html" class="menu-item" data-key="nav-club">海岛会员 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="club.html#membership-section" data-key="nav-tiers-sub">会员权益</a>
+                    <a href="club.html#membership-section" class="join-member-btn-trigger" data-key="nav-activate-sub">专属激活</a>
+                </div>
+            </div>
+            <!-- Booking Dropdown -->
+            <div class="nav-dropdown">
+                <a href="booking.html" class="menu-item" data-key="nav-booking-nav">体验预约 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="booking.html#booking-section" data-key="nav-reserve-sub">卡座预约</a>
+                    <a href="booking.html#service-section" data-key="nav-services-sub">极致服务</a>
+                    <a href="booking.html#community-section" data-key="nav-community-sub">社区关怀</a>
+                </div>
+            </div>
+            <!-- About Dropdown -->
+            <div class="nav-dropdown">
+                <a href="about.html" class="menu-item" data-key="nav-about-sub">关于我们 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="about.html#affiliates-section" data-key="nav-branches-sub">旗下分店</a>
+                    <a href="about.html#careers-section" data-key="nav-careers-sub">加入我们</a>
+                </div>
+            </div>
+        </nav>
+        <div class="nav-actions">
+            <button class="lang-switch-btn" id="lang-switch-btn">EN</button>
+            <a href="booking.html#booking-section" class="nav-reserve-btn" data-key="nav-reserve-btn">预约日落席</a>
+            <button class="menu-toggle" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer hidden" id="mobile-drawer">
+        <div class="drawer-header">
+            <span class="logo-coord">18°D COFFEE</span>
+            <div class="drawer-header-actions">
+                <button class="lang-switch-btn drawer-lang-btn" id="drawer-lang-btn">EN</button>
+                <button class="drawer-close" id="mobile-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+        <div class="drawer-links">
+            <!-- Brand Stories Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-brand">品牌故事</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="index.html" class="drawer-sublink" data-key="nav-home-link">首页</a>
+                    <a href="index.html#brand-origins" class="drawer-sublink" data-key="nav-latitude">黄金纬度</a>
+                    <a href="index.html#brand-story" class="drawer-sublink" data-key="nav-story-sub">山海故事</a>
+                    <a href="index.html#pioneer-section" class="drawer-sublink" data-key="nav-details-sub">风物细节</a>
+                </div>
+            </div>
+            
+            <!-- Flavor Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-flavor">探索风味</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="menu.html" class="drawer-sublink" data-key="nav-menu-home">风味页面</a>
+                    <a href="menu.html#origins-section" class="drawer-sublink" data-key="nav-materials">地理溯源</a>
+                    <a href="menu.html#menu-section" class="drawer-sublink" data-key="nav-menu-sub">汐澜菜单</a>
+                    <a href="menu.html#lab-dashboard" class="drawer-sublink" data-key="nav-dash-sub">实时数据</a>
+                </div>
+            </div>
+
+            <!-- Club Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-club">海岛会员</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="club.html" class="drawer-sublink" data-key="nav-club-home">会员中心</a>
+                    <a href="club.html#membership-section" class="drawer-sublink" data-key="nav-tiers-sub">会员权益</a>
+                    <a href="club.html#membership-section" class="drawer-sublink join-member-btn-trigger" data-key="nav-activate-sub">专属激活</a>
+                </div>
+            </div>
+
+            <!-- Booking Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-booking-nav">体验预约</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="booking.html" class="drawer-sublink" data-key="nav-booking-home">预约页面</a>
+                    <a href="booking.html#booking-section" class="drawer-sublink" data-key="nav-reserve-sub">卡座预约</a>
+                    <a href="booking.html#service-section" class="drawer-sublink" data-key="nav-services-sub">极致服务</a>
+                    <a href="booking.html#community-section" class="drawer-sublink" data-key="nav-community-sub">社区关怀</a>
+                </div>
+            </div>
+
+            <!-- About Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-about-sub">关于我们</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="about.html" class="drawer-sublink" data-key="nav-about-home">关于亚美/汐澜</a>
+                    <a href="about.html#affiliates-section" class="drawer-sublink" data-key="nav-branches-sub">旗下分店</a>
+                    <a href="about.html#careers-section" class="drawer-sublink" data-key="nav-careers-sub">加入我们</a>
+                </div>
+            </div>
+
+            <a href="booking.html#booking-section" class="primary-btn-wide drawer-reserve-btn" data-key="nav-reserve-btn" style="margin-top: 1.5rem;">预约日落席</a>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="page-content" style="padding-top: 80px;">
+
+        <!-- SECTION 4: SUNSET TABLE RESERVATION -->
+        <section class="booking-section scroll-reveal" id="booking-section">
+            <div class="booking-card-layout">
+                <div class="booking-left-info">
+                    <div class="section-badge" data-key="book-badge">SUNSET SEAT RESERVATION</div>
+                    <h2 class="editorial-title" data-key="book-title">预约三亚海岸 · <span class="italic">日落席位</span></h2>
+                    <p class="booking-intro-p" data-key="book-desc">我们在三亚海棠湾海岸边，用粗粝玄武石与白色清水混凝土筑成了一座半开放露台，正对南海一望无际的晚霞与落日。</p>
+                    
+                    <div class="coastal-tips">
+                        <div class="tip-item">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <div>
+                                <h5 data-key="book-t1-title">科学日落概率提示</h5>
+                                <p data-key="book-t1-desc">三亚今日落日预计发生于 19:12，目前根据气象湿度测算，晚霞概率为 88%。</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <i class="fa-solid fa-leaf"></i>
+                            <div>
+                                <h5 data-key="book-t2-title">低碳环保倡议</h5>
+                                <p data-key="book-t2-desc">我们不提供纸质小票。预约成功后，系统将为您生成环保电子品鉴单，凭电子二维码入场消费，可积攒低碳积分。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-right-form">
+                    <form id="seat-booking-form" class="sunset-form">
+                        <h3 data-key="book-form-title">预约海岸卡座</h3>
+                        
+                        <div class="form-group">
+                            <label for="book-name" data-key="book-label-name">预订姓名 <span class="required">*</span></label>
+                            <input type="text" id="book-name" required placeholder="请填写您的姓名/称呼" data-placeholder-key="book-ph-name">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="book-phone" data-key="book-label-phone">手机号码 <span class="required">*</span></label>
+                                <input type="tel" id="book-phone" required pattern="[0-9]{11}" placeholder="请输入11位手机号" data-placeholder-key="book-ph-phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="book-guests-count" data-key="book-label-guests">座席人数 <span class="required">*</span></label>
+                                <select id="book-guests-count" required>
+                                    <option value="1">1 人自享</option>
+                                    <option value="2" selected>2 人临海座</option>
+                                    <option value="3">3-4 人家庭座</option>
+                                    <option value="5">5-6 人沙龙座</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="book-date" data-key="book-label-date">预约日期 <span class="required">*</span></label>
+                                <input type="date" id="book-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="book-time-slot" data-key="book-label-time">预约时段 <span class="required">*</span></label>
+                                <select id="book-time-slot" required>
+                                    <option value="晨光初启 (08:30 - 11:30)">晨光初启 (08:30 - 11:30)</option>
+                                    <option value="椰影午后 (12:00 - 16:30)">椰影午后 (12:00 - 16:30)</option>
+                                    <option value="极佳落日时分 (17:00 - 19:30)" selected>极佳落日时分 (17:00 - 19:30)</option>
+                                    <option value="潮汐晚风 (20:00 - 22:00)">潮汐晚风 (20:00 - 22:00)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="book-care-need" data-key="book-label-care">特殊关怀安排 (暖心服务)</label>
+                            <select id="book-care-need">
+                                <option value="none" selected>无特殊安排需求</option>
+                                <option value="stroller">携婴幼儿同行（需婴儿车停放位/儿童椅）</option>
+                                <option value="wheelchair">行动不便/携长辈（需要无障碍斜坡引导与平地卡座）</option>
+                                <option value="pet">携带爱宠（需要宠物水碗及免费自制椰子犬类零食）</option>
+                                <option value="disability">视力/听力障碍人士暖心助览服务</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="book-eco-transit" checked>
+                                <span class="checkmark"></span>
+                                <span data-key="book-label-eco">我承诺搭乘公共交通/步行前往，减少尾气碳排</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="submit-reserve-btn" data-key="book-submit-btn">
+                            立即预约席位并获取电子确认函
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="section-geo-tag">COASTAL Sunset RESERVATION // BAY DECK</div>
+        </section>
+
+        <!-- SECTION 3.7: STORE SERVICE & HOSPITALITY -->
+        <section class="service-section scroll-reveal" id="service-section">
+            <div class="section-badge" data-key="serv-badge">Hospitality & Services</div>
+            <h2 class="editorial-title" data-key="serv-title">海岸侍奉之礼 · <span class="italic">极致门店服务</span></h2>
+            <p class="section-desc" data-key="serv-desc">在 18°D，我们秉持以人为本、专注倾听的“敬畏侍奉”理念。咖啡不仅是风味的提炼，更是服务细节中眼神交互、理解与尊重的艺术。</p>
+            
+            <div class="service-layout">
+                <!-- Card 1: Custom Brewing -->
+                <div class="service-card">
+                    <div class="service-num">01</div>
+                    <div class="service-content">
+                        <h3 data-key="serv-c1-title">专注倾听，风味共创</h3>
+                        <p data-key="serv-c1-desc">我们的咖啡师不满足于只做机器的冰冷输出。当您点单时，我们会认真倾听您对酸甜、苦感及浓度的细腻偏好，为您动态调整萃取水温（92°C 或更柔滑的 88°C）、研磨细度与奶泡厚度，做出您心目中期待的味道。</p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Silent Barista -->
+                <div class="service-card">
+                    <div class="service-num">02</div>
+                    <div class="service-content">
+                        <h3 data-key="serv-c2-title">「无声咖啡师」尊严支持</h3>
+                        <p data-key="serv-c2-desc">为履行社区平等责任，我们的团队包含听障咖啡师。我们设计了直观的图形化手势点单单页、液晶手写板以及振动提示牌。尊重与善意流动在每一次静默却饱含热忱的眼神交汇与躬身致意中。</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Coastal Emergency -->
+                <div class="service-card">
+                    <div class="service-num">03</div>
+                    <div class="service-content">
+                        <h3 data-key="serv-c3-title">海岸气象应急备品</h3>
+                        <p data-key="serv-c3-desc">临海多变的气候不应破坏您的惬意。门店前台常备洁净海滩拖鞋（供沾满细沙的宾客免费替换）、速干沙滩毛巾、突发海风骤冷时的温热椰水，以及防雨伞与环保防晒霜，以主动服务的态度防患于未然。</p>
+                    </div>
+                </div>
+
+                <!-- Card 4: Ten-Second Rule -->
+                <div class="service-card">
+                    <div class="service-num">04</div>
+                    <div class="service-content">
+                        <h3 data-key="serv-c4-title">「十秒原则」与适度留白</h3>
+                        <p data-key="serv-c4-desc">每一位踏入空间的宾客，都会在10秒内得到咖啡师真诚的点头和微笑注视。我们推崇“体贴而不打扰，关注而不紧跟”的服务距离，在您远眺南海时提供充裕的宁静留白，在您需要时随时躬身效劳。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-geo-tag">HOSPITALITY PROTOCOL // 18°D ETHICS</div>
+        </section>
+
+        <!-- SECTION 3.5: HUMANISTIC CARE & COMMUNITY -->
+        <section class="community-section scroll-reveal" id="community-section">
+            <div class="section-badge" data-key="comm-badge">Humanistic Care</div>
+            <h2 class="editorial-title" data-key="comm-title">一杯咖啡的善意 · <span class="italic">社区关怀</span></h2>
+            <p class="section-desc" data-key="comm-desc">我们相信，咖啡馆不只是售卖饮品的空间，更是连接人与人、人与自然的温情纽带。在 18°D，每一杯咖啡都承载着善意的温度。</p>
+            
+            <div class="community-layout">
+                <!-- Card 1: Warm Cup -->
+                <div class="community-card">
+                    <div class="community-icon-box">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <h3 data-key="comm-c1-title">「暖心一杯」待用计划</h3>
+                    <p data-key="comm-c1-desc">在烈日炎炎的三亚，我们常年为环卫工人、外卖骑手及避暑的清洁义工提供免费的冰镇椰水与防暑凉茶。您也可以在进店消费时参与“待用咖啡”计划，将善意传递给下一个需要清凉 of 陌生人。</p>
+                </div>
+
+                <!-- Card 2: Pet Friendly -->
+                <div class="community-card">
+                    <div class="community-icon-box">
+                        <i class="fa-solid fa-paw"></i>
+                    </div>
+                    <h3 data-key="comm-c2-title">海岛宠物友好空间</h3>
+                    <p data-key="comm-c2-desc">我们非常欢迎您的毛孩子同行。门店内外设有专门的宠物憩息区，并免费提供新鲜过滤水与脱水烘干的自制有机椰肉犬用零食，让您与爱宠共同舒适地享受南海海风的吹拂。</p>
+                </div>
+
+                <!-- Card 3: Barrier Free -->
+                <div class="community-card">
+                    <div class="community-icon-box">
+                        <i class="fa-solid fa-wheelchair"></i>
+                    </div>
+                    <h3 data-key="comm-c3-title">无障碍日落通道</h3>
+                    <p data-key="comm-c3-desc">让落日的美景平等地属于每一个人。18°D 门店全面覆盖无障碍清水坡道，配备宽敞的可活动桌椅，并提供听力与视觉助览引导服务，确保老年人、轮椅使用者与母婴家庭都能安全、尊严地享受日落。</p>
+                </div>
+            </div>
+            <div class="section-geo-tag">NEIGHBORHOOD CARE // WARM EMBEDDED</div>
+        </section>
+
+    </main>
+
+    <!-- High-end Minimalist Footer -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-left-col">
+                <h3 class="footer-brand" data-key="foot-brand">18°D COFFEE</h3>
+                <p class="footer-slogan" data-key="foot-slogan">Sanya Specialty Coffee Laboratory</p>
+                <p class="footer-desc" data-key="foot-desc">在三亚海棠湾的咸湿海风与椰影斜照下，我们以一杯火山岩风味的咖啡豆，写一首给自然的温情诗篇。</p>
+            </div>
+            
+            <div class="footer-links-col">
+                <h5 data-key="foot-shop-title">三亚海岸门店</h5>
+                <ul>
+                    <li data-key="foot-shop-addr"><i class="fa-solid fa-location-dot"></i> 三亚市海棠湾椰风路8号（喜来登旁海滩）</li>
+                    <li data-key="foot-shop-time"><i class="fa-solid fa-clock"></i> 每日 08:30 - 22:00</li>
+                    <li data-key="foot-shop-phone"><i class="fa-solid fa-phone"></i> 0898-8888-1818</li>
+                </ul>
+            </div>
+
+            <div class="footer-cert-col">
+                <h5 data-key="foot-eco-title">绿色环保指标</h5>
+                <div class="eco-metrics">
+                    <span class="metric-badge" data-key="foot-eco-m1"><i class="fa-solid fa-recycle"></i> 100% 纸质降解吸管</span>
+                    <span class="metric-badge" data-key="foot-eco-m2"><i class="fa-solid fa-seedling"></i> 循环咖啡渣有机基肥料</span>
+                    <span class="metric-badge" data-key="foot-eco-m3"><i class="fa-solid fa-solar-panel"></i> 太阳能中和加热热水</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p data-key="foot-copy">&copy; 2026 18°D 咖啡集团 18°Degree Coffee Group | 极简海岸咖啡店设计演示官网</p>
+        </div>
+    </footer>
+
+    <!-- SEAT VOUCHER MODAL -->
+    <div class="modal-overlay hidden" id="voucher-modal">
+        <div class="modal-card voucher-modal-card">
+            <button class="modal-close" data-target="voucher-modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="voucher-ticket">
+                <div class="ticket-header">
+                    <div class="logo">18°D COFFEE</div>
+                    <span class="ticket-badge" data-key="ticket-badge"><i class="fa-solid fa-circle-check"></i> 已锁定落日座</span>
+                </div>
+                
+                <div class="ticket-body">
+                    <div class="ticket-row text-center">
+                        <span class="ticket-label" data-key="ticket-sub">三亚海棠湾店 · 席位凭证</span>
+                        <h2 class="ticket-success-title" data-key="ticket-title">海岸落日卡座预留成功</h2>
+                        <p class="ticket-order-id"><span data-key="ticket-order-prefix">预订编号:</span> <span id="voucher-order-id">18D20260607823</span></p>
+                    </div>
+                    
+                    <div class="ticket-divider"></div>
+                    
+                    <div class="ticket-row-grid">
+                        <div>
+                            <span class="ticket-label" data-key="ticket-label-name">预订人</span>
+                            <span class="ticket-val" id="voucher-name">张先生</span>
+                        </div>
+                        <div>
+                            <span class="ticket-label" data-key="ticket-label-phone">电话</span>
+                            <span class="ticket-val" id="voucher-phone">138****0000</span>
+                        </div>
+                    </div>
+
+                    <div class="ticket-row-grid">
+                        <div>
+                            <span class="ticket-label" data-key="ticket-label-guests">预订人数</span>
+                            <span class="ticket-val" id="voucher-guests">2 人临海座</span>
+                        </div>
+                        <div>
+                            <span class="ticket-label" data-key="ticket-label-sun">落日概率预测</span>
+                            <span class="ticket-val green-text"><i class="fa-solid fa-cloud-sun-rain"></i> 88% 晚霞</span>
+                        </div>
+                    </div>
+
+                    <div class="ticket-row-grid">
+                        <div>
+                            <span class="ticket-label" data-key="ticket-label-date">预订日期</span>
+                            <span class="ticket-val" id="voucher-date">2026-06-08</span>
+                        </div>
+                        <div>
+                            <span class="ticket-label" data-key="ticket-label-time">预约时段</span>
+                            <span class="ticket-val" id="voucher-time">落日时分 (17:00-19:30)</span>
+                        </div>
+                    </div>
+
+                    <div class="ticket-divider"></div>
+
+                    <div class="ticket-eco-badge">
+                        <div class="left-icon"><i class="fa-solid fa-leaf"></i></div>
+                        <div class="right-text">
+                            <h4 data-key="ticket-eco-title">绿色出行积分累积：+100 积分</h4>
+                            <p data-key="ticket-eco-desc">您已承诺低碳出行前往，本次预约将同步减少碳排放。可在前台出示获取积分赠礼！</p>
+                        </div>
+                    </div>
+
+                    <div class="ticket-care-badge" id="voucher-care-container" style="display: none; margin-top: 0.8rem;">
+                        <div class="left-icon"><i class="fa-solid fa-heart"></i></div>
+                        <div class="right-text">
+                            <h4 data-key="ticket-care-title">人文关怀专属登记</h4>
+                            <p id="voucher-care-text">已安排宠物友好席位并提供饮水盆</p>
+                        </div>
+                    </div>
+
+                    <div class="ticket-qr-section">
+                        <!-- CSS QR CODE -->
+                        <div class="mock-qr-code">
+                            <div class="qr-box qr-top-left"></div>
+                            <div class="qr-box qr-top-right"></div>
+                            <div class="qr-box qr-bottom-left"></div>
+                            <div class="qr-center-logo">18°</div>
+                        </div>
+                        <p class="qr-tip" data-key="ticket-qr-tip">到店出示此电子核销二维码</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="voucher-modal-footer">
+                <button class="primary-btn-wide modal-close" data-target="voucher-modal" data-key="ticket-close-btn">我知道了，锁定预约</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Entry -->
+    <script src="app.js"></script>
+</body>
+</html>
