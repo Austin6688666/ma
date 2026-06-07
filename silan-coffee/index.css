@@ -2635,3 +2635,381 @@ button, input, select, textarea {
     }
 }
 
+/* ==========================================
+   Laboratory Live Extraction Dashboard Styles
+   ========================================== */
+.lab-dashboard {
+    width: 100%;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin: 2rem auto 3rem auto;
+    max-width: 900px;
+    box-shadow: var(--shadow-sm);
+    font-family: var(--font-sans);
+}
+
+.dashboard-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 0.82rem;
+    color: var(--text-main);
+}
+
+.left-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.pulse-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: #81C784;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px rgba(129, 199, 132, 0.6);
+    animation: simplePulse 1.8s infinite ease-in-out;
+}
+
+@keyframes simplePulse {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+.dashboard-time {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    background-color: rgba(28, 26, 23, 0.04);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+}
+
+.dash-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background-color: #FFF;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.dash-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.dash-value {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary);
+    font-family: monospace;
+}
+
+/* ==========================================
+   Accordion Menu Item Collapsible Styles
+   ========================================== */
+.menu-item-price-box {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.accordion-arrow {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    display: none; /* Hidden by default on desktop */
+}
+
+/* Desktop default: detail wrapper is open */
+.menu-item-details-wrapper {
+    display: block;
+}
+
+.menu-item-formula {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    background-color: rgba(43, 76, 48, 0.04);
+    border: 1px dashed rgba(43, 76, 48, 0.15);
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    margin-bottom: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.menu-item-formula code {
+    font-family: monospace;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* ==========================================
+   Community Pending Cup Tracker Card Styles
+   ========================================== */
+.community-tracker-card {
+    grid-column: span 3; /* spans full width on desktop menu grid */
+    background: linear-gradient(135deg, rgba(43, 76, 48, 0.05) 0%, rgba(229, 181, 96, 0.05) 100%);
+    border: 1px solid rgba(43, 76, 48, 0.15);
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.tracker-header h4 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.4rem;
+}
+
+.tracker-header p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.tracker-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.tracker-item {
+    background-color: #FFF;
+    border: 1px solid rgba(43, 76, 48, 0.1);
+    border-radius: 12px;
+    padding: 1.2rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.tracker-label {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.tracker-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.tracker-value.accent-color {
+    color: var(--accent);
+}
+
+.donate-btn {
+    width: 100%;
+    max-width: 380px;
+    margin: 0.5rem auto 0 auto;
+    height: 46px;
+    border-radius: 40px;
+    background-color: var(--primary);
+    color: var(--bg-primary);
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-quick);
+    box-shadow: 0 4px 12px rgba(43, 76, 48, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.donate-btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(43, 76, 48, 0.25);
+}
+
+.pulse-update {
+    animation: valuePulse 0.5s ease-out;
+}
+
+@keyframes valuePulse {
+    0% { transform: scale(1); color: var(--accent); }
+    50% { transform: scale(1.15); color: #81C784; }
+    100% { transform: scale(1); color: var(--accent); }
+}
+
+/* ==========================================
+   Mobile-specific Accordion & Carousel Layout Overrides
+   ========================================== */
+@media (max-width: 768px) {
+    .lab-dashboard {
+        padding: 1rem;
+        margin: 1.5rem auto 2.2rem auto;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+    }
+
+    .dashboard-grid .dash-item:nth-child(5) {
+        grid-column: span 2; /* center grind item */
+    }
+
+    .dash-item {
+        padding: 0.8rem;
+    }
+
+    .dash-value {
+        font-size: 1.05rem;
+    }
+
+    /* Accordion Styles */
+    .accordion-arrow {
+        display: block; /* Show down arrow on mobile */
+    }
+
+    .menu-item-card {
+        cursor: pointer;
+        user-select: none;
+        padding: 1.3rem !important;
+        transition: border-color var(--transition-quick), box-shadow var(--transition-quick);
+    }
+
+    .menu-item-details-wrapper {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .menu-item-details {
+        overflow: hidden;
+    }
+
+    .menu-item-card.expanded {
+        border-color: rgba(43, 76, 48, 0.25);
+        background-color: #FFF;
+        box-shadow: var(--shadow-md);
+    }
+
+    .menu-item-card.expanded .menu-item-details-wrapper {
+        grid-template-rows: 1fr;
+    }
+
+    .menu-item-card.expanded .accordion-arrow {
+        transform: rotate(180deg);
+        color: var(--primary);
+    }
+
+    .menu-item-desc {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .menu-item-formula {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    /* Community Tracker Card on Mobile */
+    .community-tracker-card {
+        grid-column: span 1 !important;
+        padding: 1.5rem !important;
+        gap: 1.2rem;
+    }
+
+    .tracker-header h4 {
+        font-size: 1.15rem;
+    }
+
+    .tracker-grid {
+        gap: 0.8rem;
+    }
+
+    .tracker-item {
+        padding: 0.8rem 0.5rem;
+        border-radius: 8px;
+    }
+
+    .tracker-value {
+        font-size: 1.15rem;
+    }
+
+    .donate-btn {
+        max-width: 100%;
+    }
+
+    /* Store Services Horizontal Carousel */
+    .service-layout {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 0.5rem 4% 1.5rem 4% !important;
+        margin-left: -4% !important;
+        margin-right: -4% !important;
+        scroll-snap-type: x mandatory !important;
+        scrollbar-width: none !important;
+        gap: 1.2rem !important;
+    }
+
+    .service-layout::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .service-card {
+        flex: 0 0 82% !important;
+        scroll-snap-align: start !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Careers Horizontal Carousel */
+    .careers-jobs {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 0.5rem 4% 1.5rem 4% !important;
+        margin-left: -4% !important;
+        margin-right: -4% !important;
+        scroll-snap-type: x mandatory !important;
+        scrollbar-width: none !important;
+        gap: 1.2rem !important;
+    }
+
+    .careers-jobs::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .job-card {
+        flex: 0 0 82% !important;
+        scroll-snap-align: start !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+
