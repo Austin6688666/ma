@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // 5. Setup VIP Booking & Member Integration
     setupVipBooking();
+    
+    // 6. Setup Scroll Reveal Animations
+    setupScrollReveal();
 });
 
 // ==========================================================================
@@ -1105,4 +1108,27 @@ function showToastNotification(message, type = "success") {
         toast.style.transition = "all 0.3s ease";
         setTimeout(() => toast.remove(), 300);
     }, 4000);
+}
+
+// ==========================================================================
+// 6. Scroll Reveal Observer
+// ==========================================================================
+function setupScrollReveal() {
+    const elementsToReveal = document.querySelectorAll(".scroll-reveal");
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                obs.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    elementsToReveal.forEach(el => observer.observe(el));
 }
