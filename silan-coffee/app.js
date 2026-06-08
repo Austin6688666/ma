@@ -318,6 +318,7 @@ const I18N_DICTS = {
         "nav-community-sub": "社区关怀",
         "nav-about-sub": "关于我们",
         "nav-branches-sub": "旗下分店",
+        "nav-bistro-sub": "汐澜中餐",
         "nav-careers-sub": "加入我们",
         "nav-home-link": "首页",
         "nav-menu-home": "风味页面",
@@ -489,6 +490,7 @@ const I18N_DICTS = {
         "aff-desc": "从海岸日落到火山地质公园，从咖啡香气到创意中餐美学，我们致力于将地缘风土地貌与温暖人情融入每一次旅人餐桌体验中。",
         "aff-branch-title": "18°D 全球分店选址",
         "aff-sister-title": "旗下创意中餐",
+        "aff-s1-btn": "探索菜单 & 立即预约 <i class=\"fa-solid fa-arrow-right\"></i>",
         
         // Footer
         "foot-brand": "18°D COFFEE",
@@ -571,6 +573,7 @@ const I18N_DICTS = {
         "nav-community-sub": "Community Care",
         "nav-about-sub": "About Us",
         "nav-branches-sub": "Global Branches",
+        "nav-bistro-sub": "Silan Bistro",
         "nav-careers-sub": "Join Us",
         "nav-home-link": "Home",
         "nav-menu-home": "Flavor Page",
@@ -742,6 +745,7 @@ const I18N_DICTS = {
         "aff-desc": "From sunset coast to volcanic parks, coffee aroma to creative dining, we blend terroir and warm care into every traveler's table.",
         "aff-branch-title": "18°D Global Locations",
         "aff-sister-title": "Creative Chinese Dining",
+        "aff-s1-btn": "Explore Menu & Book Now <i class=\"fa-solid fa-arrow-right\"></i>",
         
         // Footer
         "foot-brand": "18°D COFFEE",
@@ -1325,6 +1329,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const name = document.getElementById("member-name").value.trim().toUpperCase();
             const phone = document.getElementById("member-phone").value.trim();
             const tier = memberSelectedTierInput ? memberSelectedTierInput.value : "wanderer";
+            
+            // Save to localStorage for integration with Bistro
+            localStorage.setItem("coff_member_active", "true");
+            localStorage.setItem("coff_member_name", name);
+            localStorage.setItem("coff_member_phone", phone);
+            localStorage.setItem("coff_member_tier", tier);
             
             // Generate Member Card details
             const randomSuffix1 = Math.floor(1000 + Math.random() * 9000);

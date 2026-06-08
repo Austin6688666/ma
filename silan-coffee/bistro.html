@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汐澜中餐精选 (SILAN BISTRO) | 现代中式美学晚宴 - 18°D 咖啡 & 亚美旅宿姐妹品牌</title>
+    <meta name="description" content="汐澜中餐精选 (Silan Bistro) 官方预订站。我们根植于海南在地风土，严选澄迈火山红土有机蔬果与近海野生海鲜，融汇创意川粤火候，在清水石原木美学空间中为您呈献健康、低碳且富有海岛烟火气的现代中式美学晚宴。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400&family=Outfit:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Global CSS & Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="bistro.css">
+</head>
+<body class="bistro-body">
+
+    <!-- Header Navigation -->
+    <header class="navbar transparent" id="main-nav">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-coord">18°D</span>
+            <span class="logo-text">COFFEE</span>
+        </a>
+        <nav class="nav-menu">
+            <!-- Brand stories Dropdown -->
+            <div class="nav-dropdown">
+                <a href="index.html" class="menu-item" data-key="nav-brand">品牌故事 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="index.html#brand-origins" data-key="nav-latitude">黄金纬度</a>
+                    <a href="index.html#brand-story" data-key="nav-story-sub">山海故事</a>
+                    <a href="index.html#pioneer-section" data-key="nav-details-sub">风物细节</a>
+                </div>
+            </div>
+            <!-- Dine-In Order Link -->
+            <div class="nav-dropdown">
+                <a href="index.html#order-section" class="menu-item" data-key="nav-order">扫桌点单 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="index.html#order-section" data-key="nav-order-table">输入桌号</a>
+                    <a href="index.html#order-section" data-key="nav-order-menu">查看菜单</a>
+                </div>
+            </div>
+            <!-- Club Dropdown -->
+            <div class="nav-dropdown">
+                <a href="club.html" class="menu-item" data-key="nav-club">海岛会员 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="club.html#membership-section" data-key="nav-tiers-sub">会员权益</a>
+                    <a href="club.html#membership-section" class="join-member-btn-trigger" data-key="nav-activate-sub">专属激活</a>
+                </div>
+            </div>
+            <!-- Booking Dropdown -->
+            <div class="nav-dropdown">
+                <a href="booking.html" class="menu-item" data-key="nav-booking-nav">体验预约 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="booking.html#booking-section" data-key="nav-reserve-sub">卡座预约</a>
+                    <a href="booking.html#service-section" data-key="nav-services-sub">极致服务</a>
+                    <a href="booking.html#community-section" data-key="nav-community-sub">社区关怀</a>
+                </div>
+            </div>
+            <!-- Hotel Dropdown -->
+            <div class="nav-dropdown">
+                <a href="hotel.html" class="menu-item">亚美旅宿 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="hotel.html#rooms-section">舒心雅居</a>
+                    <a href="hotel-club.html">独立会员中心</a>
+                    <a href="hotel.html#eco-section">环保承诺</a>
+                    <a href="hotel.html#humanitarian-section">人文关怀</a>
+                </div>
+            </div>
+            <!-- About Dropdown -->
+            <div class="nav-dropdown">
+                <a href="about.html" class="menu-item" data-key="nav-about-sub">关于我们 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="bistro.html" class="active-nav-link">汐澜中餐</a>
+                    <a href="about.html#affiliates-section" data-key="nav-branches-sub">旗下分店</a>
+                    <a href="about.html#careers-section" data-key="nav-careers-sub">加入我们</a>
+                </div>
+            </div>
+        </nav>
+        <div class="nav-actions">
+            <button class="lang-switch-btn" id="lang-switch-btn">EN</button>
+            <a href="#booking-section" class="nav-reserve-btn" data-key="hero-cta-book">预约美学晚宴</a>
+            <button class="menu-toggle" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer hidden" id="mobile-drawer">
+        <div class="drawer-header">
+            <span class="logo-coord">18°D COFFEE</span>
+            <div class="drawer-header-actions">
+                <button class="lang-switch-btn drawer-lang-btn" id="drawer-lang-btn">EN</button>
+                <button class="drawer-close" id="mobile-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+        <div class="drawer-links">
+            <a href="index.html" class="drawer-item" data-key="nav-home">品牌首页</a>
+            <a href="index.html#order-section" class="drawer-item" data-key="nav-order">扫桌点单</a>
+            <a href="club.html" class="drawer-item" data-key="nav-club">海岛会员</a>
+            <a href="booking.html" class="drawer-item" data-key="nav-booking-nav">体验预约</a>
+            <a href="hotel.html" class="drawer-item">亚美旅宿</a>
+            <a href="hotel-club.html" class="drawer-item">酒店会员中心</a>
+            <a href="bistro.html" class="drawer-item active-nav-link">汐澜中餐</a>
+            <a href="about.html" class="drawer-item" data-key="nav-about-sub">关于我们</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- SECTION 1: HERO SECTION -->
+        <section class="bistro-hero">
+            <div class="container bistro-hero-grid">
+                <!-- Left: Typography -->
+                <div class="hero-content">
+                    <span class="hero-tag" data-key="hero-badge">汐澜旗下风物食肆</span>
+                    <h1 class="hero-title" data-key="hero-title">风土与火候的<br><span class="gold-glow">诗意重塑</span></h1>
+                    <p class="hero-desc" data-key="hero-desc">以海南在地有机蔬菜与近海野生海鲜为原材，融汇创意川粤火候。在原木清水石的自然主义空间中，为您呈现健康且富烟火气的现代中式美学晚宴。</p>
+                    <div class="hero-actions">
+                        <a href="#menu-section" class="btn-bistro btn-bistro-primary" data-key="hero-cta-menu">探索时令菜单 <i class="fa-solid fa-arrow-down"></i></a>
+                        <a href="#booking-section" class="btn-bistro btn-bistro-secondary" data-key="hero-cta-book">预约美学晚宴 <i class="fa-solid fa-calendar-days"></i></a>
+                    </div>
+                </div>
+                <!-- Right: High-end Carousel -->
+                <div class="hero-visual-wrapper">
+                    <div class="hero-visual-inner">
+                        <img class="hero-slide-img active" src="bistro_interior.webp" alt="Silan Bistro Design Interior">
+                        <img class="hero-slide-img" src="bistro_dish_sichuan.webp" alt="Sichuan Wagyu Beef Plating">
+                        <img class="hero-slide-img" src="bistro_dish_cantonese.webp" alt="Cantonese Coral Grouper Plating">
+                    </div>
+                    <div class="hero-badge-overlay">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text" data-key="hero-status-organic">今日食材 100% 有机采收直送</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Real-time telemetry container syncing with home page -->
+            <div class="hero-floating-info container" style="margin-top: 50px; border-top: 1px solid rgba(197, 168, 128, 0.08); padding-top: 25px;">
+                <div class="telemetry-grid" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:15px; font-size:0.8rem; color:var(--bistro-text-muted);">
+                    <span class="info-item"><i class="fa-solid fa-temperature-half"></i> 当日温度: 30.8°C</span>
+                    <span class="info-item"><i class="fa-solid fa-circle-nodes"></i> 本季豆选: 澄迈火山玄武岩 G1</span>
+                    <span class="info-item"><i class="fa-solid fa-wind"></i> 海风流向: 南南西 4.2m/s</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: BRAND PHILOSOPHY -->
+        <section class="bistro-section scroll-reveal" id="philosophy-section">
+            <div class="container philosophy-layout">
+                <!-- Left Image -->
+                <div class="philosophy-image-box">
+                    <img src="bistro_interior.webp" alt="Philosophy Interior Atmosphere">
+                </div>
+                <!-- Right Content Grid -->
+                <div class="philosophy-content">
+                    <div>
+                        <span class="section-badge" data-key="philo-badge">烹饪理念</span>
+                        <h2 class="editorial-title" data-key="philo-title">自然共生 · <span class="italic">低碳餐桌</span></h2>
+                        <p class="point-desc" data-key="philo-desc" style="font-size: 1.05rem; margin-bottom: 20px;">我们不仅追求味觉的极致，更践行与自然的可持续共存。汐澜中餐减少化学调味，选用低碳运输路径的本地食材，将碳足迹记录融入每一道菜肴。</p>
+                    </div>
+                    
+                    <div class="philosophy-point">
+                        <span class="point-number" data-key="philo-p1-num">01</span>
+                        <div>
+                            <h4 class="point-title" data-key="philo-p1-title">地缘风物寻源</h4>
+                            <p class="point-desc" data-key="phistro-p1-desc">澄迈火山红土的富硒蔬菜、万宁近海的鲜活渔获，我们直接与海岛农户与渔民合作，缩短从农田到餐桌的距离。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="philosophy-point">
+                        <span class="point-number" data-key="philo-p2-num">02</span>
+                        <div>
+                            <h4 class="point-title" data-key="philo-p2-title">创意川粤火候</h4>
+                            <p class="point-desc" data-key="phistro-p2-desc">减去传统中餐的过量油脂，提炼川粤烹饪火候。用现代低温慢煮与炭火炙烤技术，最大程度保留食材的原生营养与风味。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="philosophy-point">
+                        <span class="point-number" data-key="philo-p3-num">03</span>
+                        <div>
+                            <h4 class="point-title" data-key="philo-p3-title">碳足迹与零废弃</h4>
+                            <p class="point-desc" data-key="phistro-p3-desc">厨房推行有机厨余堆肥计划。时令菜单明确标注每道菜的碳减排量，每一餐都是您与地球的环保对话。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: INTERACTIVE WIND & SOIL SOURCING MAP -->
+        <section class="bistro-section scroll-reveal" id="sourcing-section">
+            <div class="container">
+                <span class="section-badge" data-key="source-badge">食材产地</span>
+                <h2 class="editorial-title" data-key="source-title">海岛风物 · <span class="italic">寻源地图</span></h2>
+                <p class="section-desc" data-key="source-desc">我们坚信，伟大的菜肴始于伟大的风土。点击地图上的标记点，探索我们遍布海南的生态农场与合作基地。</p>
+                
+                <div class="sourcing-layout">
+                    <!-- Left: Interactive Hainan Map -->
+                    <div class="sourcing-map-container">
+                        <!-- Stylized SVG Hainan Map -->
+                        <svg class="hainan-svg" viewBox="0 0 500 350" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Map outline -->
+                            <path d="M 230 40 C 270 30, 310 50, 340 70 C 370 90, 420 110, 430 140 C 440 170, 420 200, 380 230 C 340 260, 310 270, 270 290 C 230 310, 190 320, 160 310 C 130 300, 90 280, 70 250 C 50 220, 60 190, 70 160 C 80 130, 110 110, 130 90 C 150 70, 190 50, 230 40 Z" />
+                            
+                            <!-- Sourcing Nodes -->
+                            <!-- Chengmai: Top-Left (Volcano Loam) -->
+                            <g class="map-node active" id="node-chengmai" transform="translate(190, 100)">
+                                <circle class="outer" r="14" />
+                                <circle class="inner" r="5" />
+                                <text class="map-label" x="12" y="4" data-key="node-chengmai-lbl">澄迈 Volcano</text>
+                            </g>
+                            
+                            <!-- Wenchang: Top-Right (Coconut Grove) -->
+                            <g class="map-node node-green" id="node-wenchang" transform="translate(320, 95)">
+                                <circle class="outer" r="14" />
+                                <circle class="inner" r="5" />
+                                <text class="map-label" x="12" y="4" data-key="node-wenchang-lbl">文昌 Coconut</text>
+                            </g>
+                            
+                            <!-- Wanning: Middle-Right (Wild Sea) -->
+                            <g class="map-node" id="node-wanning" transform="translate(360, 210)">
+                                <circle class="outer" r="14" />
+                                <circle class="inner" r="5" />
+                                <text class="map-label" x="12" y="4" data-key="node-wanning-lbl">万宁 Ocean</text>
+                            </g>
+                            
+                            <!-- Baisha: Center-Left (Highland Tea) -->
+                            <g class="map-node node-green" id="node-baisha" transform="translate(160, 165)">
+                                <circle class="outer" r="14" />
+                                <circle class="inner" r="5" />
+                                <text class="map-label" x="-80" y="4" data-key="node-baisha-lbl">白沙 Tea Ridge</text>
+                            </g>
+                        </svg>
+                        
+                        <div class="map-instruction-tag" style="position:absolute; bottom:15px; right:20px; font-size:0.7rem; color:var(--bistro-accent-gold); letter-spacing:0.05em;">
+                            <i class="fa-solid fa-circle-info"></i> <span data-key="map-tip">点击地图标记点查看风物细节</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: detail card dynamically populated by JS -->
+                    <div class="sourcing-card-wrap">
+                        <div class="sourcing-detail-card" id="sourcing-detail-card-el">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: SEASONAL MENU -->
+        <section class="bistro-section scroll-reveal" id="menu-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <span class="section-badge" data-key="menu-badge">时令赏味</span>
+                    <h2 class="editorial-title" data-key="menu-title">汐澜时令 · <span class="italic">美学菜单</span></h2>
+                    <p class="section-desc" data-key="menu-desc" style="margin-left: auto; margin-right: auto;">春华秋实，顺时而食。点击下方标签，探索由主厨团队根据本周在地收成精心定制的创意佳肴。</p>
+                </div>
+                
+                <!-- Category Filters -->
+                <div class="menu-filters">
+                    <button class="filter-tab active" data-filter="all" data-key="tab-all">全部创意菜</button>
+                    <button class="filter-tab" data-filter="sichuan" data-key="tab-sichuan">创意川风</button>
+                    <button class="filter-tab" data-filter="cantonese" data-key="tab-cantonese">意境粤海</button>
+                    <button class="filter-tab" data-filter="organic" data-key="tab-organic">低碳绿野</button>
+                    <button class="filter-tab" data-filter="sweet" data-key="tab-sweet">极简甜点</button>
+                </div>
+                
+                <!-- Menu Grid: Populated dynamically by bistro.js -->
+                <div class="menu-grid" id="menu-grid-items">
+                    <!-- Cards added by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: CHEF TASTING PACKAGES -->
+        <section class="bistro-section scroll-reveal" id="tasting-section">
+            <div class="container">
+                <span class="section-badge" data-key="tasting-badge">主厨套餐</span>
+                <h2 class="editorial-title" data-key="tasting-title">主厨定制 · <span class="italic">赏味套餐</span></h2>
+                <p class="section-desc" data-key="tasting-desc">专为追求极致仪式感的饕客准备。主厨团队为您编排了一场起承转合的味觉乐章，完整展现海岛的感官印记。</p>
+                
+                <div class="tasting-grid">
+                    <!-- Package 1 -->
+                    <div class="tasting-card">
+                        <div class="tasting-header">
+                            <span class="tasting-tag" data-key="tasting-t1-tag">时令尝鲜</span>
+                            <h3 class="tasting-name" data-key="tasting-t1-name">【山海风物】尝鲜双人套餐</h3>
+                            <div class="tasting-price" data-key="tasting-t1-price">¥399 <span data-key="tasting-t1-unit">/ 套</span></div>
+                        </div>
+                        <ul class="tasting-courses">
+                            <li class="tasting-course-item"><i class="fa-solid fa-leaf"></i> <span class="course-title">迎宾茶礼: 火山灰有机绿茶</span></li>
+                            <li class="tasting-course-item"><i class="fa-solid fa-leaf"></i> <span class="course-title">前菜双拼: 藤椒黑豆腐 & 木耳</span></li>
+                            <li class="tasting-course-item"><i class="fa-solid fa-leaf"></i> <span class="course-title">暖胃汤品: 火山口富硒排骨清汤</span></li>
+                            <li class="tasting-course-item"><i class="fa-solid fa-leaf"></i> <span class="course-title">美学主打: 椰乳走地鸡 & 糟粕醋大虾</span></li>
+                        </ul>
+                        <button class="btn-tasting-order" data-id="tasting-399" data-key="tasting-btn-view">查看完整菜单</button>
+                    </div>
+                    
+                    <!-- Package 2 -->
+                    <div class="tasting-card">
+                        <div class="tasting-header">
+                            <span class="tasting-tag" data-key="tasting-t2-tag">超值推荐</span>
+                            <h3 class="tasting-name" data-key="tasting-t2-name">【林栖深眠】雅致四人套餐</h3>
+                            <div class="tasting-price" data-key="tasting-t2-price">¥699 <span data-key="tasting-t2-unit">/ 套</span></div>
+                        </div>
+                        <ul class="tasting-courses">
+                            <li class="tasting-course-item"><i class="fa-solid fa-leaf"></i> <span class="course-title">迎宾茶礼: 五指山蜜香红茶</span></li>
+                            <li class="tasting-course-item"><i class="fa-solid fa-leaf"></i> <span class="course-title">精致前菜: 松露南瓜 & 凉拌贡笋</span></li>
+                            <li class="tasting-course-item"><i class="fa-solid fa-leaf"></i> <span class="course-title">滋补汤品: 灵芝野菌炖走地鸡汤</span></li>
+                            <li class="tasting-course-item"><i class="fa-solid fa-leaf"></i> <span class="course-title">意境硬菜: 和牛卷 & 清蒸深海红斑鱼</span></li>
+                        </ul>
+                        <button class="btn-tasting-order" data-id="tasting-699" data-key="tasting-btn-view">查看完整菜单</button>
+                    </div>
+                    
+                    <!-- Package 3 -->
+                    <div class="tasting-card">
+                        <div class="tasting-header">
+                            <span class="tasting-tag" data-key="tasting-t3-tag">尊享奢华</span>
+                            <h3 class="tasting-name" data-key="tasting-t3-name">【汐澜印记】尊享主厨定制套餐</h3>
+                            <div class="tasting-price" data-key="tasting-t3-price">¥999 <span data-key="tasting-t3-unit">/ 位</span></div>
+                        </div>
+                        <ul class="tasting-courses">
+                            <li class="tasting-course-item"><i class="fa-solid fa-leaf"></i> <span class="course-title">奉茶奉酒: 火山绿茶 & 黎家山兰玉液</span></li>
+                            <li class="tasting-course-item"><i class="fa-solid fa-leaf"></i> <span class="course-title">前菜三部: 和牛塔塔 & 带子 & 海葡萄</span></li>
+                            <li class="tasting-course-item"><i class="fa-solid fa-leaf"></i> <span class="course-title">功夫汤品: 陈皮炖文昌鸡花胶老火汤</span></li>
+                            <li class="tasting-course-item"><i class="fa-solid fa-leaf"></i> <span class="course-title">山海交响: 清浸南海野生斑鱼 & 炙烧和牛</span></li>
+                        </ul>
+                        <button class="btn-tasting-order" data-id="tasting-999" data-key="tasting-btn-view">查看完整菜单</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: VIP TABLE RESERVATION WITH MEMBER STATUS -->
+        <section class="bistro-section scroll-reveal" id="booking-section">
+            <div class="container">
+                <span class="section-badge" data-key="book-badge">雅间预约</span>
+                <h2 class="editorial-title" data-key="book-title">VIP 雅阁 · <span class="italic">席位预约</span></h2>
+                <p class="section-desc" data-key="book-desc">汐澜中餐精选设有临水雅座、绿意卡座，以及四间以亚美会籍命名的美学包厢（木邻、竹友、森栖、汐澜阁）。请提前预约您的晚宴席位。</p>
+                
+                <div class="booking-grid">
+                    <!-- Left: details & guides -->
+                    <div class="booking-info-box">
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="info-detail">
+                                <h4 data-key="info-time-title">营业时间</h4>
+                                <p data-key="info-time-desc">午市 11:30 - 14:00<br>晚市 17:30 - 21:30<br>(除夕与特殊节日营业时间请咨询客服)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                            <div class="info-detail">
+                                <h4 data-key="info-loc-title">选址定位</h4>
+                                <p data-key="info-loc-desc">海南省三亚市海棠湾椰风路8号 (紧邻亚美旅宿与18°D咖啡馆)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="info-detail">
+                                <h4 data-key="info-phone-title">贵宾专线</h4>
+                                <p data-key="info-phone-desc">+86 (0898) 8888-6688 // wechat: SilanBistro</p>
+                            </div>
+                        </div>
+                        
+                        <div class="vip-rooms-preview">
+                            <h5 data-key="rooms-title">美学包厢预订指南</h5>
+                            <div class="room-chips">
+                                <div class="room-chip" data-key="room-wood">「<span class="highlight">木邻</span>」包厢 (4-6人) // 免低消</div>
+                                <div class="room-chip" data-key="room-bamboo">「<span class="highlight">竹友</span>」包厢 (8-10人) // 自带独立茶台</div>
+                                <div class="room-chip" data-key="room-forest">「<span class="highlight">森栖</span>」包厢 (12-16人) // 270°竹林水景</div>
+                                <div class="room-chip" data-key="room-silan">「<span class="highlight">汐澜阁</span>」包厢 (18-24人) // 奢华宴会独立配餐间</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: booking card -->
+                    <div class="booking-form-card">
+                        <!-- Member loyalty status bar (auto-displayed when phone number is typed) -->
+                        <div class="form-member-panel" id="booking-member-panel">
+                            <div class="member-icon-check"><i class="fa-solid fa-check"></i></div>
+                            <div class="member-info-text">
+                                <h6 class="member-title-txt">已识别：森栖会员 ✨</h6>
+                                <p class="member-desc-txt">享受 8.8 折订餐优惠，免包厢费，现场赠送主厨定制配餐火山岩咖啡 1 壶。</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Form elements -->
+                        <form id="bistro-booking-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="book-name" data-key="frm-name">贵宾姓名</label>
+                                    <input type="text" id="book-name" required placeholder="Mr. Austin / 马先生">
+                                </div>
+                                <div class="form-group">
+                                    <label for="book-phone" data-key="frm-phone">联络电话</label>
+                                    <input type="tel" id="book-phone" required maxlength="11" data-key-ph="frm-phone-ph" placeholder="请输入手机号码 (输入会员电话以享受折扣)">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="book-date" data-key="frm-date">预约日期</label>
+                                    <input type="date" id="book-date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="book-time-slot" data-key="frm-time">就餐时间段</label>
+                                    <select id="book-time-slot">
+                                        <option value="11:30 - 13:00">Lunch 11:30 - 13:00</option>
+                                        <option value="13:00 - 14:30">Lunch 13:00 - 14:30</option>
+                                        <option value="17:30 - 19:30">Dinner 17:30 - 19:30</option>
+                                        <option value="19:30 - 21:30" selected>Dinner 19:30 - 21:30</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="book-guests-count" data-key="frm-guests">贵宾人数</label>
+                                    <select id="book-guests-count">
+                                        <option value="1">1 Person</option>
+                                        <option value="2" selected>2 People</option>
+                                        <option value="4">4 People</option>
+                                        <option value="6">6 People</option>
+                                        <option value="8">8 People</option>
+                                        <option value="10">10 People</option>
+                                        <option value="12">12+ People (Large Party)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="book-room-type" data-key="frm-room">预订席位类型</label>
+                                    <select id="book-room-type">
+                                        <option value="lobby" data-key="frm-room-lobby">大堂庭院座 (免收包厢费)</option>
+                                        <option value="window" data-key="frm-room-window">玻璃幕墙卡座 (免收包厢费)</option>
+                                        <option value="room-wood" data-key="frm-room-wood">「木邻」包厢</option>
+                                        <option value="room-bamboo" data-key="frm-room-bamboo">「竹友」包厢</option>
+                                        <option value="room-forest" data-key="frm-room-forest">「森栖」包厢</option>
+                                        <option value="room-silan" data-key="frm-room-silan">「汐澜阁」包厢</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="book-dietary" data-key="frm-diet">特殊饮食偏好 (选填)</label>
+                                <textarea id="book-dietary" rows="3" data-key-ph="frm-diet-ph" placeholder="例如：海鲜过敏、素食者、减盐减油等..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-submit-booking" id="btn-submit-booking-el">
+                                <i class="fa-solid fa-circle-check"></i> <span data-key="frm-submit">确认预约美学晚宴</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL 1: Dish Detail story modal -->
+    <div class="bistro-modal-overlay" id="dish-detail-modal-overlay">
+        <div class="bistro-modal-card">
+            <button class="modal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <img class="modal-dish-img" src="bistro_dish_sichuan.webp" alt="Dish detail">
+            <h3 class="modal-dish-title">和牛卷</h3>
+            <div class="modal-dish-price">¥158</div>
+            <p class="modal-dish-story">故事内容</p>
+            <div class="modal-dish-extra" style="border-top: 1px dashed rgba(197, 168, 128, 0.15); padding-top: 15px; font-size: 0.8rem; color:var(--bistro-text-muted);">
+                <!-- Extra dynamic details -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: Tasting Menu Course Listing Drawer -->
+    <div class="bistro-modal-overlay" id="tasting-drawer-overlay">
+        <div class="bistro-modal-card" style="max-width: 600px;">
+            <button class="modal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="drawer-title" style="font-family:var(--font-serif); margin-bottom:20px; border-bottom:1px solid var(--bistro-accent-gold); padding-bottom:15px; color:var(--bistro-accent-gold)">山海风物尝鲜套餐</h3>
+            <div class="drawer-courses-list" style="display:flex; flex-direction:column; max-height:450px; overflow-y:auto; padding-right:10px;">
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 3: Booking Success Voucher Ticket -->
+    <div class="bistro-modal-overlay" id="booking-voucher-modal-overlay">
+        <div class="bistro-modal-card" style="max-width: 450px; padding:0; background:transparent; border:none;">
+            <button class="modal-close-btn" style="color:#111312; z-index:1001"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="voucher-ticket">
+                <!-- Header part -->
+                <div class="voucher-header">
+                    <h3 data-key="vch-title">汐澜中餐精选 · VIP 预约单</h3>
+                    <p data-key="vch-subtitle">SILAN BISTRO RESERVATION VOUCHER</p>
+                </div>
+                <!-- Body part -->
+                <div class="voucher-body">
+                    <div class="voucher-row">
+                        <span class="voucher-label" data-key="vch-id">预约单号</span>
+                        <span class="voucher-value" id="vch-val-id">SL202606089988</span>
+                    </div>
+                    <div class="voucher-row">
+                        <span class="voucher-label" data-key="vch-name">贵宾姓名</span>
+                        <span class="voucher-value" id="vch-val-name">MEMBER GUEST</span>
+                    </div>
+                    <div class="voucher-row">
+                        <span class="voucher-label" data-key="vch-phone">联络电话</span>
+                        <span class="voucher-value" id="vch-val-phone">138****8888</span>
+                    </div>
+                    <div class="voucher-row">
+                        <span class="voucher-label" data-key="vch-guests">就餐人数</span>
+                        <span class="voucher-value" id="vch-val-guests">2 位</span>
+                    </div>
+                    <div class="voucher-row">
+                        <span class="voucher-label" data-key="vch-date">就餐日期</span>
+                        <span class="voucher-value" id="vch-val-date">2026-06-09</span>
+                    </div>
+                    <div class="voucher-row">
+                        <span class="voucher-label" data-key="vch-time">就餐时间</span>
+                        <span class="voucher-value" id="vch-val-time">19:30 - 21:30</span>
+                    </div>
+                    <div class="voucher-row">
+                        <span class="voucher-label" data-key="vch-seat">所订席位</span>
+                        <span class="voucher-value" id="vch-val-seat">「森栖」包厢</span>
+                    </div>
+                    <div class="voucher-row" style="border-bottom: 2px dashed rgba(17, 19, 18, 0.15)">
+                        <span class="voucher-label" data-key="vch-member">会籍折扣</span>
+                        <span class="voucher-value" id="vch-val-member">无折扣 (普通宾客)</span>
+                    </div>
+                    
+                    <!-- Dynamic Member perks text box -->
+                    <div class="voucher-perks" id="vch-val-perks">
+                        入店即奉欢迎火山有机茶
+                    </div>
+                    
+                    <!-- Final cost estimation -->
+                    <div style="text-align:right; margin-top:20px; font-weight:700; font-size:1.1rem; color:#111312" id="vch-val-total">
+                        预计尊享合计 ¥399
+                    </div>
+                </div>
+                <!-- Ticket footer part -->
+                <div class="voucher-footer">
+                    <!-- Eco Badge -->
+                    <div class="voucher-eco-badge">
+                        <i class="fa-solid fa-leaf"></i> <span data-key="vch-eco-badge">低碳就餐环保认证 🌱</span>
+                    </div>
+                    <!-- Mock QR code -->
+                    <div class="voucher-qrcode-placeholder">
+                        QR CODE<br>VERIFICATION
+                    </div>
+                    <span style="font-size:0.65rem; color:#7c7d7c; text-transform:uppercase" data-key="vch-qr">扫码核销预约单</span>
+                    
+                    <button class="voucher-btn-print" onclick="window.print()" data-key="vch-btn-print">截屏保存或打印此凭证</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Editorial Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand-box">
+                <a href="index.html" class="footer-logo">18°D COFFEE</a>
+                <p class="footer-slogan" data-key="footer-desc">在黄金纬度，以人文善意，重塑每一份日常风物。</p>
+                <div class="footer-badges">
+                    <span class="footer-badge-item"><i class="fa-solid fa-leaf"></i> 100% 环保有机</span>
+                    <span class="footer-badge-item"><i class="fa-solid fa-hands-holding-child"></i> 人文社群关怀</span>
+                </div>
+            </div>
+            
+            <div class="footer-links-box">
+                <div class="link-group">
+                    <h5 data-key="footer-brand-title">山海品牌</h5>
+                    <a href="index.html#brand-origins" data-key="nav-latitude">黄金纬度</a>
+                    <a href="index.html#brand-story" data-key="nav-story-sub">山海故事</a>
+                    <a href="about.html" data-key="nav-about-sub">关于我们</a>
+                </div>
+                <div class="link-group">
+                    <h5 data-key="footer-explore-title">风味探索</h5>
+                    <a href="index.html#order-section" data-key="nav-order-menu">扫桌菜单</a>
+                    <a href="club.html" data-key="nav-club">海岛会员</a>
+                    <a href="bistro.html">汐澜中餐</a>
+                </div>
+                <div class="link-group">
+                    <h5 data-key="footer-coexist-title">共生生态</h5>
+                    <a href="booking.html" data-key="nav-booking-nav">体验预约</a>
+                    <a href="hotel.html">亚美旅宿</a>
+                    <a href="hotel-club.html">独立会员中心</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container footer-copyright-row">
+            <p class="copyright">&copy; 2026 18°D COFFEE / YAMEI HOTEL / SILAN BISTRO. All rights reserved.</p>
+            <p class="copyright">海南澄迈火山红土有机园区 / 海棠湾人文社区联合呈现</p>
+        </div>
+    </footer>
+
+    <!-- JS scripts -->
+    <script src="bistro.js"></script>
+    <script>
+        // Shared mobile drawer control
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileCloseBtn = document.getElementById("mobile-close-btn");
+        const mobileDrawer = document.getElementById("mobile-drawer");
+        const drawerLinks = document.querySelectorAll(".mobile-drawer .drawer-item");
+
+        if (mobileMenuBtn && mobileDrawer) {
+            mobileMenuBtn.addEventListener("click", () => {
+                mobileDrawer.classList.remove("hidden");
+                document.body.style.overflow = "hidden";
+            });
+        }
+        if (mobileCloseBtn && mobileDrawer) {
+            mobileCloseBtn.addEventListener("click", () => {
+                mobileDrawer.classList.add("hidden");
+                document.body.style.overflow = "";
+            });
+        }
+        drawerLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                mobileDrawer.classList.add("hidden");
+                document.body.style.overflow = "";
+            });
+        });
+
+        // Header transparent to scrolled background color on scroll
+        const navbar = document.getElementById("main-nav");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                navbar.classList.remove("transparent");
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+                navbar.classList.add("transparent");
+            }
+        });
+
+        // Dynamic Hero Carousel switching
+        const slideImgs = document.querySelectorAll(".hero-slide-img");
+        let activeIdx = 0;
+
+        if (slideImgs.length > 0) {
+            setInterval(() => {
+                slideImgs[activeIdx].classList.remove("active");
+                activeIdx = (activeIdx + 1) % slideImgs.length;
+                slideImgs[activeIdx].classList.add("active");
+            }, 6000);
+        }
+    </script>
+</body>
+</html>

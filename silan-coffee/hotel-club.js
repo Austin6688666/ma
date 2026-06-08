@@ -194,6 +194,15 @@ function activateMemberCard(name, gender, phone) {
     memberState.tierClass = tierClass;
     memberState.tierName = tierName;
 
+    // Save to localStorage for integration with Bistro
+    localStorage.setItem("yamei_member_active", "true");
+    localStorage.setItem("yamei_member_name", name);
+    localStorage.setItem("yamei_member_gender", gender);
+    localStorage.setItem("yamei_member_phone", phone);
+    localStorage.setItem("yamei_member_tierClass", tierClass);
+    localStorage.setItem("yamei_member_tierName", tierName);
+    localStorage.setItem("yamei_member_points", "1200");
+
     // 3D flip animation trigger
     cardEl.style.transform = "rotateY(90deg) scale(0.95)";
     cardEl.style.opacity = "0.3";
