@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山海共生集团 | 山海通行证 - 三品牌一码通行会员计划</title>
+    <meta name="description" content="山海通行证 - 联动亚美旅宿、18°D咖啡与汐澜中餐的集团专属通行证，享受住客升杯、订房送前菜、消费送早餐等联动特权。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400&family=Outfit:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .lang-transitioning {
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        
+        /* Interactive Pass Activated Panel */
+        .activated-panel {
+            background: rgba(43, 76, 48, 0.05);
+            border: 1px solid rgba(43, 76, 48, 0.15);
+            border-radius: 20px;
+            padding: 30px;
+            box-sizing: border-box;
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .activated-panel h3 {
+            font-family: var(--font-serif);
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .activated-panel p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .activated-panel .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(28,26,23,0.08);
+            font-size: 0.85rem;
+        }
+        
+        .activated-panel .detail-row:last-of-type {
+            border-bottom: none;
+        }
+        
+        .activated-panel .detail-row span {
+            color: var(--text-muted);
+        }
+        
+        .activated-panel .detail-row strong {
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar transparent" id="main-nav">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-coord">SHANHAI</span>
+            <span class="logo-text">山海集团</span>
+        </a>
+        <nav class="nav-menu">
+            <!-- Group Brands Dropdown -->
+            <div class="nav-dropdown">
+                <a href="shanhai-pass.html" class="menu-item" data-key="nav-group-brand">山海集团 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="hotel.html" data-key="nav-group-hotel">亚美旅宿 | YAMEI</a>
+                    <a href="index.html" data-key="nav-group-coffee">18°D咖啡 | 18°D</a>
+                    <a href="bistro.html" data-key="nav-group-bistro">汐澜中餐 | SILAN</a>
+                    <a href="shanhai-pass.html" data-key="nav-group-pass" style="border-top: 1px solid rgba(28,26,23,0.08); margin-top: 5px; padding-top: 8px;">山海通行证 | PASS</a>
+                </div>
+            </div>
+            <!-- Brand stories Dropdown -->
+            <div class="nav-dropdown">
+                <a href="index.html" class="menu-item" data-key="nav-brand">品牌故事 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="index.html#brand-origins" data-key="nav-latitude">黄金纬度</a>
+                    <a href="index.html#brand-story" data-key="nav-story-sub">山海故事</a>
+                    <a href="index.html#pioneer-section" data-key="nav-details-sub">风物细节</a>
+                </div>
+            </div>
+            <!-- Dine-In Order Link -->
+            <div class="nav-dropdown">
+                <a href="index.html#order-section" class="menu-item" data-key="nav-order">扫桌点单 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="index.html#order-section" data-key="nav-order-table">输入桌号</a>
+                    <a href="index.html#order-section" data-key="nav-order-menu">查看菜单</a>
+                </div>
+            </div>
+            <!-- Club Dropdown -->
+            <div class="nav-dropdown">
+                <a href="club.html" class="menu-item" data-key="nav-club">海岛会员 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="club.html#membership-section" data-key="nav-tiers-sub">会员权益</a>
+                    <a href="club.html#membership-section" class="join-member-btn-trigger" data-key="nav-activate-sub">专属激活</a>
+                </div>
+            </div>
+            <!-- Booking Dropdown -->
+            <div class="nav-dropdown">
+                <a href="booking.html" class="menu-item" data-key="nav-booking-nav">体验预约 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="booking.html#booking-section" data-key="nav-reserve-sub">卡座预约</a>
+                    <a href="booking.html#service-section" data-key="nav-services-sub">极致服务</a>
+                    <a href="booking.html#community-section" data-key="nav-community-sub">社区关怀</a>
+                </div>
+            </div>
+            <!-- Hotel Dropdown -->
+            <div class="nav-dropdown">
+                <a href="hotel.html" class="menu-item">亚美旅宿 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="hotel.html#rooms-section">舒心雅居</a>
+                    <a href="hotel.html#eco-section">环保承诺</a>
+                    <a href="hotel.html#humanitarian-section">人文关怀</a>
+                    <a href="hotel.html#spaces-section">空间美学</a>
+                </div>
+            </div>
+            <!-- About Dropdown -->
+            <div class="nav-dropdown">
+                <a href="about.html" class="menu-item" data-key="nav-about-sub">关于我们 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="bistro.html">汐澜中餐</a>
+                    <a href="about.html#affiliates-section" data-key="nav-branches-sub">旗下分店</a>
+                    <a href="about.html#careers-section" data-key="nav-careers-sub">加入我们</a>
+                </div>
+            </div>
+        </nav>
+        <div class="nav-actions">
+            <button class="lang-switch-btn" id="lang-switch-btn">EN</button>
+            <a href="booking.html#booking-section" class="nav-reserve-btn" data-key="nav-reserve-btn">预约日落席</a>
+            <button class="menu-toggle" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer hidden" id="mobile-drawer">
+        <div class="drawer-header">
+            <span class="logo-coord">SHANHAI 山海集团</span>
+            <div class="drawer-header-actions">
+                <button class="lang-switch-btn drawer-lang-btn" id="drawer-lang-btn">EN</button>
+                <button class="drawer-close" id="mobile-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+        <div class="drawer-links">
+            <!-- Group Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-group-brand">山海集团</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="hotel.html" class="drawer-sublink" data-key="nav-group-hotel">亚美旅宿 | YAMEI</a>
+                    <a href="index.html" class="drawer-sublink" data-key="nav-group-coffee">18°D咖啡 | 18°D</a>
+                    <a href="bistro.html" class="drawer-sublink" data-key="nav-group-bistro">汐澜中餐 | SILAN</a>
+                    <a href="shanhai-pass.html" class="drawer-sublink" data-key="nav-group-pass" style="font-weight: 600; border-top: 1px solid rgba(28,26,23,0.08); margin-top: 5px; padding-top: 8px;">山海通行证 | PASS</a>
+                </div>
+            </div>
+            <!-- Brand Stories Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-brand">品牌故事</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="index.html" class="drawer-sublink" data-key="nav-home-link">首页</a>
+                    <a href="index.html#brand-origins" class="drawer-sublink" data-key="nav-latitude">黄金纬度</a>
+                    <a href="index.html#brand-story" class="drawer-sublink" data-key="nav-story-sub">山海故事</a>
+                    <a href="index.html#pioneer-section" class="drawer-sublink" data-key="nav-details-sub">风物细节</a>
+                </div>
+            </div>
+            <!-- Order Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-order">扫桌点单</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="index.html#order-section" class="drawer-sublink" data-key="nav-order-table">输入桌号</a>
+                    <a href="index.html#order-section" class="drawer-sublink" data-key="nav-order-menu">查看菜单</a>
+                </div>
+            </div>
+            <!-- Club Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-club">海岛会员</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="club.html" class="drawer-sublink" data-key="nav-club-home">会员中心</a>
+                    <a href="club.html#membership-section" class="drawer-sublink" data-key="nav-tiers-sub">会员权益</a>
+                    <a href="club.html#membership-section" class="drawer-sublink join-member-btn-trigger" data-key="nav-activate-sub">专属激活</a>
+                </div>
+            </div>
+            <!-- Booking Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-booking-nav">体验预约</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="booking.html" class="drawer-sublink" data-key="nav-booking-home">预约页面</a>
+                    <a href="booking.html#booking-section" class="drawer-sublink" data-key="nav-reserve-sub">卡座预约</a>
+                    <a href="booking.html#service-section" class="drawer-sublink" data-key="nav-services-sub">极致服务</a>
+                    <a href="booking.html#community-section" class="drawer-sublink" data-key="nav-community-sub">社区关怀</a>
+                </div>
+            </div>
+            <!-- Hotel Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span>亚美旅宿</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="hotel.html" class="drawer-sublink">旅宿主页</a>
+                    <a href="hotel.html#rooms-section" class="drawer-sublink">舒心雅居</a>
+                    <a href="hotel.html#eco-section" class="drawer-sublink">环保承诺</a>
+                    <a href="hotel.html#humanitarian-section" class="drawer-sublink">人文关怀</a>
+                    <a href="hotel.html#spaces-section" class="drawer-sublink">空间美学</a>
+                </div>
+            </div>
+            <!-- About Accordion -->
+            <div class="drawer-accordion">
+                <button class="drawer-accordion-btn">
+                    <span data-key="nav-about-sub">关于我们</span> <i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="drawer-accordion-content">
+                    <a href="about.html" class="drawer-sublink" data-key="nav-about-home">关于亚美/汐澜</a>
+                    <a href="bistro.html" class="drawer-sublink">汐澜中餐</a>
+                    <a href="about.html#affiliates-section" class="drawer-sublink" data-key="nav-branches-sub">旗下分店</a>
+                    <a href="about.html#careers-section" class="drawer-sublink" data-key="nav-careers-sub">加入我们</a>
+                </div>
+            </div>
+            <a href="booking.html#booking-section" class="primary-btn-wide drawer-reserve-btn" data-key="nav-reserve-btn" style="margin-top: 1.5rem;">预约日落席</a>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main>
+        
+        <!-- SECTION 1: PASS CARD SHOWCASE & ACTIVATION -->
+        <section class="pass-container">
+            
+            <!-- 3D Flippable Digital Card -->
+            <div class="card-perspective" id="card-trigger-area">
+                <div class="pass-card-flip" id="pass-card">
+                    
+                    <!-- Front View: Luxury obsidian and bronze style -->
+                    <div class="pass-card-front">
+                        <div class="card-logo-row">
+                            <span class="logo-group">SHANHAI COEXIST</span>
+                            <span class="logo-badge" id="card-badge-tier">PREMIUM PASS</span>
+                        </div>
+                        
+                        <div class="card-body-row">
+                            <h2 class="pass-title" id="card-front-title">山海通行证</h2>
+                            <p class="pass-id" id="card-front-no">NO. SH-9920-3810</p>
+                        </div>
+                        
+                        <div class="card-footer-row">
+                            <div class="card-holder">
+                                <span class="lbl" id="card-holder-lbl">CARD HOLDER</span>
+                                <span class="val" id="card-holder-name">AUSTIN PARIS</span>
+                            </div>
+                            <div class="barcode-box">
+                                <div class="barcode-lines"></div>
+                                <span class="barcode-num" id="card-barcode">18D99203810</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Back View: Digital QR scanner verification -->
+                    <div class="pass-card-back">
+                        <div class="qr-scanner-box">
+                            <div class="mock-qr-code" id="card-qr-box"></div>
+                        </div>
+                        <div class="timer-row">
+                            <div class="timer-circle pulsing" id="timer-circle"></div>
+                            <span id="card-timer-text">验证码每 30 秒自动刷新</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <p style="text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 20px;" id="click-tip">
+                    <i class="fa-solid fa-arrows-rotate"></i> 点击卡片翻转查看核销二维码 / Click card to show QR Code
+                </p>
+            </div>
+            
+            <!-- Dynamic Activation Panel / Active Status Panel -->
+            <div class="activation-panel-container">
+                
+                <!-- State 1: Activation Form -->
+                <div class="activation-panel" id="panel-register">
+                    <h2 id="reg-title">激活您的「山海通行证」</h2>
+                    <p class="desc" id="reg-desc">在集团旗下品牌消费时出示通行证，即可解锁 18°D 咖啡免费升杯、汐澜中餐定制前菜以及亚美旅宿满额送早餐的尊享权益。</p>
+                    
+                    <form class="activation-form" id="activation-form">
+                        <div class="form-group">
+                            <label for="reg-name" id="lbl-name">真实姓名 / Name</label>
+                            <input type="text" id="reg-name" required placeholder="请填写您的名字">
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-phone" id="lbl-phone">手机号码 / Phone</label>
+                            <input type="tel" id="reg-phone" required pattern="[0-9]{11}" placeholder="请输入11位手机号码">
+                        </div>
+                        <button type="submit" class="primary-btn-wide" style="height: 48px;" id="reg-submit">立即激活通行证</button>
+                    </form>
+                </div>
+                
+                <!-- State 2: Activated Panel (Hidden by default) -->
+                <div class="activated-panel hidden" id="panel-activated">
+                    <h3 id="act-title"><i class="fa-solid fa-circle-check"></i> 山海通行证已激活</h3>
+                    <p id="act-desc">恭喜！您的山海通行证已正式开通，并绑定以下信息。消费时请点击左侧卡片，出示二维码供店员扫描以获取权益。</p>
+                    
+                    <div class="detail-row">
+                        <span id="act-lbl-holder">通行证持有人</span>
+                        <strong id="act-val-name">AUSTIN</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span id="act-lbl-phone">绑定手机号</span>
+                        <strong id="act-val-phone">138****8888</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span id="act-lbl-no">通行证号码</span>
+                        <strong id="act-val-no">SH-2026-8942</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span id="act-lbl-status">当前特权状态</span>
+                        <strong style="color: var(--primary);" id="act-val-status">全品牌权益已激活 (Active)</strong>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </section>
+        
+        <!-- SECTION 2: EXCLUSIVE BENEFITS ACCORDIONS -->
+        <section class="benefits-section">
+            <div class="section-header">
+                <h3 id="ben-section-title">通行证全线品牌尊享权益</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 8px;" id="ben-section-subtitle">同一片土地，三种体验，点击卡片探索规则细节</p>
+            </div>
+            
+            <div class="benefits-grid">
+                
+                <!-- Benefit 1: 18°D Coffee -->
+                <div class="benefit-card" onclick="toggleBenefit(this)">
+                    <div class="icon-row">
+                        <i class="fa-solid fa-mug-hot"></i>
+                        <span class="brand-tag">18°D COFFEE</span>
+                    </div>
+                    <h4 id="b1-title">住客免费升杯</h4>
+                    <p id="b1-desc">凡入住亚美旅宿的宾客，出示通行证可在 18°D 咖啡店享受任意饮品免费升级杯型（中杯升大杯）或免费加一份风物椰奶冻。</p>
+                    <div class="details-box">
+                        <strong id="b-detail-title">使用规则细则：</strong>
+                        <ul style="margin-top: 8px; padding-left: 15px; font-size: 0.75rem; color: var(--text-muted); line-height: 1.5;">
+                            <li id="b1-r1">仅限住宿期间使用，每日可兑换一次。</li>
+                            <li id="b1-r2">不与店内其他特调买赠等优惠同享。</li>
+                            <li id="b1-r3">向无声咖啡师出示通行证即可扫码自动识别完成升杯。</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Benefit 2: Silan Bistro -->
+                <div class="benefit-card" onclick="toggleBenefit(this)">
+                    <div class="icon-row">
+                        <i class="fa-solid fa-utensils"></i>
+                        <span class="brand-tag">汐澜中餐</span>
+                    </div>
+                    <h4 id="b2-title">订房送主厨前菜</h4>
+                    <p id="b2-desc">凡通过山海通行证或联合预订入住亚美旅宿，并在汐澜中餐用餐的宾客，入座即由主厨特赠一份当日时令有机蔬菜或野生海鲜冷盘前菜。</p>
+                    <div class="details-box">
+                        <strong id="b-detail-title2">使用规则细则：</strong>
+                        <ul style="margin-top: 8px; padding-left: 15px; font-size: 0.75rem; color: var(--text-muted); line-height: 1.5;">
+                            <li id="b2-r1">前菜根据当日捕捞新鲜食材和农场收成而定，每天不同。</li>
+                            <li id="b2-r2">每单消费限送一份，需在点单前出示通行证关联。</li>
+                            <li id="b2-r3">仅限堂食，不提供打包外带服务。</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Benefit 3: Yamei Hotel -->
+                <div class="benefit-card" onclick="toggleBenefit(this)">
+                    <div class="icon-row">
+                        <i class="fa-solid fa-hotel"></i>
+                        <span class="brand-tag">亚美旅宿</span>
+                    </div>
+                    <h4 id="b3-title">消费满额送早餐</h4>
+                    <p id="b3-desc">宾客在 18°D 咖啡及汐澜中餐累计消费满 300 元，出示通行证即可在下一次入住亚美旅宿时，免费获赠一晚价值 128 元的“山海双人早餐”礼券。</p>
+                    <div class="details-box">
+                        <strong id="b-detail-title3">使用规则细则：</strong>
+                        <ul style="margin-top: 8px; padding-left: 15px; font-size: 0.75rem; color: var(--text-muted); line-height: 1.5;">
+                            <li id="b3-r1">消费额度跨品牌累积，退款部分将自动扣除。</li>
+                            <li id="b3-r2">获赠的早餐券自发放之日起 6 个月内有效，需提前预约。</li>
+                            <li id="b3-r3">早餐包含澄迈火山红土水果盘、手作面包和海浪特调热饮。</li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Unified Footer -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-left-col">
+                <h3 class="footer-brand" data-key="foot-brand">18°D COFFEE</h3>
+                <p class="footer-slogan" data-key="foot-slogan">Sanya Specialty Coffee Laboratory</p>
+                <p class="footer-desc" data-key="foot-desc">在三亚海棠湾的咸湿海风与椰影斜照下，我们以一杯火山岩风味的咖啡豆，写一首给自然的温情诗篇。</p>
+            </div>
+            
+            <div class="footer-links-col">
+                <h5 data-key="foot-shop-title">三亚海岸门店</h5>
+                <ul>
+                    <li data-key="foot-shop-addr"><i class="fa-solid fa-location-dot"></i> 三亚市海棠湾椰风路8号（喜来登旁海滩）</li>
+                    <li data-key="foot-shop-time"><i class="fa-solid fa-clock"></i> 每日 08:30 - 22:00</li>
+                    <li data-key="foot-shop-phone"><i class="fa-solid fa-phone"></i> 0898-8888-1818</li>
+                </ul>
+            </div>
+
+            <div class="footer-cert-col">
+                <h5 data-key="foot-eco-title">绿色环保指标</h5>
+                <div class="eco-metrics">
+                    <span class="metric-badge" data-key="foot-eco-m1"><i class="fa-solid fa-recycle"></i> 100% 纸质降解吸管</span>
+                    <span class="metric-badge" data-key="foot-eco-m2"><i class="fa-solid fa-seedling"></i> 循环咖啡渣有机基肥料</span>
+                    <span class="metric-badge" data-key="foot-eco-m3"><i class="fa-solid fa-solar-panel"></i> 太阳能中和加热热水</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-group-badge-container">
+            <div class="footer-group-badge">
+                <span class="badge-brands">YAMEI &times; 18&deg;D &times; 汐澜</span>
+                <span class="badge-label" data-key="group-footer-text">山海共生美学生活集团旗下品牌</span>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p data-key="foot-copy">&copy; 2026 山海共生（海南）美学生活集团旗下品牌 // 18°D COFFEE / YAMEI HOTEL / SILAN BISTRO. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;"></div>
+
+    <!-- Page Specific Script -->
+    <script>
+        // Global variables for translation and activation state
+        let currentLang = localStorage.getItem("lang") || "zh";
+        let isActivated = false;
+        let countdownVal = 30;
+        let timerInterval;
+
+        // Translation dictionary for shanhai-pass page
+        const PASS_DICT = {
+            zh: {
+                "nav-group-brand": '山海集团 <i class="fa-solid fa-chevron-down"></i>',
+                "nav-group-hotel": '亚美旅宿 | YAMEI',
+                "nav-group-coffee": '18°D咖啡 | 18°D',
+                "nav-group-bistro": '汐澜中餐 | SILAN',
+                "nav-group-pass": '山海通行证 | PASS',
+                "nav-brand": '品牌故事 <i class="fa-solid fa-chevron-down"></i>',
+                "nav-latitude": '黄金纬度',
+                "nav-story-sub": '山海故事',
+                "nav-details-sub": '风物细节',
+                "nav-order": '扫桌点单 <i class="fa-solid fa-chevron-down"></i>',
+                "nav-order-table": '输入桌号',
+                "nav-order-menu": '查看菜单',
+                "nav-club": '海岛会员 <i class="fa-solid fa-chevron-down"></i>',
+                "nav-tiers-sub": '会员权益',
+                "nav-activate-sub": '专属激活',
+                "nav-booking-nav": '体验预约 <i class="fa-solid fa-chevron-down"></i>',
+                "nav-reserve-sub": '卡座预约',
+                "nav-services-sub": '极致服务',
+                "nav-community-sub": '社区关怀',
+                "nav-reserve-btn": '预约日落席',
+                
+                "card-front-title": "山海通行证",
+                "card-holder-lbl": "CARD HOLDER",
+                "card-timer-text": "验证码每 30 秒自动刷新",
+                "click-tip": '<i class="fa-solid fa-arrows-rotate"></i> 点击卡片翻转查看核销二维码 / Click card to show QR Code',
+                
+                "reg-title": "激活您的「山海通行证」",
+                "reg-desc": "在集团旗下品牌消费时出示通行证，即可解锁 18°D 咖啡免费升杯、汐澜中餐定制前菜以及亚美旅宿满额送早餐的尊享权益。",
+                "lbl-name": "真实姓名 / Name",
+                "lbl-phone": "手机号码 / Phone",
+                "reg-submit": "立即激活通行证",
+                
+                "act-title": '<i class="fa-solid fa-circle-check"></i> 山海通行证已激活',
+                "act-desc": "恭喜！您的山海通行证已正式开通，并绑定以下信息。消费时请点击左侧卡片，出示二维码供店员扫描以获取权益。",
+                "act-lbl-holder": "通行证持有人",
+                "act-lbl-phone": "绑定手机号",
+                "act-lbl-no": "通行证号码",
+                "act-lbl-status": "当前特权状态",
+                "act-val-status": "全品牌权益已激活 (Active)",
+                
+                "ben-section-title": "通行证全线品牌尊享权益",
+                "ben-section-subtitle": "同一片土地，三种体验，点击卡片探索规则细节",
+                
+                "b1-title": "住客免费升杯",
+                "b1-desc": "凡入住亚美旅宿的宾客，出示通行证可在 18°D 咖啡店享受任意饮品免费升级杯型（中杯升大杯）或免费加一份风物椰奶冻。",
+                "b-detail-title": "使用规则细则：",
+                "b1-r1": "仅限住宿期间使用，每日可兑换一次。",
+                "b1-r2": "不与店内其他特调买赠等优惠同享。",
+                "b1-r3": "向无声咖啡师出示通行证即可扫码自动识别完成升杯。",
+                
+                "b2-title": "订房送主厨前菜",
+                "b2-desc": "凡通过山海通行证或联合预订入住亚美旅宿，并在汐澜中餐用餐的宾客，入座即由主厨特赠一份当日时令有机蔬菜或野生海鲜冷盘前菜。",
+                "b-detail-title2": "使用规则细则：",
+                "b2-r1": "前菜根据当日捕捞新鲜食材和农场收成而定，每天不同。",
+                "b2-r2": "每单消费限送一份，需在点单前出示通行证关联。",
+                "b2-r3": "仅限堂食，不提供打包外带服务。",
+                
+                "b3-title": "消费满额送早餐",
+                "b3-desc": "宾客在 18°D 咖啡及汐澜中餐累计消费满 300 元，出示通行证即可在下一次入住亚美旅宿时，免费获赠一晚价值 128 元的“山海双人早餐”礼券。",
+                "b-detail-title3": "使用规则细则：",
+                "b3-r1": "消费额度跨品牌累积，退款部分将自动扣除。",
+                "b3-r2": "获赠的早餐券自发放之日起 6 个月内有效，需提前预约。",
+                "b3-r3": "早餐包含澄迈火山红土水果盘、手作面包和海浪特调热饮。",
+                
+                "foot-brand": "18°D COFFEE",
+                "foot-slogan": "Sanya Specialty Coffee Laboratory",
+                "foot-desc": "在三亚海棠湾的咸湿海风与椰影斜照下，我们以一杯火山岩风味的咖啡豆，写一首给自然的温情诗篇。",
+                "foot-shop-title": "三亚海岸门店",
+                "foot-shop-addr": '<i class="fa-solid fa-location-dot"></i> 三亚市海棠湾椰风路8号（喜来登旁海滩）',
+                "foot-shop-time": '<i class="fa-solid fa-clock"></i> 每日 08:30 - 22:00',
+                "foot-shop-phone": '<i class="fa-solid fa-phone"></i> 0898-8888-1818',
+                "foot-eco-title": "绿色环保指标",
+                "foot-eco-m1": '<i class="fa-solid fa-recycle"></i> 100% 纸质降解吸管',
+                "foot-eco-m2": '<i class="fa-solid fa-seedling"></i> 循环咖啡渣有机基肥料',
+                "foot-eco-m3": '<i class="fa-solid fa-solar-panel"></i> 太阳能中和加热热水',
+                "group-footer-text": "山海共生美学生活集团旗下品牌",
+                "foot-copy": "&copy; 2026 山海共生（海南）美学生活集团旗下品牌 // 18°D COFFEE / YAMEI HOTEL / SILAN BISTRO. All rights reserved.",
+                "activate-success": "✨ 山海通行证激活成功！专属卡已生成",
+                "flip-warn": "🔒 请先激活您的山海通行证，以查看实时核销二维码！",
+                "refresh-qr": "🔄 实时核销二维码已安全更新"
+            },
+            en: {
+                "nav-group-brand": 'Shanhai Group <i class="fa-solid fa-chevron-down"></i>',
+                "nav-group-hotel": 'YAMEI Hotel',
+                "nav-group-coffee": '18°D Coffee',
+                "nav-group-bistro": 'SILAN Bistro',
+                "nav-group-pass": 'Shanhai Pass',
+                "nav-brand": 'Story <i class="fa-solid fa-chevron-down"></i>',
+                "nav-latitude": 'Latitude 18°',
+                "nav-story-sub": 'Brand Heritage',
+                "nav-details-sub": 'Terroir Details',
+                "nav-order": 'Dine-In Order <i class="fa-solid fa-chevron-down"></i>',
+                "nav-order-table": 'Table Number',
+                "nav-order-menu": 'Browse Menu',
+                "nav-club": 'Island Club <i class="fa-solid fa-chevron-down"></i>',
+                "nav-tiers-sub": 'Member Perks',
+                "nav-activate-sub": 'Join Club',
+                "nav-booking-nav": 'Reservations <i class="fa-solid fa-chevron-down"></i>',
+                "nav-reserve-sub": 'Reserve Seats',
+                "nav-services-sub": 'Elite Services',
+                "nav-community-sub": 'Care Program',
+                "nav-reserve-btn": 'Sunset Seats',
+                
+                "card-front-title": "SHANHAI PASS",
+                "card-holder-lbl": "CARD HOLDER",
+                "card-timer-text": "QR updates automatically every 30s",
+                "click-tip": '<i class="fa-solid fa-arrows-rotate"></i> Click card to flip and view verification QR code',
+                
+                "reg-title": "Activate Your Shanhai Pass",
+                "reg-desc": "Present this pass when dining or staying at any of our group brands to unlock benefits like coffee cup size upgrades, complimentary appetizers, and free breakfasts.",
+                "lbl-name": "Full Name",
+                "lbl-phone": "Mobile Number",
+                "reg-submit": "Activate Pass Instantly",
+                
+                "act-title": '<i class="fa-solid fa-circle-check"></i> Shanhai Pass Activated',
+                "act-desc": "Congratulations! Your group membership is now active. Flip the left card to show your dynamic QR code for staff validation.",
+                "act-lbl-holder": "Pass Holder",
+                "act-lbl-phone": "Linked Mobile",
+                "act-lbl-no": "Pass Serial No.",
+                "act-lbl-status": "Perks Status",
+                "act-val-status": "All brand benefits active",
+                
+                "ben-section-title": "Pass Holder Exclusive Privileges",
+                "ben-section-subtitle": "One land, three experiences. Click card to view details",
+                
+                "b1-title": "Cup Upgrade for Lodging Guests",
+                "b1-desc": "All Yamei Hotel guests presenting this pass get a free cup size upgrade (medium to large) on any coffee or a free portion of coconut jelly at 18°D Coffee.",
+                "b-detail-title": "Terms & Conditions:",
+                "b1-r1": "Valid during stay only, limited to one upgrade per day.",
+                "b1-r2": "Cannot be combined with other store promotions.",
+                "b1-r3": "Show your pass code to our silent baristas for scanning.",
+                
+                "b2-title": "Complimentary Appetizer",
+                "b2-desc": "Hotel room guests dining at Silan Bistro will receive a complimentary chef's daily selection seafood or seasonal vegetable cold appetizer platter.",
+                "b-detail-title2": "Terms & Conditions:",
+                "b2-r1": "Appetizers vary daily based on seasonal catch and harvest.",
+                "b2-r2": "Limit one complimentary dish per order. Present before ordering.",
+                "b2-r3": "Dine-in only, not available for takeout.",
+                
+                "b3-title": "Free Breakfast Voucher",
+                "b3-desc": "Accumulate 300 RMB spend at 18°D Coffee & Silan Bistro to receive a complimentary double breakfast voucher (worth 128 RMB) for your next stay at Yamei Hotel.",
+                "b-detail-title3": "Terms & Conditions:",
+                "b3-r1": "Spend is tracked across both coffee & bistro. Excludes refunds.",
+                "b3-r2": "Breakfast voucher is valid for 6 months from issue date.",
+                "b3-r3": "Includes volcanic fruit plate, artisan breads, and wave brew coffee.",
+                
+                "foot-brand": "18°D COFFEE",
+                "foot-slogan": "Sanya Specialty Coffee Laboratory",
+                "foot-desc": "Under Sanya's coastal sunset, we write a warm poem to nature with volcanic-rich coffee beans.",
+                "foot-shop-title": "Sanya Store",
+                "foot-shop-addr": '<i class="fa-solid fa-location-dot"></i> No. 8 Yefeng Road, Haitang Bay, Sanya (sheraton beach)',
+                "foot-shop-time": '<i class="fa-solid fa-clock"></i> Daily 08:30 - 22:00',
+                "foot-shop-phone": '<i class="fa-solid fa-phone"></i> 0898-8888-1818',
+                "foot-eco-title": "Sustainability Metrics",
+                "foot-eco-m1": '<i class="fa-solid fa-recycle"></i> 100% biodegradable straws',
+                "foot-eco-m2": '<i class="fa-solid fa-seedling"></i> Recycled coffee grounds as compost',
+                "foot-eco-m3": '<i class="fa-solid fa-solar-panel"></i> Solar-powered water heating',
+                "group-footer-text": "A Brand of Shanhai Gongsheng Aesthetic Life Group",
+                "foot-copy": "&copy; 2026 山海共生（海南）美学生活集团旗下品牌 // 18°D COFFEE / YAMEI HOTEL / SILAN BISTRO. All rights reserved.",
+                "activate-success": "✨ Shanhai Pass activated! Your digital card is ready",
+                "flip-warn": "🔒 Please activate your Shanhai Pass first to view verification QR code!",
+                "refresh-qr": "🔄 Verification QR code refreshed securely"
+            }
+        };
+
+        // DOM Elements
+        const mainNav = document.getElementById("main-nav");
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileCloseBtn = document.getElementById("mobile-close-btn");
+        const mobileDrawer = document.getElementById("mobile-drawer");
+        const langSwitchBtn = document.getElementById("lang-switch-btn");
+        const drawerLangBtn = document.getElementById("drawer-lang-btn");
+        
+        const passCard = document.getElementById("pass-card");
+        const cardTriggerArea = document.getElementById("card-trigger-area");
+        const cardQrBox = document.getElementById("card-qr-box");
+        const timerCircle = document.getElementById("timer-circle");
+        
+        const activationForm = document.getElementById("activation-form");
+        const panelRegister = document.getElementById("panel-register");
+        const panelActivated = document.getElementById("panel-activated");
+        
+        const cardHolderName = document.getElementById("card-holder-name");
+        const cardFrontNo = document.getElementById("card-front-no");
+        const cardBarcode = document.getElementById("card-barcode");
+        
+        const actValName = document.getElementById("act-val-name");
+        const actValPhone = document.getElementById("act-val-phone");
+        const actValNo = document.getElementById("act-val-no");
+
+        // Initialization
+        document.addEventListener("DOMContentLoaded", () => {
+            setupNavigation();
+            updateLanguage(currentLang);
+            
+            // 3D Card Tilt Effect on Mouse Move
+            const cardPerspective = document.querySelector(".card-perspective");
+            if (cardPerspective) {
+                cardPerspective.addEventListener("mousemove", (e) => {
+                    if (passCard.classList.contains("flipped")) return; // Only tilt front
+                    const rect = cardPerspective.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    // Limit angles
+                    const tiltX = (y / (rect.height / 2)) * -12;
+                    const tiltY = (x / (rect.width / 2)) * 12;
+                    passCard.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+                });
+                cardPerspective.addEventListener("mouseleave", () => {
+                    if (passCard.classList.contains("flipped")) return;
+                    passCard.style.transform = "rotateX(0) rotateY(0)";
+                });
+            }
+
+            // Card click to flip
+            if (cardTriggerArea) {
+                cardTriggerArea.addEventListener("click", () => {
+                    if (!isActivated) {
+                        showToast(PASS_DICT[currentLang]["flip-warn"], "warning");
+                        return;
+                    }
+                    passCard.classList.toggle("flipped");
+                    // Reset tilt
+                    passCard.style.transform = passCard.classList.contains("flipped") ? "rotateY(180deg)" : "rotateX(0) rotateY(0)";
+                });
+            }
+
+            // Activation Submit
+            if (activationForm) {
+                activationForm.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const name = document.getElementById("reg-name").value.trim();
+                    const phone = document.getElementById("reg-phone").value.trim();
+                    
+                    // Generate random serial number
+                    const randSerial = Math.floor(1000 + Math.random() * 9000);
+                    const serialNo = `SH-2026-${randSerial}`;
+                    const barcodeNo = `9926${randSerial}108`;
+                    
+                    // Update card details
+                    cardHolderName.textContent = name.toUpperCase();
+                    cardFrontNo.textContent = `NO. ${serialNo}`;
+                    cardBarcode.textContent = barcodeNo;
+                    
+                    // Update activated panel details
+                    actValName.textContent = name;
+                    actValPhone.textContent = phone.replace(/(\d{3})\d{4}(\d{4})/, "$1****$2");
+                    actValNo.textContent = serialNo;
+                    
+                    // Trigger Flip animation to back to show QR code
+                    isActivated = true;
+                    setTimeout(() => {
+                        passCard.classList.add("flipped");
+                    }, 500);
+                    
+                    // Switch Panel
+                    panelRegister.classList.add("hidden");
+                    panelActivated.classList.remove("activated-panel");
+                    panelActivated.classList.remove("hidden");
+                    panelActivated.classList.add("activated-panel");
+                    
+                    showToast(PASS_DICT[currentLang]["activate-success"], "success");
+                    startQrTimer();
+                });
+            }
+        });
+
+        // Setup Drawer Menu listeners
+        function setupNavigation() {
+            if (mobileMenuBtn && mobileDrawer) {
+                mobileMenuBtn.addEventListener("click", () => {
+                    mobileDrawer.classList.remove("hidden");
+                    document.body.style.overflow = "hidden";
+                });
+            }
+            if (mobileCloseBtn && mobileDrawer) {
+                mobileCloseBtn.addEventListener("click", () => {
+                    mobileDrawer.classList.add("hidden");
+                    document.body.style.overflow = "";
+                });
+            }
+            
+            // Drawer links close
+            const sublinks = document.querySelectorAll(".drawer-sublink, .drawer-link-item, .drawer-reserve-btn");
+            sublinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    mobileDrawer.classList.add("hidden");
+                    document.body.style.overflow = "";
+                });
+            });
+
+            // Accordion inside mobile drawer
+            const accordionBtns = document.querySelectorAll(".drawer-accordion-btn");
+            accordionBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const content = btn.nextElementSibling;
+                    const icon = btn.querySelector("i");
+                    content.classList.toggle("active");
+                    btn.classList.toggle("active");
+                    
+                    if (content.classList.contains("active")) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        if (icon) icon.className = "fa-solid fa-minus";
+                    } else {
+                        content.style.maxHeight = "0";
+                        if (icon) icon.className = "fa-solid fa-plus";
+                    }
+                });
+            });
+
+            // Lang toggle
+            if (langSwitchBtn) langSwitchBtn.addEventListener("click", toggleLanguage);
+            if (drawerLangBtn) drawerLangBtn.addEventListener("click", toggleLanguage);
+            
+            // Navbar Scrolled opacity
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 50) {
+                    mainNav.classList.remove("transparent");
+                    mainNav.classList.add("scrolled");
+                } else {
+                    mainNav.classList.remove("scrolled");
+                    mainNav.classList.add("transparent");
+                }
+            });
+        }
+
+        // Toggle Benefit Accordions
+        function toggleBenefit(card) {
+            // Close other active cards
+            const allCards = document.querySelectorAll(".benefit-card");
+            allCards.forEach(c => {
+                if (c !== card && c.classList.contains("active")) {
+                    c.classList.remove("active");
+                }
+            });
+            card.classList.toggle("active");
+        }
+
+        // Language toggle logic
+        function toggleLanguage() {
+            const nextLang = currentLang === "zh" ? "en" : "zh";
+            document.body.classList.add("lang-transitioning");
+            
+            setTimeout(() => {
+                updateLanguage(nextLang);
+                document.body.classList.remove("lang-transitioning");
+            }, 200);
+        }
+
+        function updateLanguage(lang) {
+            document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+            localStorage.setItem("lang", lang);
+            currentLang = lang;
+
+            // Translate static elements with key
+            const translateElements = document.querySelectorAll("[data-key]");
+            translateElements.forEach(el => {
+                const key = el.getAttribute("data-key");
+                if (PASS_DICT[lang] && PASS_DICT[lang][key] !== undefined) {
+                    el.innerHTML = PASS_DICT[lang][key];
+                }
+            });
+
+            // Translate specific page elements
+            const keysToTranslate = [
+                "card-front-title", "card-holder-lbl", "card-timer-text", "click-tip",
+                "reg-title", "reg-desc", "lbl-name", "lbl-phone", "reg-submit",
+                "act-title", "act-desc", "act-lbl-holder", "act-lbl-phone", "act-lbl-no",
+                "act-lbl-status", "act-val-status", "ben-section-title", "ben-section-subtitle",
+                "b1-title", "b1-desc", "b-detail-title", "b1-r1", "b1-r2", "b1-r3",
+                "b2-title", "b2-desc", "b-detail-title2", "b2-r1", "b2-r2", "b2-r3",
+                "b3-title", "b3-desc", "b-detail-title3", "b3-r1", "b3-r2", "b3-r3",
+                "group-footer-text"
+            ];
+
+            keysToTranslate.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && PASS_DICT[lang][id] !== undefined) {
+                    el.innerHTML = PASS_DICT[lang][id];
+                }
+            });
+
+            // Translate placeholder
+            const regNameInput = document.getElementById("reg-name");
+            const regPhoneInput = document.getElementById("reg-phone");
+            if (regNameInput) regNameInput.setAttribute("placeholder", lang === "zh" ? "请填写您的名字" : "Please enter your name");
+            if (regPhoneInput) regPhoneInput.setAttribute("placeholder", lang === "zh" ? "请输入11位手机号码" : "Please enter your 11-digit phone number");
+
+            // Update buttons text
+            const langBtns = document.querySelectorAll(".lang-switch-btn");
+            langBtns.forEach(btn => {
+                btn.textContent = lang === "zh" ? "EN" : "中文";
+            });
+        }
+
+        // QR Timer Logic
+        function startQrTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            countdownVal = 30;
+            
+            // Initial QR refresh
+            refreshQrCode();
+
+            timerInterval = setInterval(() => {
+                countdownVal--;
+                if (countdownVal <= 0) {
+                    countdownVal = 30;
+                    refreshQrCode();
+                    showToast(PASS_DICT[currentLang]["refresh-qr"], "info");
+                }
+                
+                // Update timer text inside back of card
+                const timerText = document.getElementById("card-timer-text");
+                if (timerText) {
+                    timerText.textContent = currentLang === "zh" 
+                        ? `验证码将在 ${countdownVal} 秒后自动刷新` 
+                        : `QR refreshes in ${countdownVal}s`;
+                }
+            }, 1000);
+        }
+
+        function refreshQrCode() {
+            // Flashing animation on QR box
+            if (cardQrBox) {
+                cardQrBox.style.opacity = "0.2";
+                setTimeout(() => {
+                    cardQrBox.style.opacity = "1";
+                }, 150);
+            }
+        }
+
+        // Show Toast Notification helper
+        function showToast(message, type = "info") {
+            const container = document.getElementById("toast-container");
+            if (!container) return;
+
+            const toast = document.createElement("div");
+            toast.style.background = "#1C1A17";
+            toast.style.color = "#F0EAE1";
+            toast.style.padding = "12px 24px";
+            toast.style.borderRadius = "8px";
+            toast.style.boxShadow = "0 8px 30px rgba(0,0,0,0.15)";
+            toast.style.fontSize = "0.85rem";
+            toast.style.fontWeight = "500";
+            toast.style.display = "flex";
+            toast.style.alignItems = "center";
+            toast.style.gap = "10px";
+            toast.style.opacity = "0";
+            toast.style.transform = "translateY(20px)";
+            toast.style.transition = "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)";
+            toast.style.borderLeft = type === "success" ? "4px solid #2B4C30" : (type === "warning" ? "4px solid #E5B560" : "4px solid #C5A880");
+
+            let icon = "fa-circle-info";
+            if (type === "success") icon = "fa-circle-check";
+            if (type === "warning") icon = "fa-triangle-exclamation";
+            
+            toast.innerHTML = `<i class="fa-solid ${icon}" style="color: ${type === 'success' ? '#6E9B7B' : (type === 'warning' ? '#E5B560' : '#C5A880')}"></i> <span>${message}</span>`;
+            container.appendChild(toast);
+
+            // Animate in
+            setTimeout(() => {
+                toast.style.opacity = "1";
+                toast.style.transform = "translateY(0)";
+            }, 10);
+
+            // Remove after 3.5 seconds
+            setTimeout(() => {
+                toast.style.opacity = "0";
+                toast.style.transform = "translateY(-20px)";
+                setTimeout(() => {
+                    toast.remove();
+                }, 350);
+            }, 3500);
+        }
+    </script>
+</body>
+</html>

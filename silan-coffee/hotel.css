@@ -2384,3 +2384,106 @@ button {
         gap: 2rem;
     }
 }
+
+/* ==========================================================================
+   Group Brands Dropdown & Footer Badges
+   ========================================================================== */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-dropdown .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    cursor: pointer;
+}
+
+.nav-dropdown .menu-item i {
+    font-size: 0.75rem;
+    transition: transform var(--transition-fast);
+}
+
+.nav-dropdown:hover .menu-item i {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(44, 46, 48, 0.12);
+    min-width: 160px;
+    padding: 0.6rem 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 1000;
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+}
+
+.nav-dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 0.5rem 1.2rem;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-main);
+    transition: var(--transition-fast);
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    color: var(--primary);
+    background-color: rgba(85, 107, 47, 0.05);
+}
+
+.navbar.transparent .dropdown-content a {
+    color: var(--text-main);
+}
+
+/* Footer Badge */
+.footer-group-badge-container {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(230, 221, 208, 0.2);
+}
+
+.footer-group-badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-group-badge .badge-brands {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+.footer-group-badge .badge-label {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+}

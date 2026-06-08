@@ -19,11 +19,21 @@
 
     <!-- Header Navigation -->
     <header class="navbar transparent" id="main-nav">
-        <a href="index.html" class="nav-logo">
-            <span class="logo-coord">18°D</span>
-            <span class="logo-text">COFFEE</span>
+        <a href="bistro.html" class="nav-logo">
+            <span class="logo-coord">SILAN</span>
+            <span class="logo-text">汐澜中餐</span>
         </a>
         <nav class="nav-menu">
+            <!-- Group Brands Dropdown -->
+            <div class="nav-dropdown">
+                <a href="shanhai-pass.html" class="menu-item" data-key="nav-group-brand">山海集团 <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="hotel.html" data-key="nav-group-hotel">亚美旅宿 | YAMEI</a>
+                    <a href="index.html" data-key="nav-group-coffee">18°D咖啡 | 18°D</a>
+                    <a href="bistro.html" data-key="nav-group-bistro">汐澜中餐 | SILAN</a>
+                    <a href="shanhai-pass.html" data-key="nav-group-pass" style="border-top: 1px solid rgba(28,26,23,0.08); margin-top: 5px; padding-top: 8px;">山海通行证 | PASS</a>
+                </div>
+            </div>
             <!-- Brand stories Dropdown -->
             <div class="nav-dropdown">
                 <a href="index.html" class="menu-item" data-key="nav-brand">品牌故事 <i class="fa-solid fa-chevron-down"></i></a>
@@ -90,20 +100,20 @@
     <!-- Mobile Drawer Menu -->
     <div class="mobile-drawer hidden" id="mobile-drawer">
         <div class="drawer-header">
-            <span class="logo-coord">18°D COFFEE</span>
+            <span class="logo-coord">SILAN 汐澜中餐</span>
             <div class="drawer-header-actions">
                 <button class="lang-switch-btn drawer-lang-btn" id="drawer-lang-btn">EN</button>
                 <button class="drawer-close" id="mobile-close-btn"><i class="fa-solid fa-xmark"></i></button>
             </div>
         </div>
         <div class="drawer-links">
-            <a href="index.html" class="drawer-item" data-key="nav-home">品牌首页</a>
+            <a href="shanhai-pass.html" class="drawer-item" data-key="nav-group-pass" style="font-weight: 600; border-bottom: 1px solid rgba(28,26,23,0.08); padding-bottom: 8px; margin-bottom: 8px;">山海通行证 | PASS</a>
+            <a href="hotel.html" class="drawer-item">亚美旅宿 | YAMEI</a>
+            <a href="index.html" class="drawer-item" data-key="nav-home">18°D咖啡 | 18°D</a>
+            <a href="bistro.html" class="drawer-item active-nav-link">汐澜中餐 | SILAN</a>
             <a href="index.html#order-section" class="drawer-item" data-key="nav-order">扫桌点单</a>
             <a href="club.html" class="drawer-item" data-key="nav-club">海岛会员</a>
             <a href="booking.html" class="drawer-item" data-key="nav-booking-nav">体验预约</a>
-            <a href="hotel.html" class="drawer-item">亚美旅宿</a>
-            <a href="hotel-club.html" class="drawer-item">酒店会员中心</a>
-            <a href="bistro.html" class="drawer-item active-nav-link">汐澜中餐</a>
             <a href="about.html" class="drawer-item" data-key="nav-about-sub">关于我们</a>
         </div>
     </div>
@@ -644,7 +654,7 @@
     <footer class="site-footer">
         <div class="container footer-grid">
             <div class="footer-brand-box">
-                <a href="index.html" class="footer-logo">18°D COFFEE</a>
+                <a href="bistro.html" class="footer-logo">SILAN 汐澜中餐</a>
                 <p class="footer-slogan" data-key="footer-desc">在黄金纬度，以人文善意，重塑每一份日常风物。</p>
                 <div class="footer-badges">
                     <span class="footer-badge-item"><i class="fa-solid fa-leaf"></i> 100% 环保有机</span>
@@ -671,6 +681,13 @@
                     <a href="hotel.html">亚美旅宿</a>
                     <a href="hotel-club.html">独立会员中心</a>
                 </div>
+            </div>
+        </div>
+
+        <div class="footer-group-badge-container" style="max-width: 1200px; margin: 0 auto; padding: 0 5%;">
+            <div class="footer-group-badge">
+                <span class="badge-brands">YAMEI &times; 18&deg;D &times; 汐澜</span>
+                <span class="badge-label" data-key="group-footer-text">山海共生美学生活集团旗下品牌</span>
             </div>
         </div>
         
