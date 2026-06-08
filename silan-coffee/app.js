@@ -315,6 +315,11 @@ const I18N_DICTS = {
         "care-opt-silent": "无声手语与安静协助（听障咖啡师手语、中餐手语菜单、无打扰配送）",
         "care-opt-elder-diet": "长辈膳食与温情关怀（低盐膳食定制、客房备妥艾草草本热水袋）",
         "ticket-care-detail-title": "山海联动暖心服务执行清单",
+        "careers-philo-title": "山海共生 · 集团品牌理念",
+        "careers-philo-text": "“同一片土地，三种体验，一个完整的海南。”<br>我们坚信，无论是18°D咖啡所专注的“澄迈火山玄武岩红土豆”、汐澜中餐所坚守的“海岸线时令食材”，还是亚美旅宿所秉持的“山海间的安静落脚处”，都在以各自的日常美学，致敬脚下这片富饶的风土。在集团的大家庭里，我们用人文善意搭建起全链路的暖心无障碍通道与关怀。我们招募的不是雇员，而是与自然和谐共生、对邻里满怀温暖的同路旅人。",
+        "careers-philo-b1": '<i class="fa-solid fa-seedling"></i> 火山红土风土敬畏',
+        "careers-philo-b2": '<i class="fa-solid fa-hands-holding"></i> 全链路无障碍关怀',
+        "careers-philo-b3": '<i class="fa-solid fa-recycle"></i> 废弃咖啡渣生态循环',
 
         // Nav Menu
         "nav-latitude": "黄金纬度",
@@ -636,6 +641,11 @@ const I18N_DICTS = {
         "care-opt-silent": "Silent Sign Language & Peaceful Service (Deaf barista signing, sign-language menu helper, do-not-disturb delivery)",
         "care-opt-elder-diet": "Elders Healthy Diet & Mugwort Bag (Low-sodium diet custom, bed-side mugwort heating bag)",
         "ticket-care-detail-title": "Shanhai Inclusive Care Execution Roadmap",
+        "careers-philo-title": "Shanhai Coexistence · Group Philosophy",
+        "careers-philo-text": "'One land, three experiences, one complete Hainan.'<br>We believe that whether it is the 'volcanic rich-selenium coffee beans' at 18°D Coffee, the 'coastal wild seasonal ingredients' at Silan Bistro, or the 'quiet mountain-sea sanctuary' at Yamei Hotel, they all pay homage to the local terroir. Within our group, we coordinate services to weave a warm, seamless accessible care roadmap. We are not hiring employees, but inviting fellow travelers who co-exist with nature and care for Sanya's communities.",
+        "careers-philo-b1": '<i class="fa-solid fa-seedling"></i> Volcanic soil terroir respect',
+        "careers-philo-b2": '<i class="fa-solid fa-hands-holding"></i> Unified barrier-free care',
+        "careers-philo-b3": '<i class="fa-solid fa-recycle"></i> Coffee ground microcycling',
 
         // Nav Menu
         "nav-latitude": "Latitude",
