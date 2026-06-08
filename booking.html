@@ -392,14 +392,39 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="joint-care" data-key="book-label-care">特殊关怀安排 (暖心服务)</label>
-                            <select id="joint-care">
-                                <option value="none" selected>无特殊安排需求</option>
-                                <option value="stroller">携婴幼儿同行（需婴儿车停放位/儿童椅）</option>
-                                <option value="wheelchair">行动不便/携长辈（需要无障碍斜坡引导与平地卡座）</option>
-                                <option value="pet">携带爱宠（需要宠物水碗及免费自制椰子犬类零食）</option>
-                                <option value="disability">视力/听力障碍人士暖心助览服务</option>
-                            </select>
+                            <label data-key="book-label-care" style="margin-bottom: 12px; display: block;">定制暖心无障碍与人文关怀（可多选）</label>
+                            <div class="care-checkbox-grid">
+                                <label class="care-checkbox-item">
+                                    <input type="checkbox" name="joint-care-option" value="stroller">
+                                    <span class="care-checkmark"></span>
+                                    <span class="care-checkbox-text" data-key="care-opt-stroller">婴幼儿专属关怀（备妥温奶器、消杀儿童椅及客房浴盆儿童礼包）</span>
+                                </label>
+                                <label class="care-checkbox-item">
+                                    <input type="checkbox" name="joint-care-option" value="wheelchair">
+                                    <span class="care-checkmark"></span>
+                                    <span class="care-checkbox-text" data-key="care-opt-wheelchair">长辈与行动不便无障碍（锁定平地卡座、全程坡道引导及无障碍客房）</span>
+                                </label>
+                                <label class="care-checkbox-item">
+                                    <input type="checkbox" name="joint-care-option" value="pet">
+                                    <span class="care-checkmark"></span>
+                                    <span class="care-checkbox-text" data-key="care-opt-pet">宠物友好伴侣（自制椰奶零食、饮水盆、一次性尿垫及海滩救生衣）</span>
+                                </label>
+                                <label class="care-checkbox-item">
+                                    <input type="checkbox" name="joint-care-option" value="disability">
+                                    <span class="care-checkmark"></span>
+                                    <span class="care-checkbox-text" data-key="care-opt-disability">视力障碍暖心助览（配备盲文菜单、专职导览店员、客房潮汐声音）</span>
+                                </label>
+                                <label class="care-checkbox-item">
+                                    <input type="checkbox" name="joint-care-option" value="silent-service">
+                                    <span class="care-checkmark"></span>
+                                    <span class="care-checkbox-text" data-key="care-opt-silent">无声手语与安静协助（听障咖啡师手语、中餐手语菜单、无打扰客房服务）</span>
+                                </label>
+                                <label class="care-checkbox-item">
+                                    <input type="checkbox" name="joint-care-option" value="elder-diet">
+                                    <span class="care-checkmark"></span>
+                                    <span class="care-checkbox-text" data-key="care-opt-elder-diet">长辈膳食与温情关怀（低盐膳食定制、客房备妥艾草草本热水袋）</span>
+                                </label>
+                            </div>
                         </div>
 
                         <button type="submit" class="submit-reserve-btn" style="background-color: var(--accent); color: #1C1A17; font-weight: bold;" data-key="book-joint-submit-btn">
@@ -603,6 +628,17 @@
                         <div class="right-text">
                             <h4 data-key="ticket-care-title">人文关怀专属登记</h4>
                             <p id="voucher-care-text">已安排宠物友好席位并提供饮水盆</p>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Care Customization List -->
+                    <div id="voucher-care-list-container" style="display: none; margin-top: 0.8rem; text-align: left; width: 100%;">
+                        <div class="ticket-care-badge" style="background: rgba(43, 76, 48, 0.04); border: 1px solid rgba(43, 76, 48, 0.12); flex-direction: column; align-items: flex-start; padding: 15px;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                                <div class="left-icon" style="color: var(--primary); font-size: 1.1rem; width: auto; height: auto;"><i class="fa-solid fa-hands-holding-child"></i></div>
+                                <h4 data-key="ticket-care-detail-title" style="color: var(--primary); font-size: 0.9rem; margin: 0; font-family: var(--font-serif);">山海联动暖心服务执行清单</h4>
+                            </div>
+                            <div id="voucher-care-list-body" class="voucher-care-list-body" style="width: 100%; font-size: 0.75rem; line-height: 1.5; color: var(--text-main);"></div>
                         </div>
                     </div>
 

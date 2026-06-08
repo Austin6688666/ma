@@ -308,6 +308,13 @@ const I18N_DICTS = {
         "joint-n3-desc": "低碳美学私房晚餐",
         "joint-n4-desc": "静谧竹影雅居客房1晚",
         "book-joint-submit-btn": "一键预约山海一日行程",
+        "care-opt-stroller": "婴幼儿专属关怀（备妥温奶器、消杀儿童椅及客房儿童礼包）",
+        "care-opt-wheelchair": "长辈与行动不便无障碍（锁定平地卡座、全程坡道引导及无障碍客房）",
+        "care-opt-pet": "宠物友好伴侣（自制椰奶零食、饮水盆、一次性尿垫及海滩救生衣）",
+        "care-opt-disability": "视力障碍暖心助览（配备盲文菜单、专职导览店员、客房声音）",
+        "care-opt-silent": "无声手语与安静协助（听障咖啡师手语、中餐手语菜单、无打扰配送）",
+        "care-opt-elder-diet": "长辈膳食与温情关怀（低盐膳食定制、客房备妥艾草草本热水袋）",
+        "ticket-care-detail-title": "山海联动暖心服务执行清单",
 
         // Nav Menu
         "nav-latitude": "黄金纬度",
@@ -622,6 +629,13 @@ const I18N_DICTS = {
         "joint-n3-desc": "Low-carbon private custom dinner",
         "joint-n4-desc": "Zhuying Room for 1 night (*Priority)",
         "book-joint-submit-btn": "Book Shanhai Day Program",
+        "care-opt-stroller": "Infant & Toddler Care (Bottle warmer, sanitized high chair, and room kids pack)",
+        "care-opt-wheelchair": "Accessibility & Elders (Flat table, ramp assistance, and accessible guestroom)",
+        "care-opt-pet": "Pet Companion Plan (Homemade coconut pet biscuits, dedicated bowls, pad, & beach lifejacket)",
+        "care-opt-disability": "Visual Impairment Orientation (Braille menus, dedicated guide assistant, room tide soundtrack)",
+        "care-opt-silent": "Silent Sign Language & Peaceful Service (Deaf barista signing, sign-language menu helper, do-not-disturb delivery)",
+        "care-opt-elder-diet": "Elders Healthy Diet & Mugwort Bag (Low-sodium diet custom, bed-side mugwort heating bag)",
+        "ticket-care-detail-title": "Shanhai Inclusive Care Execution Roadmap",
 
         // Nav Menu
         "nav-latitude": "Latitude",
@@ -1501,8 +1515,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const guestsSelect = document.getElementById("joint-guests-count");
             const guests = guestsSelect.options[guestsSelect.selectedIndex].text;
             const date = document.getElementById("joint-date").value;
-            const careNeedSelect = document.getElementById("joint-care");
-            const careNeedVal = careNeedSelect ? careNeedSelect.value : "none";
+            const careOptions = Array.from(document.querySelectorAll("input[name='joint-care-option']:checked")).map(el => el.value);
             
             // Format phone number: mask middle 4 digits
             const maskedPhone = phone.replace(/(\d{3})\d{4}(\d{4})/, "$1****$2");
@@ -1563,37 +1576,136 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            // Adjust care need badge
+            // Adjust care need badge and multi-brand execution checklist
             const vCareContainer = document.getElementById("voucher-care-container");
             const vCareText = document.getElementById("voucher-care-text");
-            if (vCareContainer && vCareText) {
-                if (careNeedVal !== "none") {
-                    vCareContainer.style.display = "flex";
-                    let desc = "";
-                    if (currentLang === "en") {
-                        if (careNeedVal === "stroller") {
-                            desc = "Spacious spaces with baby high chair reserved at both Coffee, Bistro, and Hotel room.";
-                        } else if (careNeedVal === "wheelchair") {
-                            desc = "All three locations notified. Barrier-free table and room assigned. Ramp assistance ready.";
-                        } else if (careNeedVal === "pet") {
-                            desc = "Pet bowls and single-use pad set at both coffee shop and Silan Bistro. Pet-welcoming room locked.";
-                        } else if (careNeedVal === "disability") {
-                            desc = "Dedicated guide assigned at both coffee shop, bistro dining hall, and hotel checking desk.";
-                        }
-                    } else {
-                        if (careNeedVal === "stroller") {
-                            desc = "咖啡厅、中餐席位及旅宿客房均已预留婴幼儿车位，并备妥紫外线消杀儿童椅与儿童礼包。";
-                        } else if (careNeedVal === "wheelchair") {
-                            desc = "已一键同步三处地点。为您锁定无障碍通道房及清水石卡座，前台与店员将提前出迎提供引导。";
-                        } else if (careNeedVal === "pet") {
-                            desc = "已安排咖啡及汐澜宠物友好桌。房间已做无尘处理并备有宠物纯净饮水盆及冷榨椰子饼干。";
-                        } else if (careNeedVal === "disability") {
-                            desc = "已登记暖心特殊关怀协助。届时我们将指派一名专职店员为您进行语音点单指引，并伴随落日潮汐进行声画导览。";
-                        }
+            const careListContainer = document.getElementById("voucher-care-list-container");
+            const careListBody = document.getElementById("voucher-care-list-body");
+
+            const careDetails = {
+                zh: {
+                    stroller: {
+                        title: "👶 婴幼儿专属关怀",
+                        specialist: "婴幼儿关怀管家：小文",
+                        coffee: "18°D 咖啡：备妥儿童无菌椅，并提供保温温奶服务及温热牛奶。",
+                        bistro: "汐澜中餐：为家庭锁定微风开阔席位，备好经紫外线消杀的儿童餐具与宝宝椅。",
+                        hotel: "亚美旅宿：客房内提前放置防滑婴儿浴盆、环保木质摇铃及儿童温和备品礼包。"
+                    },
+                    wheelchair: {
+                        title: "♿ 行动不便与长辈无障碍",
+                        specialist: "无障碍出迎管家：阿峰",
+                        coffee: "18°D 咖啡：专人导引平地缓坡入座，留出宽敞的轮椅轮置通道空间。",
+                        bistro: "汐澜中餐：锁定一层无门槛清水石露台大圆桌，提供全平无障碍通路。",
+                        hotel: "亚美旅宿：优先分配一层低位开关及扶手拉栏的无障碍竹影大床房。"
+                    },
+                    pet: {
+                        title: "🐾 宠物友好伴侣计划",
+                        specialist: "爱宠侍奉管家：阿木",
+                        coffee: "18°D 咖啡：提供专用饮水盆，赠送无糖椰油烘干犬类松饼零食。",
+                        bistro: "汐澜中餐：锁定海滩露台宠物桌，提供防风系绳锚点及宠物洁净淡水。",
+                        hotel: "亚美旅宿：房间铺设降解咖啡渣除味尿垫，提供专用食盆及迷你救生衣。"
+                    },
+                    disability: {
+                        title: "👁️ 视力障碍暖心助览",
+                        specialist: "声音导引管家：阿强",
+                        coffee: "18°D 咖啡：提供触觉盲文纸质菜单，由主理人进行咖啡豆香气嗅觉导览。",
+                        bistro: "汐澜中餐：指派专人进行餐品摆盘方位声画讲解（如“鱼位于三点钟方向”）。",
+                        hotel: "亚美旅宿：客房音响默认开启白噪音潮汐伴眠，大堂提供触感盲道引导。"
+                    },
+                    "silent-service": {
+                        title: "🤟 无声手语与安静协助",
+                        specialist: "手语共创管家：阿林",
+                        coffee: "18°D 咖啡：由 SCA 认证听障咖啡师以自然手语致意，提供手语字牌沟通。",
+                        bistro: "汐澜中餐：提供图示卡片点单册，服务员以基本手语指引，全程轻音服务。",
+                        hotel: "亚美旅宿：客房启用“无打扰”指示灯配送，专人无声送件，保障绝对隐私安宁。"
+                    },
+                    "elder-diet": {
+                        title: "🍵 长辈膳食定制与温情暖袋",
+                        specialist: "长辈膳食管家：主厨阿峰",
+                        coffee: "18°D 咖啡：免费将手冲升级为澄迈火山富硒大麦温热谷物特调（无咖啡因）。",
+                        bistro: "汐澜中餐：通知主厨对正餐菜品做低盐、低糖、低嘌呤无化学调味定制处理。",
+                        hotel: "亚美旅宿：睡前将中草药艾草草本温热袋放置于床头，备好全温控恒温水杯。"
                     }
-                    vCareText.textContent = desc;
+                },
+                en: {
+                    stroller: {
+                        title: "👶 Infant & Kids Care",
+                        specialist: "Care Specialist: Winnie (Housekeeping)",
+                        coffee: "18°D Coffee: High chair prepared, milk warming service and hot milk provided.",
+                        bistro: "Silan Bistro: Open airy table reserved, sanitized utensils and baby chair ready.",
+                        hotel: "Yamei Hotel: Non-slip baby tub, wooden baby toy, and organic kids wash pack placed in room."
+                    },
+                    wheelchair: {
+                        title: "♿ Accessibility & Elders",
+                        specialist: "Accessibility Specialist: Frank (Guest Experience)",
+                        coffee: "18°D Coffee: Accessible seating ramp guided, spacious layout reserved.",
+                        bistro: "Silan Bistro: Ground floor seamless entrance round table locked.",
+                        hotel: "Yamei Hotel: Ground floor accessible room with low switches and safety bar assigned."
+                    },
+                    pet: {
+                        title: "🐾 Pet Companion Plan",
+                        specialist: "Pet Specialist: Mumu (Pet Concierge)",
+                        coffee: "18°D Coffee: Pet water bowl and sugar-free coconut dried biscuit treats provided.",
+                        bistro: "Silan Bistro: Outdoor beachside table reserved with tie anchors and fresh water.",
+                        hotel: "Yamei Hotel: Coffee-compost odor-control pad, pet dining bowl, and lifejacket ready."
+                    },
+                    disability: {
+                        title: "👁️ Visual Impairment Orientation",
+                        specialist: "Audio Guide Specialist: Qiang (Orientation Pro)",
+                        coffee: "18°D Coffee: Braille tactile menu provided, fragrance jar sensory experience guided.",
+                        bistro: "Silan Bistro: Staff assigned to explain food clock coordinates (e.g. 'fish at 3 o'clock').",
+                        hotel: "Yamei Hotel: Room smart speaker pre-configured with tide sounds; tactile route guidance."
+                    },
+                    "silent-service": {
+                        title: "🤟 Silent Signing & Quiet Service",
+                        specialist: "Sign Specialist: Alin (SCA Deaf Specialist)",
+                        coffee: "18°D Coffee: Served by certified deaf baristas with sign language greeting and card tools.",
+                        bistro: "Silan Bistro: Visual menu card book provided, basic sign language guided by table staff.",
+                        hotel: "Yamei Hotel: Silent do-not-disturb delivery mode activated, keyless guestroom service."
+                    },
+                    "elder-diet": {
+                        title: "🍵 Elders Healthy Diet & Mugwort",
+                        specialist: "Diet Specialist: Chef Feng (F&B Director)",
+                        coffee: "18°D Coffee: Hand-drip upgraded to hot caffeine-free volcanic grain brew.",
+                        bistro: "Silan Bistro: Executive chef notified to customize dinner for low-sodium and low-purine.",
+                        hotel: "Yamei Hotel: Mugwort warming water bag placed on bed; temperature-controlled mug ready."
+                    }
+                }
+            };
+
+            if (careListContainer && careListBody) {
+                if (careOptions.length > 0) {
+                    careListContainer.style.display = "block";
+                    let listHtml = "";
+                    careOptions.forEach(opt => {
+                        const item = careDetails[currentLang] && careDetails[currentLang][opt];
+                        if (item) {
+                            listHtml += `
+                                <div class="care-list-item">
+                                    <div class="care-list-item-title">
+                                        <span>${item.title}</span>
+                                        <span class="care-specialist-badge">${item.specialist}</span>
+                                    </div>
+                                    <div class="care-brand-actions">
+                                        <div class="care-brand-line"><strong>☕ 18°D</strong>: ${item.coffee}</div>
+                                        <div class="care-brand-line"><strong>🍽️ 汐澜</strong>: ${item.bistro}</div>
+                                        <div class="care-brand-line"><strong>🏨 亚美</strong>: ${item.hotel}</div>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    });
+                    careListBody.innerHTML = listHtml;
+                    
+                    if (vCareContainer && vCareText) {
+                        vCareContainer.style.display = "flex";
+                        vCareText.innerHTML = currentLang === "en" 
+                            ? `Customized ${careOptions.length} inclusive service items.` 
+                            : `已为您定制并下发 ${careOptions.length} 项联动无障碍关怀服务。`;
+                    }
                 } else {
-                    vCareContainer.style.display = "none";
+                    careListContainer.style.display = "none";
+                    if (vCareContainer) vCareContainer.style.display = "none";
                 }
             }
 
