@@ -293,6 +293,22 @@ const SELECT_I18N = {
 // ==========================================
 const I18N_DICTS = {
     zh: {
+        // Shanhai Group Additions
+        "group-footer-text": "山海共生美学生活集团旗下品牌",
+        "nav-group-brand": '山海集团 <i class="fa-solid fa-chevron-down"></i>',
+        "nav-group-hotel": '亚美旅宿 | YAMEI',
+        "nav-group-coffee": '18°D咖啡 | 18°D',
+        "nav-group-bistro": '汐澜中餐 | SILAN',
+        "nav-group-pass": '山海通行证 | PASS',
+        "book-joint-title": "山海一日联合预约",
+        "book-joint-subtitle": "早咖啡、午推荐、晚私房、夜美宿，一键预约三处体验",
+        "book-timeline-title": "「山海一日」行程规划",
+        "joint-n1-desc": "晨光手冲 & 潮汐风味日历",
+        "joint-n2-desc": "午市主厨时令推荐菜",
+        "joint-n3-desc": "低碳美学私房晚餐",
+        "joint-n4-desc": "静谧竹影雅居客房1晚",
+        "book-joint-submit-btn": "一键预约山海一日行程",
+
         // Nav Menu
         "nav-latitude": "黄金纬度",
         "nav-materials": "原料溯源",
@@ -352,7 +368,7 @@ const I18N_DICTS = {
         "story-caption-label": "摄影纪实",
         "story-caption-desc": "放置在海岸玄武岩上的18°D可循环砂岩杯，杯体由海滩清理中回收的贝壳细砂与天然树脂复合制成。",
         "story-body1": "18°D 咖啡的起点，源自一次看似偶然的野外地质勘测。2024年秋，几位咖啡主理人与澄迈火山地质专家同行，站在富含矿物质的玄武岩红土上，手里握着当地咖啡农捧出的一把生豆。地质学者的一句话点醒了我们：这片土地沉淀了数万年的火山微量元素，海棠湾潮汐海风又源源不断地送来盐分与水分，这就是大自然的风味配方。",
-        "story-body2": "回到三亚后，我们创立了 18°D（18°Degree）。我们建立了一套属于海岸的“提取纪实”：只选用火山岩红土地带的单一源（Single Origin）咖啡，并与文昌东郊椰林签署有机椰乳直供协议。为了能让自然与邻里在这里和谐共处，我们不仅设计了无障碍的清水日落坡道，还引入了“无声咖啡师”点单系统。这是咖啡与社会的温情碰撞，更是我们对三亚这片山海的敬畏礼赞。",
+        "story-body2": "回到三亚后，我们创立了 18°D。作为山海共生集团的一部分，我们与其他子品牌拥有共同的地理灵魂：从火山红土里长出的咖啡豆 (18°D)，到海岸线上捕来的今日食材 (汐澜中餐)，再到山与海之间最安静的落脚处 (亚美酒店)。同一片土地，三种体验，一个完整的海南。我们在咖啡中坚持单一源火山豆，并与无声咖啡师携手，向这片山海敬畏礼赞。",
         
         // Origins
         "origins-badge": "GEOGRAPHIC TRACING",
@@ -591,6 +607,22 @@ const I18N_DICTS = {
         "source-samples-label": "快速体验样本："
     },
     en: {
+        // Shanhai Group Additions
+        "group-footer-text": "A Brand of Shanhai Gongsheng Aesthetic Life Group",
+        "nav-group-brand": 'Shanhai Group <i class="fa-solid fa-chevron-down"></i>',
+        "nav-group-hotel": 'YAMEI Hotel',
+        "nav-group-coffee": '18°D Coffee',
+        "nav-group-bistro": 'SILAN Bistro',
+        "nav-group-pass": 'Shanhai Pass',
+        "book-joint-title": "Shanhai Day Itinerary Reservation",
+        "book-joint-subtitle": "Coffee, lunch, private dinner, and luxury stay—all in one click",
+        "book-timeline-title": "Shanhai Day Itinerary Plan",
+        "joint-n1-desc": "Morning Hand-drip & Tide Parameter",
+        "joint-n2-desc": "Chef's Daily Special Dish",
+        "joint-n3-desc": "Low-carbon private custom dinner",
+        "joint-n4-desc": "Zhuying Room for 1 night (*Priority)",
+        "book-joint-submit-btn": "Book Shanhai Day Program",
+
         // Nav Menu
         "nav-latitude": "Latitude",
         "nav-materials": "Tracing",
@@ -650,7 +682,7 @@ const I18N_DICTS = {
         "story-caption-label": "Photography Journal",
         "story-caption-desc": "The 18°D reusable sand cup resting on coastal basalt, crafted from recycled sand and shells collected from beach cleanups.",
         "story-body1": "18°D Coffee started during a geological field survey in Autumn 2024. Standing on mineral-rich volcanic soil, holding green beans offered by local farmers, a geologist's words inspired us: 'This land has accumulated volcanic minerals for millennia, while the tide brings salt and humidity. This is nature's formula.'",
-        "story-body2": "Returning to Sanya, we founded 18°D. We created coastal extraction standards: sourcing exclusively from volcanic Single Origin beans and organic coconut milk from Wenchang. To foster harmony, we built concrete ramps and introduced a silent gesture ordering system. This is where coffee meets community care.",
+        "story-body2": "Returning to Sanya, we founded 18°D. As part of Shanhai Group, we share a geographical soul across our brands: coffee beans grown in volcanic soils (18°D), daily fresh catches from the coastline (Silan Bistro), and the quietest sanctuary between mountains and sea (Yamei Hotel). Same land, three experiences, one complete Hainan. We present volcanic beans with silent barista mastery, honoring Sanya's coastal beauty.",
         
         // Origins
         "origins-badge": "GEOGRAPHIC TRACING",
@@ -1414,6 +1446,185 @@ document.addEventListener("DOMContentLoaded", () => {
                 tomorrow.setDate(tomorrow.getDate() + 1);
                 bookDateInput.value = tomorrow.toISOString().split('T')[0];
             }
+        });
+    }
+
+    // ==========================================
+    // 7.2 Shanhai Day Joint Booking Handler
+    // ==========================================
+    window.switchBookingType = function(type) {
+        const singleForm = document.getElementById("seat-booking-form");
+        const jointForm = document.getElementById("joint-booking-form");
+        const tabSingle = document.getElementById("tab-single");
+        const tabJoint = document.getElementById("tab-joint");
+        
+        if (type === "single") {
+            if (singleForm) singleForm.classList.remove("hidden");
+            if (jointForm) jointForm.classList.add("hidden");
+            if (tabSingle) {
+                tabSingle.classList.add("active");
+                tabSingle.style.color = "var(--text-main)";
+            }
+            if (tabJoint) {
+                tabJoint.classList.remove("active");
+                tabJoint.style.color = "var(--text-muted)";
+            }
+        } else {
+            if (singleForm) singleForm.classList.add("hidden");
+            if (jointForm) jointForm.classList.remove("hidden");
+            if (tabSingle) {
+                tabSingle.classList.remove("active");
+                tabSingle.style.color = "var(--text-muted)";
+            }
+            if (tabJoint) {
+                tabJoint.classList.add("active");
+                tabJoint.style.color = "var(--text-main)";
+            }
+            
+            // Populate default date for joint date
+            const jointDate = document.getElementById("joint-date");
+            const bookDate = document.getElementById("book-date");
+            if (jointDate && bookDate) {
+                jointDate.value = bookDate.value;
+                jointDate.min = bookDate.min;
+            }
+        }
+    };
+
+    const jointBookingForm = document.getElementById("joint-booking-form");
+    if (jointBookingForm) {
+        jointBookingForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById("joint-name").value.trim();
+            const phone = document.getElementById("joint-phone").value.trim();
+            const guestsSelect = document.getElementById("joint-guests-count");
+            const guests = guestsSelect.options[guestsSelect.selectedIndex].text;
+            const date = document.getElementById("joint-date").value;
+            const careNeedSelect = document.getElementById("joint-care");
+            const careNeedVal = careNeedSelect ? careNeedSelect.value : "none";
+            
+            // Format phone number: mask middle 4 digits
+            const maskedPhone = phone.replace(/(\d{3})\d{4}(\d{4})/, "$1****$2");
+            
+            // Generate Random Order ID
+            const dateStr = date.replace(/-/g, "");
+            const randomNum = Math.floor(1000 + Math.random() * 9000);
+            const orderId = `SHD${dateStr}${randomNum}`;
+            
+            // Populate Voucher Modal for Joint Booking
+            if (vOrderId) vOrderId.textContent = orderId;
+            if (vName) vName.textContent = name;
+            if (vPhone) vPhone.textContent = maskedPhone;
+            if (vGuests) vGuests.textContent = guests;
+            if (vDate) vDate.textContent = date;
+            
+            // Render Joint timeline detail inside vTime
+            if (vTime) {
+                let listHtml = "";
+                if (currentLang === "en") {
+                    listHtml = `
+                        <div class="joint-voucher-schedule" style="text-align: left; font-size: 0.8rem; margin-top: 10px; background: rgba(197, 168, 128, 0.05); border: 1px solid rgba(197, 168, 128, 0.15); border-radius: 8px; padding: 12px;">
+                            <h4 style="font-family: var(--font-serif); font-size: 0.9rem; color: var(--accent); margin-bottom: 8px; border-bottom: 1px solid rgba(197,168,128,0.2); padding-bottom: 5px;">Shanhai Day Itinerary</h4>
+                            <div style="margin-bottom: 5px;">☀️ <strong>08:00 Coffee</strong>: 18°D Hand-drip & Tide Parameter</div>
+                            <div style="margin-bottom: 5px;">🍱 <strong>12:00 Lunch</strong>: Silan Chef's Special Dish</div>
+                            <div style="margin-bottom: 5px;">🍷 <strong>18:00 Dinner</strong>: Silan Low-carbon Private Dinner</div>
+                            <div>🏨 <strong>21:00 Lodging</strong>: Yamei Zhuying Room (*Check-in priority)</div>
+                        </div>
+                    `;
+                } else {
+                    listHtml = `
+                        <div class="joint-voucher-schedule" style="text-align: left; font-size: 0.8rem; margin-top: 10px; background: rgba(197, 168, 128, 0.05); border: 1px solid rgba(197, 168, 128, 0.15); border-radius: 8px; padding: 12px;">
+                            <h4 style="font-family: var(--font-serif); font-size: 0.9rem; color: var(--accent); margin-bottom: 8px; border-bottom: 1px solid rgba(197,168,128,0.2); padding-bottom: 5px;">「山海一日」联合预订明细</h4>
+                            <div style="margin-bottom: 5px;">☀️ <strong>08:00 晨光咖啡</strong>: 18°D 专属手冲与自然参数萃取</div>
+                            <div style="margin-bottom: 5px;">🍱 <strong>12:00 海岛正午</strong>: 汐澜中餐主厨今日一句话推荐菜</div>
+                            <div style="margin-bottom: 5px;">🍷 <strong>18:00 日落晚宴</strong>: 汐澜低碳私房美学晚餐</div>
+                            <div>🏨 <strong>21:00 静谧宿处</strong>: 亚美旅宿竹影大床房1晚 (*前台优先选房)</div>
+                        </div>
+                    `;
+                }
+                vTime.innerHTML = listHtml;
+            }
+            
+            // Adjust carbon emission text
+            const ecoBadge = document.querySelector(".ticket-eco-badge");
+            if (ecoBadge) {
+                ecoBadge.style.display = "flex"; 
+                const ecoTitle = ecoBadge.querySelector("h4");
+                const ecoDesc = ecoBadge.querySelector("p");
+                if (ecoTitle && ecoDesc) {
+                    if (currentLang === "en") {
+                        ecoTitle.textContent = "Eco Joint Booking Discount: +300 Points";
+                        ecoDesc.textContent = "You've successfully booked our unified low-carbon day program, reducing food waste and hotel printouts.";
+                    } else {
+                        ecoTitle.textContent = "山海一日低碳出行：+300 积分已累积";
+                        ecoDesc.textContent = "您已成功订阅山海一日联合低碳计划，全程倡议绿色出行与光盘行动。凭此单可获取免费环保礼遇！";
+                    }
+                }
+            }
+
+            // Adjust care need badge
+            const vCareContainer = document.getElementById("voucher-care-container");
+            const vCareText = document.getElementById("voucher-care-text");
+            if (vCareContainer && vCareText) {
+                if (careNeedVal !== "none") {
+                    vCareContainer.style.display = "flex";
+                    let desc = "";
+                    if (currentLang === "en") {
+                        if (careNeedVal === "stroller") {
+                            desc = "Spacious spaces with baby high chair reserved at both Coffee, Bistro, and Hotel room.";
+                        } else if (careNeedVal === "wheelchair") {
+                            desc = "All three locations notified. Barrier-free table and room assigned. Ramp assistance ready.";
+                        } else if (careNeedVal === "pet") {
+                            desc = "Pet bowls and single-use pad set at both coffee shop and Silan Bistro. Pet-welcoming room locked.";
+                        } else if (careNeedVal === "disability") {
+                            desc = "Dedicated guide assigned at both coffee shop, bistro dining hall, and hotel checking desk.";
+                        }
+                    } else {
+                        if (careNeedVal === "stroller") {
+                            desc = "咖啡厅、中餐席位及旅宿客房均已预留婴幼儿车位，并备妥紫外线消杀儿童椅与儿童礼包。";
+                        } else if (careNeedVal === "wheelchair") {
+                            desc = "已一键同步三处地点。为您锁定无障碍通道房及清水石卡座，前台与店员将提前出迎提供引导。";
+                        } else if (careNeedVal === "pet") {
+                            desc = "已安排咖啡及汐澜宠物友好桌。房间已做无尘处理并备有宠物纯净饮水盆及冷榨椰子饼干。";
+                        } else if (careNeedVal === "disability") {
+                            desc = "已登记暖心特殊关怀协助。届时我们将指派一名专职店员为您进行语音点单指引，并伴随落日潮汐进行声画导览。";
+                        }
+                    }
+                    vCareText.textContent = desc;
+                } else {
+                    vCareContainer.style.display = "none";
+                }
+            }
+
+            // Adjust butler message
+            const vBaristaContainer = document.getElementById("voucher-barista-container");
+            const vBaristaText = document.getElementById("voucher-barista-text");
+            if (vBaristaContainer && vBaristaText) {
+                vBaristaContainer.style.display = "flex";
+                vBaristaContainer.style.background = "rgba(43, 76, 48, 0.05)";
+                vBaristaContainer.style.border = "1px solid rgba(43, 76, 48, 0.15)";
+                const vBaristaTitle = document.querySelector("#voucher-barista-container h4");
+                if (vBaristaTitle) {
+                    vBaristaTitle.textContent = currentLang === "en" ? "Group Butler Message" : "山海主理人致意";
+                }
+                
+                vBaristaText.innerHTML = currentLang === "en"
+                    ? `<strong>Shanhai Group Butler Office</strong><br>"We have coordinated coffee baristas, bistro chefs, and Yamei hotel room housekeepers to ensure your seamless coastal journey."`
+                    : `<strong>山海共生管家办公室</strong><br>“我们已为您一键协调 18°D 听障咖啡师、汐澜主厨及亚美房务部，期待明天为您开启无缝衔接的海岸美物之旅。”`;
+            }
+            
+            // Show Modal
+            if (voucherModal) {
+                voucherModal.classList.remove("hidden");
+                document.body.style.overflow = "hidden"; // Lock scroll
+            }
+            
+            const successMsg = currentLang === "en"
+                ? "Shanhai Day Program Booked! Your unified voucher has been generated"
+                : "预约成功！已为您生成「山海一日」联合电子确认单";
+            showToast(successMsg, "success");
+            jointBookingForm.reset();
         });
     }
 

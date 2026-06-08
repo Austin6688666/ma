@@ -5324,3 +5324,452 @@ body::before {
     }
 }
 
+/* ==========================================================================
+   Footer Group Brand Badge
+   ========================================================================== */
+.footer-group-badge-container {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(28, 26, 23, 0.1);
+}
+
+.footer-group-badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-group-badge .badge-brands {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+.footer-group-badge .badge-label {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Shanhai Pass Page Styles
+   ========================================================================== */
+.pass-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 5% 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .pass-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding-top: 100px;
+    }
+}
+
+/* 3D Card Flip Wrapper */
+.card-perspective {
+    perspective: 1000px;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.pass-card-flip {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.pass-card-flip.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Card Front and Back */
+.pass-card-front, .pass-card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+/* Card Front: Obsidian Bronze Luxury */
+.pass-card-front {
+    background: linear-gradient(135deg, #1C1A17 0%, #2D2A26 40%, #1A2E20 100%);
+    border: 1px solid rgba(197, 168, 128, 0.3);
+    box-shadow: 0 15px 35px rgba(28, 26, 23, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #F0EAE1;
+    overflow: hidden;
+}
+
+.pass-card-front::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-15deg);
+    transition: 0.75s;
+    pointer-events: none;
+}
+
+.card-perspective:hover .pass-card-front::before {
+    left: 100%;
+}
+
+.card-logo-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-logo-row .logo-group {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #E5B560;
+}
+
+.card-logo-row .logo-badge {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border: 1px solid rgba(229, 181, 96, 0.4);
+    border-radius: 4px;
+    color: #E5B560;
+    letter-spacing: 1px;
+}
+
+.card-body-row {
+    margin: 30px 0;
+}
+
+.card-body-row .pass-title {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, #FFF 0%, #E5B560 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card-body-row .pass-id {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: rgba(240, 234, 225, 0.6);
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
+.card-footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.card-holder {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-holder .lbl {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: rgba(240, 234, 225, 0.5);
+    letter-spacing: 1px;
+}
+
+.card-holder .val {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: #F0EAE1;
+    margin-top: 3px;
+}
+
+.card-footer-row .barcode-box {
+    text-align: right;
+}
+
+.card-footer-row .barcode-lines {
+    height: 30px;
+    width: 120px;
+    background: linear-gradient(90deg, 
+        #F0EAE1 0%, #F0EAE1 10%, transparent 10%, transparent 15%,
+        #F0EAE1 15%, #F0EAE1 25%, transparent 25%, transparent 30%,
+        #F0EAE1 30%, #F0EAE1 40%, transparent 40%, transparent 45%,
+        #F0EAE1 45%, #F0EAE1 50%, transparent 50%, transparent 60%,
+        #F0EAE1 60%, #F0EAE1 75%, transparent 75%, transparent 80%,
+        #F0EAE1 80%, #F0EAE1 95%, transparent 95%, transparent 100%
+    );
+    opacity: 0.7;
+}
+
+.card-footer-row .barcode-num {
+    font-size: 0.6rem;
+    color: rgba(240, 234, 225, 0.5);
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+
+/* Card Back: QR Verification */
+.pass-card-back {
+    background: #FAF6F0;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 15px 35px rgba(28, 26, 23, 0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+    transform: rotateY(180deg);
+}
+
+.pass-card-back .qr-scanner-box {
+    position: relative;
+    padding: 12px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(28,26,23,0.05);
+}
+
+.pass-card-back .mock-qr-code {
+    width: 130px;
+    height: 130px;
+    background-color: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pass-card-back .mock-qr-code::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(#1c1a17 25%, transparent 25%),
+        radial-gradient(#1c1a17 25%, transparent 25%);
+    background-size: 8px 8px;
+    background-position: 0 0, 4px 4px;
+    opacity: 0.85;
+}
+
+.pass-card-back .mock-qr-code::after {
+    content: 'SH';
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background: #E5B560;
+    color: #1C1A17;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.pass-card-back .timer-row {
+    margin-top: 15px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pass-card-back .timer-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    position: relative;
+}
+
+.pass-card-back .timer-circle.pulsing {
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.3); opacity: 0.4; }
+}
+
+/* Activation Form Card */
+.activation-panel {
+    background: rgba(28, 26, 23, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.activation-panel h2 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+.activation-panel .desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.activation-form .form-group {
+    margin-bottom: 20px;
+}
+
+.activation-form label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.activation-form input {
+    width: 100%;
+    height: 46px;
+    border: 1px solid var(--border-color);
+    background: white;
+    border-radius: 8px;
+    padding: 0 15px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    transition: var(--transition-quick);
+}
+
+.activation-form input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* Benefits Grid */
+.benefits-section {
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 0 5%;
+}
+
+.benefits-section .section-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.benefits-section h3 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+.benefit-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 30px 24px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(28,26,23,0.06);
+    border-color: var(--accent);
+}
+
+.benefit-card .icon-row {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.benefit-card .brand-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.benefit-card h4 {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.benefit-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.benefit-card .details-box {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border-color);
+    font-size: 0.8rem;
+    color: var(--text-main);
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.benefit-card.active .details-box {
+    display: block;
+}
+

@@ -39,6 +39,13 @@ const BISTRO_I18N = {
         "nav-hotel": "亚美旅宿",
         "nav-about": "关于我们",
         "nav-reserve-btn": "预约日落席",
+        // Shanhai Group Additions
+        "group-footer-text": "山海共生美学生活集团旗下品牌",
+        "nav-group-brand": '山海集团 <i class="fa-solid fa-chevron-down"></i>',
+        "nav-group-hotel": '亚美旅宿 | YAMEI',
+        "nav-group-coffee": '18°D咖啡 | 18°D',
+        "nav-group-bistro": '汐澜中餐 | SILAN',
+        "nav-group-pass": '山海通行证 | PASS',
         
         // Hero
         "hero-badge": "汐澜旗下风物食肆",
@@ -51,7 +58,7 @@ const BISTRO_I18N = {
         // Philosophy
         "philo-badge": "烹饪理念",
         "philo-title": "自然共生 · <span class='italic'>低碳餐桌</span>",
-        "philo-desc": "我们不仅追求味觉的极致，更践行与自然的可持续共存。汐澜中餐减少化学调味，选用低碳运输路径的本地食材，将碳足迹记录融入每一道菜肴。",
+        "philo-desc": "我们不仅追求味觉的极致，更践行与自然的可持续共存。作为山海共生集团的一部分，汐澜与姐妹品牌共同用一条海南地理线索串联起品牌故事：18°D 咖啡产自火山红土，亚美旅宿是山海间安静落脚处，而汐澜中餐则坚持采用海岸线上捕来的今日时令食材。同一片土地，三种体验，一个完整的海南。我们将碳足迹记录融入每一道菜肴。",
         "philo-p1-num": "01",
         "philo-p1-title": "地缘风物寻源",
         "phistro-p1-desc": "澄迈火山红土的富硒蔬菜、万宁近海的鲜活渔获，我们直接与海岛农户与渔民合作，缩短从农田到餐桌的距离。",
@@ -193,6 +200,13 @@ const BISTRO_I18N = {
         "nav-hotel": "Yamei Hotel",
         "nav-about": "About Us",
         "nav-reserve-btn": "Reserve Sunset",
+        // Shanhai Group Additions
+        "group-footer-text": "A Brand of Shanhai Gongsheng Aesthetic Life Group",
+        "nav-group-brand": 'Shanhai Group <i class="fa-solid fa-chevron-down"></i>',
+        "nav-group-hotel": 'YAMEI Hotel',
+        "nav-group-coffee": '18°D Coffee',
+        "nav-group-bistro": 'SILAN Bistro',
+        "nav-group-pass": 'Shanhai Pass',
         
         // Hero
         "hero-badge": "Affiliated Silan Dining Aesthetics",
@@ -205,7 +219,7 @@ const BISTRO_I18N = {
         // Philosophy
         "philo-badge": "Culinary Philosophy",
         "philo-title": "Coexistence · <span class='italic'>Low-Carbon Dining</span>",
-        "philo-desc": "We pursue taste excellence and practice sustainable coexistence with nature. Silan Bistro reduces synthetic seasonings, picks local ingredients to shorten shipping paths, and logs carbon footprint on every plate.",
+        "philo-desc": "We pursue taste excellence and practice sustainable coexistence with nature. As part of Shanhai Group, Silan shares a geographical soul with sister brands: coffee beans grown in volcanic soils (18°D), a sanctuary between mountains and sea (Yamei Hotel), and daily fresh catches from the coastline (Silan Bistro). Same land, three experiences, one complete Hainan. We log carbon footprint on every plate.",
         "philo-p1-num": "01",
         "philo-p1-title": "Terroir Sourcing",
         "phistro-p1-desc": "Rich-selenium loam crops in Chengmai, wild catches from Wanning sea. We contract directly with island farmers and fishermen to shorten food miles.",
