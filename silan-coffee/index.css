@@ -5773,3 +5773,161 @@ body::before {
     display: block;
 }
 
+/* ==========================================================================
+   Humanistic Care Checklist & Voucher Details Styles
+   ========================================================================== */
+.care-checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .care-checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.care-checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: rgba(28, 26, 23, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 14px 16px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.care-checkbox-item:hover {
+    background: rgba(43, 76, 48, 0.03);
+    border-color: rgba(43, 76, 48, 0.25);
+    transform: translateY(-1px);
+}
+
+.care-checkbox-item input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.care-checkmark {
+    position: relative;
+    display: inline-block;
+    min-width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border: 1px solid #c5a880;
+    border-radius: 4px;
+    margin-top: 2px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.care-checkbox-item input[type="checkbox"]:checked ~ .care-checkmark {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.care-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.care-checkbox-item input[type="checkbox"]:checked ~ .care-checkmark:after {
+    display: block;
+}
+
+.care-checkbox-item input[type="checkbox"]:checked ~ .care-checkbox-text {
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.care-checkbox-item:has(input[type="checkbox"]:checked) {
+    background: rgba(43, 76, 48, 0.06);
+    border-color: var(--primary);
+}
+
+.care-checkbox-text {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}
+
+/* Voucher Modal Dynamic Care List */
+.voucher-care-list-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.care-list-item {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    padding: 12px;
+    border-left: 3px solid var(--accent);
+}
+
+.care-list-item-title {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--text-main);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.care-brand-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 4px;
+}
+
+.care-brand-line {
+    font-size: 0.73rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+}
+
+.care-brand-line strong {
+    color: var(--text-main);
+}
+
+.care-specialist-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    background: rgba(197, 168, 128, 0.15);
+    color: #a48356;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+@media (max-width: 992px) {
+    .care-program-container {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+}
+
+
+
