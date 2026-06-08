@@ -261,6 +261,16 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="book-barista-select" data-key="book-label-barista">指定专属风味研制师 (专业认可) / Designated Barista</label>
+                            <select id="book-barista-select">
+                                <option value="any" data-key="barista-any-opt" selected>随机值班咖啡师 / Random Barista</option>
+                                <option value="qiang">阿强 (SCA金杯 / 手冲专家)</option>
+                                <option value="lin">阿林 (SCA感官 / 特调大师)</option>
+                                <option value="fang">小芳 (拉花冠军 / 意式经典)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label class="custom-checkbox">
                                 <input type="checkbox" id="book-eco-transit" checked>
                                 <span class="checkmark"></span>
@@ -462,6 +472,14 @@
                         <div class="right-text">
                             <h4 data-key="ticket-care-title">人文关怀专属登记</h4>
                             <p id="voucher-care-text">已安排宠物友好席位并提供饮水盆</p>
+                        </div>
+                    </div>
+
+                    <div class="ticket-care-badge" id="voucher-barista-container" style="display: none; margin-top: 0.8rem; background: rgba(197, 168, 128, 0.05); border: 1px solid rgba(197, 168, 128, 0.15);">
+                        <div class="left-icon" style="color: #c5a880;"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="right-text">
+                            <h4 data-key="ticket-barista-title">专属风味研制顾问</h4>
+                            <p id="voucher-barista-text"></p>
                         </div>
                     </div>
 
