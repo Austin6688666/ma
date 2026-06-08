@@ -1419,3 +1419,133 @@ body.bistro-body::after {
 .fade-in-up-anim {
     animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* ==========================================
+   Humanistic Care Section Styles
+   ========================================== */
+.care-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+@media (max-width: 992px) {
+    .care-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.care-card {
+    background-color: var(--bistro-bg-light);
+    border: 1px solid var(--bistro-border);
+    border-radius: 6px;
+    padding: 35px;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.care-card:hover {
+    border-color: var(--bistro-accent-gold);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.care-icon {
+    font-size: 2rem;
+    color: var(--bistro-accent-gold);
+    margin-bottom: 5px;
+}
+
+.care-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    color: var(--bistro-text);
+}
+
+.care-card-desc {
+    font-size: 0.9rem;
+    color: var(--bistro-text-muted);
+    line-height: 1.6;
+}
+
+/* ==========================================
+   Careers Section Styles
+   ========================================== */
+.careers-jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+@media (max-width: 992px) {
+    .careers-jobs-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.job-card {
+    background-color: var(--bistro-bg-light);
+    border: 1px solid var(--bistro-border);
+    border-radius: 6px;
+    padding: 30px;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+    gap: 15px;
+}
+
+.job-card:hover {
+    border-color: var(--bistro-accent-gold);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.job-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.job-dept {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--bistro-accent-green);
+    font-weight: 700;
+}
+
+.job-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--bistro-text);
+}
+
+.job-desc {
+    font-size: 0.85rem;
+    color: var(--bistro-text-muted);
+    line-height: 1.6;
+}
+
+.job-perks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.perk-tag {
+    font-size: 0.72rem;
+    color: var(--bistro-accent-gold);
+    border: 1px solid rgba(197, 168, 128, 0.25);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.perk-tag i {
+    margin-right: 4px;
+}
