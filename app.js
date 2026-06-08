@@ -550,7 +550,45 @@ const I18N_DICTS = {
         "cart-total": "合计",
         "cart-place-btn": "提交点单",
         "order-success-title": "点单成功！",
-        "order-done-btn": "继续点单"
+        "order-done-btn": "继续点单",
+        // New features:
+        "hero-bar-humidity": "今日湿度",
+        "hero-bar-wave": "海浪高度",
+        "eco-live-title": "LIVE TELEMETRY / 三亚海岸气象遥测",
+        "eco-card-title": "今日山海黄金萃取协议 · Today's Sanya Terroir Brew",
+        "eco-label-temp": "当日气温 (Temp)",
+        "eco-label-wind": "当日风速 (Wind)",
+        "eco-label-humidity": "空气湿度 (Humidity)",
+        "eco-label-wave": "海浪高度 (Wave Ht)",
+        "eco-advice-title": "⚙️ 智能自适应冲滤工艺调整 / Dynamic Brew Protocol",
+        "eco-param-grind": "磨粉粒径 / Grind Size",
+        "eco-param-temp": "萃取水温 / Brew Temp",
+        "eco-param-flow": "冲滤流速 / Water Flow",
+        "eco-param-tds": "预期浓度 / Target TDS",
+        "cart-label-barista": "指定风味研制咖啡师 / Brewed By",
+        "barista-any-opt": "随机值班咖啡师 / Random Barista",
+        "barista-badge": "SILENT ECONOMICS",
+        "barista-title": "无声经济学 · <span class=\"italic\">星级风味研发团队</span>",
+        "barista-desc": "这绝非同情，而是对极致风味专业认证的敬意。我们的听障咖啡师全员获得SCA（精品咖啡协会）专业认证，为您的每一杯咖啡进行微秒级定制。",
+        "barista-q-title": "SCA金杯萃取大师 // 手冲风味专家",
+        "barista-q-spec": "<strong>专长：</strong>火山岩手冲极速慢滤，善于把控15.5粉水比的焦糖醇厚度。",
+        "barista-q-bio": "“水流的震颤通过指尖传回，我能感知火山红土豆在滤纸中每一次膨胀的节奏。”",
+        "barista-l-title": "SCA感官品鉴大师 // 特调融合主理",
+        "barista-l-spec": "<strong>专长：</strong>海岛天然植物基乳融合，擅长调配温差风味梯度。",
+        "barista-l-bio": "“我的世界十分安静，所以嗅觉与温度感知被放大了十倍。我能捕捉椰乳最细腻的果香。”",
+        "barista-f-title": "拉花艺术冠军 // 意式经典研发",
+        "barista-f-spec": "<strong>专长：</strong>微孔奶泡研制与意式拉花，擅长绘制“椰风海韵”意境拉花。",
+        "barista-f-bio": "“发泡时的振动频率是我跟牛奶沟通的语言。将拉花杯倾斜15度，是三亚海滩的坡度。”",
+        "barista-training-badge": "培训体系公开化：",
+        "barista-training-text": "我们为所有无言伙伴提供为期300小时的国际SCA资质全额资助培训，并执行与行业接轨的专业评星与研发提成机制。",
+        "book-label-barista": "指定专属风味研制师 (专业认可) / Designated Barista",
+        "ticket-barista-title": "专属风味研制顾问",
+        "source-badge": "TERROIR TRACEABILITY",
+        "source-title": "澄迈火山红土 · <span class=\"italic\">咖啡批次溯源</span>",
+        "source-desc": "输入您的咖啡外袋或挂耳包装底部的批次号，查验从火山灰红土到这一杯的可验证完整旅程。",
+        "source-placeholder": "例如：18D-VOL-0608",
+        "source-btn-text": "风物寻源",
+        "source-samples-label": "快速体验样本："
     },
     en: {
         // Nav Menu
@@ -810,7 +848,45 @@ const I18N_DICTS = {
         "cart-total": "Total",
         "cart-place-btn": "Place Order",
         "order-success-title": "Order Placed!",
-        "order-done-btn": "Continue Ordering"
+        "order-done-btn": "Continue Ordering",
+        // New features:
+        "hero-bar-humidity": "Humidity",
+        "hero-bar-wave": "Wave Height",
+        "eco-live-title": "LIVE TELEMETRY / Sanya Coastal Weather Care",
+        "eco-card-title": "Today's Sanya Terroir Brew Protocol",
+        "eco-label-temp": "Air Temp",
+        "eco-label-wind": "Wind Speed",
+        "eco-label-humidity": "Humidity",
+        "eco-label-wave": "Wave Height",
+        "eco-advice-title": "⚙️ Dynamic Brew Protocol Adjustment",
+        "eco-param-grind": "Grind Size",
+        "eco-param-temp": "Brew Temp",
+        "eco-param-flow": "Water Flow",
+        "eco-param-tds": "Target TDS",
+        "cart-label-barista": "Designated Barista / Brewed By",
+        "barista-any-opt": "Random Barista on Duty",
+        "barista-badge": "SILENT ECONOMICS",
+        "barista-title": "Silent Economics · <span class=\"italic\">Our Elite Baristas</span>",
+        "barista-desc": "This is not charity, but deep respect for elite craft. All of our deaf baristas hold international SCA certifications, micro-customizing every single cup.",
+        "barista-q-title": "SCA Golden Cup Master // Pour-Over Specialist",
+        "barista-q-spec": "<strong>Specialty:</strong> Volcanic slow dripping, precise 1:15.5 coffee-to-water ratio control.",
+        "barista-q-bio": "\"The tremor of water flow feeds back through my fingers. I feel the volcanic grounds breathing inside the paper.\"",
+        "barista-l-title": "SCA Sensory Master // Fusion Infusions Lead",
+        "barista-l-spec": "<strong>Specialty:</strong> Plant-based milk pairings, warm-cold temperature flavor gradient tuning.",
+        "barista-l-bio": "\"My world is completely silent, so my sense of smell is magnified tenfold. I capture the finest fruit notes of coconut milk.\"",
+        "barista-f-title": "Latte Art Champion // Espresso QC Lead",
+        "barista-f-spec": "<strong>Specialty:</strong> Microfoam density engineering, crafting 'Seabreeze Palms' latte art.",
+        "barista-f-bio": "\"The frequency of steam vibration is how I talk with milk. Tilted at 15 degrees, it mirrors the slope of Sanya beach.\"",
+        "barista-training-badge": "Open Training System:",
+        "barista-training-text": "We fund 300 hours of international SCA certification training for all deaf partners, implementing standard career leveling and research commissions.",
+        "book-label-barista": "Designated Barista (Professional Recognition)",
+        "ticket-barista-title": "Designated Brew Advisor",
+        "source-badge": "TERROIR TRACEABILITY",
+        "source-title": "Volcanic Terroir · <span class=\"italic\">Batch Sourcing Journey</span>",
+        "source-desc": "Enter the batch number on the bottom of your bean bag or drip package to trace the verifiable path from volcanic red clay to your hand.",
+        "source-placeholder": "e.g. 18D-VOL-0608",
+        "source-btn-text": "Trace Terroir",
+        "source-samples-label": "Quick Samples:"
     }
 };
 
@@ -1226,6 +1302,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const ecoTransit = document.getElementById("book-eco-transit").checked;
             const careNeedSelect = document.getElementById("book-care-need");
             const careNeedVal = careNeedSelect ? careNeedSelect.value : "none";
+
+            const baristaSelect = document.getElementById("book-barista-select");
+            const baristaVal = baristaSelect ? baristaSelect.value : "any";
             
             // Format phone number: mask middle 4 digits
             const maskedPhone = phone.replace(/(\d{3})\d{4}(\d{4})/, "$1****$2");
@@ -1284,6 +1363,36 @@ document.addEventListener("DOMContentLoaded", () => {
                     vCareText.textContent = desc;
                 } else {
                     vCareContainer.style.display = "none";
+                }
+            }
+
+            // Populate barista details in reservation ticket (🤝 Silent Economics)
+            const vBaristaContainer = document.getElementById("voucher-barista-container");
+            const vBaristaText = document.getElementById("voucher-barista-text");
+            if (vBaristaContainer && vBaristaText) {
+                if (baristaVal !== "any") {
+                    vBaristaContainer.style.display = "flex";
+                    let baristaName = "";
+                    let note = "";
+                    if (baristaVal === "qiang") {
+                        baristaName = currentLang === "en" ? "Ah Qiang (SCA Cup Master)" : "阿强 (SCA金杯大师)";
+                        note = currentLang === "en"
+                            ? "\"I've reserved my signature volcano slow-pour beans for you. See you tomorrow!\""
+                            : "“已为您预留今日澄迈火山单品最佳豆批，期待明天用慢滤手艺为您冲滤。—— 阿强”";
+                    } else if (baristaVal === "lin") {
+                        baristaName = currentLang === "en" ? "Ah Lin (SCA Sensory Master)" : "阿林 (SCA感官大师)";
+                        note = currentLang === "en"
+                            ? "\"Welcome to the coast! I'll craft a customized coconut signature latte tailored to your taste.\""
+                            : "“海棠落日最适宜微温椰乳特调，明天我将根据气象湿度为您量身配比。—— 阿林”";
+                    } else if (baristaVal === "fang") {
+                        baristaName = currentLang === "en" ? "Xiao Fang (Latte Art Champion)" : "小芳 (拉花艺术冠军)";
+                        note = currentLang === "en"
+                            ? "\"Looking forward to pouring my signature 'Ocean Breeze' latte art on your flat white!\""
+                            : "“期待为您冲制一杯经典澳白，并在那层细腻的奶泡上，为您手绘一幅椰风海韵。—— 小芳”";
+                    }
+                    vBaristaText.innerHTML = `<strong>${baristaName}</strong><br>${note}`;
+                } else {
+                    vBaristaContainer.style.display = "none";
                 }
             }
             
@@ -1475,11 +1584,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const tempField = document.querySelector(".hero-floating-info .info-item:nth-child(1)");
     const beanField = document.querySelector(".hero-floating-info .info-item:nth-child(3)");
     const windField = document.querySelector(".hero-floating-info .info-item:nth-child(5)");
+    const humidityField = document.querySelector(".hero-floating-info .info-item:nth-child(7)");
+    const waveField = document.querySelector(".hero-floating-info .info-item:nth-child(9)");
     
     // Environmental fluctuations caching state
     let cachedTemp = "30.8";
     let cachedWindSpeed = "4.2";
     let cachedWindDir = "SSW";
+    let cachedHumidity = "82";
+    let cachedWave = "1.2";
 
     function updateWeatherTelemetry() {
         if (!tempField || !windField || !beanField) return;
@@ -1487,6 +1600,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const labelTemp = currentLang === "en" ? "Temp" : "当日温度";
         const labelBeans = currentLang === "en" ? "Beans" : "本季豆选";
         const labelWind = currentLang === "en" ? "Wind" : "海风流向";
+        const labelHumidity = currentLang === "en" ? "Humidity" : "相对湿度";
+        const labelWave = currentLang === "en" ? "Wave Height" : "海浪高度";
         
         const beansName = currentLang === "en" ? "Chengmai Volcanic G1" : "澄迈火山玄武岩 G1";
         
@@ -1506,6 +1621,60 @@ document.addEventListener("DOMContentLoaded", () => {
         tempField.innerHTML = `<i class="fa-solid fa-temperature-half"></i> ${labelTemp}: ${cachedTemp}°C`;
         beanField.innerHTML = `<i class="fa-solid fa-circle-nodes"></i> ${labelBeans}: ${beansName}`;
         windField.innerHTML = `<i class="fa-solid fa-wind"></i> ${labelWind}: ${displayWindDir} ${cachedWindSpeed}m/s`;
+        if (humidityField) {
+            humidityField.innerHTML = `<i class="fa-solid fa-droplet"></i> ${labelHumidity}: ${cachedHumidity}%`;
+        }
+        if (waveField) {
+            waveField.innerHTML = `<i class="fa-solid fa-water"></i> ${labelWave}: ${cachedWave}m`;
+        }
+
+        // Update Eco-Brew Card elements if visible (🌊 Natural System Integration)
+        const ecoTemp = document.getElementById("eco-val-temp");
+        const ecoWind = document.getElementById("eco-val-wind");
+        const ecoHumid = document.getElementById("eco-val-humidity");
+        const ecoWave = document.getElementById("eco-val-wave");
+        
+        if (ecoTemp) ecoTemp.textContent = `${cachedTemp}°C`;
+        if (ecoWind) ecoWind.textContent = `${displayWindDir} ${cachedWindSpeed}m/s`;
+        if (ecoHumid) ecoHumid.textContent = `${cachedHumidity}%`;
+        if (ecoWave) ecoWave.textContent = `${cachedWave}m`;
+
+        // Calculate recipe advice based on weather
+        const hum = parseFloat(cachedHumidity);
+        const tempVal = parseFloat(cachedTemp);
+        const wav = parseFloat(cachedWave);
+        
+        // Grind: High humidity -> coarser grind
+        const grindVal = (4.0 + (hum / 100) * 0.4).toFixed(1);
+        const grindLabel = currentLang === "en" ? `${grindVal} (Coarse Adjust)` : `${grindVal} (高湿防堵微调)`;
+        
+        // Water temp: Higher humidity / lower temp -> slightly higher water temp
+        const brewTemp = (90.0 + (hum / 100) * 3.0).toFixed(1);
+        
+        // Flow rate: influenced by wave heights
+        const flowVal = (1.8 + wav * 0.3).toFixed(1);
+        
+        // Target TDS
+        const tdsVal = (1.30 + (tempVal / 100) * 0.25).toFixed(2);
+
+        const grindEl = document.getElementById("eco-param-grind-val");
+        const tempEl = document.getElementById("eco-param-temp-val");
+        const flowEl = document.getElementById("eco-param-flow-val");
+        const tdsEl = document.getElementById("eco-param-tds-val");
+        const explainEl = document.getElementById("eco-explain-text");
+
+        if (grindEl) grindEl.textContent = grindLabel;
+        if (tempEl) tempEl.textContent = `${brewTemp} °C`;
+        if (flowEl) flowEl.textContent = `${flowVal} ml/s`;
+        if (tdsEl) tdsEl.textContent = `${tdsVal}%`;
+
+        if (explainEl) {
+            if (currentLang === "en") {
+                explainEl.textContent = `Today's relative humidity in Sanya is ${cachedHumidity}% with waves at ${cachedWave}m. To prevent beans from clogging due to sea-spray humidity, we have adjusted the grind size to ${grindLabel} and recommended extraction at ${brewTemp}°C with a steady ${flowVal}ml/s flow. This ensures a balanced extraction of Hainan volcanic cacao notes. Today's cup is a unique terroir fingerprint.`;
+            } else {
+                explainEl.textContent = `今日三亚相对湿度为 ${cachedHumidity}%，海浪高度为 ${cachedWave}m。由于海岛高湿度易导致咖啡粉吸潮板结，咖啡师已将磨粉粒度微调至 ${grindLabel}，推荐采用 ${brewTemp}°C 水温以 ${flowVal}ml/s 慢流速进行金杯冲滤，完美锁住火山红土豆的黑可可与焦糖后味。—— 这杯咖啡，今日限定。`;
+            }
+        }
     }
 
     // Telemetry updates interval
@@ -1515,6 +1684,8 @@ document.addEventListener("DOMContentLoaded", () => {
         cachedTemp = (parseFloat(baseTemp) + parseFloat(variance)).toFixed(1);
         
         cachedWindSpeed = (3.8 + Math.random() * 1.2).toFixed(1);
+        cachedHumidity = Math.floor(75 + Math.random() * 15).toString();
+        cachedWave = (0.8 + Math.random() * 0.8).toFixed(1);
         
         const directions = currentLang === "en" 
             ? ["SSW", "SW", "Southerly", "South"]
@@ -1757,6 +1928,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 const now = new Date();
                 const timeStr = now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
 
+                // Brewed by selected barista msg (🤝 Silent Economics)
+                const baristaSelect = document.getElementById("order-barista-select");
+                const baristaVal = baristaSelect ? baristaSelect.value : "any";
+                let baristaMsg = "";
+                if (lang() === "en") {
+                    if (baristaVal === "qiang") baristaMsg = "Specialist Ah Qiang is hand-dripping your cup.";
+                    else if (baristaVal === "lin") baristaMsg = "Specialist Ah Lin is blending your raw coconut infusion.";
+                    else if (baristaVal === "fang") baristaMsg = "Champion Xiao Fang is steaming microfoam for your cup.";
+                    else baristaMsg = "Our barista on duty is preparing your order.";
+                } else {
+                    if (baristaVal === "qiang") baristaMsg = "手冲专家【阿强】正在使用火山岩慢滤工艺为您冲滤。";
+                    else if (baristaVal === "lin") baristaMsg = "特调大师【阿林】正在按照今日湿度黄金配比为您调制椰乳拿铁。";
+                    else if (baristaVal === "fang") baristaMsg = "拉花冠军【小芳】正在为您打发微孔奶泡并手绘拉花。";
+                    else baristaMsg = "值班咖啡师正在为您精心制作，请稍候。";
+                }
+
                 // Build receipt
                 let receiptHTML = '';
                 let total = 0;
@@ -1772,9 +1959,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 receiptHTML += `<div class="receipt-row"><span>${lang() === 'zh' ? '合计' : 'Total'}</span><span>¥${total}</span></div>`;
 
                 orderReceipt.innerHTML = receiptHTML;
-                orderSuccessMsg.textContent = lang() === 'zh'
-                    ? `${tableLabel} · ${timeStr} — 咖啡师正在为您精心制作，请稍候片刻。`
-                    : `${tableLabel} · ${timeStr} — Your order is being prepared with care.`;
+                orderSuccessMsg.textContent = `${tableLabel} · ${timeStr} — ${baristaMsg}`;
 
                 orderSuccessOverlay.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
@@ -1887,6 +2072,293 @@ document.addEventListener("DOMContentLoaded", () => {
             memberModal.classList.remove("hidden");
             document.body.style.overflow = "hidden";
         }
+    }
+
+    // ==========================================
+    // 📜 Sanya Terroir Batch Sourcing Database
+    // ==========================================
+    const SOURCING_DB = {
+        "18D-VOL-0608": {
+            name: { zh: "澄迈火山玄武岩 G1 (单品手冲)", en: "Hainan Chengmai Volcanic G1 (Single Origin)" },
+            origin: { zh: "海南澄迈火山岩红土庄园", en: "Chengmai Volcanic Soil Estate, Hainan" },
+            timeline: [
+                {
+                    title: { zh: "火山灰红土育种与采收", en: "Soil Cultivation & Harvesting" },
+                    time: "2026-05-10",
+                    media: "volcanic_coffee_farm.png",
+                    desc: {
+                        zh: "产自富含微量元素的玄武岩红土带。当地黎族咖啡农吉叔进行人工全红果采收。土壤富硒，含水量22%。",
+                        en: "Grown in iron-rich basaltic clay. Harvested at peak ripeness by local farmer Uncle Wang. Soil selenium-rich, moisture 22%."
+                    },
+                    meta: [
+                        { label: { zh: "坐标/Location", en: "Coordinates" }, val: "19.234°N, 110.013°E" },
+                        { label: { zh: "海拔/Altitude", en: "Elevation" }, val: "220m" },
+                        { label: { zh: "种植户/Farmer", en: "Farmer" }, val: "吉叔 (Uncle Wang)" }
+                    ]
+                },
+                {
+                    title: { zh: "微发酵与双重厌氧蜜处理", en: "Anaerobic Honey Fermentation" },
+                    time: "2026-05-12 - 2026-05-15",
+                    media: "coffee_source.webp",
+                    desc: {
+                        zh: "进行72小时恒温24°C双重厌氧发酵，保留糖度22.5 Brix，最大化火山豆的黑可可与甘草坚果甜韵。",
+                        en: "72-hour double anaerobic fermentation under constant 24°C, preserving sugar content at 22.5 Brix to highlight rich dark cacao notes."
+                    },
+                    meta: [
+                        { label: { zh: "发酵时长/Duration", en: "Fermentation" }, val: "72 Hours" },
+                        { label: { zh: "发酵温控/Temp Control", en: "Temp" }, val: "24°C Constant" },
+                        { label: { zh: "出水糖度/Brix", en: "Preserved sugar" }, val: "22.5 Brix" }
+                    ]
+                },
+                {
+                    title: { zh: "海岸烘焙实验室精细调校", en: "Coastal Roasting Protocol" },
+                    time: "2026-06-01",
+                    media: "coffee_cup.webp",
+                    desc: {
+                        zh: "在18°D三亚海岸烘焙实验室，由烘焙师阿林调校。采用中深焙曲线，Agtron色度值控制在58，锁住浓郁焦糖香气。",
+                        en: "Roasted at the 18°D Sanya Coastal Lab by Roaster Ah Lin. Medium-dark roast profile, Agtron color value 58, locking in sweet caramel aromas."
+                    },
+                    meta: [
+                        { label: { zh: "烘焙度/Roast Level", en: "Roast" }, val: "中深烘焙 (Med-Dark)" },
+                        { label: { zh: "色度值/Agtron Color", en: "Agtron" }, val: "58" },
+                        { label: { zh: "烘焙师/Roaster", en: "Roaster" }, val: "阿林 (Ah Lin)" }
+                    ]
+                },
+                {
+                    title: { zh: "潮汐海岸金杯萃取", en: "Tidal Golden Cup Brew" },
+                    time: "2026-06-08 (今日限定)",
+                    media: "coffee_shell_cup.webp",
+                    desc: {
+                        zh: "在三亚海棠湾店，由您指定的星级咖啡师按照今日气象湿度参数（磨粉粒径4.3，水温92.5°C）为您现场慢滤冲煮。",
+                        en: "Brewed live at our Sanya Bay shop by your designated star barista using today's eco-driven recipe (Grind size 4.3, 92.5°C water)."
+                    },
+                    meta: [
+                        { label: { zh: "今日水温/Today Temp", en: "Brew Temp" }, val: "92.5°C" },
+                        { label: { zh: "今日流速/Today Flow", en: "Flow Rate" }, val: "2.2 ml/s" },
+                        { label: { zh: "金杯浓度/TDS Target", en: "TDS" }, val: "1.38%" }
+                    ]
+                }
+            ]
+        },
+        "18D-YIG-0518": {
+            name: { zh: "水洗·耶加雪菲 葛德 (浅度烘焙)", en: "Washed Yirgacheffe Gedeo (Light Roast)" },
+            origin: { zh: "埃塞俄比亚 Gedeo 产区", en: "Gedeo Zone, Ethiopia" },
+            timeline: [
+                {
+                    title: { zh: "高海拔手工采收", en: "High Elevation Harvesting" },
+                    time: "2026-04-20",
+                    media: "coffee_source.webp",
+                    desc: {
+                        zh: "产自海拔 1900m - 2100m 高原，由合作社农户手工甄选全熟樱桃，展现干净高雅的柑橘茉莉花香韵律。",
+                        en: "Harvested at 1900m - 2100m elevation. Hand-sorted at peak ripeness to ensure clean citrus and white floral aromas."
+                    },
+                    meta: [
+                        { label: { zh: "坐标/Location", en: "Coordinates" }, val: "6.132°N, 38.201°E" },
+                        { label: { zh: "海拔/Altitude", en: "Elevation" }, val: "2050m" },
+                        { label: { zh: "处理厂/Station", en: "Station" }, val: "Gedeo Cooperative" }
+                    ]
+                },
+                {
+                    title: { zh: "传统双重水洗处理", en: "Traditional Washed Process" },
+                    time: "2026-04-22 - 2026-04-24",
+                    media: "coffee_belt_map.webp",
+                    desc: {
+                        zh: "去皮后发酵 36 小时，并在山泉水中清洗，置于高架非洲晒床慢速干燥 14 天，确保水分活度达到最佳的 0.60。",
+                        en: "Fermented for 36 hours, washed in pure mountain springs, and dried on African raised beds for 14 days to target a water activity of 0.60."
+                    },
+                    meta: [
+                        { label: { zh: "发酵时长/Fermentation", en: "Fermentation" }, val: "36 Hours" },
+                        { label: { zh: "日晒干燥/Sun Drying", en: "Drying" }, val: "14 Days" },
+                        { label: { zh: "水分活度/Water Act.", en: "Water Act." }, val: "0.60 aw" }
+                    ]
+                },
+                {
+                    title: { zh: "浅度曲线烘焙释放酸甜", en: "Light Roast Profile" },
+                    time: "2026-05-18",
+                    media: "coffee_cup.webp",
+                    desc: {
+                        zh: "采用北欧风浅焙曲线，Agtron色度值 75，最大化保留茉莉花与柠檬柑橘的明亮酸质与茶感余韵。",
+                        en: "Light roast profile (Scandinavian style), Agtron color value 75. Preserves persistence of jasmine and bright lemon acids."
+                    },
+                    meta: [
+                        { label: { zh: "烘焙度/Roast Level", en: "Roast" }, val: "浅度烘焙 (Light)" },
+                        { label: { zh: "色度值/Agtron Color", en: "Agtron" }, val: "75" },
+                        { label: { zh: "烘焙师/Roaster", en: "Roaster" }, val: "阿林 (Ah Lin)" }
+                    ]
+                }
+            ]
+        },
+        "18D-COL-0524": {
+            name: { zh: "哥伦比亚·粉红波旁 (双重厌氧蜜处理)", en: "Colombia Pink Bourbon (Anaerobic Honey)" },
+            origin: { zh: "哥伦比亚 Huila 产地 蒙特贝罗庄园", en: "Finca Montebello, Huila, Colombia" },
+            timeline: [
+                {
+                    title: { zh: "珍稀粉红波旁手工采选", en: "Rare Pink Bourbon Harvesting" },
+                    time: "2026-04-28",
+                    media: "hainan_coffee_farmer.png",
+                    desc: {
+                        zh: "采选罕见的粉红波旁变种，果实呈粉红色，糖度极高，带来水蜜桃与玫瑰的多汁香气层级。",
+                        en: "Grown at Finca Montebello. The ripe cherries display a rare pink color with extremely high sugar content, yielding peach notes."
+                    },
+                    meta: [
+                        { label: { zh: "坐标/Location", en: "Coordinates" }, val: "2.921°N, 76.035°W" },
+                        { label: { zh: "海拔/Altitude", en: "Elevation" }, val: "1850m" },
+                        { label: { zh: "庄园/Farm", en: "Estate" }, val: "Finca Montebello" }
+                    ]
+                },
+                {
+                    title: { zh: "双重厌氧发酵与冷水锁香", en: "Double Anaerobic Honey Fermentation" },
+                    time: "2026-05-02",
+                    media: "coffee_source.webp",
+                    desc: {
+                        zh: "咖啡樱桃密封充氮发酵48小时，去皮后再次带果胶进行厌氧发酵36小时，最后以冰水洗涤锁住花果芬芳。",
+                        en: "Nitrogen anaerobic fermentation for 48 hours, pulped, fermented with mucilage for 36 hours, and locked with ice water rinse."
+                    },
+                    meta: [
+                        { label: { zh: "一级发酵/Phase 1", en: "Phase 1" }, val: "48h Full Cherry" },
+                        { label: { zh: "二级发酵/Phase 2", en: "Phase 2" }, val: "36h De-pulped" },
+                        { label: { zh: "洗涤温控/Washing", en: "Washing Temp" }, val: "10°C Cold Shock" }
+                    ]
+                },
+                {
+                    title: { zh: "中浅烘焙保留丰富果香", en: "Light-Medium Roast Lab" },
+                    time: "2026-05-24",
+                    media: "coffee_cup.webp",
+                    desc: {
+                        zh: "在中浅烘焙下爆发花香，Agtron 色度值 66，在玫瑰香气与红茶尾韵间取得完美平衡。",
+                        en: "Roasted at Light-Medium. Agtron color value 66. Provides balanced rose tea aromas with juice peach finish."
+                    },
+                    meta: [
+                        { label: { zh: "烘焙度/Roast Level", en: "Roast" }, val: "中浅烘焙 (Light-Med)" },
+                        { label: { zh: "色度值/Agtron Color", en: "Agtron" }, val: "66" },
+                        { label: { zh: "烘焙师/Roaster", en: "Roaster" }, val: "阿林 (Ah Lin)" }
+                    ]
+                }
+            ]
+        }
+    };
+
+    // Sourcing elements
+    const sourcingInput = document.getElementById("sourcing-input");
+    const sourcingSearchBtn = document.getElementById("sourcing-search-btn");
+    const sourcingResultContainer = document.getElementById("sourcing-result-container");
+    const sampleTagBtns = document.querySelectorAll(".sample-tag-btn");
+
+    function handleSourcingQuery(batchNo) {
+        if (!sourcingResultContainer) return;
+        
+        const cleanBatch = batchNo.trim().toUpperCase();
+        const data = SOURCING_DB[cleanBatch];
+        
+        if (!data) {
+            const errorMsg = currentLang === "en" 
+                ? "Batch number not found. Please check and try again." 
+                : "未找到该批次号。请检查输入是否正确（可体验下方快速体验样本）。";
+            showToast(errorMsg, "error");
+            return;
+        }
+
+        sourcingResultContainer.innerHTML = "";
+        sourcingResultContainer.classList.remove("hidden");
+
+        // Render header
+        const labelBatch = currentLang === "en" ? "BATCH NO" : "溯源批次";
+        const labelOrigin = currentLang === "en" ? "TERROIR ORIGIN" : "原产区";
+        const titleText = data.name[currentLang];
+        const originText = data.origin[currentLang];
+
+        const headerDiv = document.createElement("div");
+        headerDiv.className = "sourcing-result-header";
+        headerDiv.innerHTML = `
+            <div class="sourcing-bean-info">
+                <h3>${titleText}</h3>
+                <p><i class="fa-solid fa-map-location-dot"></i> ${labelOrigin}: ${originText}</p>
+            </div>
+            <div class="sourcing-batch-stamp">
+                <span>${labelBatch}</span>
+                <strong>${cleanBatch}</strong>
+            </div>
+        `;
+        sourcingResultContainer.appendChild(headerDiv);
+
+        // Render timeline
+        const timelineDiv = document.createElement("div");
+        timelineDiv.className = "sourcing-timeline";
+
+        data.timeline.forEach((step, index) => {
+            const stepDiv = document.createElement("div");
+            stepDiv.className = `timeline-step ${index === data.timeline.length - 1 ? 'active' : ''}`;
+            
+            const stepTitle = step.title[currentLang];
+            const stepDesc = step.desc[currentLang];
+            
+            // Build metadata list
+            let metaHtml = "";
+            step.meta.forEach(m => {
+                const label = m.label[currentLang];
+                let valHtml = m.val;
+                // If it looks like coordinates, wrap with maps link
+                if (m.label.en === "Coordinates" || m.label.zh === "坐标/Location") {
+                    valHtml = `<a href="https://maps.google.com/?q=${m.val}" target="_blank" class="coord-link"><i class="fa-solid fa-location-arrow"></i> ${m.val}</a>`;
+                }
+                metaHtml += `
+                    <div class="step-meta-item">
+                        <span>${label}</span>
+                        <strong>${valHtml}</strong>
+                    </div>
+                `;
+            });
+
+            // Media HTML
+            const mediaHtml = step.media 
+                ? `<div class="step-media-box"><img src="${step.media}" alt="${stepTitle}"></div>`
+                : "";
+
+            stepDiv.innerHTML = `
+                <div class="step-marker"></div>
+                <div class="step-header">
+                    <h4>${stepTitle}</h4>
+                    <span class="step-time">${step.time}</span>
+                </div>
+                <div class="step-body">
+                    <div class="step-text">
+                        <p>${stepDesc}</p>
+                        <div class="step-meta-grid">${metaHtml}</div>
+                    </div>
+                    ${mediaHtml}
+                </div>
+            `;
+            timelineDiv.appendChild(stepDiv);
+        });
+
+        sourcingResultContainer.appendChild(timelineDiv);
+        
+        // Scroll smoothly to result
+        setTimeout(() => {
+            sourcingResultContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+    }
+
+    if (sourcingSearchBtn && sourcingInput) {
+        sourcingSearchBtn.addEventListener("click", () => {
+            handleSourcingQuery(sourcingInput.value);
+        });
+        
+        sourcingInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                handleSourcingQuery(sourcingInput.value);
+            }
+        });
+    }
+
+    if (sampleTagBtns) {
+        sampleTagBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const batch = btn.getAttribute("data-batch");
+                if (sourcingInput) sourcingInput.value = batch;
+                handleSourcingQuery(batch);
+            });
+        });
     }
 });
 
