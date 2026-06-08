@@ -473,12 +473,14 @@ const I18N_DICTS = {
         "book-submit-btn": "立即预约席位并获取电子确认函",
         
         // Careers
+        "careers-badge": "Group Careers",
+        "careers-title": "寻找同频旅人 · 集团联合招募",
         "care-badge": "Join the Lab",
         "care-title": "寻找同频旅人 · <span class=\"italic\">加入我们</span>",
-        "care-desc": "我们一直在寻找对风土地理心存敬畏、对邻里社区满怀温情的伙伴。这不仅是一份工作，更是一场关于风味与人情的美好旅程。",
+        "care-desc": "山海共生集团为员工提供公平、安全且尊重个人价值的人文雇主环境。我们在咖啡、旅宿、中餐各板块寻找对风土地理心存敬畏、对邻里社区满怀温情的伙伴。这不仅是一份工作，更是一场关于风味与人情的美好旅程。",
         "care-recruit-title": "招聘渠道与应聘方式",
         "care-c1-title": "官方简历邮箱",
-        "care-c1-desc": "发送简历至 <a href=\"mailto:talent@18dcoffee.com\" class=\"highlight-link\">talent@18dcoffee.com</a>。邮件中可附上一段关于您个人冲煮日常或风味自述的短视频，让我们更立体地认识您。",
+        "care-c1-desc": "发送简历至集团人力邮箱 <a href=\"mailto:join@shanhai-coexist.com\" class=\"highlight-link\">join@shanhai-coexist.com</a>。邮件中请备注您感兴趣的品牌（咖啡/旅宿/中餐）以及意向岗位，随附您的个人生活或风味故事更佳。",
         "care-c2-title": "店内“一杯直面”",
         "care-c2-desc": "每周二下午 14:00 - 17:00，您可以直接携带您的常用咖啡杯来到三亚海棠湾门店。我们会请您喝一杯火山豆手冲，在海风中面对面边喝边聊。",
         "care-c3-title": "「低碳同行」绿色推荐",
@@ -486,10 +488,13 @@ const I18N_DICTS = {
         
         // Affiliates
         "aff-badge": "Branches & Affiliates",
-        "aff-title": "分店选址 · <span class=\"italic\">旗下风物食肆</span>",
+        "aff-title": "品牌版图 · <span class=\"italic\">山海共生集团</span>",
         "aff-desc": "从海岸日落到火山地质公园，从咖啡香气到创意中餐美学，我们致力于将地缘风土地貌与温暖人情融入每一次旅人餐桌体验中。",
         "aff-branch-title": "18°D 全球分店选址",
-        "aff-sister-title": "旗下创意中餐",
+        "aff-sister-title": "山海共生集团旗下品牌",
+        "aff-hotel-tag": "环保可持续旅居",
+        "aff-hotel-desc": "作为集团旗下倡导“自然共生”的先锋人文旅宿，亚美不仅在设计上做减法，更在社区连接上做加法，选用火山红土原材，提供充满人文善意与极致舒适的栖息空间。",
+        "aff-hotel-btn": "探索旅宿 & 预订房间 <i class=\"fa-solid fa-arrow-right\"></i>",
         "aff-s1-btn": "探索菜单 & 立即预约 <i class=\"fa-solid fa-arrow-right\"></i>",
         
         // Footer
@@ -504,7 +509,7 @@ const I18N_DICTS = {
         "foot-eco-m1": "<i class=\"fa-solid fa-recycle\"></i> 100% 纸质降解吸管",
         "foot-eco-m2": "<i class=\"fa-solid fa-seedling\"></i> 循环咖啡渣有机基肥料",
         "foot-eco-m3": "<i class=\"fa-solid fa-solar-panel\"></i> 太阳能中和加热热水",
-        "foot-copy": "&copy; 2026 18°D 咖啡集团 18°Degree Coffee Group | 极简海岸咖啡店设计演示官网",
+        "foot-copy": "&copy; 2026 山海共生（海南）美学生活集团旗下品牌 // 18°D COFFEE / YAMEI HOTEL / SILAN BISTRO. All rights reserved.",
         
         // Ticket Modal
         "ticket-badge": "<i class=\"fa-solid fa-circle-check\"></i> 已锁定落日座",
@@ -728,12 +733,14 @@ const I18N_DICTS = {
         "book-submit-btn": "Confirm Booking & Get Digital Voucher",
         
         // Careers
+        "careers-badge": "Group Careers",
+        "careers-title": "Join Us · <span class=\"italic\">Shanhai Careers</span>",
         "care-badge": "Join the Lab",
         "care-title": "Join Us · <span class=\"italic\">Seeking Kindred Spirits</span>",
-        "care-desc": "We look for partners who respect local terroir and love community. This is not just a job, but a warm journey of flavor.",
+        "care-desc": "Shanhai Coexistence Group provides a fair, safe, and respectful employer environment. We look for partners across coffee, lodging, and bistro who respect local terroir and love community.",
         "care-recruit-title": "Application Channels",
         "care-c1-title": "Official Email",
-        "care-c1-desc": "Send your CV to <a href=\"mailto:talent@18dcoffee.com\" class=\"highlight-link\">talent@18dcoffee.com</a>. A short video of your brewing routine or flavor thoughts is highly welcomed.",
+        "care-c1-desc": "Send your CV to group HR email <a href=\"mailto:join@shanhai-coexist.com\" class=\"highlight-link\">join@shanhai-coexist.com</a>. Please note the brand (Coffee/Hotel/Bistro) and position you are interested in.",
         "care-c2-title": "In-Store \"Coffee & Chat\"",
         "care-c2-desc": "Every Tuesday 14:00-17:00, bring your favorite cup to Sanya. We will invite you for a volcanic pour-over and chat in the sea breeze.",
         "care-c3-title": "\"Eco-Together\" Referrals",
@@ -741,10 +748,13 @@ const I18N_DICTS = {
         
         // Affiliates
         "aff-badge": "Branches & Affiliates",
-        "aff-title": "Locations · <span class=\"italic\">Sister Eateries</span>",
+        "aff-title": "Brand Map · <span class=\"italic\">Shanhai Coexistence Group</span>",
         "aff-desc": "From sunset coast to volcanic parks, coffee aroma to creative dining, we blend terroir and warm care into every traveler's table.",
         "aff-branch-title": "18°D Global Locations",
-        "aff-sister-title": "Creative Chinese Dining",
+        "aff-sister-title": "Shanhai Coexistence Brands",
+        "aff-hotel-tag": "Sustainable Lodging",
+        "aff-hotel-desc": "As the pioneering eco-lodge under the group, Yamei practices minimalism in design and connection in community, providing warm, sustainable, and comfortable sanctuaries.",
+        "aff-hotel-btn": "Explore Hotel & Book Room <i class=\"fa-solid fa-arrow-right\"></i>",
         "aff-s1-btn": "Explore Menu & Book Now <i class=\"fa-solid fa-arrow-right\"></i>",
         
         // Footer
@@ -759,7 +769,7 @@ const I18N_DICTS = {
         "foot-eco-m1": "<i class=\"fa-solid fa-recycle\"></i> 100% Biodegradable Straws",
         "foot-eco-m2": "<i class=\"fa-solid fa-seedling\"></i> Upcycled Coffee Ground Fertilizers",
         "foot-eco-m3": "<i class=\"fa-solid fa-solar-panel\"></i> Solar-Powered Water Heating",
-        "foot-copy": "&copy; 2026 18°D Coffee Group | Minimalist Coastal Cafe Design Demo Website",
+        "foot-copy": "&copy; 2026 Shanhai Coexistence (Hainan) Aesthetic Life Group. Brands // 18°D COFFEE / YAMEI HOTEL / SILAN BISTRO. All rights reserved.",
         
         // Ticket Modal
         "ticket-badge": "<i class=\"fa-solid fa-circle-check\"></i> Sunset Seat Reserved",

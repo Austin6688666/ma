@@ -158,7 +158,31 @@ const BISTRO_I18N = {
         "vch-perks-wood": "赠送欢迎火山绿茶 1 壶",
         "vch-perks-bamboo": "赠送主厨生态手工甜品 1 份",
         "vch-perks-forest": "免收包厢费，赠送配餐火山岩咖啡 1 壶",
-        "vch-qr": "扫码核销预约单"
+        "vch-qr": "扫码核销预约单",
+        "footer-copyright": "&copy; 2026 山海共生（海南）美学生活集团旗下品牌 // 18°D COFFEE / YAMEI HOTEL / SILAN BISTRO. All rights reserved.",
+        "care-badge": "人文关怀",
+        "care-title": "山海共生 · <span class='italic'>社会责任与温情关怀</span>",
+        "care-desc": "我们不仅追求美味的火候，更关注人和大地的和谐共生。汐澜中餐作为山海共生美学生活集团的一员，致力于通过有温度的关怀将海岛连接在一起。",
+        "care-c1-title": "支持非遗与在地农户",
+        "care-c1-desc": "我们与五指山黎村及澄迈火山小农直接对接，采购非遗山兰酒酿与富硒农作物，支持少数民族传统手艺人传承生计，保障农户获得公平交易的阳光收益。",
+        "care-c2-title": "零碳绿野餐桌",
+        "care-c2-desc": "实行100%零塑料环保就餐、全方位有机湿垃圾堆肥化处理。实时公示每道菜的低碳足迹，把健康的本真风味毫无保留地馈赠给您与地球。",
+        "care-c3-title": "社群温暖传递",
+        "care-c3-desc": "每周二下午，餐厅设立专属于“乡村教师、医护与公益人”的免费公益赏味席位。通过这份热忱的奉茶与佳肴，向默默奉献的社会微光致敬。",
+        "careers-badge": "美学事业招募",
+        "careers-title": "加入汐澜 · <span class='italic'>与风物及温度同行</span>",
+        "careers-desc": "山海共生集团为员工提供公平、安全且尊重个人价值的人文雇主环境。在汐澜，我们用好食材招待客人，用真心关怀身边的每一位共创伙伴。",
+        "job-dept-kitchen": "厨房团队 // KITCHEN",
+        "job-dept-service": "前厅服务 // SERVICE",
+        "job-dept-eco": "绿色环保 // GREEN",
+        "job-j1-title": "风物美学主厨 / Bistro Sous Chef",
+        "job-j1-desc": "负责创意川粤菜的设计与烹饪。需要对海南在地食材与低碳烹饪有深刻的热爱，并具备人文审美视野，善于用火候讲好大地故事。",
+        "job-j2-title": "美学侍膳茶艺师 / Dining & Tea Sommelier",
+        "job-j2-desc": "负责餐茶搭配与桌面美学解说。为贵宾讲述海南风土民俗与食材源头，传递真诚、温暖的款待温度，不需要死板的流程，展现您的真诚个性。",
+        "job-j3-title": "零碳餐厅运营官 / Zero-Carbon Steward",
+        "job-j3-desc": "负责厨房湿垃圾循环堆肥、零废弃采购与餐食碳足迹的日常计量和宣导。协调集团的环保循环链条，将低碳生活落到实处。",
+        "careers-note-txt": "投递意向简历至：<strong style='color: var(--bistro-accent-gold)'>join@shanhai-coexist.com</strong>（主题注明：中餐/咖啡/旅宿 意向岗位）",
+        "careers-btn-all": "查看集团全部岗位"
     },
     "en": {
         // Navigation links
@@ -288,7 +312,31 @@ const BISTRO_I18N = {
         "vch-perks-wood": "Free Welcome Volcano Green Tea (1 pot)",
         "vch-perks-bamboo": "Free Eco Handcrafted Dessert (1 serving)",
         "vch-perks-forest": "Chamber fee waived, free volcanic single-origin coffee pot",
-        "vch-qr": "Scan to Verify Reservation"
+        "vch-qr": "Scan to Verify Reservation",
+        "footer-copyright": "&copy; 2026 Shanhai Coexistence (Hainan) Aesthetic Life Group. Brands // 18°D COFFEE / YAMEI HOTEL / SILAN BISTRO. All rights reserved.",
+        "care-badge": "Humanistic Care",
+        "care-title": "Shanhai Coexistence · <span class='italic'>Social Responsibility & Warmth</span>",
+        "care-desc": "We pursue culinary excellence while caring for the coexistence between humans and nature. As a member of Shanhai Coexistence Aesthetic Life Group, Silan Bistro connects the island through warm, soulful care.",
+        "care-c1-title": "Supporting Heritage & Local Farmers",
+        "care-c1-desc": "We source directly from Li villages in Wuzhishan and volcanic farmers in Chengmai, purchasing non-heritage Shanlan wine and selenium-rich produce to protect local heritage and ensure fair income.",
+        "care-c2-title": "Zero-Carbon Green Table",
+        "care-c2-desc": "We implement 100% plastic-free green dining, organic kitchen composting, and real-time carbon footprint disclosure, giving the purest flavors back to you and the Earth.",
+        "care-c3-title": "Spreading Community Warmth",
+        "care-c3-desc": "Every Tuesday afternoon, we offer free tasting seats for rural teachers, medical workers, and charity volunteers, honoring these quiet lights in our community with hot tea and custom dishes.",
+        "careers-badge": "Aesthetic Careers",
+        "careers-title": "Join Silan · <span class='italic'>Walk with Terroir & Soul</span>",
+        "careers-desc": "Shanhai Coexistence Group provides a fair, safe, and respectful employer environment. At Silan, we welcome guests with real food, and care for our co-creators with genuine warmth.",
+        "job-dept-kitchen": "Kitchen Team // KITCHEN",
+        "job-dept-service": "Service Team // SERVICE",
+        "job-dept-eco": "Green Eco // GREEN",
+        "job-j1-title": "Bistro Sous Chef",
+        "job-j1-desc": "Responsible for designing and cooking creative Sichuan-Cantonese dishes. Requires a deep love for Hainan terroir and carbon-reduced cooking, using fire to tell the story of the earth.",
+        "job-j2-title": "Dining & Tea Sommelier",
+        "job-j2-desc": "In charge of food-tea pairings and table aesthetics. Share local Hainan customs and sourcing stories with guests, delivering warmth without rigid guidelines.",
+        "job-j3-title": "Zero-Carbon Steward",
+        "job-j3-desc": "Responsible for composting kitchen waste, zero-waste sourcing, and tracking food carbon footprint. Coordinate the group's eco-loop to make low-carbon living a reality.",
+        "careers-note-txt": "Send resume to: <strong style='color: var(--bistro-accent-gold)'>join@shanhai-coexist.com</strong> (Subject: Bistro/Coffee/Hotel + Position)",
+        "careers-btn-all": "View All Group Openings"
     }
 };
 
@@ -412,15 +460,15 @@ const DISH_DATA = [
         name: "黄金纬度椰乳文昌走地鸡",
         englishName: "18°D Coconut Milk Wenchang Chicken",
         price: 128,
-        desc: "姐妹品牌18°D咖啡店特选文昌东郊有机椰乳做底，加入三亚海棠湾地缘香草慢火浸煮走地鸡。奶香醇滑，骨软肉香。",
-        desc_en: "Wenchang organic free-range chicken simmered in East郊 fresh coconut milk (shared with 18°D Coffee) and wild lemongrass. Rich and tender.",
+        desc: "集团旗下品牌18°D咖啡特选文昌东郊有机椰乳做底，加入三亚海棠湾地缘香草慢火浸煮走地鸡。奶香醇滑，骨软肉香。",
+        desc_en: "Wenchang organic free-range chicken simmered in East郊 fresh coconut milk (shared with sister brand 18°D Coffee under Shanhai Coexistence Group) and wild lemongrass. Rich and tender.",
         organic: true,
         lowCarbon: true,
         co2: 0.5,
         spicy: 0,
         origin: "海南文昌 / 椰林散养基地",
         origin_en: "Wenchang / Coconut Grove Farm",
-        img: "yamei_tea.webp"
+        img: "bistro_dish_chicken.webp"
     },
     // Organic Garden (Low Carbon)
     {
@@ -437,7 +485,7 @@ const DISH_DATA = [
         spicy: 0,
         origin: "海南澄迈 / 灰烬有机农场",
         origin_en: "Chengmai / Volcanic Ashes Farm",
-        img: "yamei_brand_concept.webp"
+        img: "bistro_dish_salad.webp"
     },
     {
         id: "organic-2",
@@ -453,7 +501,7 @@ const DISH_DATA = [
         spicy: 0,
         origin: "海南澄迈 / 火山岩风物果园",
         origin_en: "Chengmai / Basalt Loam Orchard",
-        img: "yamei_room_forest.webp"
+        img: "bistro_dish_pumpkin.webp"
     },
     // Exquisite Ends (Desserts)
     {
@@ -462,15 +510,15 @@ const DISH_DATA = [
         name: "18°D冰滴咖啡椰香慕斯",
         englishName: "18°D Cold Brew Coffee Coconut Mousse",
         price: 48,
-        desc: "采用18°D咖啡馆招牌火山岩冷萃冰滴原液，交融香兰叶汁与文昌椰肉椰奶。微苦深邃，海风清甜。",
-        desc_en: "Mousse made with 18°D signature volcanic cold brew coffee, layered with local pandan leaf jelly and coconut cream. Bittersweet and refreshing.",
+        desc: "采用集团旗下18°D咖啡实验室招牌火山岩冷萃冰滴原液，交融香兰叶汁与文昌椰肉椰奶。微苦深邃，海风清甜。",
+        desc_en: "Mousse made with 18°D signature volcanic cold brew coffee (sister brand under Shanhai Coexistence Group), layered with local pandan leaf jelly and coconut cream. Bittersweet and refreshing.",
         organic: true,
         lowCarbon: true,
         co2: 0.2,
         spicy: 0,
         origin: "旗下18°D精品咖啡实验室",
         origin_en: "18°D Coffee Roastery Lab",
-        img: "coffee_cup.webp"
+        img: "bistro_dish_mousse.webp"
     },
     {
         id: "sweet-2",
@@ -478,15 +526,15 @@ const DISH_DATA = [
         name: "五指山野生山兰酒酿奶冻",
         englishName: "Shanlan Rice Wine Panna Cotta",
         price: 52,
-        desc: "五指山黎族非遗山兰玉液酿制的香酒酿，融入新鲜羊奶中温火凝成奶冻。醇厚微醺，黎乡风情温婉展现。",
-        desc_en: "Silky panna cotta infused with Shanlan sweet rice wine handcrafted by Li ethnic artisans. Mildly sweet and boozy.",
+        desc: "选用五指山黎族村寨非遗手作山兰玉液酿制的香酒酿（支持少数民族手艺人生计），融入新鲜羊奶中温火凝成奶冻。醇厚微醺，黎乡风情温婉展现。",
+        desc_en: "Silky panna cotta infused with Shanlan sweet rice wine handcrafted by Li ethnic artisans (supporting indigenous craft and livelihoods). Mildly sweet and boozy.",
         organic: true,
         lowCarbon: false,
         co2: 0.3,
         spicy: 0,
         origin: "海南五指山 / 黎村老灶酒坊",
         origin_en: "Wuzhishan / Li Village Distillery",
-        img: "yamei_lobby.webp"
+        img: "bistro_dish_pannacotta.webp"
     }
 ];
 
