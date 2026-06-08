@@ -834,8 +834,8 @@ body.bistro-body::after {
     transition: var(--transition-smooth);
 }
 
-.map-node:hover + .map-label,
-.map-node.active + .map-label {
+.map-node:hover .map-label,
+.map-node.active .map-label {
     fill: var(--bistro-text);
     font-weight: 800;
 }
@@ -1548,4 +1548,61 @@ body.bistro-body::after {
 
 .perk-tag i {
     margin-right: 4px;
+}
+
+/* ==========================================
+   Mobile Layout Responsive Optimizations
+   ========================================== */
+@media (max-width: 768px) {
+    /* Hero Visual Height Adjustment */
+    .hero-visual-wrapper {
+        height: 320px;
+    }
+    
+    /* Sourcing Map Height and Detail Card Adjustment */
+    .sourcing-map-container {
+        height: 320px;
+    }
+    .sourcing-detail-card {
+        padding: 24px;
+        min-height: auto;
+    }
+    
+    /* Tasting Card Compact Padding */
+    .tasting-card {
+        padding: 24px;
+    }
+    .tasting-courses {
+        padding-top: 15px;
+        margin-bottom: 25px;
+    }
+    
+    /* Care Cards & Job Cards Compact Padding */
+    .care-card {
+        padding: 20px;
+    }
+    .job-card {
+        padding: 20px;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Modal Card Padding Adjustments */
+    .bistro-modal-card {
+        padding: 24px;
+    }
+    
+    /* Dish Card Content Padding */
+    .dish-content {
+        padding: 18px;
+    }
+    
+    /* Success Voucher Card Padding Adjustments */
+    .voucher-header {
+        padding: 20px 15px;
+    }
+    .voucher-body {
+        padding: 20px;
+    }
 }
