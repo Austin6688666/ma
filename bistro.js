@@ -42,6 +42,7 @@ const BISTRO_I18N = {
         // Shanhai Group Additions
         "group-footer-text": "山海共生美学生活集团旗下品牌",
         "nav-group-brand": '山海集团 <i class="fa-solid fa-chevron-down"></i>',
+        "nav-group-home": "集团主页 | GROUP",
         "nav-group-hotel": '亚美旅宿 | YAMEI',
         "nav-group-coffee": '18°D咖啡 | 18°D',
         "nav-group-bistro": '汐澜中餐 | SILAN',
@@ -203,6 +204,7 @@ const BISTRO_I18N = {
         // Shanhai Group Additions
         "group-footer-text": "A Brand of Shanhai Gongsheng Aesthetic Life Group",
         "nav-group-brand": 'Shanhai Group <i class="fa-solid fa-chevron-down"></i>',
+        "nav-group-home": "Group Home | GROUP",
         "nav-group-hotel": 'YAMEI Hotel',
         "nav-group-coffee": '18°D Coffee',
         "nav-group-bistro": 'SILAN Bistro',
