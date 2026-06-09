@@ -2487,3 +2487,19 @@ button {
     letter-spacing: 2px;
     color: var(--text-muted);
 }
+
+/* Real Offline QR Code Styles */
+.mock-qr-code.real-qr {
+    background-image: none !important;
+}
+.mock-qr-code.real-qr::before,
+.mock-qr-code.real-qr::after {
+    display: none !important;
+    content: none !important;
+}
+.mock-qr-code.real-qr canvas,
+.mock-qr-code.real-qr img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+}
