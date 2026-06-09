@@ -1520,10 +1520,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
             
+            // Generate real QR code image
+            const qrImg = document.getElementById("booking-qr-img");
+            if (qrImg) {
+                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(orderId)}`;
+                qrImg.classList.remove("hidden");
+            }
+
             // Show Modal
             if (voucherModal) {
                 voucherModal.classList.remove("hidden");
                 document.body.style.overflow = "hidden"; // Lock scroll
+                
+                // Auto-close success voucher modal after 6 seconds
+                setTimeout(() => {
+                    voucherModal.classList.add("hidden");
+                    document.body.style.overflow = "";
+                }, 6000);
             }
             
             const successMsg = currentLang === "en"
@@ -1804,10 +1817,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     : `<strong>山海共生管家办公室</strong><br>“我们已为您一键协调 18°D 听障咖啡师、汐澜主厨及亚美房务部，期待明天为您开启无缝衔接的海岸美物之旅。”`;
             }
             
+            // Generate real QR code image
+            const qrImg = document.getElementById("booking-qr-img");
+            if (qrImg) {
+                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(orderId)}`;
+                qrImg.classList.remove("hidden");
+            }
+
             // Show Modal
             if (voucherModal) {
                 voucherModal.classList.remove("hidden");
                 document.body.style.overflow = "hidden"; // Lock scroll
+                
+                // Auto-close success voucher modal after 6 seconds
+                setTimeout(() => {
+                    voucherModal.classList.add("hidden");
+                    document.body.style.overflow = "";
+                }, 6000);
             }
             
             const successMsg = currentLang === "en"
@@ -1894,6 +1920,14 @@ document.addEventListener("DOMContentLoaded", () => {
             // Switch views in modal
             if (memberFormBox) memberFormBox.classList.add("hidden");
             if (memberCardBox) memberCardBox.classList.remove("hidden");
+            
+            // Auto-close member card modal after 6 seconds
+            setTimeout(() => {
+                if (memberModal && !memberModal.classList.contains("hidden")) {
+                    memberModal.classList.add("hidden");
+                    document.body.style.overflow = "";
+                }
+            }, 6000);
             
             // Trigger toast
             const successMsg = currentLang === "en"

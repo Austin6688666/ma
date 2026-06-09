@@ -284,7 +284,9 @@
                     <!-- Back View: Digital QR scanner verification -->
                     <div class="pass-card-back">
                         <div class="qr-scanner-box">
-                            <div class="mock-qr-code" id="card-qr-box"></div>
+                            <div class="mock-qr-code" id="card-qr-box" style="position: relative;">
+                                <img id="card-qr-img" src="" alt="QR Code" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: white; object-fit: contain;" class="hidden">
+                            </div>
                         </div>
                         <div class="timer-row">
                             <div class="timer-circle pulsing" id="timer-circle"></div>
@@ -952,6 +954,15 @@
                 setTimeout(() => {
                     cardQrBox.style.opacity = "1";
                 }, 150);
+            }
+            
+            // Real QR code integration
+            const qrImg = document.getElementById("card-qr-img");
+            if (qrImg) {
+                const serialNo = cardFrontNo.textContent.replace("NO. ", "") || "SH-2026-0000";
+                const data = `${serialNo}-${Math.floor(Date.now() / 1000)}`;
+                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(data)}`;
+                qrImg.classList.remove("hidden");
             }
         }
 

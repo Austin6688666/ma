@@ -672,8 +672,18 @@ function showDishDetailModal(dishId) {
         overlay.classList.remove("active");
         document.body.style.overflow = "";
         closeBtn.removeEventListener("click", closeHandler);
+        overlay.removeEventListener("click", backdropHandler);
+    };
+    const backdropHandler = (e) => {
+        if (e.target === overlay) {
+            overlay.classList.remove("active");
+            document.body.style.overflow = "";
+            closeBtn.removeEventListener("click", closeHandler);
+            overlay.removeEventListener("click", backdropHandler);
+        }
     };
     closeBtn.addEventListener("click", closeHandler);
+    overlay.addEventListener("click", backdropHandler);
 }
 
 // ==========================================================================
@@ -866,13 +876,23 @@ function showTastingMenuModal(packId) {
     overlay.classList.add("active");
     document.body.style.overflow = "hidden";
     
-    const closeBtn = overlay.querySelector(".drawer-close-btn");
+    const closeBtn = overlay.querySelector(".modal-close-btn");
     const closeHandler = () => {
         overlay.classList.remove("active");
         document.body.style.overflow = "";
         closeBtn.removeEventListener("click", closeHandler);
+        overlay.removeEventListener("click", backdropHandler);
+    };
+    const backdropHandler = (e) => {
+        if (e.target === overlay) {
+            overlay.classList.remove("active");
+            document.body.style.overflow = "";
+            closeBtn.removeEventListener("click", closeHandler);
+            overlay.removeEventListener("click", backdropHandler);
+        }
     };
     closeBtn.addEventListener("click", closeHandler);
+    overlay.addEventListener("click", backdropHandler);
 }
 
 // ==========================================================================
@@ -1048,6 +1068,13 @@ function setupVipBooking() {
                 overlay.querySelector("#vch-val-member").className = "voucher-value";
             }
             
+            // Generate real QR code image
+            const qrImg = overlay.querySelector("#bistro-qr-img");
+            if (qrImg) {
+                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(refId)}`;
+                qrImg.classList.remove("hidden");
+            }
+
             // Open Modal
             overlay.classList.add("active");
             document.body.style.overflow = "hidden";
@@ -1071,8 +1098,28 @@ function setupVipBooking() {
                 overlay.classList.remove("active");
                 document.body.style.overflow = "";
                 closeBtn.removeEventListener("click", closeHandler);
+                overlay.removeEventListener("click", backdropHandler);
+            };
+            const backdropHandler = (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove("active");
+                    document.body.style.overflow = "";
+                    closeBtn.removeEventListener("click", closeHandler);
+                    overlay.removeEventListener("click", backdropHandler);
+                }
             };
             closeBtn.addEventListener("click", closeHandler);
+            overlay.addEventListener("click", backdropHandler);
+
+            // Auto-close success voucher modal after 6 seconds
+            setTimeout(() => {
+                if (overlay.classList.contains("active")) {
+                    overlay.classList.remove("active");
+                    document.body.style.overflow = "";
+                    closeBtn.removeEventListener("click", closeHandler);
+                    overlay.removeEventListener("click", backdropHandler);
+                }
+            }, 6000);
         });
     }
     

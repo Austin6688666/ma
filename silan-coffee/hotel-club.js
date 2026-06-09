@@ -277,6 +277,11 @@ function setupPointsMall() {
             
             openModal("exchange-modal");
             showToast(`兑换成功！成功扣除 ${cost} 环保积分。`, "success");
+
+            // Auto-close points exchange modal after 6 seconds
+            setTimeout(() => {
+                closeModal("exchange-modal");
+            }, 6000);
         } else {
             showToast(`余额不足！兑换该礼品需要 ${cost} 积分，您当前仅有 ${memberState.points} 积分。`, "error");
         }
@@ -408,6 +413,14 @@ function setupDirectPurchase() {
             document.getElementById("cashier-price-display").innerText = `￥${price}`;
             document.getElementById("cashier-user-name").innerText = `${inputName} ${gender}`;
             document.getElementById("cashier-user-phone").innerText = inputPhone;
+
+            // Generate real payment QR code
+            const qrImg = document.getElementById("cashier-qr-img");
+            if (qrImg) {
+                const mockUrl = `https://silan-coffee.group/pay?tier=${tierId}&price=${price}&phone=${inputPhone}`;
+                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(mockUrl)}`;
+                qrImg.classList.remove("hidden");
+            }
 
             // Set pending purchase state
             pendingPurchase = {
