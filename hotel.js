@@ -295,8 +295,26 @@ function setupBookingFlow() {
         document.getElementById("ledger-water").innerText = ledgerStats.water + " L";
         document.getElementById("ledger-plastic").innerText = ledgerStats.plastic + " 个";
 
+        // Generate real QR code image
+        const qrImg = document.getElementById("hotel-qr-img");
+        if (qrImg) {
+            qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(orderId)}`;
+            qrImg.classList.remove("hidden");
+        }
+
         closeModal("booking-modal");
         openModal("voucher-modal");
+        
+        // Auto-close success voucher modal after 6 seconds
+        const autoCloseTimer = setTimeout(() => {
+            closeModal("voucher-modal");
+        }, 6000);
+        
+        // Clear auto-close timer if manually closed
+        const originalClose = document.querySelectorAll(".modal-close");
+        originalClose.forEach(btn => {
+            btn.addEventListener("click", () => clearTimeout(autoCloseTimer));
+        });
         
         // Custom interactive feedback toasts reflecting humanistic care
         setTimeout(() => {

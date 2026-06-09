@@ -647,11 +647,12 @@
 
                     <div class="ticket-qr-section">
                         <!-- Custom Mock QR Code via Pure CSS -->
-                        <div class="mock-qr-code">
+                        <div class="mock-qr-code" style="position: relative;">
                             <div class="qr-box qr-top-left"></div>
                             <div class="qr-box qr-top-right"></div>
                             <div class="qr-box qr-bottom-left"></div>
                             <div class="qr-center-logo">YM</div>
+                            <img id="hotel-qr-img" src="" alt="QR Code" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: white; object-fit: contain;" class="hidden">
                         </div>
                         <p class="qr-tip">办理入住时出示此绿色凭证二维码</p>
                     </div>

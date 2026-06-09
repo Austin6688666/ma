@@ -654,11 +654,12 @@
 
                     <div class="ticket-qr-section">
                         <!-- CSS QR CODE -->
-                        <div class="mock-qr-code">
+                        <div class="mock-qr-code" style="position: relative;">
                             <div class="qr-box qr-top-left"></div>
                             <div class="qr-box qr-top-right"></div>
                             <div class="qr-box qr-bottom-left"></div>
                             <div class="qr-center-logo">18°</div>
+                            <img id="booking-qr-img" src="" alt="QR Code" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: white; object-fit: contain;" class="hidden">
                         </div>
                         <p class="qr-tip" data-key="ticket-qr-tip">到店出示此电子核销二维码</p>
                     </div>
