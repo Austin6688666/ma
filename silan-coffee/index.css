@@ -6079,44 +6079,118 @@ body::before {
 }
 
 .founder-container {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 60px;
+    grid-template-columns: 320px 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.founder-img-col {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
 .founder-img-box {
-    position: relative;
-    border-radius: 20px;
+    width: 260px; /* Normal size */
+    height: auto;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    aspect-ratio: 3/4;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
 }
 
 .founder-img-box img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: block;
     object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.6s ease;
 }
 
 .founder-img-box:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .founder-text-box {
+    text-align: left;
     animation: fadeIn 0.8s ease;
+}
+
+.founder-visionary-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.founder-name {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0 0 5px 0;
+}
+
+.founder-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent);
+    margin: 0 0 15px 0;
+}
+
+.founder-divider {
+    width: 40px;
+    height: 1.5px;
+    background: var(--accent);
+    margin-bottom: 20px;
+}
+
+.founder-bio {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.founder-quote-box {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.founder-quote-box i {
+    font-size: 1.5rem;
+    color: rgba(197, 168, 128, 0.3);
+    margin-top: -5px;
+}
+
+.founder-blockquote {
+    margin: 0;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    font-family: var(--font-serif);
+    line-height: 1.5;
 }
 
 @media (max-width: 768px) {
     .founder-container {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
+        text-align: center;
     }
-    .founder-img-box {
-        max-width: 450px;
-        margin: 0 auto;
+    .founder-text-box {
+        text-align: center;
+    }
+    .founder-divider {
+        margin: 0 auto 20px auto;
+    }
+    .founder-quote-box {
+        justify-content: center;
     }
 }
