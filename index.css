@@ -6070,7 +6070,7 @@ body::before {
     }
 }
 
-/* Redesigned Founder Section Styles */
+/* Redesigned Premium Founder Section Styles */
 .shanhai-founder-section {
     padding: 6rem 5%;
     background-color: var(--bg-main);
@@ -6081,45 +6081,49 @@ body::before {
     border-bottom: 1px solid var(--border-color);
 }
 
-.founder-card-container {
-    max-width: 850px;
+.founder-premium-card {
+    max-width: 1000px;
     width: 100%;
     background: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: 24px;
-    padding: 50px 40px;
-    box-shadow: 0 15px 45px rgba(28, 26, 23, 0.04);
-    text-align: center;
-    transition: transform 0.4s ease;
-}
-
-.founder-card-container:hover {
-    transform: translateY(-2px);
-}
-
-.founder-profile-header {
-    margin-bottom: 30px;
+    border: 1px solid #c5a880; /* Elegant bronze border */
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 15px 40px rgba(28, 26, 23, 0.03);
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    gap: 45px;
 }
 
-.founder-avatar-box {
-    width: 130px; /* Small, elegant size */
-    height: 130px;
-    border-radius: 50%; /* Perfect circle */
-    overflow: hidden;
-    margin-bottom: 20px;
-    border: 3px solid #fff;
-    box-shadow: 0 8px 20px rgba(28, 26, 23, 0.1);
-    background-color: var(--bg-card);
+.founder-left-col {
+    width: 200px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
 }
 
-.founder-avatar-box img {
+.founder-frame-box {
+    width: 150px; /* Smaller, elegant width */
+    padding: 8px;
+    background: #fff;
+    border: 1px solid #c5a880; /* Elegant frame border */
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(28, 26, 23, 0.05);
+}
+
+.founder-frame-box img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid rgba(28, 26, 23, 0.08);
+}
+
+.founder-right-col {
+    flex-grow: 1;
+    padding-left: 45px;
+    border-left: 1px solid rgba(28, 26, 23, 0.08);
+    text-align: left;
 }
 
 .founder-badge-label {
@@ -6146,28 +6150,27 @@ body::before {
     font-family: var(--font-sans);
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--text-muted);
-    margin: 0;
+    color: var(--accent);
+    margin: 0 0 20px 0;
     letter-spacing: 0.5px;
 }
 
 .founder-bio-text {
-    max-width: 700px;
-    margin: 0 auto 40px auto;
+    margin-bottom: 30px;
 }
 
 .founder-bio-text p {
-    font-family: var(--font-serif);
-    font-size: 0.9rem;
-    line-height: 1.8;
-    color: var(--text-main);
-    font-style: italic;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    line-height: 1.75;
+    color: var(--text-muted);
+    margin: 0;
 }
 
 .founder-philosophy-divider {
     position: relative;
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
 }
 
 .founder-philosophy-divider::before {
@@ -6184,8 +6187,8 @@ body::before {
 .founder-philosophy-divider span {
     position: relative;
     background: #fff;
-    padding: 0 20px;
-    font-size: 0.75rem;
+    padding: 0 15px;
+    font-size: 0.7rem;
     font-weight: 600;
     color: var(--accent);
     letter-spacing: 1.5px;
@@ -6195,51 +6198,66 @@ body::before {
 .founder-philosophy-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    text-align: left;
+    gap: 20px;
 }
 
 .philosophy-card {
-    background: rgba(28, 26, 23, 0.02);
+    background: rgba(28, 26, 23, 0.01);
     border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 25px 20px;
+    border-radius: 12px;
+    padding: 20px 15px;
     transition: all 0.3s ease;
 }
 
 .philosophy-card:hover {
     background: #fff;
     border-color: var(--primary);
-    box-shadow: 0 10px 25px rgba(28, 26, 23, 0.05);
-    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(28, 26, 23, 0.04);
+    transform: translateY(-2px);
 }
 
 .philosophy-icon {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: var(--primary);
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .philosophy-card h5 {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: var(--text-main);
-    margin: 0 0 10px 0;
+    margin: 0 0 8px 0;
 }
 
 .philosophy-card p {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
-    line-height: 1.6;
+    line-height: 1.5;
     margin: 0;
 }
 
-@media (max-width: 768px) {
-    .founder-card-container {
-        padding: 40px 20px;
+@media (max-width: 992px) {
+    .founder-premium-card {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 40px 30px;
     }
+    .founder-right-col {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid rgba(28, 26, 23, 0.08);
+        padding-top: 30px;
+        width: 100%;
+    }
+    .founder-left-col {
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
     .founder-philosophy-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 15px;
     }
 }
