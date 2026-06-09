@@ -414,12 +414,20 @@ function setupDirectPurchase() {
             document.getElementById("cashier-user-name").innerText = `${inputName} ${gender}`;
             document.getElementById("cashier-user-phone").innerText = inputPhone;
 
-            // Generate real payment QR code
-            const qrImg = document.getElementById("cashier-qr-img");
-            if (qrImg) {
+            // Generate real payment QR code offline
+            const qrBox = document.querySelector(".qr-pay-section .mock-qr-code");
+            if (qrBox) {
+                qrBox.innerHTML = "";
+                qrBox.classList.add("real-qr");
                 const mockUrl = `https://silan-coffee.group/pay?tier=${tierId}&price=${price}&phone=${inputPhone}`;
-                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(mockUrl)}`;
-                qrImg.classList.remove("hidden");
+                new QRCode(qrBox, {
+                    text: mockUrl,
+                    width: 130,
+                    height: 130,
+                    colorDark: "#1c1a17",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.M
+                });
             }
 
             // Set pending purchase state

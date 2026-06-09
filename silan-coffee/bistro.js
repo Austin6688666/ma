@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // 6. Setup Scroll Reveal Animations
     setupScrollReveal();
+
+    // Check URL Verification parameter on load
+    checkUrlVerification();
 });
 
 // ==========================================================================
@@ -1068,11 +1071,20 @@ function setupVipBooking() {
                 overlay.querySelector("#vch-val-member").className = "voucher-value";
             }
             
-            // Generate real QR code image
-            const qrImg = overlay.querySelector("#bistro-qr-img");
-            if (qrImg) {
-                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(refId)}`;
-                qrImg.classList.remove("hidden");
+            // Generate real QR code offline
+            const qrBox = overlay.querySelector(".voucher-qrcode-placeholder");
+            if (qrBox) {
+                qrBox.innerHTML = "";
+                qrBox.classList.add("real-qr");
+                const verifyUrl = `https://austin6688666.github.io/ma/bistro.html?verify=bistro&id=${refId}&name=${encodeURIComponent(name)}&date=${date}&time=${encodeURIComponent(timeSlot)}&guests=${guests}`;
+                new QRCode(qrBox, {
+                    text: verifyUrl,
+                    width: 80,
+                    height: 80,
+                    colorDark: "#1c1a17",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.M
+                });
             }
 
             // Open Modal
@@ -1242,4 +1254,142 @@ function setupScrollReveal() {
     }, observerOptions);
 
     elementsToReveal.forEach(el => observer.observe(el));
+}
+
+// Dynamic premium verification modal
+function checkUrlVerification() {
+    const params = new URLSearchParams(window.location.search);
+    const verifyType = params.get("verify");
+    if (!verifyType) return;
+
+    const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100vw";
+    overlay.style.height = "100vh";
+    overlay.style.backgroundColor = "rgba(11, 13, 12, 0.9)";
+    overlay.style.backdropFilter = "blur(12px)";
+    overlay.style.webkitBackdropFilter = "blur(12px)";
+    overlay.style.display = "flex";
+    overlay.style.alignItems = "center";
+    overlay.style.justifyContent = "center";
+    overlay.style.zIndex = "20000";
+    overlay.style.opacity = "0";
+    overlay.style.transition = "opacity 0.5s ease";
+
+    const card = document.createElement("div");
+    card.style.background = "#FDFCF7";
+    card.style.border = "2px solid #C5A880";
+    card.style.borderRadius = "12px";
+    card.style.padding = "40px";
+    card.style.maxWidth = "450px";
+    card.style.width = "90%";
+    card.style.boxShadow = "0 20px 50px rgba(0,0,0,0.3)";
+    card.style.textAlign = "center";
+    card.style.color = "#111312";
+    card.style.fontFamily = "system-ui, -apple-system, sans-serif";
+    card.style.transform = "translateY(30px)";
+    card.style.transition = "transform 0.5s ease";
+
+    // Green/gold checkmark circle
+    const iconContainer = document.createElement("div");
+    iconContainer.style.width = "70px";
+    iconContainer.style.height = "70px";
+    iconContainer.style.borderRadius = "50%";
+    iconContainer.style.background = "#3C5C43";
+    iconContainer.style.color = "#fff";
+    iconContainer.style.display = "flex";
+    iconContainer.style.alignItems = "center";
+    iconContainer.style.justifyContent = "center";
+    iconContainer.style.fontSize = "2rem";
+    iconContainer.style.margin = "0 auto 20px auto";
+    iconContainer.style.boxShadow = "0 0 20px rgba(60, 92, 67, 0.4)";
+    iconContainer.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+    card.appendChild(iconContainer);
+
+    const title = document.createElement("h3");
+    title.style.margin = "0 0 10px 0";
+    title.style.fontFamily = "Georgia, serif";
+    title.style.fontSize = "1.5rem";
+    title.style.color = "#3C5C43";
+    
+    const subtitle = document.createElement("p");
+    subtitle.style.fontSize = "0.75rem";
+    subtitle.style.textTransform = "uppercase";
+    subtitle.style.letterSpacing = "2px";
+    subtitle.style.color = "#7C7D7C";
+    subtitle.style.margin = "0 0 25px 0";
+
+    const infoBox = document.createElement("div");
+    infoBox.style.background = "rgba(197, 168, 128, 0.08)";
+    infoBox.style.border = "1px solid rgba(197, 168, 128, 0.2)";
+    infoBox.style.borderRadius = "8px";
+    infoBox.style.padding = "20px";
+    infoBox.style.marginBottom = "30px";
+    infoBox.style.textAlign = "left";
+    infoBox.style.fontSize = "0.9rem";
+    infoBox.style.lineHeight = "1.8";
+
+    let titleText = "";
+    let subtitleText = "";
+    let htmlContent = "";
+
+    if (verifyType === "bistro") {
+        titleText = "汐澜中餐预约核销成功";
+        subtitleText = "SILAN BISTRO RESERVATION VERIFIED";
+        const id = params.get("id") || "N/A";
+        const name = params.get("name") || "N/A";
+        const date = params.get("date") || "N/A";
+        const time = params.get("time") || "N/A";
+        const guests = params.get("guests") || "N/A";
+        htmlContent = `
+            <div><strong>预约订单号:</strong> <span style="font-family:monospace">${id}</span></div>
+            <div><strong>贵宾姓名:</strong> <span style="font-weight:700">${name}</span></div>
+            <div><strong>预订日期:</strong> <span>${date}</span></div>
+            <div><strong>就餐时间:</strong> <span>${time}</span></div>
+            <div><strong>座席人数:</strong> <span>${guests}</span></div>
+            <div style="border-top:1px dashed #d4c5b3; margin-top:10px; padding-top:10px; color:#3C5C43; font-weight:bold; text-align:center">
+                🍱 慢磨火山物候，山海风味共赏
+            </div>
+        `;
+    }
+
+    title.textContent = titleText;
+    subtitle.textContent = subtitleText;
+    infoBox.innerHTML = htmlContent;
+
+    card.appendChild(title);
+    card.appendChild(subtitle);
+    card.appendChild(infoBox);
+
+    const closeBtn = document.createElement("button");
+    closeBtn.textContent = "确认核销 / Confirm";
+    closeBtn.style.width = "100%";
+    closeBtn.style.padding = "14px";
+    closeBtn.style.background = "#3C5C43";
+    closeBtn.style.color = "#fff";
+    closeBtn.style.border = "none";
+    closeBtn.style.borderRadius = "6px";
+    closeBtn.style.fontWeight = "bold";
+    closeBtn.style.fontSize = "0.95rem";
+    closeBtn.style.cursor = "pointer";
+    closeBtn.style.transition = "background-color 0.3s ease";
+    closeBtn.onmouseover = () => closeBtn.style.backgroundColor = "#2b4c30";
+    closeBtn.onmouseout = () => closeBtn.style.backgroundColor = "#3C5C43";
+    closeBtn.onclick = () => {
+        overlay.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        setTimeout(() => overlay.remove(), 500);
+        window.history.replaceState({}, document.title, window.location.pathname);
+    };
+    card.appendChild(closeBtn);
+
+    overlay.appendChild(card);
+    document.body.appendChild(overlay);
+
+    setTimeout(() => {
+        overlay.style.opacity = "1";
+        card.style.transform = "translateY(0)";
+    }, 50);
 }

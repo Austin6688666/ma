@@ -1520,11 +1520,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
             
-            // Generate real QR code image
-            const qrImg = document.getElementById("booking-qr-img");
-            if (qrImg) {
-                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(orderId)}`;
-                qrImg.classList.remove("hidden");
+            // Generate real QR code offline
+            const qrBox = document.querySelector(".mock-qr-code");
+            if (qrBox) {
+                qrBox.innerHTML = "";
+                qrBox.classList.add("real-qr");
+                const verifyUrl = `https://austin6688666.github.io/ma/booking.html?verify=booking&id=${orderId}&name=${encodeURIComponent(name)}&phone=${phone}&date=${date}&time=${encodeURIComponent(timeSlot)}&guests=${encodeURIComponent(guests)}`;
+                new QRCode(qrBox, {
+                    text: verifyUrl,
+                    width: 90,
+                    height: 90,
+                    colorDark: "#1c1a17",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.M
+                });
             }
 
             // Show Modal
@@ -1817,11 +1826,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     : `<strong>山海共生管家办公室</strong><br>“我们已为您一键协调 18°D 听障咖啡师、汐澜主厨及亚美房务部，期待明天为您开启无缝衔接的海岸美物之旅。”`;
             }
             
-            // Generate real QR code image
-            const qrImg = document.getElementById("booking-qr-img");
-            if (qrImg) {
-                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(orderId)}`;
-                qrImg.classList.remove("hidden");
+            // Generate real QR code offline
+            const qrBox = document.querySelector(".mock-qr-code");
+            if (qrBox) {
+                qrBox.innerHTML = "";
+                qrBox.classList.add("real-qr");
+                const verifyUrl = `https://austin6688666.github.io/ma/booking.html?verify=booking&id=${orderId}&name=${encodeURIComponent(name)}&phone=${phone}&date=${date}&time=JointItinerary&guests=${encodeURIComponent(guests)}`;
+                new QRCode(qrBox, {
+                    text: verifyUrl,
+                    width: 90,
+                    height: 90,
+                    colorDark: "#1c1a17",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.M
+                });
             }
 
             // Show Modal
@@ -2795,5 +2813,196 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // Check URL Verification parameter on load
+    checkUrlVerification();
 });
+
+// Dynamic premium verification modal
+function checkUrlVerification() {
+    const params = new URLSearchParams(window.location.search);
+    const verifyType = params.get("verify");
+    if (!verifyType) return;
+
+    const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100vw";
+    overlay.style.height = "100vh";
+    overlay.style.backgroundColor = "rgba(11, 13, 12, 0.9)";
+    overlay.style.backdropFilter = "blur(12px)";
+    overlay.style.webkitBackdropFilter = "blur(12px)";
+    overlay.style.display = "flex";
+    overlay.style.alignItems = "center";
+    overlay.style.justifyContent = "center";
+    overlay.style.zIndex = "20000";
+    overlay.style.opacity = "0";
+    overlay.style.transition = "opacity 0.5s ease";
+
+    const card = document.createElement("div");
+    card.style.background = "#FDFCF7";
+    card.style.border = "2px solid #C5A880";
+    card.style.borderRadius = "12px";
+    card.style.padding = "40px";
+    card.style.maxWidth = "450px";
+    card.style.width = "90%";
+    card.style.boxShadow = "0 20px 50px rgba(0,0,0,0.3)";
+    card.style.textAlign = "center";
+    card.style.color = "#111312";
+    card.style.fontFamily = "system-ui, -apple-system, sans-serif";
+    card.style.transform = "translateY(30px)";
+    card.style.transition = "transform 0.5s ease";
+
+    // Green/gold checkmark circle
+    const iconContainer = document.createElement("div");
+    iconContainer.style.width = "70px";
+    iconContainer.style.height = "70px";
+    iconContainer.style.borderRadius = "50%";
+    iconContainer.style.background = "#3C5C43";
+    iconContainer.style.color = "#fff";
+    iconContainer.style.display = "flex";
+    iconContainer.style.alignItems = "center";
+    iconContainer.style.justifyContent = "center";
+    iconContainer.style.fontSize = "2rem";
+    iconContainer.style.margin = "0 auto 20px auto";
+    iconContainer.style.boxShadow = "0 0 20px rgba(60, 92, 67, 0.4)";
+    iconContainer.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+    card.appendChild(iconContainer);
+
+    const title = document.createElement("h3");
+    title.style.margin = "0 0 10px 0";
+    title.style.fontFamily = "Georgia, serif";
+    title.style.fontSize = "1.5rem";
+    title.style.color = "#3C5C43";
+    
+    const subtitle = document.createElement("p");
+    subtitle.style.fontSize = "0.75rem";
+    subtitle.style.textTransform = "uppercase";
+    subtitle.style.letterSpacing = "2px";
+    subtitle.style.color = "#7C7D7C";
+    subtitle.style.margin = "0 0 25px 0";
+
+    const infoBox = document.createElement("div");
+    infoBox.style.background = "rgba(197, 168, 128, 0.08)";
+    infoBox.style.border = "1px solid rgba(197, 168, 128, 0.2)";
+    infoBox.style.borderRadius = "8px";
+    infoBox.style.padding = "20px";
+    infoBox.style.marginBottom = "30px";
+    infoBox.style.textAlign = "left";
+    infoBox.style.fontSize = "0.9rem";
+    infoBox.style.lineHeight = "1.8";
+
+    let titleText = "";
+    let subtitleText = "";
+    let htmlContent = "";
+
+    if (verifyType === "pass") {
+        titleText = "山海一码通行证核销成功";
+        subtitleText = "SHANHAI PASS VERIFIED SUCCESS";
+        const serial = params.get("serial") || "N/A";
+        const name = params.get("name") || "N/A";
+        const phone = params.get("phone") || "N/A";
+        htmlContent = `
+            <div><strong>通行证单号:</strong> <span style="font-family:monospace">${serial}</span></div>
+            <div><strong>持有人姓名:</strong> <span>${name}</span></div>
+            <div><strong>绑定手机号:</strong> <span>${phone}</span></div>
+            <div style="border-top:1px dashed #d4c5b3; margin-top:10px; padding-top:10px; color:#3C5C43; font-weight:bold; text-align:center">
+                ✨ 尊享特权：咖啡免费升杯 / 餐饮赠前菜
+            </div>
+        `;
+    } else if (verifyType === "booking") {
+        titleText = "18°D 咖啡座席核销成功";
+        subtitleText = "18°D COFFEE SEAT VERIFIED";
+        const id = params.get("id") || "N/A";
+        const name = params.get("name") || "N/A";
+        const date = params.get("date") || "N/A";
+        const time = params.get("time") || "N/A";
+        const guests = params.get("guests") || "N/A";
+        htmlContent = `
+            <div><strong>预约订单号:</strong> <span style="font-family:monospace">${id}</span></div>
+            <div><strong>贵宾姓名:</strong> <span>${name}</span></div>
+            <div><strong>预订日期:</strong> <span>${date}</span></div>
+            <div><strong>预订时段:</strong> <span>${time}</span></div>
+            <div><strong>座席人数:</strong> <span>${guests}</span></div>
+            <div style="border-top:1px dashed #d4c5b3; margin-top:10px; padding-top:10px; color:#3C5C43; font-weight:bold; text-align:center">
+                🌊 海风椰影，祝您就餐愉快！
+            </div>
+        `;
+    } else if (verifyType === "bistro") {
+        titleText = "汐澜中餐预约核销成功";
+        subtitleText = "SILAN BISTRO RESERVATION VERIFIED";
+        const id = params.get("id") || "N/A";
+        const name = params.get("name") || "N/A";
+        const date = params.get("date") || "N/A";
+        const time = params.get("time") || "N/A";
+        const guests = params.get("guests") || "N/A";
+        htmlContent = `
+            <div><strong>预约订单号:</strong> <span style="font-family:monospace">${id}</span></div>
+            <div><strong>贵宾姓名:</strong> <span>${name}</span></div>
+            <div><strong>预订日期:</strong> <span>${date}</span></div>
+            <div><strong>就餐时间:</strong> <span>${time}</span></div>
+            <div><strong>座席人数:</strong> <span>${guests}</span></div>
+            <div style="border-top:1px dashed #d4c5b3; margin-top:10px; padding-top:10px; color:#3C5C43; font-weight:bold; text-align:center">
+                🍱 慢磨火山物候，山海风味共赏
+            </div>
+        `;
+    } else if (verifyType === "hotel") {
+        titleText = "亚美旅宿房单验证成功";
+        subtitleText = "YAMEI HOTEL BOOKING VERIFIED";
+        const id = params.get("id") || "N/A";
+        const name = params.get("name") || "N/A";
+        const room = params.get("room") || "N/A";
+        const checkin = params.get("checkin") || "N/A";
+        const checkout = params.get("checkout") || "N/A";
+        htmlContent = `
+            <div><strong>酒店订单号:</strong> <span style="font-family:monospace">${id}</span></div>
+            <div><strong>住客姓名:</strong> <span>${name}</span></div>
+            <div><strong>预订房型:</strong> <span>${room}</span></div>
+            <div><strong>入住日期:</strong> <span>${checkin}</span></div>
+            <div><strong>退房日期:</strong> <span>${checkout}</span></div>
+            <div style="border-top:1px dashed #d4c5b3; margin-top:10px; padding-top:10px; color:#3C5C43; font-weight:bold; text-align:center">
+                🌴 绿意邻里，欢迎您回家！
+            </div>
+        `;
+    }
+
+    title.textContent = titleText;
+    subtitle.textContent = subtitleText;
+    infoBox.innerHTML = htmlContent;
+
+    card.appendChild(title);
+    card.appendChild(subtitle);
+    card.appendChild(infoBox);
+
+    const closeBtn = document.createElement("button");
+    closeBtn.textContent = "确认核销 / Confirm";
+    closeBtn.style.width = "100%";
+    closeBtn.style.padding = "14px";
+    closeBtn.style.background = "#3C5C43";
+    closeBtn.style.color = "#fff";
+    closeBtn.style.border = "none";
+    closeBtn.style.borderRadius = "6px";
+    closeBtn.style.fontWeight = "bold";
+    closeBtn.style.fontSize = "0.95rem";
+    closeBtn.style.cursor = "pointer";
+    closeBtn.style.transition = "background-color 0.3s ease";
+    closeBtn.onmouseover = () => closeBtn.style.backgroundColor = "#2b4c30";
+    closeBtn.onmouseout = () => closeBtn.style.backgroundColor = "#3C5C43";
+    closeBtn.onclick = () => {
+        overlay.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        setTimeout(() => overlay.remove(), 500);
+        window.history.replaceState({}, document.title, window.location.pathname);
+    };
+    card.appendChild(closeBtn);
+
+    overlay.appendChild(card);
+    document.body.appendChild(overlay);
+
+    setTimeout(() => {
+        overlay.style.opacity = "1";
+        card.style.transform = "translateY(0)";
+    }, 50);
+}
 
